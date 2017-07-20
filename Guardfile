@@ -21,7 +21,9 @@ guard :minitest do
   watch(%r{^lib/(.*/)?([^/]+)\.rb$})     { |m| "test/#{m[1]}test_#{m[2]}.rb" }
   watch(%r{^test/test_helper\.rb$})      { 'test' }
 
-  # TODO Hartl's custom settings
+  # for setting up tests
+  watch(%r{^test/controllers/(.*)_test.rb$}) { |m| "test/controllers/#{m[1]}_test.rb" }
+
   watch('config/routes.rb')    { integration_tests }
   # watch(%r{^app/models/(.*?)\.rb$}) do |matches|
     # "test/models/#{matches[1]}_test.rb"
