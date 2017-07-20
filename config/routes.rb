@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'static_pages/welcome'
-  get '/about', to: 'static_pages#about'
-  get 'static_pages/support'
+  root 'static_pages#home'
 
-  root 'placeholder#welcome'
+  get '/support', to: 'static_pages#support'
+  get '/about', to: 'static_pages#about'
+
 end
