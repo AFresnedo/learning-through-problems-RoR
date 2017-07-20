@@ -7,13 +7,13 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get welcome" do
-    get static_pages_welcome_url
+    get root_url
     assert_response :success
     assert_select "title", "Welcome" + @base_title
   end
 
   test "should get support" do
-    get static_pages_support_url
+    get support_url
     assert_response :success
     assert_select "title", "Support" + @base_title
   end
