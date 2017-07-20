@@ -22,7 +22,7 @@ guard :minitest, spring: "bin/rails test", all_on_start: false do
   watch(%r{^test/test_helper\.rb$})      { 'test' }
 
   # TODO Hartl's custom settings
-  # watch('config/routes.rb')    { integration_tests }
+  watch('config/routes.rb')    { integration_tests }
   # watch(%r{^app/models/(.*?)\.rb$}) do |matches|
     # "test/models/#{matches[1]}_test.rb"
   # end
@@ -94,4 +94,3 @@ end
   # watch(%r{^app/controllers/(.*)\.rb$}) { |m| "test/functional/#{m[1]}_test.rb" }
   # watch(%r{^app/helpers/(.*)\.rb$})     { |m| "test/helpers/#{m[1]}_test.rb" }
   # watch(%r{^app/models/(.*)\.rb$})      { |m| "test/unit/#{m[1]}_test.rb" }
-end
