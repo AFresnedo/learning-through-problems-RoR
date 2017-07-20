@@ -15,7 +15,7 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
-guard :minitest, spring: "bin/rails test", all_on_start: false do
+guard :minitest do
   # with Minitest::Unit
   watch(%r{^test/(.*)\/?test_(.*)\.rb$})
   watch(%r{^lib/(.*/)?([^/]+)\.rb$})     { |m| "test/#{m[1]}test_#{m[2]}.rb" }
@@ -33,9 +33,9 @@ guard :minitest, spring: "bin/rails test", all_on_start: false do
     ["test/controllers/#{matches[1]}_controller_test.rb"] +
     integration_tests(matches[1])
   end
-  # watch(%r{^app/helpers/(.*?)_helper\.rb$}) do |matches|
-    # integration_tests(matches[1])
-  # end
+  watch(%r{^app/helpers/(.*?)_helper\.rb$}) do |matches|
+    integration_tests(matches[1])
+  end
   watch('app/views/layouts/application.html.erb') do
     'test/integration/site_layout_test.rb'
   end
