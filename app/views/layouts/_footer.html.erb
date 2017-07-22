@@ -1,0 +1,25 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6" id="footerLeft">
+        <nav>
+          <ul>
+            <%# TODO theories and methods urls %>
+            <% url = '#' %>
+            <li><%= link_to "Theories", url %></li>
+            <% url = '#' %>
+            <li><%= link_to "Methods", url %></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-xs-6" id="footerRight">
+        <nav>
+          <ul>
+            <li><%= link_to "Support", support_path %></li>
+            <li><%= link_to "About",   about_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</footer>
