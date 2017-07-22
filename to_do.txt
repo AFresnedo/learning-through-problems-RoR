@@ -1,0 +1,18 @@
+basic User resource
+    -RESTful Users controller actions
+        -deny access for unintended user actions
+    -fixtures or seeds?
+    -student, admin, teacher
+
+useful User resource
+    -guest (not logged_in)
+    -logging in, logging out, logged_in
+
+QoL User resource
+    -remember me
+    -email validation registration
+    -account recovery
+
+security User resource
+    -encrypted passwords, cookies
+    -user input is paramatarized
