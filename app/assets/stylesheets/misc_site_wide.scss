@@ -1,0 +1,13 @@
+// ideally, this file is minimal; refactor as needed
+// an example of refactoring is if, eventually, there are 5+ entries for
+// body..these would be refactored into a seperate _body.scss
+
+// for header not overlapping body
+body {
+  padding-top: 60px;
+}
+
+// for hiding elements
+.hide {
+  display: none;
+}
