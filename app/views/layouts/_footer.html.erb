@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-6" id="footerLeft">
         <nav>
-          <%# <% if User.logged_in? %> %>
+          <%# if User.logged_in? %>
             <ul>
               <%# TODO theories and methods urls %>
               <% url = '#' %>
@@ -11,9 +11,9 @@
               <% url = '#' %>
               <li><%= link_to "Methods", url %></li>
             </ul>
-        <%# <% else %> %>
-          <%# <li><%= link_to "Sign up for free trial!", url %></li> %>
-        <%# <% end %> %>
+        <%# else %>
+          <li><%= link_to "Sign up for free trial!", url %></li>
+        <%# end %>
         </nav>
       </div>
       <div class="col-xs-6" id="footerRight">
