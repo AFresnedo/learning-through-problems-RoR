@@ -10,20 +10,18 @@ footer {
     }
   }
   #footerLeft {
-    margin-left: -50px;
     float: left;
     li {
       float: left;
-      margin-right: 15px;
       list-style: none;
+      margin-right: 15px;
     }
   }
   #footerRight {
-    margin-right: 20px;
     float: right;
     li {
-      list-style: none;
       float: right;
+      list-style: none;
       margin-left: 15px;
     }
   }

@@ -1,30 +1,32 @@
-<footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6" id="footerLeft">
-        <nav>
-          <%# TODO if logged_in? %>
-          <% if true %>
+<div class="container-fluid">
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6" id="footerLeft">
+          <nav>
+            <%# TODO if logged_in? %>
+            <% if true %>
+              <ul>
+                <%# TODO theories and methods urls %>
+                <% url = '#' %>
+                <li><%= link_to "Theories", url %></li>
+                <% url = '#' %>
+                <li><%= link_to "Methods", url %></li>
+              </ul>
+            <% else %>
+              <li><%= link_to "Sign up for free trial!", url %></li>
+            <% end %>
+          </nav>
+        </div>
+        <div class="col-xs-6" id="footerRight">
+          <nav>
             <ul>
-              <%# TODO theories and methods urls %>
-              <% url = '#' %>
-              <li><%= link_to "Theories", url %></li>
-              <% url = '#' %>
-              <li><%= link_to "Methods", url %></li>
+              <li><%= link_to "Support", support_path %></li>
+              <li><%= link_to "About",   about_path %></li>
             </ul>
-        <% else %>
-          <li><%= link_to "Sign up for free trial!", url %></li>
-        <% end %>
-        </nav>
-      </div>
-      <div class="col-xs-6" id="footerRight">
-        <nav>
-          <ul>
-            <li><%= link_to "Support", support_path %></li>
-            <li><%= link_to "About",   about_path %></li>
-          </ul>
-        </nav>
+          </nav>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
+</div>
