@@ -9,5 +9,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", about_path
     assert_select "a[href=?]", support_path
     assert_select "title", full_title
+    # TODO
+    # iff logged in links to theory and methods should be displayed
+    # else, not logged in, sign up link should appear
   end
 end

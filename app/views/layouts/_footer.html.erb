@@ -14,6 +14,7 @@
                 <li><%= link_to "Methods", url %></li>
               </ul>
             <% else %>
+              <% url = signup_path %>
               <li><%= link_to "Sign up for free trial!", url %></li>
             <% end %>
           </nav>
