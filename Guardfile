@@ -23,7 +23,7 @@ guard :minitest do
 
   # for setting up tests
   watch(%r{^test/controllers/(.*)_test.rb$}) { |m| "test/controllers/#{m[1]}_test.rb" }
-  watch(%r{test/.*}) { 'test' }
+  watch(%r{test/helpers/.*}) { 'test' }
 
   watch('config/routes.rb')    { integration_tests }
   # watch(%r{^app/models/(.*?)\.rb$}) do |matches|

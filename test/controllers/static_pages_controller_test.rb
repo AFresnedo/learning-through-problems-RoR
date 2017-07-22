@@ -3,7 +3,7 @@ require 'test_helper'
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
   def setup
-    @base_title = 'MathAffirm'
+    @base_title = 'Math Affirm'
   end
 
   test "should get welcome" do
