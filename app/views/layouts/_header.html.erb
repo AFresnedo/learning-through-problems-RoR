@@ -4,7 +4,8 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <%# user account menu %>
-        <% if logged_in? %>
+        <%# TODO if logged_in? %>
+        <% if true %>
           <li><%= link_to "Curriculum", '#' %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -15,9 +16,10 @@
               <li><%= link_to "Subscriptions", '#' %></li>
               <li class="divider"></li>
               <%# admin only %>
-              <% if current_user.admin? %>
+              <%# TODO if user.admin? %>
+              <% if true %>
                 <li><%= link_to "Users", '#' %></li>
-                <li><%= link_to "Curriculum", '#' %></li>
+                <li><%= link_to "Edit Curriculum", '#' %></li>
                 <li class="divider"></li>
               <% end %>
               <%# all users %>
