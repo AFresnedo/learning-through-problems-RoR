@@ -3,6 +3,7 @@ basic User resource
         -deny access for unintended user actions
     -fixtures or seeds?
     -student, admin, teacher
+    -validity
 
 useful User resource
     -guest (not logged_in)
@@ -16,3 +17,6 @@ QoL User resource
 security User resource
     -encrypted passwords, cookies
     -user input is paramatarized
+
+future:
+    -ownership of activity
