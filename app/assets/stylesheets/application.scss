@@ -1,0 +1,15 @@
+/* this file is the manifest file, used by the bootstrap-sass gem, to
+ * preprocess Sass into a single file */
+
+// sprockets required for processing
+@import "bootstrap-sprockets";
+// main bootstrap files; others, such as bootstrap/variables, an option
+@import "bootstrap";
+
+// custom scss
+@import "misc_site_wide.scss"
+@import "_header.scss";
+@import "_footer.scss";
+@import "static_pages.scss";
+// @import "users.scss";
+// @import "curriculum.scss";
