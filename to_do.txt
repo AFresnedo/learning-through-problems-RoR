@@ -3,7 +3,8 @@ basic User resource
         -deny access for unintended user actions
     -fixtures or seeds?
     -student, admin, teacher
-    -validity
+    -model
+        -validity
 
 useful User resource
     -guest (not logged_in)
