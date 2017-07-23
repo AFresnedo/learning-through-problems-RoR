@@ -11,13 +11,13 @@ User.create!(name:  "Admin User",
              email: "admin@test.org",
              password:              "foobar",
              password_confirmation: "foobar",
-             type: 0)
+             priv: 0)
 
 User.create!(name:  "Basic User",
              email: "basic@test.org",
              password:              "foobar",
              password_confirmation: "foobar",
-             type: 1)
+             priv: 1)
 
 40.times do |n|
   name  = Faker::Name.name
@@ -26,5 +26,6 @@ User.create!(name:  "Basic User",
   User.create!(name:  name,
                email: email,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password,
+               priv: 1)
 end

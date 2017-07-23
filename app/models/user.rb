@@ -9,7 +9,7 @@ class User < ApplicationRecord
   # send password_confirmation password to utilize it, otherwise skipped
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
-  validates :type, presence: true, numericality: { less_than: 4,
+  validates :priv, presence: true, numericality: { less_than: 4,
                                                    greater_than_or_equal_to:
                                                    0 }
   # has_many activity_log_entry, dependent: destroy
