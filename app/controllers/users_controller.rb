@@ -5,9 +5,9 @@ class UsersController < ApplicationController
 
   # list of accounts
   def index
-    @students = User.where(type: 1).paginate(page: params[:page], per_page:
+    @students = User.where(priv: 1).paginate(page: params[:page], per_page:
                                                30)
-    @admins = User.where(type: 0).paginate(page: params[:page])
+    @admins = User.where(priv: 0).paginate(page: params[:page])
   end
 
   # web interface for create action
