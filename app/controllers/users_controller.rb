@@ -5,6 +5,9 @@ class UsersController < ApplicationController
 
   # list of accounts
   def index
+    @students = User.where(type: 1).paginate(page: params[:page], per_page:
+                                               30)
+    @admins = User.where(type: 0).paginate(page: params[:page])
   end
 
   # web interface for create action
@@ -26,7 +29,9 @@ class UsersController < ApplicationController
 
   private
 
+    # default parameter template to update a user
     def user_params
+      # permit is whitelist for mass updating
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end

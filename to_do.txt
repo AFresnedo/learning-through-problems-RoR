@@ -3,10 +3,11 @@ basic User resource
         -deny access for unintended user actions
     -fixtures or seeds?
     -student, admin, teacher, owner (parent)
+        -in increasing order of unlikeliness to be needed
         -admin is 0
-        -teacher is 1
-        -owner is 2
-        -student is 3
+        -student is 1
+        -teacher is 2
+        -owner (parent) is 3
     -model
         -validity
 

@@ -1,0 +1,32 @@
+<% provide(:title, 'Account List') %>
+<h1>Active Accounts</h1>
+
+<%# TODO investiage behavior of will_paginate when two pagination vars %>
+
+<ul class="students">
+  <% @students.each do |student| %>
+    <li>
+      <%= gravatar_for user, size: 50 %>
+      <%= link_to student.name, student %>
+      <%# TODO hide delete link behind admin session %>
+      | <%= link_to "delete", student, method: :delete,
+      data: { confirm: "You sure?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate @students %>
+
+<ul class="admins">
+  <% @admins.each do |admin| %>
+    <li>
+      <%= gravatar_for user, size: 50 %>
+      <%= link_to admin.name, admin %>
+      <%# TODO hide delete link behind admin session %>
+      | <%= link_to "delete", admin, method: :delete,
+      data: { confirm: "You sure?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate @admins %>
