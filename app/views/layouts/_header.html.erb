@@ -4,8 +4,7 @@
       <%= link_to "Math Affirm", root_path, id: "logo" %>
       <ul class="nav navbar-nav navbar-right">
         <%# user account menu %>
-        <%# TODO if logged_in? %>
-        <% if true %>
+        <% if logged_in %>
           <li><%= link_to "Curriculum", '#' %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -30,7 +29,7 @@
           </li>
         <% else %>
           <li><%= link_to "Getting Started", '#' %></li>
-          <li><%= link_to "Log in", '#' %></li>
+          <li><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
     </nav>

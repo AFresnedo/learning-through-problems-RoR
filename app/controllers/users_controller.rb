@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # web interface for update action
+  # web interface for update action; currently just "my profile"
   def edit
     if logged_in
       @user = User.find(session[:user_id])

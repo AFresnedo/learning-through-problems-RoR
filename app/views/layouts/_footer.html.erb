@@ -4,8 +4,7 @@
       <div class="row">
         <div class="col-xs-6" id="footerLeft">
           <nav>
-            <%# TODO if logged_in? %>
-            <% if true %>
+            <% if logged_in %>
               <ul>
                 <%# TODO theories and methods urls %>
                 <% url = '#' %>
@@ -14,8 +13,7 @@
                 <li><%= link_to "Methods", url %></li>
               </ul>
             <% else %>
-              <% url = signup_path %>
-              <li><%= link_to "Sign up for free trial!", url %></li>
+              <li><%= link_to "Sign up for free trial!", signup_path %></li>
             <% end %>
           </nav>
         </div>
