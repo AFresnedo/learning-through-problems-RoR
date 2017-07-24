@@ -29,7 +29,12 @@ class UsersController < ApplicationController
 
   # web interface for update action
   def edit
-    @user = User.find(params[:id])
+    if logged_in
+      @user = User.find(session[:user_id])
+    else
+      flash[:warning] = "Please log in."
+      redirect_to login_path
+    end
   end
 
   def update

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # User model, custom routes above resources to match first
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
-  resources :users, only: [:index, :update, :destroy]
+  resources :users, only: [:show, :index, :update, :destroy]
 
   # user account login system
   get '/login', to: 'sessions#new'
