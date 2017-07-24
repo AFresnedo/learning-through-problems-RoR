@@ -7,4 +7,12 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+
+  def is_admin
+    if logged_in
+      current_user.priv == 0
+    else
+      false
+    end
+  end
 end
