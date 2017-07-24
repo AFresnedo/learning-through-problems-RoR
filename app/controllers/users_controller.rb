@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.priv = 1
     if @user.save
+      log_in @user
       flash[:success] = "Account Created."
       redirect_to @user
     else
