@@ -15,7 +15,7 @@
               <li><%= link_to "Subscriptions", '#' %></li>
               <li class="divider"></li>
               <%# admin only %>
-              <% if is_admin %>
+              <% if is_teacher %>
                 <li><%= link_to "Users", users_path %></li>
                 <li><%= link_to "Edit Curriculum", '#' %></li>
                 <li class="divider"></li>

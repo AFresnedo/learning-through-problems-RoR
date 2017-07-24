@@ -1,4 +1,10 @@
 module ApplicationHelper
+  # privalege codes for User model
+  ADMIN = 0
+  STUDENT = 1
+  TEACHER = 2
+  OWNER = 3
+
   def full_title(page_title = '')
     base_title = "Math Affirm"
     if page_title.empty?
@@ -9,10 +15,10 @@ module ApplicationHelper
   end
 
   def is_admin
-    if logged_in
-      current_user.priv == 0
-    else
-      false
-    end
+    current_user.priv == ADMIN ? true : false
+  end
+
+  def is_teacher
+    current_user.priv == ADMIN || current_user.priv == TEACHER
   end
 end
