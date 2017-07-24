@@ -18,8 +18,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.priv = 1
     if @user.save
-      flash[:success]
+      flash[:success] = "Account Created."
+      redirect_to signup_url
     else
       render 'new'
     end
