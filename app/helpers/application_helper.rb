@@ -21,4 +21,12 @@ module ApplicationHelper
   def is_teacher
     current_user.priv == ADMIN || current_user.priv == TEACHER
   end
+
+  def restrict_to_admin
+    unless is_admin
+      flash[:danger] = "You are not an administrator."
+      redirect_to root_url
+    end
+  end
+
 end

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :restrict_to_admin, only: :destroy
   # profile page for a single user
   def show
     @user = User.find(params[:id])
