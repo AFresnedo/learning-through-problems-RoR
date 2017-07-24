@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user.priv = 1
     if @user.save
       flash[:success] = "Account Created."
-      redirect_to signup_url
+      redirect_to @user
     else
       render 'new'
     end

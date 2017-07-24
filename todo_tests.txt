@@ -11,3 +11,8 @@ missing tests:
     -comprehensive Users controller test
     -sessions integration tests
         -type of account, logged in/out
+
+byebye:
+    -add "debugger" line to a controller action to get a prompt to evaluate
+    code that you think may be causing trouble...obviously the goal is to pick
+    the right controller action

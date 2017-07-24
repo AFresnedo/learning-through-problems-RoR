@@ -1,3 +1,6 @@
+deployment
+    -puma webserver settings for heroku
+
 basic User resource
     -RESTful Users controller actions
         -deny access for unintended user actions
