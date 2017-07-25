@@ -77,7 +77,7 @@ module SessionsHelper
       cookies.delete(:user_id)
       cookies.delete(:remember_token)
     else
-      flash[:warning] = "Already logged out."
+      flash[:warning] = "User not found."
       redirect_to root_url
     end
   end

@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         # SessionsHelper's temp login
         log_in(user)
         # SessionsHelper's cookie-based login
-        remember user
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         # finished logging in
         redirect_to user
       else
