@@ -22,6 +22,10 @@ module ApplicationHelper
     current_user.priv == ADMIN || current_user.priv == TEACHER
   end
 
+  def user_is_self user
+    user.id == session[:user_id]
+  end
+
   def restrict_to_admin
     unless is_admin
       flash[:danger] = "You are not an administrator."
@@ -33,6 +37,14 @@ module ApplicationHelper
     unless logged_in
       flash[:danger] = "Please log in."
       redirect_to login_url
+    end
+  end
+
+  # TODO determine performance cost of fetching current_user
+  def restrict_to_self
+    unless user_is_self(current_user)
+      flash[:danger] = "You have been identified as the wrong user."
+      redirect_to root_url
     end
   end
 

@@ -26,6 +26,7 @@ QoL User resource
 security User resource
     -encrypted passwords, cookies
     -user input is paramatarized
+    -check incomplete_security_checklist.txt in Dropbox
 
 future:
     -ownership of activity
@@ -34,3 +35,17 @@ do not forget:
     -editing profiles should be limited to owner of said profile:
     view/controller/route should reflect this...use cookies to identify and
     require login
+
+user friendliness:
+    -improve user index, label students/admins/teachers
+    -add personal accounts as part of the seed
+
+documentation:
+    -navigation and restrictions
+        -only admin can see delete links, only admin can delete action
+            -anything else in this vein
+    -temp/perm login
+    -user model, actions, and views
+    -RESTful architecture
+    -different account privilages
+    -header/footer, and site in general, changing based on login
