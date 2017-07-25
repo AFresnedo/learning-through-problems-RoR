@@ -54,6 +54,10 @@ user friendliness:
     -improve user index, label students/admins/teachers
     -add personal accounts as part of the seed
     -friendly forwarding (chp 10)
+    -right now "current_user" auto-logins the user through cookies, but
+    isn't it still possible that a user appears "logged out" at a page when
+    they have cookies enabled? aka: close browser, enter bookmarked page
+    without "current_user"
 
 documentation:
     -navigation and restrictions

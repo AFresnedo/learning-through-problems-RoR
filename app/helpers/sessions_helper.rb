@@ -17,15 +17,26 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  # returns user if logged in, will also login user through cookies
+  # @current_user used to prevent multiple db hits through multiple calls
+  # TODO evaluate design choice of not explicitly doing "else not logged"
   def current_user
-    # prevents multiple database hits, per controller action/scope, by storing
-    # instance variable
-    @current_user ||= User.find_by(id: session[:user_id])
+    # check for temp login
+    if (user_id = session[:user_id])
+      @current_user ||= User.find_by(id: user_id)
+    # check for cookies
+    elsif (user_id = cookies.signed[:user_id])
+      user = User.find_by(id: user_id)
+      if user && user.match_remdig(cookies[:remember_token])
+        log_in user
+        @current_user = user
+      end
+    end
   end
 
   def log_out
     user = current_user
-    if user_exists? user
+    if user_exists user
       # clears cookies
       forget user
       # clears temp login
@@ -39,13 +50,13 @@ module SessionsHelper
     end
   end
 
-  def user_exists? user
+  def user_exists user
     User.find_by(id: user.id) ? true : false
   end
 
   # perform necessary actions to remember a user
   def remember user
-    if user_exists? user
+    if user_exists user
       user.remember
       # create user identity cookie for user's browser
       cookies.permanent.signed[:user_id] = user.id
@@ -59,7 +70,7 @@ module SessionsHelper
   end
 
   def forget user
-    if user_exists? user
+    if user_exists user
       # delete user's token digest
       user.forget
       # delete browser cookies
