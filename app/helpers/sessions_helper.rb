@@ -19,4 +19,23 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def user_exists? user
+    User.find_by(id: user.id) ? true : false
+  end
+
+  # perform necessary actions to remember a user
+  def remember user
+    if user_exists? user
+      user.remember
+      # create user identity cookie for user's browser
+      cookies.permanent.signed[:user_id] = user.id
+      # create token key in user's browser to match against digest in db
+      cookies.permanent[:remember_token] = user.remember_token
+    else
+      # TODO user doesn't exist, is redirecting to login a good fit?
+      flash[:danger] = "Invalid user id."
+      redirect_to login_url
+    end
+  end
 end

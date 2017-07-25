@@ -26,6 +26,10 @@ module ApplicationHelper
     user.id == session[:user_id]
   end
 
+  # TODO refactor restrict code if possible, right now it is in a helper module
+  # because it used by multiple controllers NOT because it used by both views
+  # and controllers (as helpers are designed to be used)
+
   def restrict_to_admin
     unless is_admin
       flash[:danger] = "You are not an administrator."
@@ -47,5 +51,4 @@ module ApplicationHelper
       redirect_to root_url
     end
   end
-
 end

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :remember_token
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 50 }
   # TODO refactor regex, hopefully in a private method below
@@ -13,6 +14,25 @@ class User < ApplicationRecord
                                                    greater_than_or_equal_to:
                                                    0 }
   # has_many activity_log_entry, dependent: destroy
+
+  # called by sessionshelper to save a new remember digest
+  def remember
+    # instance variable so sessionhelper can read it to create a cookie
+    self.remember_token = User.generate_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
+
+  # returns a random 22 character string that can be used in urls
+  def User.generate_token
+    SecureRandom.urlsafe_base64
+  end
+
+  # use bcrypt to return an encrypted string
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+      BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 
   private
     def downcase_email

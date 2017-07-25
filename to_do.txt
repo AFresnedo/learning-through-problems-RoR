@@ -23,10 +23,24 @@ QoL User resource
     -email validation registration
     -account recovery
 
-security User resource
+security
     -encrypted passwords, cookies
     -user input is paramatarized
+        -supposedly, rails view templates combat this
+            -make sure they use whitelisting
     -check incomplete_security_checklist.txt in Dropbox
+    -automatically log out people after a week
+        -resets remember_tokens
+
+activity db:
+    -use user_id, timestamp index to check how active a user is and provide
+    feedback (warnings) if too slow or too long ago
+    -stores user scores by problem
+        -allows for better data mining and graphical representations
+
+problem dbs:
+    -seperate dbs for word, figure-enhanced problems?
+    -different dbs for different solutions (fill in, multiple choice, etc)
 
 future:
     -ownership of activity
