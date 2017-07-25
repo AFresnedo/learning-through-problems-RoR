@@ -38,6 +38,11 @@ class User < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
 
+  # compare an unencrypted token to user's remember digest
+  def match_remdig(token)
+    BCrypt::Password.new(remember_digest) == token
+  end
+
   private
     def downcase_email
       email.downcase!

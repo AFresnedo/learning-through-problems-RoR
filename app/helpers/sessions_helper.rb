@@ -2,7 +2,11 @@ module SessionsHelper
 
   # TODO evaluate cost/benefit of checking user_exists at all these levels,
   # consider (but be aware of multiple browsers concurrently trying to log out)
-  # only having input checks at the higher levels of operations
+  # only having input checks at the higher levels of operations; obvious notes
+  # include: "remember user" method checking for valid user when it is called
+  # by SessionController's create method that already checks for validity
+  # the ONLY reason i'm not already cutting out the preconditional checks is
+  # that this all exists in a helper file which SHOULD be usable by views
 
   # browser-life log in credentials, stored in user browser
   def log_in(user)

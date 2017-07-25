@@ -7,8 +7,11 @@ class SessionsController < ApplicationController
     # TODO obfuscate incorrect password or email, if preferable
     if user
       if user.authenticate(params[:session][:password])
-        # use SessionsHelper temporary log in method
+        # SessionsHelper's temp login
         log_in(user)
+        # SessionsHelper's cookie-based login
+        remember user
+        # finished logging in
         redirect_to user
       else
         flash.now[:danger] = "Incorrect password."
