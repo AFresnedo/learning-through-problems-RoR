@@ -1,5 +1,9 @@
 module SessionsHelper
 
+  # TODO evaluate cost/benefit of checking user_exists at all these levels,
+  # consider (but be aware of multiple browsers concurrently trying to log out)
+  # only having input checks at the higher levels of operations
+
   # browser-life log in credentials, stored in user browser
   def log_in(user)
     session[:user_id] = user.id
@@ -16,8 +20,19 @@ module SessionsHelper
   end
 
   def log_out
-    session.delete(:user_id)
-    @current_user = nil
+    user = current_user
+    if user_exists? user
+      # clears cookies
+      forget user
+      # clears temp login
+      session.delete(:user_id)
+      # clearning @current_user and redirecting is redundant
+      @current_user = nil
+      redirect_to root_url
+    else
+      flash[:warning] = "Already logged out."
+      redirect_to root_url
+    end
   end
 
   def user_exists? user
@@ -36,6 +51,19 @@ module SessionsHelper
       # TODO user doesn't exist, is redirecting to login a good fit?
       flash[:danger] = "Invalid user id."
       redirect_to login_url
+    end
+  end
+
+  def forget user
+    if user_exists? user
+      # delete user's token digest
+      user.forget
+      # delete browser cookies
+      cookies.delete(:user_id)
+      cookies.delete(:remember_token)
+    else
+      flash[:warning] = "Already logged out."
+      redirect_to root_url
     end
   end
 end

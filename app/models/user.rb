@@ -22,6 +22,10 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
+
   # returns a random 22 character string that can be used in urls
   def User.generate_token
     SecureRandom.urlsafe_base64
