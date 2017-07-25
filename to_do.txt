@@ -39,6 +39,7 @@ do not forget:
 user friendliness:
     -improve user index, label students/admins/teachers
     -add personal accounts as part of the seed
+    -friendly forwarding (chp 10)
 
 documentation:
     -navigation and restrictions
