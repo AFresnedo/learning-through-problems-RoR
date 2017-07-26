@@ -1,5 +1,5 @@
 deployment
-    -puma webserver settings for heroku
+    -Dreamhost
 
 basic User resource
     -RESTful Users controller actions
@@ -14,17 +14,11 @@ basic User resource
     -model
         -validity
 
-useful User resource
-    -guest (not logged_in)
-    -logging in, logging out, logged_in
-
 QoL User resource
-    -remember me
     -email validation registration
     -account recovery
 
 security
-    -encrypted passwords, cookies
     -user input is paramatarized
         -supposedly, rails view templates combat this
             -make sure they use whitelisting
