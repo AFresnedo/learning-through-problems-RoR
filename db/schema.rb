@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727183303) do
+ActiveRecord::Schema.define(version: 20170727225900) do
 
   create_table "problems", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170727183303) do
     t.integer "user_id"
     t.integer "problem_id"
     t.integer "score"
+    t.boolean "comp"
     t.index ["user_id", "problem_id"], name: "index_scores_on_user_id_and_problem_id", unique: true
   end
 
