@@ -50,6 +50,7 @@ do not forget:
     -editing profiles should be limited to owner of said profile:
     view/controller/route should reflect this...use cookies to identify and
     require login
+    -foreign keys of DBs
 
 user friendliness:
     -improve user index, label students/admins/teachers
