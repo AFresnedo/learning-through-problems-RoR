@@ -27,7 +27,7 @@ User.create!(name: "Teacher User",
              password_confirmation: "foobar",
              priv: 2)
 
-40.times do |n|
+20.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
@@ -38,12 +38,16 @@ User.create!(name: "Teacher User",
                priv: 1)
 end
 
+# Problem
+
+# Answers
+
+# Solutions
+
+# Hints
+
+# Metadata
+
 # Theories
 
-# Problem Questions
-
-# Problem Hints
-
-# Problem Solutions
-
-# Problem Answers
+# Graphs
