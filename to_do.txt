@@ -73,3 +73,6 @@ documentation:
     -RESTful architecture
     -different account privilages
     -header/footer, and site in general, changing based on login
+
+batch input:
+    -fix figures, hardcoded addresses in input html must be wrong
