@@ -26,17 +26,26 @@ security
     -automatically log out people after a week
         -resets remember_tokens
 
+DBs in general:
+    -foreign keys
+    -missing indicies (based off controller actions)
+    -remove timestamps where not used
+
 problem dbs:
     -favor flexibility over performance, limited content
         -keep track of big SQL queries...they atm they don't involve the
         problems storage db (instead they involve DBs like score)
-    -seperate dbs for word, figure-enhanced problems?
-    -different dbs for different solutions (fill in, multiple choice, etc)
+    -seperate dbs for word-only, figure-enhanced problems?
+
+answers db
+    -how to address answer modularity for a single answer?
+        -fill in, multiple choice, etc
+        -interface is obviously important here, but so is "fake" ans data
 
 score db:
     -strict (simple, clean) relational DB with fast SQL queries because this db
     will scale with users
-    -key is user_id, problem_id
+    -key would ideally be user_id, problem_id but rails convention says no
         -SQL queries for fetching user_id, ALL problem_id
             -likewise, ALL user_id, problem_id
     -created_at, updated_at attributes to see where user left off
@@ -45,12 +54,15 @@ solutions db:
     -favor flexibility over performance, limited content
         -can't forsee any pitfalls here...solutions shouldn't be involved in
         any big queries at any point
+    -input script requires? ability to include multiple solutions
+
+hints db:
+    -input script requires ability to include multiple hints
 
 do not forget:
     -editing profiles should be limited to owner of said profile:
     view/controller/route should reflect this...use cookies to identify and
     require login
-    -foreign keys of DBs
 
 user friendliness:
     -improve user index, label students/admins/teachers
