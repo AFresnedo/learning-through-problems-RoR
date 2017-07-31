@@ -4,7 +4,7 @@ class CreateMetadata < ActiveRecord::Migration[5.1]
       t.string :filename
       t.string :category
       t.string :context
-      t.int :diff
+      t.integer :diff
       t.string :source
 
       t.timestamps

@@ -10,9 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727225900) do
+ActiveRecord::Schema.define(version: 20170730085119) do
+
+  create_table "answers", force: :cascade do |t|
+    t.string "filename"
+    t.string "values"
+    t.text "interface"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "graphs", force: :cascade do |t|
+    t.string "context"
+    t.string "scoring"
+    t.text "progression"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hints", force: :cascade do |t|
+    t.string "filename"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "metadata", force: :cascade do |t|
+    t.string "filename"
+    t.string "category"
+    t.string "context"
+    t.integer "diff"
+    t.string "source"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "problems", force: :cascade do |t|
+    t.string "filename"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +63,13 @@ ActiveRecord::Schema.define(version: 20170727225900) do
   end
 
   create_table "solutions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "theories", force: :cascade do |t|
+    t.string "filename"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
