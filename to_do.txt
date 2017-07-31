@@ -1,5 +1,6 @@
 deployment
     -Dreamhost
+        -Passenger
 
 basic User resource
     -RESTful Users controller actions
@@ -59,6 +60,12 @@ solutions db:
 hints db:
     -input script requires ability to include multiple hints
 
+migrations:
+    -make sure that the code, (create and drop in particular) is setup properly
+    so that the migrations aren't bugged depending on ordering/status
+        -i mean make sure the code does everything properly so that rails
+        doesn't get confused and lose sync between actual DBs, schema, and
+        migrations
 do not forget:
     -editing profiles should be limited to owner of said profile:
     view/controller/route should reflect this...use cookies to identify and
