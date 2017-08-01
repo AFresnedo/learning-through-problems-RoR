@@ -60,6 +60,9 @@ solutions db:
 hints db:
     -input script requires ability to include multiple hints
 
+unlocked_theories db:
+    -user_id, a string with filenames
+
 migrations:
     -make sure that the code, (create and drop in particular) is setup properly
     so that the migrations aren't bugged depending on ordering/status
@@ -95,3 +98,10 @@ documentation:
 
 batch input:
     -fix figures, hardcoded addresses in input html must be wrong
+    -multiple solutions and hints
+        -check Robert's solution, if it isn't computationally expensive copy
+        -otherwise, write a script to change :bsol: to :bsol12: (which means
+        1 of 2) and same for hints so end up with :bhint23: (2 of 3)
+            -besides me "being lazy" with scripts the arguement here is that
+            the scripts digesting the data do less work because they don't have
+            to figure the format of the content each time (WORTH!)
