@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803040409) do
+ActiveRecord::Schema.define(version: 20170803050249) do
 
   create_table "answers", force: :cascade do |t|
     t.string "filename"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170803040409) do
     t.text "interface"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "module"
   end
 
   create_table "graphs", force: :cascade do |t|
