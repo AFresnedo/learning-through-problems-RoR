@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :priv, presence: true, numericality: { less_than: 4,
                                                    greater_than_or_equal_to:
                                                    0 }
-  # has_many activity_log_entry, dependent: destroy
+  has_many :theory, through: :unlocked_theory
 
   # called by sessionshelper to save a new remember digest
   def remember

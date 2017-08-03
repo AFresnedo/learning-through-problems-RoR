@@ -63,12 +63,18 @@ hints db:
 unlocked_theories db:
     -user_id, a string with filenames
 
+db relationships:
+    -after models setup for v1, add relationships (make sure migrations for
+    them are run, check results for design errors)
+        -might be some opportunity to remove/replace models here but unlikely
+
 migrations:
     -make sure that the code, (create and drop in particular) is setup properly
     so that the migrations aren't bugged depending on ordering/status
         -i mean make sure the code does everything properly so that rails
         doesn't get confused and lose sync between actual DBs, schema, and
         migrations
+
 do not forget:
     -editing profiles should be limited to owner of said profile:
     view/controller/route should reflect this...use cookies to identify and

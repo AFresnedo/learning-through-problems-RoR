@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730085119) do
+ActiveRecord::Schema.define(version: 20170803040409) do
 
   create_table "answers", force: :cascade do |t|
     t.string "filename"
@@ -72,6 +72,14 @@ ActiveRecord::Schema.define(version: 20170730085119) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "unlocked_theories", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "theory_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "theory_id"], name: "index_unlocked_theories_on_user_id_and_theory_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
