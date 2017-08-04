@@ -111,3 +111,15 @@ batch input:
             -besides me "being lazy" with scripts the arguement here is that
             the scripts digesting the data do less work because they don't have
             to figure the format of the content each time (WORTH!)
+    -see input scripts
+
+input scripts:
+    -copy an entire curriculum onto local drive to source (already done?)
+    -write a script to update the MAM on test problems (i mean, could just be
+    all of LifeToMath curriculum)
+        -fix curriculum/category/context
+            -wahhh, deal with it
+        -add details to hints and solutions
+            -X of N
+            -hint types (to match solutions, the X controls which is shown
+            first)

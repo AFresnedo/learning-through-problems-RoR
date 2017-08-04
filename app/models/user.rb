@@ -14,6 +14,7 @@ class User < ApplicationRecord
                                                    greater_than_or_equal_to:
                                                    0 }
   has_many :theory, through: :unlocked_theory
+  has_many :score
 
   # called by sessionshelper to save a new remember digest
   def remember
