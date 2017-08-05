@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805145928) do
+ActiveRecord::Schema.define(version: 20170805153118) do
 
   create_table "answers", force: :cascade do |t|
     t.string "values"
@@ -30,10 +30,11 @@ ActiveRecord::Schema.define(version: 20170805145928) do
   end
 
   create_table "hints", force: :cascade do |t|
-    t.string "filename"
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "solution_id"
+    t.index ["solution_id"], name: "index_hints_on_solution_id"
   end
 
   create_table "metadata", force: :cascade do |t|
