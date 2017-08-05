@@ -1,0 +1,18 @@
+<% provide(:title, 'Problems Index') %>
+<h1>All Problems For Curriculum</h1>
+
+<%= will_paginate %>
+
+<ul class="problems">
+  <% @problems.each do |problem| %>
+    <li>
+      <%= link_to problem.filename, problem %>
+      <% if is_teacher %>
+        | <%= link_to "delete", problem, method: :delete,
+          data: { confirm: "You sure?" } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

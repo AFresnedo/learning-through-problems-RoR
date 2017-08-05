@@ -67,18 +67,6 @@ solutions db:
     -favor flexibility over performance, limited content
         -can't forsee any pitfalls here...solutions shouldn't be involved in
         any big queries at any point
-    -input script requires? ability to include multiple solutions
-
-hints db:
-    -input script requires ability to include multiple hints
-
-unlocked_theories db:
-    -user_id, a string with filenames
-
-db relationships:
-    -after models setup for v1, add relationships (make sure migrations for
-    them are run, check results for design errors)
-        -might be some opportunity to remove/replace models here but unlikely
 
 migrations:
     -make sure that the code, (create and drop in particular) is setup properly
@@ -116,22 +104,7 @@ documentation:
 
 batch input:
     -fix figures, hardcoded addresses in input html must be wrong
-    -multiple solutions and hints
-        -check Robert's solution, if it isn't computationally expensive copy
-        -otherwise, write a script to change :bsol: to :bsol12: (which means
-        1 of 2) and same for hints so end up with :bhint23: (2 of 3)
-            -besides me "being lazy" with scripts the arguement here is that
-            the scripts digesting the data do less work because they don't have
-            to figure the format of the content each time (WORTH!)
-    -see input scripts
+    -see input scripts file(s) in dropbox
 
 input scripts:
-    -copy an entire curriculum onto local drive to source (already done?)
-    -write a script to update the MAM on test problems (i mean, could just be
-    all of LifeToMath curriculum)
-        -fix curriculum/category/context
-            -wahhh, deal with it
-        -add details to hints and solutions
-            -X of N
-            -hint types (to match solutions, the X controls which is shown
-            first)
+    -write a script to fix curriculum/category/context, if useful in any way
