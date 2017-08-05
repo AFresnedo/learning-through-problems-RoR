@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803050249) do
+ActiveRecord::Schema.define(version: 20170805143552) do
 
   create_table "answers", force: :cascade do |t|
-    t.string "filename"
     t.string "values"
     t.text "interface"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "module"
+    t.integer "problem_id"
+    t.index ["problem_id"], name: "index_answers_on_problem_id"
   end
 
   create_table "graphs", force: :cascade do |t|
