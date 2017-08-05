@@ -19,4 +19,5 @@ Rails.application.routes.draw do
 
   # temp curriculum route duties
   get '/curriculum', to: 'curriculum#index'
+  get '/curriculum/edit', to: 'curriculum#edit'
 end
