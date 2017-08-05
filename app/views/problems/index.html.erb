@@ -8,8 +8,7 @@
     <li>
       <%= link_to problem.filename, problem %>
       <% if is_teacher %>
-        | <%= link_to "delete", problem, method: :delete,
-          data: { confirm: "You sure?" } %>
+        | <%= link_to "edit", edit_problem_url(problem.id) %>
       <% end %>
     </li>
   <% end %>

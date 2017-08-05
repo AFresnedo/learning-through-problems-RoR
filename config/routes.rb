@@ -15,5 +15,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   # problems
-  resources :problems
+  resources :problems, except: [:new, :create]
+
+  # temp curriculum route duties
+  get '/curriculum', to: 'curriculum#index'
 end
