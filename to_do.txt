@@ -29,6 +29,18 @@ security
 
 DBs in general:
     -foreign keys
+        -foreign keys are actually pretty new to rails (and not supported by
+        all DB types)...they are in addition to references (not references
+        themselves) the standard/old rails convention is for the application
+        (models) to enforce integrity not the db itself; add them later if
+        wanted
+            -okay, regardless, with rails 5: using references DOES add the
+            foriegn keys; they just aren't showing up on the schema
+                -a schema is NOT a db...look it up with db viewer if you need
+                to
+                    -issue here is your viewer is sqlite and it seems to ignore
+                    foreign keys (there's an option in it with foriegn keys
+                    disabled, do i enable it?)
     -missing indicies (based off controller actions)
     -remove timestamps where not used
 
