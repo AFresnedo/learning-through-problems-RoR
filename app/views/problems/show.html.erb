@@ -1,4 +1,19 @@
-<h3>problem filename:</h3>
+<h2>problem filename</h2>
 <p><%= @problem.filename %></p>
-<h3>problem statement:</h3>
+<h3>problem statement</h3>
 <p><%= @problem.text %></p>
+<h2>answer interface</h2>
+<p><%= @answer.interface %></p>
+<h3>answers</h3>
+<p><%= @answer.values %></p>
+<% x = 0 %>
+<% @solutions.each do |solution| %>
+  <h2>solution statement</h2>
+  <p><%= solution.typ %></p>
+  <p><%= solution.text %></p>
+  <h3>hint statement for solution</h3>
+  <% @hints[x].each do |hint| %>
+    <%= hint.text %>
+  <% end %>
+  <% x+=1 %>
+<% end %>

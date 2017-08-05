@@ -1,8 +1,8 @@
 <% provide(:title, 'Account List') %>
-<h1>Active Accounts</h1>
 
 <%# TODO investiage behavior of will_paginate when two pagination vars %>
 
+<h1>Student Accounts</h1>
 <ul class="students">
   <% @students.each do |student| %>
     <li>
@@ -16,6 +16,7 @@
 
 <%= will_paginate @students %>
 
+<h1>Admin Accounts</h1>
 <ul class="admins">
   <% @admins.each do |admin| %>
     <li>

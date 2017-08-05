@@ -6,11 +6,9 @@
           <nav>
             <% if logged_in %>
               <ul>
-                <%# TODO theories and methods urls %>
+                <%# TODO unlocked_theories url %>
                 <% url = '#' %>
-                <li><%= link_to "Theories", url %></li>
-                <% url = '#' %>
-                <li><%= link_to "Methods", url %></li>
+                <li><%= link_to "Unlocked Theories", url %></li>
               </ul>
             <% else %>
               <li><%= link_to "Sign up for free trial!", signup_path %></li>

@@ -6,8 +6,11 @@ class ProblemsController < ApplicationController
   def show
     @problem = Problem.find_by_id(params[:id])
     @answer = @problem.answer
-    @solutions = @problem.solutions.all
-    @hints = @solutions.all
+    @solutions = @problem.solutions
+    @hints = []
+    @solutions.each do |solution|
+      @hints.push(solution.hints)
+    end
     @metadata = @problem.metadata
   end
 
