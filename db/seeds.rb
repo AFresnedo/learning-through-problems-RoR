@@ -8,23 +8,46 @@
 #   }]) Character.create(name: 'Luke', movie: movies.first)
 
 # Sample Users
-
-User.create!(name:  "Admin User",
-             email: "admin@test.org",
-             password:              "foobar",
-             password_confirmation: "foobar",
+User.create!(name: "Andres Fresnedo",
+             email: "andfresnedo@gmail.org",
+             password: "iamandres37",
+             password_confirmation: "iamandres37",
              priv: 0)
 
-User.create!(name:  "Basic User",
-             email: "basic@test.org",
-             password:              "foobar",
-             password_confirmation: "foobar",
+User.create!(name: "Robert Cranfill",
+             email: "robcranfill@gmail.com",
+             password: "iamrobert43",
+             password_confirmation: "iamrobert43",
+             priv: 0)
+
+User.create!(name: "Razvan Gelca",
+             email: "rgelca@gmail.com",
+             password: "iamrazvan41",
+             password_confirmation: "iamrazvan41",
+             priv: 0)
+
+User.create!(name: "Dragos Margineantu",
+             email: "ddmargin@gmail.com",
+             password: "iamdragos25",
+             password_confirmation: "iamdragos25",
+             priv: 0)
+
+User.create!(name: "Roman Fresnedo",
+             email: "Romanf52@gmail.com",
+             password: "iamroman83",
+             password_confirmation: "iamroman83",
+             priv: 2)
+
+User.create!(name:  "Student User",
+             email: "student@test.org",
+             password:              "iamstudent72",
+             password_confirmation: "iamstudent72",
              priv: 1)
 
 User.create!(name: "Teacher User",
              email: "teacher@test.org",
-             password: "foobar",
-             password_confirmation: "foobar",
+             password: "iamteacher98",
+             password_confirmation: "iamteacher98",
              priv: 2)
 
 20.times do |n|
