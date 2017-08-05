@@ -1,4 +1,6 @@
-# lib/tasks/custom_seed.rake
+# to use: rake db:seed:file_name (file_name does not include extension)
+# this file belongs in: lib/tasks/custom_seed.rake
+# input files belong in: db/seeds/
 namespace :db do
   namespace :seed do
     Dir[Rails.root.join('db', 'seeds', '*.rb')].each do |filename|
