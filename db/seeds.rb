@@ -36,7 +36,7 @@ User.create!(name: "Roman Fresnedo",
              email: "romanf52@gmail.com",
              password: "iamroman83",
              password_confirmation: "iamroman83",
-             priv: 2)
+             priv: 0)
 
 User.create!(name:  "Student User",
              email: "student@test.org",
