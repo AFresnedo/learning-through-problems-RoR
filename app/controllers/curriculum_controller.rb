@@ -1,8 +1,7 @@
 class CurriculumController < ApplicationController
   # identify user and fetch latest problem (render view)
-  #   -read global and local graphs as well as user's latest created_at in
-  #   score
-  #   -use what is written in those text files to interpolate a render
+  # read user's latest score (complete or incomplete?) and ask graph controller
+  # for the next problem
   # finalize problem fetch
   #   -save 'zero' to new solution object
   # respond and act on actions taken: answer, hint request
