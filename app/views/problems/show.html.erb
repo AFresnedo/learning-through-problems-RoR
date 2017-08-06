@@ -4,10 +4,10 @@
 <h2>problem filename</h2>
 <p><%= @problem.filename %></p>
 <h3>problem statement</h3>
-<p><%== @problem.text %></p>
+<%== @problem.text %>
 
 <h2>answer interface</h2>
-<p><%== @answer.interface %></p>
+<%== @answer.interface %>
 <h3>answers</h3>
 <p><%= @answer.values %></p>
 
@@ -15,11 +15,11 @@
 <% @solutions.each do |solution| %>
   <h2>solution statement</h2>
   <p><%= solution.typ %></p>
-  <p><%== solution.text %></p>
+  <%== solution.text %>
   <h3>hint statement(s) for solution</h3>
   <% @hints[x].each do |hint| %>
     <h4>a hint</h4>
-    <p><%== hint.text %></p>
+    <%== hint.text %>
   <% end %>
   <% x+=1 %>
 <% end %>
