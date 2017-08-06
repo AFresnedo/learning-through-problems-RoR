@@ -29,3 +29,16 @@
 </ul>
 
 <%= will_paginate @admins %>
+
+<h1>Teacher Accounts</h1>
+<ul class="teachers">
+  <% @teachers.each do |teacher| %>
+    <li>
+      <%= link_to teacher.name, teacher %>
+      <%# TODO hide delete link behind teacher session %>
+      | <%= link_to "delete", teacher, method: :delete,
+      data: { confirm: "You sure?" } %>
+    </li>
+  <% end %>
+</ul>
+

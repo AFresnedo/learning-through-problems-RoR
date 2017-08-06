@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @students = User.where(priv: 1).paginate(page: params[:page], per_page:
                                                30)
     @admins = User.where(priv: 0).paginate(page: params[:page])
+    @teachers = User.where(priv: 2).paginate(page: params[:page])
   end
 
   # web interface for create action

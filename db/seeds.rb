@@ -9,7 +9,7 @@
 
 # Sample Users
 User.create!(name: "Andres Fresnedo",
-             email: "andfresnedo@gmail.org",
+             email: "andfresnedo@gmail.com",
              password: "iamandres37",
              password_confirmation: "iamandres37",
              priv: 0)
