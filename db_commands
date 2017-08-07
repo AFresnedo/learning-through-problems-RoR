@@ -1,0 +1,8 @@
+db:seed:curriculum_seed
+db:seed:graph_seed
+db:seed:theory_seed
+db:schema:load
+from console:
+    Model.destroy_all
+        -this respects associations and other stuff
+        -Model.delete_all is faster but lacks respect
