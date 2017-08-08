@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807201900) do
+ActiveRecord::Schema.define(version: 20170808050034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170807201900) do
     t.integer "batch"
     t.boolean "makeup"
     t.integer "file_id"
+    t.string "category"
   end
 
   create_table "hints", force: :cascade do |t|

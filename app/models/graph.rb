@@ -1,4 +1,6 @@
 class Graph < ApplicationRecord
+  # NOTE DEPRECATED NOTES, not what graph model represents anymore, here for
+  # ref atm
   # the Graph model is the interface for getting the next problem/theorem in
   # the curriculum
   # TODO get ordered-list from context-appropriate model and return list item
@@ -17,4 +19,16 @@ class Graph < ApplicationRecord
   # TODO unlock&display the next "explanationtheory" file once a category has
   # been finished (after the last context, which are the folders with
   # graph.txt)
+
+  # NOTE real graph model notes follow
+
+  # returns "category" of curriculum/category/context structure
+  def category
+    self.context[/\.\/(.*)\/.*\//, 1]
+  end
+
+  def context_short
+    self.context[/\.\/.*\/(.*)\//, 1]
+  end
+
 end
