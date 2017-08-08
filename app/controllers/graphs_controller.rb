@@ -32,10 +32,12 @@ class GraphsController < ApplicationController
     @typ = []
     @ids = []
     @batches = []
+    @makeup = []
     all.each do |file|
       @typ << file.typ
       @ids << file.file_id
-      @batches << 'batch group: '+file.batch.to_s
+      @batches << file.batch
+      @makeup << file.makeup
     end
 
     # admin page for displaying progression information at localgraph level

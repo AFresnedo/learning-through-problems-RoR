@@ -6,9 +6,13 @@
   <% if @typ[n] == 'theory' %>
     <% theory = Theory.find(@ids[n]).filename %>
     <p><%= link_to theory, theory_path(@ids[n]) %></p>
+    <p><%= 'problem set: ' + @batches[n].to_s %></p>
   <% elsif @typ[n] == 'prob' %>
-    <% problem = Problem.find(@ids[n]).filename %>
-    <p><%= link_to problem, problem_path(@ids[n]) %></p>
+    <% problem = Problem.find(@ids[n]) %>
+    <% problem_name = problem.filename %>
+    <p><%= link_to problem_name, problem_path(@ids[n]) %></p>
+    <p><%= 'problem set: ' + @batches[n].to_s %></p>
+    <p><%= 'makeup: ' + @makeup[n].to_s %></p>
   <% else %>
     <p><%= bug detected %></p>
   <% end %>
