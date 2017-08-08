@@ -19,6 +19,9 @@ db:schema:cache:dump
 db:schema:dump
 db:schema:load
 db:seed
+db:seed:curriculum_seed
+db:seed:graph_seed
+db:seed:theory_seed
 db:setup
 db:structure:dump
 db:structure:load
