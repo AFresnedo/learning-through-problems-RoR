@@ -1,0 +1,15 @@
+<%# i want some sort of visual seperation between batches and i want
+  progression top/down...should look similiar to the text file %>
+<%# TODO batches %>
+<% count = @ids.length %>
+<% count.times do |n|%>
+  <% if @typ[n] == 'theory' %>
+    <% theory = Theory.find(@ids[n]).filename %>
+    <p><%= link_to theory, theory_path(@ids[n]) %></p>
+  <% elsif @typ[n] == 'prob' %>
+    <% problem = Problem.find(@ids[n]).filename %>
+    <p><%= link_to problem, problem_path(@ids[n]) %></p>
+  <% else %>
+    <p><%= bug detected %></p>
+  <% end %>
+<% end %>

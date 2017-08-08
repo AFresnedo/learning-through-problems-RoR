@@ -22,13 +22,4 @@ class Graph < ApplicationRecord
 
   # NOTE real graph model notes follow
 
-  # returns "category" of curriculum/category/context structure
-  def category
-    self.context[/\.\/(.*)\/.*\//, 1]
-  end
-
-  def context_short
-    self.context[/\.\/.*\/(.*)\//, 1]
-  end
-
 end

@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   # problems
   resources :problems, except: [:new, :create]
 
+  # theories
+  resources :theories, only: [:show]
+
   # temp curriculum route duties
   get '/curriculum', to: 'curriculum#index'
   get '/curriculum/edit', to: 'curriculum#edit'
@@ -24,4 +27,5 @@ Rails.application.routes.draw do
   # temp graph route duties
   get '/graphs/globalgraph', to: 'graphs#globalgraph'
   get '/graphs/graph', to: 'graphs#graph'
+  get '/graphs/batch', to: 'graphs#batch'
 end

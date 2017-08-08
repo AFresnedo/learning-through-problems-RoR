@@ -1,3 +1,3 @@
-<%= @all.each do |folder| %>
-  <p><%= folder %></p>
+<% @context_list.each do |context| %>
+  <p><%= link_to context, graphs_batch_path(context: context) %></p>
 <% end %>

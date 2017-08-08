@@ -17,13 +17,29 @@ class GraphsController < ApplicationController
     # heading for folders (liquids, etc)
     # NOTE this is right before progression logic takes over for users
     # re-create context with category, context folder names
-    @all = Graph.where(context: context_full)
-    context_full = './'+params[:category]+'/'+params[:context]+'/'
+    all = Graph.where(category: params[:category])
+    @context_list = []
+    all.each do |tuple|
+      if (@context_list.last != tuple.context) ? (@context_list << tuple.context) : nil
+      end
+    end
+
     render '/graphs/graph'
   end
 
-  def category_edit
+  def batch
+    all = Graph.where(context: params[:context])
+    @typ = []
+    @ids = []
+    @batches = []
+    all.each do |file|
+      @typ << file.typ
+      @ids << file.file_id
+      @batches << 'batch group: '+file.batch.to_s
+    end
+
     # admin page for displaying progression information at localgraph level
     # doing this before hiding it behind progression logic, for debugging
+    render '/graphs/batch'
   end
 end
