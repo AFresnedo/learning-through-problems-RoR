@@ -13,7 +13,11 @@ class GlobalgraphController < ApplicationController
   # the globalgraph controller is in charge of creating "score" tuples, these
   # "ip score tuples" are what the graphs controller uses as "bookmarks" to
   # determine the next theory(s)/problem(s) a user has access to
+
   def index
+  end
+
+  def categories
     # teacher-only choice
     # seperated by headings (ALGEBRAIC, METHODS, etc)
     all = Graph.all
@@ -22,6 +26,6 @@ class GlobalgraphController < ApplicationController
       if (@cat_list.last != tuple.category) ? (@cat_list << tuple.category) : nil
       end
     end
-    render '/globalgraph/index'
+    render '/globalgraph/categories'
   end
 end

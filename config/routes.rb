@@ -22,7 +22,6 @@ Rails.application.routes.draw do
 
   # temp curriculum route duties
   get '/curriculum', to: 'curriculum#index'
-  get '/curriculum/edit', to: 'curriculum#edit'
 
   # temp graph route duties
   get '/graphs/graph', to: 'graphs#graph'
@@ -30,4 +29,5 @@ Rails.application.routes.draw do
 
   # temp globalgraph route duties
   get '/globalgraph', to: 'globalgraph#index'
+  get '/globalgraph/categories', to: 'globalgraph#categories'
 end
