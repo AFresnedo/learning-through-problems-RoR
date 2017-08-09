@@ -1,0 +1,26 @@
+some documentation notes that are essential at this stage because they aren't
+standard conventions (or really named all that well):
+
+globalgraph controller: this controller is in charge of "curriculum liveliness"
+at the curriculum and category level
+    -creates "ip" tuples as soon as they are unlocked
+    -new = new curriculum (new globalgraph.txt)
+    -update = edit curriculum (edit globalgraph.txt)
+
+graph controller: this controller is in charge of "curriculum liveliness" at
+the context level
+    -navigates to "next" ip tuple
+    -new = new do-able context (new graph.txt)
+    -update = edit a context progression (change a graph.txt)
+
+why globalgraph/graph controllers designed this way? mostly, because it's
+a direct representation of Razvan's input and there didn't seem to be an
+obvious way of doing it better
+    -this answer has to do with globalgraph/graph models as well
+
+curriculum controller: this controller is in charge of editing the curriculum
+    -you can think of it as the master tool for creating globalgraph, graph,
+    theory, and problem; so that they remain linked
+
+    -new = new theory, problem, globalgraph, graph
+    -update = edit a content file or a curriculum progression logic file
