@@ -1,16 +1,4 @@
 class GraphsController < ApplicationController
-  # NOTE fake controller code for demo
-  def globalgraph
-    # teacher-only choice
-    # seperated by headings (ALGEBRAIC, METHODS, etc)
-    all = Graph.all
-    @cat_list = []
-    all.each do |tuple|
-      if (@cat_list.last != tuple.category) ? (@cat_list << tuple.category) : nil
-      end
-    end
-    render '/graphs/globalgraph'
-  end
 
   def graph
     # user choice

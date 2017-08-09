@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   get '/curriculum/edit', to: 'curriculum#edit'
 
   # temp graph route duties
-  get '/graphs/globalgraph', to: 'graphs#globalgraph'
   get '/graphs/graph', to: 'graphs#graph'
   get '/graphs/batch', to: 'graphs#batch'
+
+  # temp globalgraph route duties
+  get '/globalgraph', to: 'globalgraph#index'
 end
