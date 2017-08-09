@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808050034) do
+ActiveRecord::Schema.define(version: 20170809182652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,8 @@ ActiveRecord::Schema.define(version: 20170808050034) do
     t.integer "user_id"
     t.integer "problem_id"
     t.integer "score"
-    t.boolean "comp"
+    t.boolean "ip"
+    t.index ["user_id", "ip"], name: "index_scores_on_user_id_and_ip", unique: true
     t.index ["user_id", "problem_id"], name: "index_scores_on_user_id_and_problem_id", unique: true
   end
 

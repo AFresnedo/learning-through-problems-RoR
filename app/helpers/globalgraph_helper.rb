@@ -1,0 +1,2 @@
+module GlobalgraphHelper
+end

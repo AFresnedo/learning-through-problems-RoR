@@ -1,4 +1,5 @@
 class GraphsController < ApplicationController
+  # NOTE fake controller code for demo
   def globalgraph
     # teacher-only choice
     # seperated by headings (ALGEBRAIC, METHODS, etc)
@@ -44,4 +45,9 @@ class GraphsController < ApplicationController
     # doing this before hiding it behind progression logic, for debugging
     render '/graphs/batch'
   end
+
+
+  # NOTE beginning of real controller pusedocode
+  # so the graphs controller will be in charge of determining "next problem"
+  # and confirming viewer has access to the problem they are fetching
 end
