@@ -31,4 +31,5 @@ Rails.application.routes.draw do
   get '/globalgraph', to: 'globalgraph#index'
   get '/globalgraph/categories', to: 'globalgraph#categories'
   get '/globalgraph/context', to: 'globalgraph#context'
+
 end
