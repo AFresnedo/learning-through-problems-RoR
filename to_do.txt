@@ -51,7 +51,7 @@ DBs in general:
     -missing indicies (based off controller actions)
     -remove timestamps where not used
 
-graph db:
+graph&globalgraph db:
     -add foriegn key to both theory and problem ids, so that a "progression"
     list item cannot exist without its content
         -a graph "has_a file_id", but since this is technically two different
@@ -60,6 +60,16 @@ graph db:
         not...prob can't have one attribute have foreign keys to different dbs
         depending on the tuple
         -so...don't do this? maybe fix db design or input somehow?
+    -globalgraph doesn't have id at all
+    -this association needs to be maintained at the application level (is THAT
+    even possible without tuple ids?)
+        -without the expensive act of constantly doing a find?
+    -pretty sure these two DBs are just built incorrectly
+        -make two of each, for a total of 4?
+        -polymorphic assocation? it means that a single model may belong,
+        one-to-one, to different models (YES this is it! a graph tuple may
+        belong to a theory tuple or problem tuple!)
+            -oops, doesn't work for globalgraph (man that db is just wrong)
 
 problem dbs:
     -favor flexibility over performance, limited content

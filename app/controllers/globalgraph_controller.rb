@@ -26,14 +26,20 @@ class GlobalgraphController < ApplicationController
   end
 
   def context
+    # all tuples from globalgraph for this category
     all = Globalgraph.where(category: params[:category])
-    # includes theoryfile and the context folders themselves
-    @item_list = []
+    @cat_intro_ids = []
+    @context_list = []
+    # process theory files and context directories
     all.each do |item|
-      if item.context == 'theoryfile'
-        @item_list << item
-      elsif item.context != @item_list.last
-        @item_list << item.context
+      # seperate theoryfile from context directories
+      if item.context == 'category_introduction'
+        theoryfile = Theory.find_by(category: params[:category], context:
+                    'category_introduction')
+        @cat_intro_ids << theoryfile.id
+      # if new context, add it to list
+      elsif item.context != @context_list.last
+        @context_list << item.context
       end
     end
     render '/globalgraph/context'
