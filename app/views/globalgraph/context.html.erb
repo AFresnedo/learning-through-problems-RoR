@@ -1,0 +1,6 @@
+<% @item_list.each do |item| %>
+  <% if item.context == 'theoryfile' %>
+    <%= link_to 'Theoryfile', Theory.find_by(item.id) %>
+    <% end %>
+  <p><%= link_to item, graphs_batch_path(context: context) %></p>
+<% end %>

@@ -25,4 +25,17 @@ class GlobalgraphController < ApplicationController
     render '/globalgraph/categories'
   end
 
+  def context
+    all = Globalgraph.where(category: params[:category])
+    # includes theoryfile and the context folders themselves
+    @item_list = []
+    all.each do |item|
+      if item.context == 'theoryfile'
+        @item_list << item
+      elsif item.context != @item_list.last
+        @item_list << item.context
+      end
+    end
+    render '/globalgraph/context'
+  end
 end

@@ -30,4 +30,5 @@ Rails.application.routes.draw do
   # temp globalgraph route duties
   get '/globalgraph', to: 'globalgraph#index'
   get '/globalgraph/categories', to: 'globalgraph#categories'
+  get '/globalgraph/context', to: 'globalgraph#context'
 end

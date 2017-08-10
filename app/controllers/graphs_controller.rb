@@ -39,7 +39,4 @@ class GraphsController < ApplicationController
   # so the graphs controller will be in charge of determining "next problem"
   # and confirming viewer has access to the problem they are fetching
 
-  def context_index
-    # get all contexts that are "ip" for current_user from score model
-  end
 end
