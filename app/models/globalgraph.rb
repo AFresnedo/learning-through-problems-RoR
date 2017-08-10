@@ -1,0 +1,2 @@
+class Globalgraph < ApplicationRecord
+end

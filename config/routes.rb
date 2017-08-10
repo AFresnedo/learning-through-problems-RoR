@@ -22,10 +22,13 @@ Rails.application.routes.draw do
 
   # temp curriculum route duties
   get '/curriculum', to: 'curriculum#index'
-  get '/curriculum/edit', to: 'curriculum#edit'
 
   # temp graph route duties
-  get '/graphs/globalgraph', to: 'graphs#globalgraph'
   get '/graphs/graph', to: 'graphs#graph'
   get '/graphs/batch', to: 'graphs#batch'
+
+  # temp globalgraph route duties
+  get '/globalgraph', to: 'globalgraph#index'
+  get '/globalgraph/categories', to: 'globalgraph#categories'
+  get '/globalgraph/context', to: 'globalgraph#context'
 end

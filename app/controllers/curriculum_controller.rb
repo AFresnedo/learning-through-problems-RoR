@@ -1,15 +1,12 @@
 class CurriculumController < ApplicationController
-  # identify user and fetch latest problem (render view)
-  # read user's latest score (complete or incomplete?) and ask graph controller
-  # for the next problem
-  # finalize problem fetch
-  #   -save 'zero' to new solution object
-  # respond and act on actions taken: answer, hint request
-  #   -add appropriate negative number for hints, add appropriate pos # for ans
-  # TODO determine if can easily add or "subtract" to a int attr
 
-  # NOTE curriculum controller is serving as a temporary portal to problems,
-  # theories, and graphs
+  # CurriculumController is the controller in charge of the "dead" curriculum,
+  # this is basically the interface used by teachers and admins to edit the
+  # curriculum (for live curriuculm controllers see globalgraph/graph)
+  # NOTE the significance of having a curriculum controller is syncing RESTful
+  # actions for the globalgraph/graph controllers with RESTful actions of the
+  # content controllers like problems (creating a problem and adding it to the
+  # curriculum progression)
   def index
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808050034) do
+ActiveRecord::Schema.define(version: 20170810163751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20170808050034) do
     t.datetime "updated_at", null: false
     t.integer "problem_id"
     t.index ["problem_id"], name: "index_answers_on_problem_id"
+  end
+
+  create_table "globalgraphs", force: :cascade do |t|
+    t.string "curriculum"
+    t.string "category"
+    t.string "context"
+    t.integer "category_order"
+    t.integer "context_order"
   end
 
   create_table "graphs", force: :cascade do |t|
@@ -65,7 +73,8 @@ ActiveRecord::Schema.define(version: 20170808050034) do
     t.integer "user_id"
     t.integer "problem_id"
     t.integer "score"
-    t.boolean "comp"
+    t.boolean "ip"
+    t.index ["user_id", "ip"], name: "index_scores_on_user_id_and_ip", unique: true
     t.index ["user_id", "problem_id"], name: "index_scores_on_user_id_and_problem_id", unique: true
   end
 
@@ -81,6 +90,8 @@ ActiveRecord::Schema.define(version: 20170808050034) do
   create_table "theories", force: :cascade do |t|
     t.string "filename"
     t.text "text"
+    t.string "category"
+    t.string "context"
   end
 
   create_table "unlocked_theories", id: false, force: :cascade do |t|
