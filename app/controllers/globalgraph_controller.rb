@@ -9,6 +9,12 @@ class GlobalgraphController < ApplicationController
   #   -add appropriate negative number for hints, add appropriate pos # for ans
   # TODO determine if can easily add or "subtract" to a int attr
 
+  # NOTE more old notes
+  # something along the lines of the globalgraph controller is the user bookmark
+  # mover (think of it as moving the user along designated rails) and the graph
+  # controller is the helper so to kind of answer any questions the globalgraph
+  # controller has?
+
   # NOTE current notes
   # the globalgraph controller is in charge of creating "score" tuples, these
   # "ip score tuples" are what the graphs controller uses as "bookmarks" to
