@@ -1,6 +1,7 @@
 db:seed:curriculum_seed
-db:seed:graph_seed
 db:seed:theory_seed
+db:seed:graph_seed
+db:seed:globalgraph_seed
 db:schema:load
 from console:
     Model.destroy_all
