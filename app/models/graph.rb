@@ -21,5 +21,6 @@ class Graph < ApplicationRecord
   # graph.txt)
 
   # NOTE real graph model notes follow
+  # "batch" doesn't control ordering of in-set problems, not fixing atm
 
 end

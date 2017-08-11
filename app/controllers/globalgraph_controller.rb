@@ -13,15 +13,13 @@ class GlobalgraphController < ApplicationController
 
   # at the moment, purchase curriculums here
   def purchase_curriculum
-    # TODO fix scores unique index (test first? lookup in db book?)
-    # if already purchased, tell user to reset
-    # elsif saved notify user of success and proceed
+    # if already purchased, tell user to reset if desired otherwise resume
+    # elsif "saved" (all unlocks done) notify user of success and proceed
+    #   ask globalgraph model for unlocks
+    #   unlock
+    #   for every tuple in list:
+    #     Scores.create!(user_id: current_user.id, prob: globalgraph.first, ip: true)
     # else error (user not logged in? etc)
-  end
-
-  def choose_curriculum
-    # display purchased curriculums for current_user
-    # at the moment, purchase curriculums here
   end
 
   def resume_curriculum
