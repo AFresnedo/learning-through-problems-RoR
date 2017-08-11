@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810163751) do
+ActiveRecord::Schema.define(version: 20170811042042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 20170810163751) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category"
+    t.string "context"
   end
 
   create_table "scores", force: :cascade do |t|
@@ -74,7 +76,9 @@ ActiveRecord::Schema.define(version: 20170810163751) do
     t.integer "problem_id"
     t.integer "score"
     t.boolean "ip"
-    t.index ["user_id", "ip"], name: "index_scores_on_user_id_and_ip", unique: true
+    t.string "category"
+    t.string "context"
+    t.index ["user_id", "ip"], name: "index_scores_on_user_id_and_ip"
     t.index ["user_id", "problem_id"], name: "index_scores_on_user_id_and_problem_id", unique: true
   end
 

@@ -11,6 +11,26 @@ class GlobalgraphController < ApplicationController
   # "ip score tuples" are what the graphs controller uses as "bookmarks" to
   # determine the next theory(s)/problem(s) a user has access to
 
+  # at the moment, purchase curriculums here
+  def purchase_curriculum
+    # TODO fix scores unique index (test first? lookup in db book?)
+    # if already purchased, tell user to reset
+    # elsif saved notify user of success and proceed
+    # else error (user not logged in? etc)
+  end
+
+  def choose_curriculum
+    # display purchased curriculums for current_user
+    # at the moment, purchase curriculums here
+  end
+
+  def resume_curriculum
+    # TODO current_user or current_user.id?
+    @inProgress = Score.where(user_id: current_user,
+                             curriculum: params[curriculum: curriculum],
+                             ip: true)
+  end
+
   def index
   end
 
