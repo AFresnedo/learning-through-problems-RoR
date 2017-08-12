@@ -13,6 +13,9 @@ class GlobalgraphController < ApplicationController
 
   # at the moment, purchase curriculums here
   def purchase_curriculum
+    # pretend user confirmed as having purchased curriculum
+    globalgraph.init(current_user)
+    # NOTE real psuedocode for no-money demo
     # if already purchased, tell user to reset if desired otherwise resume
     # elsif "saved" (all unlocks done) notify user of success and proceed
     #   ask globalgraph model for unlocks
@@ -25,10 +28,12 @@ class GlobalgraphController < ApplicationController
   def resume_curriculum
     # TODO current_user or current_user.id?
     @inProgress = Score.where(user_id: current_user,
-                             curriculum: params[curriculum: curriculum],
+                             curriculum: params[:curriculum],
                              ip: true)
   end
 
+  # TODO delete me
+  # temp choose curriculum index when pressing curriculum header button
   def index
   end
 

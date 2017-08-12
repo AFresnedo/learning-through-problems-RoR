@@ -1,21 +1,5 @@
 class GraphsController < ApplicationController
 
-  def graph
-    # user choice
-    # has the intro-to-category theory (displayed)
-    # heading for folders (liquids, etc)
-    # NOTE this is right before progression logic takes over for users
-    # re-create context with category, context folder names
-    all = Graph.where(category: params[:category])
-    @context_list = []
-    all.each do |tuple|
-      if (@context_list.last != tuple.context) ? (@context_list << tuple.context) : nil
-      end
-    end
-
-    render '/graphs/graph'
-  end
-
   def batch
     all = Graph.where(context: params[:context])
     @typ = []

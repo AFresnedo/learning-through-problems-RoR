@@ -1,4 +1,5 @@
 Globalgraph.create!(curriculum: 'lifetomath', category: 'introduction', context: 'category_introduction', category_order: 1, context_order: 0)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'introduction', context: 'example', category_order: 1, context_order: 1)
 Globalgraph.create!(curriculum: 'lifetomath', category: 'methods', context: 'category_introduction', category_order: 2, context_order: 0)
 Globalgraph.create!(curriculum: 'lifetomath', category: 'methods', context: 'numerical', category_order: 2, context_order: 1)
 Globalgraph.create!(curriculum: 'lifetomath', category: 'methods', context: 'graphical', category_order: 2, context_order: 2)
