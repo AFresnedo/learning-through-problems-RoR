@@ -27,6 +27,10 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
+  def begin_curriculum
+    # asks globalgraph for start, sets beginning theory(s)/score(s)
+  end
+
   # returns a random 22 character string that can be used in urls
   def User.generate_token
     SecureRandom.urlsafe_base64
