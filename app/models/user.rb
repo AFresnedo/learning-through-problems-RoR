@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :priv, presence: true, numericality: { less_than: 4,
                                                    greater_than_or_equal_to:
                                                    0 }
-  has_many :theory, through: :unlocked_theory
+  has_many :unlocked_theories
   has_many :score
 
   # called by sessionshelper to save a new remember digest
