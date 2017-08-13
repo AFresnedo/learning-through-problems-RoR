@@ -1,0 +1,7 @@
+first slowdown detected during graph model tests
+    -im worried that having the progression logic in a file apart from the
+    content files is forcing too many queries to "get id of next file"
+        -going to continue programming it this way regardless, shouldnt be that
+        bad removing globalgraph and graph models completely and bloating out
+        the....hmmm, i cant even think of it
+            -probably worried about nothing, havent even made indicies yet

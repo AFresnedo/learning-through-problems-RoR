@@ -12,13 +12,15 @@ class Graph < ApplicationRecord
   # TODO last regular file in batch
   def Graph.get_next_file(typ, file)
     last = Graph.find_by(typ: typ, file_id: file)
-    nxt = Graph.find_by(category: last.category,
-                        context: last.context,
-                        batch: last.batch,
-                        order: last.order+1)
-    typ = nxt.typ
-    id = nxt.file_id
-    return [typ, id]
+    next_in_batch = Graph.get_file(last.category, last.context, last.batch,
+                                   last.order+1)
+    if next_in_batch[:typ] == nil
+      # TODO end of batch
+    elsif next_in_batch[:makeup] == 'false'
+      return next_in_batch
+    else
+      # TODO its a makeup problem
+    end
   end
 
   private
@@ -27,9 +29,16 @@ class Graph < ApplicationRecord
                     context: context,
                     batch: batch,
                     order: order)
-      typ = tuple.typ
-      id = tuple.file_id
-      return [typ, id]
+      result = {}
+      # TODO recursive call instead, progressively increasing batch?
+      # NOTE i think the entire idea of a batch has lost meaning
+      if tuple == nil
+        return result[:typ] = nil
+      end
+      result[:typ] = tuple.typ
+      result[:id] = tuple.file_id
+      result[:makeup] = tuple.makeup
+      return result
     end
 
   # get next nonmakeup file in set, send flag to move onto next set if done
