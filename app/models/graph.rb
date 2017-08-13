@@ -1,52 +1,88 @@
 class Graph < ApplicationRecord
 
-  # NOTE standard return is typ and id
+  # NOTE standard return is a hash with :typ, :id, (:makeup)
 
   # get first file in context
   def Graph.get_first_file(category, context)
     batch = 0
     order = 0
-    Graph.get_file(category, context, batch, order)
+    Graph.get_file_by_order(category, context, batch, order)
   end
 
-  # TODO last regular file in batch
-  def Graph.get_next_file(typ, file)
-    last = Graph.find_by(typ: typ, file_id: file)
-    next_in_batch = Graph.get_file(last.category, last.context, last.batch,
-                                   last.order+1)
-    if next_in_batch[:typ] == nil
-      # TODO end of batch
-    elsif next_in_batch[:makeup] == 'false'
-      return next_in_batch
+  # returns nil if not found (likely, end of context)
+  def Graph.get_next(typ, file_id)
+    last = Graph.find_by(typ: typ, file_id: file_id)
+    nxt = Graph.get_next_file_by_order(last.category, last.context,
+                                       last.batch, last.order)
+    # if end of context found
+    if nxt[:typ] == nil
+      return nil
+    # else return next in context, regardless of batch
     else
-      # TODO its a makeup problem
+      return {typ: nxt[:typ], id: nxt[:id], makeup: nxt[:makeup]}
     end
+  end
+
+  # takes category, context, batch: returns all makeup
+  def Graph.get_makeup()
+  end
+
+  # returns true if file is a makeup
+  def Graph.is_makeup?(category, context, typ, file_id)
+    tuple = Graph.find_by(category: category,
+                          context: context,
+                          typ: typ,
+                          file_id: file_id)
+    tuple.makeup ? true : false
   end
 
   private
-    def Graph.get_file(category, context, batch, order)
+
+    def Graph.get_file_by_order(category, context, batch, order)
       tuple = Graph.find_by(category: category,
-                    context: context,
-                    batch: batch,
-                    order: order)
+                            context: context,
+                            batch: batch,
+                            order: order)
       result = {}
-      # TODO recursive call instead, progressively increasing batch?
-      # NOTE i think the entire idea of a batch has lost meaning
       if tuple == nil
-        return result[:typ] = nil
+        result[:typ] = nil
+      else
+        result[:typ] = tuple.typ
+        result[:id] = tuple.file_id
+        result[:makeup] = tuple.makeup
       end
-      result[:typ] = tuple.typ
-      result[:id] = tuple.file_id
-      result[:makeup] = tuple.makeup
       return result
     end
 
-  # get next nonmakeup file in set, send flag to move onto next set if done
-  # get makeup in set
-
-  # get next set
-
-  # NOTE some notion of theory or problem file, some notion of sets, some
-  # notion of makeup problem
-
+    # returns next file in context according to batch, order
+    def Graph.get_next_file_by_order(category, context, batch, order)
+      tuple = Graph.find_by(category: category,
+                            context: context,
+                            batch: batch,
+                            order: order+1)
+      result = {}
+      # if end of batch, move to next batch
+      if tuple == nil
+        tuple = Graph.find_by(category: category,
+                              context: context,
+                              batch: batch+1,
+                              order: 0)
+        # if increasing order and increasing batch failed
+        if tuple == nil
+          # end of context
+          result[:typ] = nil
+        # else increasing batch succeeded
+        else
+          result[:typ] = tuple.typ
+          result[:id] = tuple.file_id
+          result[:makeup] = tuple.makeup
+        end
+      # else increasing order succeeded, remained in batch
+      else
+        result[:typ] = tuple.typ
+        result[:id] = tuple.file_id
+        result[:makeup] = tuple.makeup
+      end
+      return result
+    end
 end
