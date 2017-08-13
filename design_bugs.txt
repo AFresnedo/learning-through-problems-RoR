@@ -2,6 +2,4 @@ currently, it is not okay for a problem or theory from different curriculums to
 have the same category, context, and filename
     -fixing this should be a rather simple script edit though, just not sure
     what that edit is atm
-
-currently, "batches" (problem sets) in contexts are not ordered apart from
-nonmakeup before makeup
+    -local graph tuples also share this bug of lacking a curriculum attribute

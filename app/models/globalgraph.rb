@@ -8,6 +8,7 @@ class Globalgraph < ApplicationRecord
     Globalgraph.get_contexts_by_order(curriculum, 0)
   end
 
+  # TODO end-of-curriculum flag
   def Globalgraph.get_next_theories(curriculum, category)
     order = Globalgraph.get_next_order(curriculum, category)
     Globalgraph.get_theories_by_order(curriculum, order)
