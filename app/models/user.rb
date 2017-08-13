@@ -14,7 +14,8 @@ class User < ApplicationRecord
                                                    greater_than_or_equal_to:
                                                    0 }
   has_many :unlocked_theories
-  has_many :score
+  has_many :scores
+  has_many :markers
 
   # called by sessionshelper to save a new remember digest
   def remember
@@ -25,10 +26,6 @@ class User < ApplicationRecord
 
   def forget
     update_attribute(:remember_digest, nil)
-  end
-
-  def begin_curriculum
-    # asks globalgraph for start, sets beginning theory(s)/score(s)
   end
 
   # returns a random 22 character string that can be used in urls

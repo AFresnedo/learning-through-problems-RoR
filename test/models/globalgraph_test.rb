@@ -7,16 +7,15 @@ class GlobalgraphTest < ActiveSupport::TestCase
     load "#{Rails.root}/db/seeds/globalgraph_seed.rb"
 
     # for beginning files
-    first_theory = Theory.find_by(filename: "./INTRODUCTION/theorytheory.html")
+    first_theory = Theory.find_by(category: 'introduction',
+                                  filename: "theorytheory.html")
     @ft_id = first_theory.id
 
-    # for next category
-    this_theory = Theory.find_by(filename:
-                                 "./APPLICATIONS/explanationtheory2.html")
-    @tt_id = this_theory.id
-    next_theory = Theory.find_by(filename:
-                                 "./ALGEBRAIC/explanationtheory3.html")
+    # for next theories
+    next_theory = Theory.find_by(category: 'applications',
+                                 filename: 'explanationtheory2.html')
     @nt_id = next_theory.id
+
   end
 
   test "theory load" do
@@ -33,21 +32,16 @@ class GlobalgraphTest < ActiveSupport::TestCase
   end
 
   test "get beginning files" do
-    beginning_list = Globalgraph.get_beginning
-    assert_equal "theory", beginning_list[0]
-    assert_equal beginning_list[1], @ft_id
-    assert_equal "context", beginning_list[2]
-    assert_equal "example", beginning_list[3]
+    beginning_theories = Globalgraph.get_beginning_theories('lifetomath')
+    assert_equal @ft_id, beginning_theories[0]
+    beginning_contexts = Globalgraph.get_beginning_contexts('lifetomath')
+    assert_equal "example", beginning_contexts[0]
   end
 
-  test "get next category" do
-    category_order = 2
-    thisCategoryList = Globalgraph.get_by_order(category_order)
-    assert_equal "theory", thisCategoryList[0]
-    assert_equal @tt_id, thisCategoryList[1]
-    nextCategoryList = Globalgraph.get_by_order(category_order+1)
-    assert_equal "theory", nextCategoryList[0]
-    assert_equal @nt_id, nextCategoryList[1]
+  test "get next theories" do
+    # just finished methods category, should get applications
+    theories = Globalgraph.get_next_theories('lifetomath', 'methods')
+    assert_equal @nt_id, theories[0]
   end
 
 end

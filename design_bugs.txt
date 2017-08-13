@@ -1,0 +1,4 @@
+currently, it is not okay for a problem or theory from different curriculums to
+have the same category, context, and filename
+    -fixing this should be a rather simple script edit though, just not sure
+    what that edit is atm
