@@ -1,6 +1,6 @@
 class Graph < ApplicationRecord
 
-  # NOTE standard return is a hash with :typ, :id, (:makeup)
+  # NOTE standard return is a hash with :typ, :id, :makeup
 
   # get first file in context
   def Graph.get_first_file(category, context)
@@ -14,18 +14,18 @@ class Graph < ApplicationRecord
     last = Graph.find_by(typ: typ, file_id: file_id)
     nxt = Graph.get_next_file_by_order(last.category, last.context,
                                        last.batch, last.order)
-    # if end of context found
+    # if not found, likely end of context
     if nxt[:typ] == nil
-      return nil
-    # else return next in context, regardless of batch
+      return {typ: nxt[:typ]}
+    # else return next file, regardless of batch
     else
       return {typ: nxt[:typ], id: nxt[:id], makeup: nxt[:makeup]}
     end
   end
 
   # takes category, context, batch: returns all makeup
-  def Graph.get_makeup()
-  end
+  # def Graph.get_makeup()
+  # end
 
   # returns true if file is a makeup
   def Graph.is_makeup?(category, context, typ, file_id)
@@ -33,7 +33,11 @@ class Graph < ApplicationRecord
                           context: context,
                           typ: typ,
                           file_id: file_id)
-    tuple.makeup ? true : false
+    if tuple == nil
+      return false
+    else
+      return tuple.makeup ? true : false
+    end
   end
 
   private
