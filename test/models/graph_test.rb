@@ -1,12 +1,11 @@
 require 'test_helper'
 
 # too slow to do every time
-# curriculum seed causes long loads
 # note that having this stuff outside is bad form, temporary fix only
-# putting it in the test_helper setup would be even worse
-load "#{Rails.root}/db/seeds/curriculum_seed.rb"
+# putting it in the test_helper setup is an option but its a bit slow
+load "#{Rails.root}/db/seeds/test_problem_seed.rb"
 load "#{Rails.root}/db/seeds/theory_seed.rb"
-load "#{Rails.root}/db/seeds/graph_seed.rb"
+load "#{Rails.root}/db/seeds/test_graph_seed.rb"
 class GraphTest < ActiveSupport::TestCase
   def setup
 
@@ -17,13 +16,13 @@ class GraphTest < ActiveSupport::TestCase
     @ff_id = first_file.id
 
     # for next file
-    this_file = Problem.find_by(category: 'methods',
-                                context: 'numerical',
-                                filename: 'numerical2.html')
+    this_file = Problem.find_by(category: 'applications',
+                                context: 'average',
+                                filename: 'average4.html')
     @tf_id = this_file.id
-    next_file = Problem.find_by(category: 'methods',
-                                context: 'numerical',
-                                filename: 'numerical3.html')
+    next_file = Problem.find_by(category: 'applications',
+                                context: 'average',
+                                filename: 'average5.html')
     @nf_id = next_file.id
     edge_file = Problem.find_by(category: 'applications',
                                 context: 'time',
