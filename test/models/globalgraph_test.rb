@@ -5,6 +5,7 @@ class GlobalgraphTest < ActiveSupport::TestCase
     # for all
     load "#{Rails.root}/db/seeds/theory_seed.rb"
     load "#{Rails.root}/db/seeds/globalgraph_seed.rb"
+    @curriculum = 'lifetomath'
 
     # for beginning files
     first_theory = Theory.find_by(category: 'introduction',
@@ -15,6 +16,9 @@ class GlobalgraphTest < ActiveSupport::TestCase
     next_theory = Theory.find_by(category: 'applications',
                                  filename: 'explanationtheory2.html')
     @nt_id = next_theory.id
+
+    # for edge cases
+    @final_category = 'algebraic'
 
   end
 
@@ -32,16 +36,26 @@ class GlobalgraphTest < ActiveSupport::TestCase
   end
 
   test "get beginning files" do
-    beginning_theories = Globalgraph.get_beginning_theories('lifetomath')
+    beginning_theories = Globalgraph.get_beginning_theories(@curriculum)
     assert_equal @ft_id, beginning_theories[0]
-    beginning_contexts = Globalgraph.get_beginning_contexts('lifetomath')
+    beginning_contexts = Globalgraph.get_beginning_contexts(@curriculum)
     assert_equal "example", beginning_contexts[0]
   end
 
   test "get next theories" do
     # just finished methods category, should get applications
-    theories = Globalgraph.get_next_theories('lifetomath', 'methods')
+    theories = Globalgraph.get_next_theories(@curriculum, 'methods')
     assert_equal @nt_id, theories[0]
+  end
+
+  test "get next theories when last in category" do
+    theories = Globalgraph.get_next_theories(@curriculum, @final_category)
+    assert_nil theories
+  end
+
+  test "get next contexts when last in category" do
+    contexts = Globalgraph.get_next_contexts(@curriculum, @final_category)
+    assert_nil contexts
   end
 
 end

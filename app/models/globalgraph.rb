@@ -8,7 +8,6 @@ class Globalgraph < ApplicationRecord
     Globalgraph.get_contexts_by_order(curriculum, 0)
   end
 
-  # TODO end-of-curriculum flag
   def Globalgraph.get_next_theories(curriculum, category)
     order = Globalgraph.get_next_order(curriculum, category)
     Globalgraph.get_theories_by_order(curriculum, order)
@@ -32,6 +31,10 @@ class Globalgraph < ApplicationRecord
       theories = Globalgraph.where(curriculum: curriculum,
                                    category_order: category_order,
                                    context: 'category_introduction')
+      # if category is out-of-bounds or simply doesn't exist
+      if theories.empty?
+        return nil
+      end
       theory_ids = []
       theories.each do |theory|
         theory_ids << Theory.find_by(category: theory.category,
@@ -43,6 +46,10 @@ class Globalgraph < ApplicationRecord
   def Globalgraph.get_contexts_by_order(curriculum, category_order)
       files = Globalgraph.where(curriculum: curriculum,
                                    category_order: category_order)
+      # if category is out-of-bounds or simply doesn't exist
+      if files.empty?
+        return nil
+      end
       contexts = []
       files.each do |file|
         # TODO needs to be more exclusive, if possible, for future changes
