@@ -1,9 +1,12 @@
 require 'test_helper'
 
+load "#{Rails.root}/db/seeds/test_problem_seed.rb"
+load "#{Rails.root}/db/seeds/theory_seed.rb"
+load "#{Rails.root}/db/seeds/test_graph_seed.rb"
+load "#{Rails.root}/db/seeds/globalgraph_seed.rb"
+
 class MarkerTest < ActiveSupport::TestCase
   def setup
-    load "#{Rails.root}/db/seeds/theory_seed.rb"
-    load "#{Rails.root}/db/seeds/globalgraph_seed.rb"
     @curriculum = 'lifetomath'
     @user = User.create!(name: 'andros', email: 'fine@sure.org', password:
                          'thisisvalid', priv: 1)

@@ -1,11 +1,10 @@
 require 'test_helper'
 
-# too slow to do every time
-# note that having this stuff outside is bad form, temporary fix only
-# putting it in the test_helper setup is an option but its a bit slow
 load "#{Rails.root}/db/seeds/test_problem_seed.rb"
 load "#{Rails.root}/db/seeds/theory_seed.rb"
 load "#{Rails.root}/db/seeds/test_graph_seed.rb"
+load "#{Rails.root}/db/seeds/globalgraph_seed.rb"
+
 class GraphTest < ActiveSupport::TestCase
   def setup
 

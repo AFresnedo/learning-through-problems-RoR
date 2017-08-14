@@ -22,9 +22,22 @@ class Marker < ApplicationRecord
 
     # unlock first file in each context of beginning category
     contexts = Globalgraph.get_beginning_contexts(curriculum)
-    files = []
+    theories = []
+    problems = []
     contexts.each do |context|
-      # call graph for beginning files
+      # call graph for beginning file of context
+      file = Graph.get_first_file(category, context)
+      if file[:typ] == nil
+        # can't be end of context, this is beginning
+        raise "beginning file not found for context: "+context
+      elsif file[:typ] == 'theory'
+        theories << file[:id]
+      elsif file[:typ] == 'prob'
+        problems << file[:id]
+      else
+        raise "unknown return from Graph calls during begin_curriculum"
+      end
+
     end
   end
 end
