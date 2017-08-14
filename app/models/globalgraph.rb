@@ -1,18 +1,26 @@
 class Globalgraph < ApplicationRecord
 
+  # returns a list of Theory tuple ids
   def Globalgraph.get_beginning_theories(curriculum)
     Globalgraph.get_theories_by_order(curriculum, 0)
   end
 
+  # returns a list of context names
   def Globalgraph.get_beginning_contexts(curriculum)
     Globalgraph.get_contexts_by_order(curriculum, 0)
   end
 
+  def Globalgraph.get_beginning_category(curriculum)
+    Globalgraph.get_category_by_order(curriculum, 0)
+  end
+
+  # returns a list of Theory tuple ids
   def Globalgraph.get_next_theories(curriculum, category)
     order = Globalgraph.get_next_order(curriculum, category)
     Globalgraph.get_theories_by_order(curriculum, order)
   end
 
+  # returns a list of context names
   def Globalgraph.get_next_contexts(curriculum, category)
     order = Globalgraph.get_next_order(curriculum, category)
     Globalgraph.get_contexts_by_order(curriculum, order)
@@ -20,6 +28,12 @@ class Globalgraph < ApplicationRecord
 
 
   private
+
+    def Globalgraph.get_category_by_order(curriculum, order)
+      tuple = Globalgraph.find_by(curriculum: curriculum,
+                                     category_order: order)
+      return tuple.category
+    end
 
     def Globalgraph.get_next_order(curriculum, category)
       order = Globalgraph.find_by(curriculum: curriculum,

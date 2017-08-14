@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170813075656) do
+ActiveRecord::Schema.define(version: 20170814003747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170813075656) do
   create_table "markers", force: :cascade do |t|
     t.integer "user_id"
     t.string "curriculum"
+    t.string "category"
     t.index ["user_id", "curriculum"], name: "index_markers_on_user_id_and_curriculum", unique: true
   end
 
@@ -105,12 +106,12 @@ ActiveRecord::Schema.define(version: 20170813075656) do
     t.string "context"
   end
 
-  create_table "unlocked_theories", id: false, force: :cascade do |t|
-    t.integer "theory_id", null: false
+  create_table "unlocked_theories", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "theory_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id", "theory_id"], name: "index_unlocked_theories_on_user_id_and_theory_id", unique: true
+    t.index ["theory_id"], name: "index_unlocked_theories_on_theory_id"
     t.index ["user_id"], name: "index_unlocked_theories_on_user_id"
   end
 
@@ -125,4 +126,6 @@ ActiveRecord::Schema.define(version: 20170813075656) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "unlocked_theories", "theories"
+  add_foreign_key "unlocked_theories", "users"
 end
