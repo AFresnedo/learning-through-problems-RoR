@@ -44,8 +44,18 @@ class MarkerTest < ActiveSupport::TestCase
   end
 
   test "unlock beginning files for application category" do
-    # NOTE something about changing begin_curriculum to begin_category and just
-    # initializing "begin curriculum" as "begin category" with globalgraph
-    # setting the category as the inital category
+    @marker.begin_category(@curriculum, "applications")
+    assert_equal @marker.category, 'applications'
+    # check that "every" theory is unlocked and that one problem per context is
+    # unlocked
+    catIntroTheory = Theory.find_by!(category: 'applications',
+                                     context: 'category_introduction')
+    unlockedIntro = @user.unlocked_theories.find_by!(theory_id:
+                                                     catIntroTheory.id)
+    assert_equal catIntroTheory.id, unlockedIntro.id
+    conOneProb = Problem.find_by!(category: 'applications',
+                                 context: 'average',
+                                 filename: 'average1.html')
+    @user.scores.find_by!(problem_id: conOneProb.id)
   end
 end

@@ -34,26 +34,30 @@ class GlobalgraphTest < ActiveSupport::TestCase
   end
 
   test "get beginning files" do
-    beginning_theories = Globalgraph.get_beginning_theories(@curriculum)
+    beginning_theories = Globalgraph.get_beginning_theories(@curriculum,
+                                                            'introduction')
     assert_equal @ft_id, beginning_theories[0]
-    beginning_contexts = Globalgraph.get_beginning_contexts(@curriculum)
+    beginning_contexts = Globalgraph.get_beginning_contexts(@curriculum,
+                                                            'introduction')
     assert_equal "example", beginning_contexts[0]
+  end
+
+  test "get next category" do
+  oldCat = 'methods'
+  newCat = Globalgraph.get_next_category(@curriculum, oldCat)
+  assert_equal 'applications', newCat
   end
 
   test "get next theories" do
     # just finished methods category, should get applications
-    theories = Globalgraph.get_next_theories(@curriculum, 'methods')
+    newCategory = Globalgraph.get_next_category(@curriculum, 'methods')
+    theories = Globalgraph.get_theories(@curriculum, newCategory)
     assert_equal @nt_id, theories[0]
   end
 
-  test "get next theories when last in category" do
-    theories = Globalgraph.get_next_theories(@curriculum, @final_category)
-    assert_nil theories
-  end
-
-  test "get next contexts when last in category" do
-    contexts = Globalgraph.get_next_contexts(@curriculum, @final_category)
-    assert_nil contexts
+  test "get next category when already last" do
+    outOfBounds = Globalgraph.get_next_category(@curriculum, @final_category)
+    assert_nil outOfBounds
   end
 
 end

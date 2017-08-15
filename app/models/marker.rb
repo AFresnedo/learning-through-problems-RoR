@@ -18,7 +18,16 @@ class Marker < ApplicationRecord
     # set category
     category = Globalgraph.get_beginning_category(curriculum)
     update_attribute(:category, category)
+    begin_category(curriculum, category)
+  end
 
+  def next_category(curriculum, category)
+    category = Globalgraph.get_next_category(curriculum, category)
+    begin_category(curriculum, category)
+  end
+
+  def begin_category(curriculum, category)
+    update_attribute(:category, category)
     # unlock category introductions
     theories = Globalgraph.get_beginning_theories(curriculum)
     theories.each do |theory|
@@ -80,6 +89,6 @@ class Marker < ApplicationRecord
     end
 
     def set_new_problems(id)
-      user.scores.create!(prob_id: id)
+      user.scores.create!(problem_id: id)
     end
 end
