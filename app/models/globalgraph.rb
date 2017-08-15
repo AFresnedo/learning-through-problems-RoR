@@ -8,12 +8,7 @@ class Globalgraph < ApplicationRecord
 
   def Globalgraph.get_next_category(curriculum, category)
     order = Globalgraph.get_category_order(curriculum, category)
-    category = Globalgraph.get_category_by_order(curriculum, order+1)
-    if category == nil
-      return nil
-    else
-      return category
-    end
+    Globalgraph.get_category_by_order(curriculum, order+1)
   end
 
   # TODO seems like a pointless public/private method couple
