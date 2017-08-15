@@ -20,6 +20,7 @@ class Marker < ApplicationRecord
       user.unlocked_theories.create!(theory_id: theory)
     end
 
+    # unlock every problem?
     # unlock first file in each context of beginning category
     contexts = Globalgraph.get_beginning_contexts(curriculum)
     theories = []
@@ -37,7 +38,25 @@ class Marker < ApplicationRecord
       else
         raise "unknown return from Graph calls during begin_curriculum"
       end
-
+      set_unlocked_theories(theories)
+      set_new_problems(problems)
     end
   end
+
+  # TODO make sure every operation ends with a problem or end of context
+  # TODO once all open contexts in a curriculum are finished, get next category
+
+  private
+
+    def set_unlocked_theories(theory_ids)
+      theory_ids.each do |id|
+        user.unlocked_theories.create!(theory_id: id)
+      end
+    end
+
+    def set_new_problems(problem_ids)
+      problem_ids.each do |id|
+        user.scores.create!(prob_id: id)
+      end
+    end
 end
