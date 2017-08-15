@@ -73,11 +73,11 @@ class Marker < ApplicationRecord
       end
   end
 
-    def set_unlocked_theory(theory_id)
+    def set_unlocked_theory(id)
       user.unlocked_theories.create!(theory_id: id)
     end
 
-    def set_new_problems(problem_id)
+    def set_new_problems(id)
       user.scores.create!(prob_id: id)
     end
 end

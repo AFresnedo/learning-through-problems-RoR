@@ -33,10 +33,6 @@ class GlobalgraphTest < ActiveSupport::TestCase
     assert_not_nil Globalgraph.find_by(category_order: 0)
   end
 
-  test "graph load" do
-    assert_nil Graph.first
-  end
-
   test "get beginning files" do
     beginning_theories = Globalgraph.get_beginning_theories(@curriculum)
     assert_equal @ft_id, beginning_theories[0]
