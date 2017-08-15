@@ -42,4 +42,10 @@ class MarkerTest < ActiveSupport::TestCase
     assert_equal theoryTwo.id, unlockedTwo.theory_id
     assert_equal theoryThree.id, unlockedThree.theory_id
   end
+
+  test "unlock beginning files for application category" do
+    # NOTE something about changing begin_curriculum to begin_category and just
+    # initializing "begin curriculum" as "begin category" with globalgraph
+    # setting the category as the inital category
+  end
 end

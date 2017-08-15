@@ -8,6 +8,11 @@ class Marker < ApplicationRecord
   # does not warrant its own table and does not fit in scores or
   # unlocked_theories
 
+  # NOTE modus operandi is to continously unlock theory files until a problem
+  # is reached; this is true within each context
+
+  # TODO once all open contexts in a curriculum are finished, get next category
+
   # call globalgraph and graph to unlock beginning theories and problems
   def begin_curriculum(curriculum)
     # set category
@@ -30,9 +35,6 @@ class Marker < ApplicationRecord
       set_until_problem(file)
     end
   end
-
-  # TODO make sure every operation ends with a problem or end of context
-  # TODO once all open contexts in a curriculum are finished, get next category
 
   private
 
