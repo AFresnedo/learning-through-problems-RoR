@@ -46,16 +46,29 @@ class MarkerTest < ActiveSupport::TestCase
   test "unlock beginning files for application category" do
     @marker.begin_category(@curriculum, "applications")
     assert_equal @marker.category, 'applications'
-    # check that "every" theory is unlocked and that one problem per context is
-    # unlocked
+    # category introduciton is unlocked
     catIntroTheory = Theory.find_by!(category: 'applications',
                                      context: 'category_introduction')
-    unlockedIntro = @user.unlocked_theories.find_by!(theory_id:
-                                                     catIntroTheory.id)
-    assert_equal catIntroTheory.id, unlockedIntro.id
+    @user.unlocked_theories.find_by!(theory_id: catIntroTheory.id)
+    # problem 1 of first context is unlocked
     conOneProb = Problem.find_by!(category: 'applications',
-                                 context: 'average',
-                                 filename: 'average1.html')
+                                 context: 'quantities',
+                                 filename: 'quantity7.html')
     @user.scores.find_by!(problem_id: conOneProb.id)
+    # problem 1 of second context is unlocked
+    conTwoProb = Problem.find_by!(category: 'applications',
+                                  context: 'money',
+                                  filename: 'money2.html')
+    @user.scores.find_by!(problem_id: conTwoProb.id)
+    # problem 2 of first context is NOT unlocked
+    conOneProbTwo = Problem.find_by!(category: 'applications',
+                                     context: 'quantities',
+                                     filename: 'quantity1.html')
+    assert_nil @user.scores.find_by(problem_id: conOneProbTwo.id)
+    # problem 1 of last context is unlocked
+    conLastProb = Problem.find_by!(category: 'applications',
+                                   context: 'average',
+                                   filename: 'average4.html')
+    @user.scores.find_by!(problem_id: conLastProb.id)
   end
 end

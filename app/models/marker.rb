@@ -29,14 +29,14 @@ class Marker < ApplicationRecord
   def begin_category(curriculum, category)
     update_attribute(:category, category)
     # unlock category introductions
-    theories = Globalgraph.get_beginning_theories(curriculum)
+    theories = Globalgraph.get_beginning_theories(curriculum, category)
     theories.each do |theory|
       user.unlocked_theories.create!(theory_id: theory)
     end
 
     # unlock first problem, and every theory prior, in each context of
     # beginning category
-    contexts = Globalgraph.get_beginning_contexts(curriculum)
+    contexts = Globalgraph.get_beginning_contexts(curriculum, category)
     contexts.each do |context|
       # call graph for beginning file of context
       file = Graph.get_first_file(category, context)
@@ -88,7 +88,7 @@ class Marker < ApplicationRecord
       user.unlocked_theories.create!(theory_id: id)
     end
 
-    def set_new_problems(id)
-      user.scores.create!(problem_id: id)
+    def set_new_problem(id)
+      user.scores.create!(problem_id: id, ip: true)
     end
 end
