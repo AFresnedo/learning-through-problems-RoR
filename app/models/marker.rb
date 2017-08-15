@@ -20,26 +20,14 @@ class Marker < ApplicationRecord
       user.unlocked_theories.create!(theory_id: theory)
     end
 
-    # unlock every problem?
-    # unlock first file in each context of beginning category
+    # unlock first problem, and every theory prior, in each context of
+    # beginning category
     contexts = Globalgraph.get_beginning_contexts(curriculum)
-    theories = []
-    problems = []
     contexts.each do |context|
       # call graph for beginning file of context
       file = Graph.get_first_file(category, context)
-      if file[:typ] == nil
-        # can't be end of context, this is beginning
-        raise "beginning file not found for context: "+context
-      elsif file[:typ] == 'theory'
-        theories << file[:id]
-      elsif file[:typ] == 'prob'
-        problems << file[:id]
-      else
-        raise "unknown return from Graph calls during begin_curriculum"
-      end
-      set_unlocked_theories(theories)
-      set_new_problems(problems)
+      # keep pulling files until a problem is found or end of context
+      set_until_problem(file)
     end
   end
 
@@ -48,15 +36,48 @@ class Marker < ApplicationRecord
 
   private
 
-    def set_unlocked_theories(theory_ids)
-      theory_ids.each do |id|
-        user.unlocked_theories.create!(theory_id: id)
+  # takes a file of format {typ: typ, id: id}, which represents a file in
+  # a context; sets that file and all following theory files, in that context,
+  # until the next problem in that context is found and set
+  def set_until_problem(file)
+      while true
+        # if end of context or unknown error
+        if file[:typ] == nil
+          break
+        # elsif theory file, unlock and continue
+        elsif file[:typ] == 'theory'
+          set_file(file)
+        # elsif problem file, unlock but do not continue
+        elsif file[:typ] == 'prob'
+          set_file(file)
+          break
+        # else bad return from Graph
+        else
+          raise "unknown return from Graph calls during set_until_problem"
+        end
+        # if while loop continued, get next file
+        file = Graph.get_next(file[:typ], file[:id])
       end
+  end
+
+  # takes a file of format {typ: typ, id: id} and unlocks it for the user
+  def set_file(file)
+      if file[:typ] == nil
+        raise "cannot set a file returned as end of context flag"
+      elsif file[:typ] == 'theory'
+        set_unlocked_theory(file[:id])
+      elsif file[:typ] == 'prob'
+        set_new_problem(file[:id])
+      else
+        raise "unknown return from Graph during set_file"
+      end
+  end
+
+    def set_unlocked_theory(theory_id)
+      user.unlocked_theories.create!(theory_id: id)
     end
 
-    def set_new_problems(problem_ids)
-      problem_ids.each do |id|
-        user.scores.create!(prob_id: id)
-      end
+    def set_new_problems(problem_id)
+      user.scores.create!(prob_id: id)
     end
 end

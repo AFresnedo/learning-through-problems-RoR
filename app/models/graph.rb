@@ -11,7 +11,7 @@ class Graph < ApplicationRecord
 
   # returns nil if not found (likely, end of context)
   def Graph.get_next(typ, file_id)
-    last = Graph.find_by(typ: typ, file_id: file_id)
+    last = Graph.find_by!(typ: typ, file_id: file_id)
     nxt = Graph.get_next_file_by_order(last.category, last.context,
                                        last.batch, last.order)
     # if not found, likely end of context

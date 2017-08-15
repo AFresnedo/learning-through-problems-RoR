@@ -35,9 +35,9 @@ class MarkerTest < ActiveSupport::TestCase
     theoryThree = Theory.find_by!(category: 'introduction',
                            context: 'example',
                            filename: 'exampletheory3.html')
-    unlockedOne = @user.unlocked_theories.find_by(theory_id: theoryOne.id)
-    unlockedTwo = @user.unlocked_theories.find_by(theory_id: theoryTwo.id)
-    unlockedThree = @user.unlocked_theories.find_by(theory_id: theoryThree.id)
+    unlockedOne = @user.unlocked_theories.find_by!(theory_id: theoryOne.id)
+    unlockedTwo = @user.unlocked_theories.find_by!(theory_id: theoryTwo.id)
+    unlockedThree = @user.unlocked_theories.find_by!(theory_id: theoryThree.id)
     assert_equal theoryOne.id, unlockedOne.theory_id
     assert_equal theoryTwo.id, unlockedTwo.theory_id
     assert_equal theoryThree.id, unlockedThree.theory_id
