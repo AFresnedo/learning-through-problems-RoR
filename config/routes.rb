@@ -20,16 +20,10 @@ Rails.application.routes.draw do
   # theories
   resources :theories, only: [:show]
 
-  # temp curriculum route duties
-  get '/curriculum', to: 'curriculum#index'
-
-  # temp graph route duties
-  get '/graphs/graph', to: 'graphs#graph'
-  get '/graphs/batch', to: 'graphs#batch'
-
-  # temp globalgraph route duties
-  get '/globalgraph', to: 'globalgraph#index'
-  get '/globalgraph/categories', to: 'globalgraph#categories'
-  get '/globalgraph/context', to: 'globalgraph#context'
+  # curriculum pages for teachers/admins
+  get '/curriculum/edit', to: 'curriculum#index_flat'
+  get '/curriculum/categories', to: 'curriculum#index_categories'
+  get '/curriculum/contexts', to: 'curriculum#index_contexts'
+  get '/curriculum/files', to: 'curriculum#index_files'
 
 end

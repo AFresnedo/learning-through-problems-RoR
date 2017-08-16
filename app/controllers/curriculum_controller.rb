@@ -7,6 +7,7 @@ class CurriculumController < ApplicationController
 
   # TODO search feature, otherwise it seems pointless
   def index_flat
+    # problems, theories, and graphs
   end
 
   def index_categories
@@ -16,10 +17,10 @@ class CurriculumController < ApplicationController
       if (@cat_list.last != tuple.category) ? (@cat_list << tuple.category) : nil
       end
     end
-    render '/globalgraph/categories'
+    render '/curriculum/categories'
   end
 
-  def index_context
+  def index_contexts
     # all tuples from globalgraph for this category
     all = Globalgraph.where(category: params[:category])
     @cat_intro_ids = []
@@ -36,7 +37,7 @@ class CurriculumController < ApplicationController
         @context_list << item.context
       end
     end
-    render '/globalgraph/context'
+    render '/curriculum/contexts'
   end
 
   def index_files
@@ -51,9 +52,6 @@ class CurriculumController < ApplicationController
       @batches << file.batch
       @makeup << file.makeup
     end
-
-    # admin page for displaying progression information at localgraph level
-    # doing this before hiding it behind progression logic, for debugging
-    render '/graphs/batch'
+    render '/curriculum/files'
   end
 end
