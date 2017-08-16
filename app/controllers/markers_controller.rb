@@ -1,5 +1,8 @@
 class MarkersController < ApplicationController
 
+  def index
+  end
+
   def begin_curriculum
     # if already purchased, tell user to reset if desired otherwise resume
     # elsif "saved" (all unlocks done) notify user of success and proceed

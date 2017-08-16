@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  # markers
+  get '/curriculum', to: 'markers#index'
+
   # problems
   resources :problems, except: [:new, :create]
 

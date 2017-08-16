@@ -4,5 +4,5 @@
 <% end %>
 <h2>context index</h2>
 <% @context_list.each do |context| %>
-  <p><%= link_to context, graphs_batch_path(context: context) %></p>
+  <p><%= link_to context, curriculum_files_path(context: context) %></p>
 <% end %>

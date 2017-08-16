@@ -1,8 +1,10 @@
-db:seed:curriculum_seed
-db:seed:theory_seed
-db:seed:graph_seed
-db:seed:globalgraph_seed
-db:schema:load
+rails db:schema:load
+rails db:seed
+rails db:seed:curriculum_seed
+rails db:seed:theory_seed
+rails db:seed:graph_seed
+rails db:seed:globalgraph_seed
+
 from console:
     Model.destroy_all
         -this respects associations and other stuff
