@@ -6,21 +6,22 @@ class CurriculumController < ApplicationController
   # curriculum progression)
 
   # TODO search feature, otherwise it seems pointless (well it has graphs)
-  def index_flat
-    render '/curriculum/index'
+  def index
   end
 
-  def index_categories
+  def curricula
+  end
+
+  def categories
     all = Globalgraph.all
     @cat_list = []
     all.each do |tuple|
       if (@cat_list.last != tuple.category) ? (@cat_list << tuple.category) : nil
       end
     end
-    render '/curriculum/categories'
   end
 
-  def index_contexts
+  def contexts
     # all tuples from globalgraph for this category
     all = Globalgraph.where(category: params[:category])
     @cat_intro_ids = []
@@ -37,10 +38,9 @@ class CurriculumController < ApplicationController
         @context_list << item.context
       end
     end
-    render '/curriculum/contexts'
   end
 
-  def index_files
+  def files
     all = Graph.where(context: params[:context])
     @typ = []
     @ids = []
@@ -52,6 +52,5 @@ class CurriculumController < ApplicationController
       @batches << file.batch
       @makeup << file.makeup
     end
-    render '/curriculum/files'
   end
 end

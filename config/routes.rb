@@ -21,9 +21,10 @@ Rails.application.routes.draw do
   resources :theories, only: [:show]
 
   # curriculum pages for teachers/admins
-  get '/curriculum/edit', to: 'curriculum#index_flat'
-  get '/curriculum/categories', to: 'curriculum#index_categories'
-  get '/curriculum/contexts', to: 'curriculum#index_contexts'
-  get '/curriculum/files', to: 'curriculum#index_files'
+  get '/curriculum/edit', to: 'curriculum#index'
+  get '/curricula', to: 'curriculum#curricula'
+  get '/curriculum/categories', to: 'curriculum#categories'
+  get '/curriculum/contexts', to: 'curriculum#contexts'
+  get '/curriculum/files', to: 'curriculum#files'
 
 end

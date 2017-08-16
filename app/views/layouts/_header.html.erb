@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <%# user account menu %>
         <% if logged_in %>
-          <li><%= link_to "Curriculum", globalgraph_path %></li>
+          <li><%= link_to "Curriculum", markers_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>
@@ -19,7 +19,8 @@
               <%# admin only %>
               <% if is_teacher %>
                 <li><%= link_to "View Users", users_path %></li>
-                <li><%= link_to "Edit Curriculum", curriculum_path %></li>
+                <li><%= link_to "Curriculum Directories", curricula_path %></li>
+                <li><%= link_to "Edit Curriculum", curriculum_edit_path %></li>
                 <li class="divider"></li>
               <% end %>
               <%# all users %>
