@@ -1,8 +1,0 @@
-<h2>introduction to category theory(s)</h2>
-<% @cat_intro_ids.each do |id| %>
-  <%= link_to 'Introduction Theory', theory_path(id) %>
-<% end %>
-<h2>context index</h2>
-<% @context_list.each do |context| %>
-  <p><%= link_to context, graphs_batch_path(context: context) %></p>
-<% end %>

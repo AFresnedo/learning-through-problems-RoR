@@ -6,17 +6,18 @@ class Globalgraph < ApplicationRecord
     Globalgraph.get_category_by_order(curriculum, 0)
   end
 
+  # returns string of next category's name
   def Globalgraph.get_next_category(curriculum, category)
     order = Globalgraph.get_category_order(curriculum, category)
     Globalgraph.get_category_by_order(curriculum, order+1)
   end
 
-  # TODO seems like a pointless public/private method couple
   # returns a list of Theory tuple ids
   def Globalgraph.get_beginning_theories(curriculum, category)
     Globalgraph.get_theories(curriculum, category)
   end
 
+  # TODO finish implementation
   def Globalgraph.get_beginning_context(curriculum, category)
     Globalgraph.get_context(curriculum, category, 0)
   end
@@ -69,7 +70,6 @@ class Globalgraph < ApplicationRecord
       end
     end
 
-    # NOTE redo
     def Globalgraph.get_contexts(curriculum, category)
         files = Globalgraph.where(curriculum: curriculum,
                                      category: category)

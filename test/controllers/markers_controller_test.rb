@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GlobalgraphControllerTest < ActionDispatch::IntegrationTest
+class MarkersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
