@@ -11,8 +11,6 @@ class Marker < ApplicationRecord
   # NOTE modus operandi is to continously unlock theory files until a problem
   # is reached; this is true within each context
 
-  # TODO once all open contexts in a curriculum are finished, get next category
-
   # call globalgraph and graph to unlock beginning theories and problems
   def begin_curriculum(curriculum)
     # set category
