@@ -13,6 +13,8 @@ class Marker < ApplicationRecord
 
   # TODO once all open contexts in a curriculum are finished, get next category
 
+  # TODO get next file within one context (answer a problem)
+
   # call globalgraph and graph to unlock beginning theories and problems
   def begin_curriculum(curriculum)
     # set category
@@ -43,6 +45,11 @@ class Marker < ApplicationRecord
       # keep pulling files until a problem is found or end of context
       set_until_problem(file)
     end
+  end
+
+  def set_next_problem(problem_id)
+    file = Graph.get_next('prob', problem_id)
+    set_until_problem(file)
   end
 
   private

@@ -71,4 +71,29 @@ class MarkerTest < ActiveSupport::TestCase
                                    filename: 'average4.html')
     @user.scores.find_by!(problem_id: conLastProb.id)
   end
+
+  test "set next problem, next is problem" do
+    @marker.begin_category(@curriculum, "applications")
+    nxt = Problem.find_by!(category: 'applications',
+                           context: 'quantities',
+                           filename: 'quantity1.html')
+    prob = Problem.find_by!(category: 'applications',
+                            context: 'quantities',
+                            filename: 'quantity7.html')
+    @marker.set_next_problem(prob.id)
+    @user.scores.find_by!(problem_id: nxt.id)
+  end
+
+  test "set next problem, next is theory" do
+    # can't with problem set
+  end
+
+  test "set next problem, next is out of bounds" do
+    prob = Problem.find_by!(category: 'applications',
+                            context: 'average',
+                            filename: 'average15.html')
+    assert_difference '@user.scores.count', 0 do
+      @marker.set_next_problem(prob.id)
+    end
+  end
 end
