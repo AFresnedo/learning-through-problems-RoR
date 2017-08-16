@@ -1,3 +1,10 @@
+data validations:
+    -not only input (is answer missing?)
+    -remember that bug with "nil" category saves in unlocked_theory because the
+    setter wasn't being called by marker model? that stuff too
+    -integration tests are tightly connected with this, start making those at
+    the same time
+
 context: theoryfile bug
     -unable to find file from Globalgraph tuple
         -obvious solution is to add file id to globaltuple but no

@@ -1,7 +1,12 @@
 <h2>Your Unlocked Theories</h2>
 <% @directories.each do |category, context_list| %>
-  <h3><%= 'Category: '%></h3>
-  <%= context_list %>
+  <h3><%= category %></h3>
+  <% context_list.each do |context| %>
+    <p><%= context %></p>
+    <% unlocks = @unlocked_theories.where(category: category, context: context) %>
+    <% unlocks.each do |unlock| %>
+      <% theory = Theory.find(unlock.theory_id) %>
+      <p><%= link_to theory.filename, theory_path(theory.id) %></p>
+    <% end %>
+  <% end %>
 <% end %>
-<h4>category debug list:</h4>
-<%= @categories %>
