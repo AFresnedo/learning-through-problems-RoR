@@ -1,11 +1,7 @@
 <h2>Your Unlocked Theories</h2>
-<%# for every category, for every context in that category %>
-<% @categories.each do |category| %>
-  <h4><%= 'Category: '+category %></h4>
-  <% @theories.each do |theory| %>
-    <% if theory.category == category %>
-      <p><%= link_to theory.context+'/'+theory.filename,
-        theory_path(theory.id) %></p>
-    <% end %>
-  <% end %>
+<% @directories.each do |category, context_list| %>
+  <h3><%= 'Category: '%></h3>
+  <%= context_list %>
 <% end %>
+<h4>category debug list:</h4>
+<%= @categories %>

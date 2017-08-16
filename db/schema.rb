@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814003747) do
+ActiveRecord::Schema.define(version: 20170816175943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20170814003747) do
     t.datetime "updated_at", null: false
     t.string "category"
     t.string "context"
+    t.string "curriculum"
   end
 
   create_table "scores", force: :cascade do |t|
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 20170814003747) do
     t.boolean "ip"
     t.string "category"
     t.string "context"
+    t.string "curriculum"
     t.index ["user_id", "ip"], name: "index_scores_on_user_id_and_ip"
     t.index ["user_id", "problem_id"], name: "index_scores_on_user_id_and_problem_id", unique: true
   end
@@ -104,6 +106,7 @@ ActiveRecord::Schema.define(version: 20170814003747) do
     t.text "text"
     t.string "category"
     t.string "context"
+    t.string "curriculum"
   end
 
   create_table "unlocked_theories", force: :cascade do |t|
@@ -111,6 +114,9 @@ ActiveRecord::Schema.define(version: 20170814003747) do
     t.bigint "theory_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "curriculum"
+    t.string "category"
+    t.string "context"
     t.index ["theory_id"], name: "index_unlocked_theories_on_theory_id"
     t.index ["user_id"], name: "index_unlocked_theories_on_user_id"
   end

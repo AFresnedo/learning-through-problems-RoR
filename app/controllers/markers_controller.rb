@@ -52,21 +52,27 @@ class MarkersController < ApplicationController
   end
 
   def theories
-    # get ids of all unlocked theories
-    unlocked_theories = current_user.unlocked_theories.all
-    @theories = []
+    @unlocked_theories = current_user.unlocked_theories.all
     @categories = []
-    @contexts = []
-    # get tuples of all unlocked theories
-    unlocked_theories.each do |unlocked|
-      toAdd = Theory.find(unlocked.theory_id)
-      if toAdd.category != @categories.last
-        @categories << toAdd.category
+    # create a list of every category
+    @unlocked_theories.each do |unlocked|
+      if unlocked.category != @categories.last
+        @categories << unlocked.category
       end
-      if toAdd.context != @contexts.last
-        @contexts << toAdd.context
+    end
+
+    # {category => [context1, context2, ect]}
+    @directories = {}
+    @categories.each do |category|
+      # for a category, get all tuples
+      in_category = @unlocked_theories.where(category: category)
+      contexts = []
+      in_category.each do |tuple|
+        if tuple.context != contexts.last
+          contexts << tuple.context
+        end
       end
-      @theories << toAdd
+      @directories[category] = contexts
     end
   end
 end

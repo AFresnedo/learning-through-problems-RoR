@@ -29,7 +29,7 @@ class Marker < ApplicationRecord
     # unlock category introductions
     theories = Globalgraph.get_beginning_theories(curriculum, category)
     theories.each do |theory|
-      user.unlocked_theories.create!(theory_id: theory)
+      set_unlocked_theory(theory)
     end
 
     # unlock first problem, and every theory prior, in each context of
@@ -87,15 +87,22 @@ class Marker < ApplicationRecord
       end
   end
 
-    # TODO include organizational attributes here and in schema
+    # TODO replace DB call with passing parameters, refactor & test
+    # fix curriculum source?
     def set_unlocked_theory(id)
-      user.unlocked_theories.create!(theory_id: id)
+      theory = Theory.find(id)
+      user.unlocked_theories.create!(theory_id: id,
+                                     curriculum: self.curriculum,
+                                     category: theory.category,
+                                     context: theory.context)
     end
 
     # TODO replace DB call with passing parameters, refactor & test
+    # fix curriculum source?
     def set_new_problem(id)
       prob = Problem.find(id)
       user.scores.create!(problem_id: id, ip: true,
+                          curriculum: self.curriculum,
                           category: prob.category,
                           context: prob.context)
     end
