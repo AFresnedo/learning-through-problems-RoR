@@ -1,35 +1,12 @@
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-<h2>problem filename</h2>
-<p><%= @problem.filename %></p>
-<h3>problem statement</h3>
+<% graphInfo = Graph.find_by(file_id: @problem.id,
+                             typ: 'prob') %>
+<% batchNumber = graphInfo.batch %>
+<% orderNumber = graphInfo.order %>
+<h4><%= 'Problem Group: '+batchNumber.to_s %></h4>
+<h4><%= 'Problem: '+orderNumber.to_s %></h4>
 <%== @problem.text %>
-
-<h2>answer interface</h2>
-<%== @answer.interface %>
-<h3>answers</h3>
-<p><%= @answer.values %></p>
-
-<% x = 0 %>
-<% @solutions.each do |solution| %>
-  <h2>solution statement</h2>
-  <p><%= solution.typ %></p>
-  <%== solution.text %>
-  <h3>hint statement(s) for solution</h3>
-  <% @hints[x].each do |hint| %>
-    <h4>a hint</h4>
-    <%== hint.text %>
-  <% end %>
-  <% x+=1 %>
-<% end %>
-
-<h2>metadata</h2>
-<h4>category</h4>
-<%= @metadata.category %>
-<h4>context</h4>
-<%= @metadata.context %>
-<h4>difficulty</h4>
-<%= @metadata.diff %>
-<h4>source</h4>
-<%= @metadata.source %>
+<%== @problem.answer.interface %>
+<%# now have buttons for hints and answering %>

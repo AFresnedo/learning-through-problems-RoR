@@ -5,6 +5,10 @@ class ProblemsController < ApplicationController
 
   def show
     @problem = Problem.find_by_id(params[:id])
+  end
+
+  def edit
+    @problem = Problem.find_by_id(params[:id])
     @answer = @problem.answer
     @solutions = @problem.solutions
     @hints = []
@@ -12,9 +16,5 @@ class ProblemsController < ApplicationController
       @hints.push(solution.hints)
     end
     @metadata = @problem.metadata
-  end
-
-  def edit
-    @problem = Problem.find_by_id(params[:id])
   end
 end
