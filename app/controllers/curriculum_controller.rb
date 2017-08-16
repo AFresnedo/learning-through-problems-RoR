@@ -5,9 +5,9 @@ class CurriculumController < ApplicationController
   # content controllers like problems (creating a problem and adding it to the
   # curriculum progression)
 
-  # TODO search feature, otherwise it seems pointless
+  # TODO search feature, otherwise it seems pointless (well it has graphs)
   def index_flat
-    # problems, theories, and graphs
+    render '/curriculum/index'
   end
 
   def index_categories
