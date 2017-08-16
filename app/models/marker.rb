@@ -87,11 +87,16 @@ class Marker < ApplicationRecord
       end
   end
 
+    # TODO include organizational attributes here and in schema
     def set_unlocked_theory(id)
       user.unlocked_theories.create!(theory_id: id)
     end
 
+    # TODO replace DB call with passing parameters, refactor & test
     def set_new_problem(id)
-      user.scores.create!(problem_id: id, ip: true)
+      prob = Problem.find(id)
+      user.scores.create!(problem_id: id, ip: true,
+                          category: prob.category,
+                          context: prob.context)
     end
 end

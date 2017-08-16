@@ -15,9 +15,12 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   # markers
-  get '/curriculum', to: 'markers#index'
+  get '/start', to: 'markers#index'
   post '/curriculum', to: 'markers#begin_curriculum'
   get '/theories', to: 'markers#theories'
+  get '/resume', to: 'markers#resume_curriculum'
+  post '/resume', to: 'markers#next_category'
+  delete '/start', to: 'markers#reset_curriculum'
 
   # problems
   resources :problems, except: [:new, :create]

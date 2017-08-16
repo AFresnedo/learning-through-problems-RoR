@@ -1,0 +1,2 @@
+in model/marker you have a DB call for getting problem attributes, it's faster
+to send these as parameters back from the graph

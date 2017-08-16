@@ -1,0 +1,8 @@
+<h2>Current Open Problems</h2>
+<% if @ip.empty? %>
+  <h4><%= 'Congratulations, you\'ve completed the '+@category+' category.' %></h4>
+  <%= link_to 'Next Category', resume_path, method: :post%>
+<% end %>
+<% @ip.each do |id| %>
+  <p><%= link_to id, problem_path(id) %></p>
+<% end %>
