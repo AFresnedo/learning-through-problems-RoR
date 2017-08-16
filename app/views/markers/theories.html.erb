@@ -1,4 +1,6 @@
 <h2>Your Unlocked Theories</h2>
-<% @id_list.each do |id| %>
-  <p><%= link_to id, theory_path(id) %></p>
+<% @unlocked_list.each do |theory| %>
+  <p><%= 'Category: '+theory.category %></p>
+  <p><%= 'Context: '+theory.context %></p>
+  <p><%= link_to theory.filename, theory_path(theory.id) %></p>
 <% end %>

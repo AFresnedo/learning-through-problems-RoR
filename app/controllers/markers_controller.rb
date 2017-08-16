@@ -11,6 +11,7 @@ class MarkersController < ApplicationController
     # TODO strong params
     marker = current_user.markers.create!(curriculum: params[:curriculum])
     marker.begin_curriculum(params[:curriculum])
+    redirect_to resume_path(curriculum: params[:curriculum])
     # if already purchased, tell user to reset if desired otherwise resume
     # elsif "saved" (all unlocks done) notify user of success and proceed
     # else error (user not logged in? etc)
@@ -20,6 +21,7 @@ class MarkersController < ApplicationController
   def next_category
     marker = current_user.markers.find_by(curriculum: 'lifetomath')
     marker.next_category('lifetomath', marker.category)
+    redirect_to resume_path(curriculum: 'lifetomath')
   end
 
   # TODO make this curriculum-specific
@@ -28,6 +30,7 @@ class MarkersController < ApplicationController
     UnlockedTheory.where(user_id: current_user.id).destroy_all
     Score.where(user_id: current_user.id).destroy_all
     Marker.where(user_id: current_user.id).destroy_all
+    redirect_to start_path
   end
 
   def resume_curriculum
@@ -38,7 +41,8 @@ class MarkersController < ApplicationController
                          ip: true)
     @ip = []
     scores.each do |score|
-      @ip << score.problem_id
+      prob = Problem.find(score.problem_id)
+      @ip << prob
     end
 
     # for when @ip is empty
@@ -48,10 +52,12 @@ class MarkersController < ApplicationController
   end
 
   def theories
+    # TODO some way to organize by category, context?
     theories = current_user.unlocked_theories.all
-    @id_list = []
-    theories.each do |theory|
-      @id_list << theory.theory_id
+    @unlocked_list = []
+    theories.each do |tuple|
+      theory = Theory.find(tuple.theory_id)
+      @unlocked_list << theory
     end
   end
 end

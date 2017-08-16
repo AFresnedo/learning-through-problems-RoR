@@ -2,7 +2,10 @@
 <% if @ip.empty? %>
   <h4><%= 'Congratulations, you\'ve completed the '+@category+' category.' %></h4>
   <%= link_to 'Next Category', resume_path, method: :post%>
+<% else %>
+  <h3><%= 'Category: '+@ip[0].category %></h3>
 <% end %>
-<% @ip.each do |id| %>
-  <p><%= link_to id, problem_path(id) %></p>
+<% @ip.each do |prob| %>
+  <p><%= 'Context: '+prob.context %></p>
+  <p><%= link_to prob.filename, problem_path(prob.id) %></p>
 <% end %>
