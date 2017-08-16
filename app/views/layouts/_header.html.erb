@@ -19,8 +19,10 @@
               <%# admin only %>
               <% if is_teacher %>
                 <li><%= link_to "View Users", users_path %></li>
-                <li><%= link_to "Curriculum Directories", curricula_path %></li>
-                <li><%= link_to "Edit Curriculum", curriculum_edit_path %></li>
+                <li class="divider"></li>
+                <li><p>Curriculum:<p></li>
+                <li><%= link_to "Directories", curricula_path %></li>
+                <li><%= link_to "List", curriculum_edit_path %></li>
                 <li class="divider"></li>
               <% end %>
               <%# all users %>
