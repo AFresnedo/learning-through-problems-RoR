@@ -1,12 +1,13 @@
 <%provide(:title, 'Curriculum')%>
 <h1>Life to Math</h1>
-<p><%= link_to 'Start Here', curriculum_path(curriculum: 'lifetomath'), method:
-  :post  %></p>
 <% if current_user.markers.find_by(curriculum: 'lifetomath') %>
   <p><%= link_to 'Resume Here', resume_path(curriculum: 'lifetomath') %></p>
+<% else %>
+  <p><%= link_to 'Start Here', curriculum_path(curriculum: 'lifetomath'), method:
+  :post  %></p>
 <% end %>
 <h1>Let's Count</h1>
-<%= link_to 'Start Here', '#' %>
+<%= link_to 'Start Here (incomplete)', '#' %>
 <% if is_teacher %>
   <h2>Teacher Tools</h2>
   <p><%= link_to 'Delete All of Your Progress', start_path, method: :delete %></p>

@@ -52,12 +52,21 @@ class MarkersController < ApplicationController
   end
 
   def theories
-    # TODO some way to organize by category, context?
-    theories = current_user.unlocked_theories.all
-    @unlocked_list = []
-    theories.each do |tuple|
-      theory = Theory.find(tuple.theory_id)
-      @unlocked_list << theory
+    # get ids of all unlocked theories
+    unlocked_theories = current_user.unlocked_theories.all
+    @theories = []
+    @categories = []
+    @contexts = []
+    # get tuples of all unlocked theories
+    unlocked_theories.each do |unlocked|
+      toAdd = Theory.find(unlocked.theory_id)
+      if toAdd.category != @categories.last
+        @categories << toAdd.category
+      end
+      if toAdd.context != @contexts.last
+        @contexts << toAdd.context
+      end
+      @theories << toAdd
     end
   end
 end
