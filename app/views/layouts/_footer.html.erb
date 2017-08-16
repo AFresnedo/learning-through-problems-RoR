@@ -7,7 +7,7 @@
             <% if logged_in %>
               <ul>
                 <%# TODO unlocked_theories url %>
-                <% url = '#' %>
+                <% url = theories_path %>
                 <li><%= link_to "Unlocked Theories", url %></li>
               </ul>
             <% else %>

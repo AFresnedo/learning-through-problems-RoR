@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   # markers
   get '/curriculum', to: 'markers#index'
+  post '/curriculum', to: 'markers#begin_curriculum'
+  get '/theories', to: 'markers#theories'
 
   # problems
   resources :problems, except: [:new, :create]
