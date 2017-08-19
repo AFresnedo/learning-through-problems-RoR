@@ -7,6 +7,12 @@ class MarkersController < ApplicationController
   def index
   end
 
+  def continue
+    @problem = Problem.find_by_id(params[:id])
+    @answer = @problem.answer
+    render '/markers/do_problem'
+  end
+
   def begin_curriculum
     # TODO strong params
     marker = current_user.markers.create!(curriculum: params[:curriculum])
@@ -38,7 +44,7 @@ class MarkersController < ApplicationController
     if score == newestScore
       flash[:warning] = "No problems remain in context."
     end
-    redirect_to problem_path(id: newestScore.problem_id)
+    redirect_to continue_path(id: newestScore.problem_id)
   end
 
   # TODO make this curriculum-specific

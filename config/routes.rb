@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   post '/resume', to: 'markers#next_category'
   delete '/start', to: 'markers#reset_curriculum'
   post '/problem/skip', to: 'markers#skip_problem'
+  get '/continue/:id', to: 'markers#continue', as: 'continue'
 
   # problems
   resources :problems, except: [:new, :create]
