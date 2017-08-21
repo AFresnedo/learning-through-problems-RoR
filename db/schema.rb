@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816175943) do
+ActiveRecord::Schema.define(version: 20170820225629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,14 @@ ActiveRecord::Schema.define(version: 20170816175943) do
     t.index ["user_id", "problem_id"], name: "index_scores_on_user_id_and_problem_id", unique: true
   end
 
+  create_table "seen_hints", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "hint_id"
+    t.integer "index"
+    t.index ["hint_id"], name: "index_seen_hints_on_hint_id"
+    t.index ["user_id"], name: "index_seen_hints_on_user_id"
+  end
+
   create_table "solutions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -132,6 +140,8 @@ ActiveRecord::Schema.define(version: 20170816175943) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "seen_hints", "hints"
+  add_foreign_key "seen_hints", "users"
   add_foreign_key "unlocked_theories", "theories"
   add_foreign_key "unlocked_theories", "users"
 end
