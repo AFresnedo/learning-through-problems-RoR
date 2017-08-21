@@ -7,12 +7,6 @@ class MarkersController < ApplicationController
   def index
   end
 
-  def continue
-    @problem = Problem.find_by_id(params[:id])
-    @answer = @problem.answer
-    render '/markers/do_problem'
-  end
-
   def begin_curriculum
     # TODO strong params
     marker = current_user.markers.create!(curriculum: params[:curriculum])
