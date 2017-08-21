@@ -8,7 +8,7 @@ module AnswersHelper
   # html
   def boxes_interface(interface)
     # count number of slots for answers
-    boxCount = interface.scan(/[ ]/).count
+    boxCount = interface.scan('[ ]').count
     # ensure at least one box to be processed, otherwise return "error"
     if boxCount == 0
       return "<p>(MALFORMED ANSWER TEMPLATE, NOT BOXES)</p>"
@@ -17,13 +17,13 @@ module AnswersHelper
     html = ""
     offset = 0
     i = 0
-    boxCount.each do |box|
+    boxCount.times do |box|
       pos = interface.index('[ ]', offset)
-      html += boxes_substring(interface[offset..pos], "f_#{i}")
+      html += boxes_substring(interface[offset..pos-1], "f_#{i}")
       offset = pos + 3
       i += 1
     end
-    html += boxes_substring(interface[offset], "x", true)
+    html += boxes_substring(interface[offset..-1], "x", true)
   end
 
   def boxes_substring(text, id, hidden = false)

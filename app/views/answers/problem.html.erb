@@ -3,5 +3,6 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <div class="problem_statement">
-<p><%== @problem.text %></p>
+<%== @problem.text %>
 </div>
+<%== boxes_interface(@problem.answer.interface) %>
