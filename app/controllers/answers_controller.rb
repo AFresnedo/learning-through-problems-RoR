@@ -32,8 +32,6 @@ class AnswersController < ApplicationController
     marker = current_user.markers.find_by(curriculum: 'lifetomath')
     marker.set_next_problem(prob.id)
     # get amount of hints seen for this problem, by user
-    hint_count = SeenHint.find_by(user_id: current_user.id, problem_id:
-                                   prob.id)
     # if all answers were correct
     if results[0] == true
       if (hint_count > SCORES_PER_PROBLEM.length) or
