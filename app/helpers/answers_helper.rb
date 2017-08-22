@@ -1,8 +1,11 @@
 module AnswersHelper
   # NOTE sourced from Robert Cranfill's ma/app/helpers.php
 
-  # TODO create a fill-in form using the variable amount of answers
-  # TODO determine if a hints_seen db is necessary because of multiple types
+  # TODO code for displaying next hint of type T
+  # includes code for no hints remaining of type T
+
+  # TODO code for displaying hints_seen by user
+
 
   # takes an Answer's saved boxes-only interface and returns it as form-usable
   # html

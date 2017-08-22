@@ -44,8 +44,11 @@ class Marker < ApplicationRecord
   end
 
   def set_next_problem(problem_id)
+    # TODO check user's batch score and determine if skipping makeup
+    makeup = true
+
     file = Graph.get_next('prob', problem_id)
-    set_until_problem(file)
+    set_until_problem(file, makeup)
   end
 
   private
@@ -53,7 +56,7 @@ class Marker < ApplicationRecord
   # takes a file of format {typ: typ, id: id}, which represents a file in
   # a context; sets that file and all following theory files, in that context,
   # until the next problem in that context is found and set
-  def set_until_problem(file)
+  def set_until_problem(file, makeup)
       while true
         # if end of context or unknown error
         if file[:typ] == nil
@@ -61,10 +64,17 @@ class Marker < ApplicationRecord
         # elsif theory file, unlock and continue
         elsif file[:typ] == 'theory'
           set_file(file)
-        # elsif problem file, unlock but do not continue
-        elsif file[:typ] == 'prob'
+        # elsif regular problem file, unlock but do not continue
+        elsif !file[:makeup]
           set_file(file)
           break
+        # elsif makeup file and makeup true (do not skip), unlock & stop
+        elsif file[:makeup] and makeup
+          set_file(file)
+          break
+        # elsif makeup and makeup false (not wanted, skip), continue
+        elsif file[:makeup]
+          set_file(file)
         # else bad return from Graph
         else
           raise "unknown return from Graph calls during set_until_problem"
