@@ -24,3 +24,11 @@ curriculum controller: this controller is in charge of editing the curriculum
 
     -new = new theory, problem, globalgraph, graph
     -update = edit a content file or a curriculum progression logic file
+
+seen_hints:
+    -some attributes are not foreign keys (like user_id) because I want the
+    tuple to persist if those links are severed
+        -in the user_id case, I want to still be able to get "average hints
+        asked for" for a problem even if a user deletes his account
+            -the counter arguement is never let a user delete his account and
+            treat the foreign key as error-checking data integrity but meh

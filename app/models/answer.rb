@@ -26,7 +26,7 @@ class Answer < ApplicationRecord
     flawless = true
     ans.each do |answer|
       userAnswer = userAnswerList[i]
-      if userAnswer != answer
+      if userAnswer.to_f != answer.to_f
         flawless = false
         results << i
       end

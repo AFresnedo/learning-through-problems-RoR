@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   # TODO change to use variable from graph input, if wanted by Razvan
-  SCORE_PER_PROBLEM = 7
-  SCORE_PER_MAKEUP = 3
+  SCORES_PER_PROBLEM = [7, 5, 3, 1, 0]
+  SCORES_PER_MAKEUP = [3, 2, 1, 0]
 end

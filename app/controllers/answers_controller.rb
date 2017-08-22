@@ -28,12 +28,24 @@ class AnswersController < ApplicationController
     # TODO if giving partial credit, change here or in Answers.evaluate_hash
     score = Score.find_by(user_id: current_user.id, problem_id: prob.id)
     score.update_attribute(:ip, false)
-    # TODO update for curriculum
+    # TODO update for curriculum name
     marker = current_user.markers.find_by(curriculum: 'lifetomath')
     marker.set_next_problem(prob.id)
+    # get amount of hints seen for this problem, by user
+    hint_count = SeenHint.find_by(user_id: current_user.id, problem_id:
+                                   prob.id)
+    # if all answers were correct
     if results[0] == true
-      score.update_attribute(:score, 7)
+      if (hint_count > SCORES_PER_PROBLEM.length) or
+        (SCORES_PER_PROBLEM[hint_count] == 0)
+        # TODO fail with user feedback stating too many hints
+        score.update_attribute(:score, 0)
+      else
+        score.update_attribute(:score, SCORES_PER_PROBLEM[hint_count])
+      end
+    # else at least one incorrect answer
     else
+      # TODO provide results[1...] feedback
       score.update_attribute(:score, 0)
     end
     # redirect_to results_path

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820225629) do
+ActiveRecord::Schema.define(version: 20170822185654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,11 +93,12 @@ ActiveRecord::Schema.define(version: 20170820225629) do
   end
 
   create_table "seen_hints", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id"
+    t.bigint "problem_id"
+    t.integer "solution_id"
     t.bigint "hint_id"
-    t.integer "index"
     t.index ["hint_id"], name: "index_seen_hints_on_hint_id"
-    t.index ["user_id"], name: "index_seen_hints_on_user_id"
+    t.index ["problem_id"], name: "index_seen_hints_on_problem_id"
   end
 
   create_table "solutions", force: :cascade do |t|
@@ -141,7 +142,7 @@ ActiveRecord::Schema.define(version: 20170820225629) do
   end
 
   add_foreign_key "seen_hints", "hints"
-  add_foreign_key "seen_hints", "users"
+  add_foreign_key "seen_hints", "problems"
   add_foreign_key "unlocked_theories", "theories"
   add_foreign_key "unlocked_theories", "users"
 end
