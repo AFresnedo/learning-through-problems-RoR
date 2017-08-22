@@ -23,7 +23,7 @@ module AnswersHelper
       # grab and add all text after last and before this insert
       html += interface[offset..pos-1]
       # create and add the html fill-in box
-      html += input_box("f_#{i}")
+      html += input_box(i)
       # move position past insert spot
       offset = pos + 3
       # increase box label counter
@@ -35,6 +35,6 @@ module AnswersHelper
 
   # create a fill-in html input box with name, id: "id"
   def input_box(id)
-    "<input type='text' name='#{id}' id='#{id}'/>"
+    "<input type='text' name='ans[#{id}]' id='ans_box_#{id}'/>"
   end
 end

@@ -38,7 +38,7 @@ class MarkersController < ApplicationController
     if score == newestScore
       flash[:warning] = "No problems remain in context."
     end
-    redirect_to continue_path(id: newestScore.problem_id)
+    redirect_to solve_path(id: newestScore.problem_id)
   end
 
   # TODO make this curriculum-specific

@@ -17,8 +17,11 @@ class AnswersController < ApplicationController
   end
 
   # submits user's answers for problem
-  def submit
+  def evaluate
     # TODO evaluate answer, redirect to scores controller (analytics)
-    redirect_to results_path
+    # NOTE should I send the parameters to answers?
+    # redirect_to results_path
+    s = "success! answers were: " + params.to_unsafe_h.to_s
+    render plain: s
   end
 end

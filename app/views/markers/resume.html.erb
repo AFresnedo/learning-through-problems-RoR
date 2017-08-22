@@ -6,5 +6,5 @@
   <h3><%= 'Category: '+@ip[0].category %></h3>
 <% end %>
 <% @ip.each do |prob| %>
-  <p><%= link_to prob.context, continue_path(prob.id) %></p>
+  <p><%= link_to prob.context, solve_path(prob.id) %></p>
 <% end %>

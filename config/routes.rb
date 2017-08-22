@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   post '/problem/skip', to: 'markers#skip_problem'
 
   # answers
-  get '/continue/:id', to: 'answers#problem', as: 'continue'
+  get '/solve/:id', to: 'answers#problem', as: 'solve'
+  post '/solve/:id', to: 'answers#evaluate'
 
   # problems
   resources :problems, except: [:new, :create]

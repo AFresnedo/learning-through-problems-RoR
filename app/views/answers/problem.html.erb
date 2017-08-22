@@ -7,7 +7,8 @@
 </div>
 <%# TODO select proper interface for answering a problem %>
 <%# NOTE interface for answering the problem %>
-<%= form_tag("/evaluate", method: :post) do %>
+<%= form_tag do %>
+  <%# NOTE user input hashed under :ans from 0...n %>
   <%== boxes_interface(@problem.answer.interface) %>
   <%= submit_tag("Evaluate") %>
 <% end %>
