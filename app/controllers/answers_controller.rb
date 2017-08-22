@@ -28,7 +28,9 @@ class AnswersController < ApplicationController
       userAnsList << answer
     end
     # evaluate the answers, results[0] is a boolean followed by indicies
-    # relative to prob.answer.answers; true means answers were correct
+    # relative to prob.answer.answers
+    # true means answers were correct and appended indicies are indicies of
+    # incorrect answers
     results = prob.answer.evaluate(userAnsList)
     if results[0] == true
       # TODO success

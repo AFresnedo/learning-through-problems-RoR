@@ -19,18 +19,17 @@ class Answer < ApplicationRecord
     end
     # evaluate user answers
     i = 0
-    correct = []
+    results = []
     flawless = true
     ans.each do |answer|
       userAnswer = userAnswerList[i]
-      if userAnswer == answer
-        correct << i
-      else
+      if userAnswer != answer
         flawless = false
+        results << i
       end
       i += 1
     end
-    correct.unshift(flawless)
-    return correct
+    results.unshift(flawless)
+    return results
   end
 end
