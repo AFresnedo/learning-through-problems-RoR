@@ -9,7 +9,7 @@ class Answer < ApplicationRecord
 
   # takes a list of user parameters (answers) from answers controller
   # returns a list containing true/false followed by index of correct answers
-  def evaluate(userAnswerHash)
+  def evaluate_hash(userAnswerHash)
     # convert user input hash to a list
     userAnswerList = []
     userAnswerHash.each do |index, answer|

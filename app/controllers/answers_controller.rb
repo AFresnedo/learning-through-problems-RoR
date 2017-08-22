@@ -24,11 +24,17 @@ class AnswersController < ApplicationController
     # relative to prob.answer.answers
     # true means answers were correct and appended indicies are indicies of
     # incorrect answers
-    results = prob.answer.evaluate(params[:ans])
+    results = prob.answer.evaluate_hash(params[:ans])
+    # TODO if giving partial credit, change here or in Answers.evaluate_hash
+    score = Score.find_by(user_id: current_user.id, problem_id: prob.id)
+    score.update_attribute(:ip, false)
+    # TODO update for curriculum
+    marker = current_user.markers.find_by(curriculum: 'lifetomath')
+    marker.set_next_problem(prob.id)
     if results[0] == true
-      # TODO success
+      score.update_attribute(:score, 7)
     else
-      # TODO false
+      score.update_attribute(:score, 0)
     end
     # redirect_to results_path
     s = "success! answers were: " + params.to_unsafe_h.to_s
