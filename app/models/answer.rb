@@ -9,12 +9,15 @@ class Answer < ApplicationRecord
 
   # takes a list of user parameters (answers) from answers controller
   # returns a list containing true/false followed by index of correct answers
-  def evaluate(userAnswerList)
+  def evaluate(userAnswerHash)
+    # convert user input hash to a list
+    userAnswerList = []
+    userAnswerHash.each do |index, answer|
+      userAnswerList << answer
+    end
     # get list of database answers and check preconditions
     ans = self.answers
-    if userAnswerList == nil
-      raise "user input not correctly set as a list"
-    elsif userAnswerList.length != ans.length
+    if userAnswerList.length != ans.length
       raise "num of user answers != to num of DB answers"
     end
     # evaluate user answers

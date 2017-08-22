@@ -20,18 +20,11 @@ class AnswersController < ApplicationController
   def evaluate
     # get problem, and therefore its answers
     prob = Problem.find(params[:id])
-    # get user answers as a hash
-    ansHash = params[:ans]
-    # convert the hash to a list
-    userAnsList = []
-    ansHash.each do |index, answer|
-      userAnsList << answer
-    end
     # evaluate the answers, results[0] is a boolean followed by indicies
     # relative to prob.answer.answers
     # true means answers were correct and appended indicies are indicies of
     # incorrect answers
-    results = prob.answer.evaluate(userAnsList)
+    results = prob.answer.evaluate(params[:ans])
     if results[0] == true
       # TODO success
     else
@@ -39,7 +32,6 @@ class AnswersController < ApplicationController
     end
     # redirect_to results_path
     s = "success! answers were: " + params.to_unsafe_h.to_s
-    s += "and userAnsList was " + userAnsList.to_s
     s += "and results were " + results.to_s
     render plain: s
   end
