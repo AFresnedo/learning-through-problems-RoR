@@ -18,17 +18,23 @@ module AnswersHelper
     offset = 0
     i = 0
     boxCount.times do |box|
+      # find spot to insert
       pos = interface.index('[ ]', offset)
-      html += boxes_substring(interface[offset..pos-1], "f_#{i}")
+      # grab and add all text after last and before this insert
+      html += interface[offset..pos-1]
+      # create and add the html fill-in box
+      html += input_box("f_#{i}")
+      # move position past insert spot
       offset = pos + 3
+      # increase box label counter
       i += 1
     end
-    html += boxes_substring(interface[offset..-1], "x", true)
+    # add any remaining interface text and return
+    html += interface[offset..-1]
   end
 
-  def boxes_substring(text, id, hidden = false)
-    hidden_flag = hidden ? "hidden" : ""
-    html = "<label for='#{id}'> #{text} </label>"
-    html += "<input type='text' name='#{id}' id='#{id}' #{hidden_flag}/>"
+  # create a fill-in html input box with name, id: "id"
+  def input_box(id)
+    "<input type='text' name='#{id}' id='#{id}'/>"
   end
 end

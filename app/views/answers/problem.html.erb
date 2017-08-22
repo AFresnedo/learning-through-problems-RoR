@@ -5,4 +5,9 @@
 <div class="problem_statement">
 <%== @problem.text %>
 </div>
-<%== boxes_interface(@problem.answer.interface) %>
+<%# TODO select proper interface for answering a problem %>
+<%# NOTE interface for answering the problem %>
+<%= form_tag("/evaluate", method: :post) do %>
+  <%== boxes_interface(@problem.answer.interface) %>
+  <%= submit_tag("Evaluate") %>
+<% end %>
