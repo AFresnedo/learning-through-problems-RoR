@@ -37,8 +37,10 @@ class AnswersController < ApplicationController
       score.update_attribute(:score, 0)
     end
     # redirect_to results_path
-    s = "success! answers were: " + params.to_unsafe_h.to_s
-    s += "and results were " + results.to_s
-    render plain: s
+    newestScore = Score.where(user_id: current_user.id, ip: true).order(:updated_at).last
+    if score == newestScore
+      flash[:warning] = "No problems remain in context."
+    end
+    redirect_to solve_path(id: newestScore.problem_id)
   end
 end
