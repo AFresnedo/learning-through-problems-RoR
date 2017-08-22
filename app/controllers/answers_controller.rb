@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
   end
 
   # unlocks next hint for current_user
-  def hint
+  def get_hint
     # TODO psuedocode follows
     # params: problem_id, hint_type
     # use above + user info to get next hint of type of problem

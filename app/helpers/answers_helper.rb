@@ -1,11 +1,14 @@
 module AnswersHelper
   # NOTE sourced from Robert Cranfill's ma/app/helpers.php
 
-  # TODO code for displaying next hint of type T
-  # includes code for no hints remaining of type T
+  # TODO check for hints of type T remaining; more like check for all hints
+  # remaining for the problem, right? and then return a hash or something for
+  # organization of multiple sols/hints?
 
-  # TODO code for displaying hints_seen by user
-
+  # TODO code for displaying hints (obviously, the ones unlocked by hints_seen)
+  # get all hints_seen for user, return to view {type: count} so it knows how
+  # to display the hints and return any relevant contents (not id, don't
+  # re-check the DB in the view)
 
   # takes an Answer's saved boxes-only interface and returns it as form-usable
   # html
