@@ -25,8 +25,8 @@ Rails.application.routes.draw do
 
   # answers
   get '/solve/:id', to: 'answers#problem', as: 'solve'
-  post '/solve/:id', to: 'answers#evaluate'
-  post '/solve/:id/hint', to: 'answers#get_hint', as: 'get_hint'
+  post '/solve/evaluate', to: 'answers#evaluate'
+  post '/solve/:id', to: 'answers#get_hint', as: 'get_hint'
 
   # problems
   resources :problems, except: [:new, :create]

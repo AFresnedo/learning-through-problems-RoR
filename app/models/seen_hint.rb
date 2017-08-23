@@ -20,7 +20,7 @@ class SeenHint < ApplicationRecord
     end
     list = []
     hints.each do |hint|
-      list << hint.id
+      list << hint.hint_id
     end
     return list
   end

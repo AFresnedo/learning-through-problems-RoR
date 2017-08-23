@@ -7,38 +7,68 @@
 <div class="problem_statement">
 <%== @problem.text %>
 </div>
-<%# get id list of hints user has unlocked %>
-<% usersHints = users_hints(@problem.id) %>
 
-<%# TODO code for displaying button(s) asking for hints of type(s) T %>
-<%# button will call answers controller's get_hint to do DB work and redraw page %>
-<%# TODO use helper to display hint(s) unlocked by user %>
+<%# hints %>
 <% buttonText = "" %>
 <% @problem.solutions.each do |solution|%>
+  <%# get active record collection of all hints of this solution %>
   <% solHints = solution.hints %>
   <% maxNumSolHints = solHints.count %>
+  <%# get hint ids of seen hints for this solution by user %>
   <% usrTypHints = users_hints(@problem.id, solution.typ) %>
   <% usrNumTypHints = usrTypHints.count %>
+  <%# figure out this user's hint status with this solution %>
+  <% nextHint = nil %>
   <% if usrNumTypHints == maxNumSolHints%>
-    <% buttonText = "<em>(There are no more</em>"+solution.typ+"<em>hints)</em>" %>
+    <% noButtonText = "<p><em>(There are no more "+solution.typ+"
+    hints)</em></p>" %>
   <% elsif usrNumTypHints == 0 %>
-    <% buttonText = "Show me a <em>"+solution.typ+"</em> hint" %>
+    <% buttonText = "Show me a "+solution.typ+" hint" %>
+    <% nextHint = solHints[usrNumTypHints]%>
   <% else %>
-    <% buttonText = "Show me another <em>"+solution.typ+"</em> hint" %>
+    <% buttonText = "Show me another "+solution.typ+" hint" %>
+    <% nextHint = solHints[usrNumTypHints]%>
   <% end %>
-  <%# show me a hint button %>
-  <p><a href="{{$problem_id}}?show_hint_for_sol={{$solution->id}}"
-        class="btn btn-info btn-sm {{$seenAllButtonStatus}}"
-        role="button"><%==buttonText%></a></p>
+  <% if nextHint %>
+    <%# "show me a hint" button %>
+    <%= button_to buttonText, params: {hint_id: nextHint.id, solution_id:
+                                       solution.id, typ: solution.typ } %>
+  <% else %>
+    <%# "no button to press" %>
+    <%== noButtonText %>
+  <% end %>
+  <%# display hints unlocked %>
+  <ol>
+  <% usrTypHints.each do |hint_id| %>
+    <% i = -1 %>
+    <% unmatched = true %>
+    <% while unmatched %>
+      <% i += 1 %>
+      <% if i >= solHints.length %>
+        <p><b> ERROR DETECTED: UNABLE TO DISPLAY UNLOCKED HINTS </b></p>
+        <% break %>
+      <% elsif hint_id == solHints[i].id %>
+        <% unmatched = false %>
+        <% text = solHints[i].text %>
+        <% if text == "" %>
+          <li><em>We apologize, but this hint is not yet available.</em></li>
+        <% else %>
+          <li><%== text %></li>
+        <br>
+      <% end %>
+      <% else %>
+        <%# NOTE not the right hint in solution list, skip %>
+      <% end %>
+    <% end %>
+  <% end %>
+  </ol>
 <% end %>
-<%# display hints unlocked %>
-<%# TODO use helper to check if any hints remain of type T %>
-<%# code for no hints remaining of type T %>
 
 <%# TODO select proper interface for answering a problem %>
 <%# interface for answering the problem %>
-<%= form_tag do %>
+<%= form_tag("evaluate", method: :post) do %>
   <%# NOTE user input hashed under :ans from 0...n %>
   <%== boxes_interface(@problem.answer.interface) %>
+  <%= hidden_field_tag :id , @problem.id %>
   <%= submit_tag("Evaluate") %>
 <% end %>

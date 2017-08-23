@@ -47,6 +47,7 @@ class MarkersController < ApplicationController
     UnlockedTheory.where(user_id: current_user.id).destroy_all
     Score.where(user_id: current_user.id).destroy_all
     Marker.where(user_id: current_user.id).destroy_all
+    SeenHint.where(user_id: current_user.id).destroy_all
     redirect_to start_path
   end
 

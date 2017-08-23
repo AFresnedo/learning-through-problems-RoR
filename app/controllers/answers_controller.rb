@@ -9,11 +9,15 @@ class AnswersController < ApplicationController
 
   # unlocks next hint for current_user
   def get_hint
-    # TODO psuedocode follows
-    # params: problem_id, hint_type
-    # use above + user info to get next hint of type of problem
-    # add that hint to user's hint_seen
-    render '/answers/problem'
+    @problem = Problem.find(params[:id])
+    hint = Hint.find(params[:hint_id])
+    SeenHint.create!(user_id: current_user.id,
+                     problem_id: @problem.id,
+                     solution_id: params[:solution_id],
+                     hint_id: hint.id,
+                     typ: params[:typ])
+    # TODO figure out how to use render w/o showing parameters
+    redirect_to solve_path(id: params[:id])
   end
 
   # submits user's answers for problem

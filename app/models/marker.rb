@@ -46,7 +46,6 @@ class Marker < ApplicationRecord
   def set_next_problem(problem_id)
     # TODO check user's batch score and determine if skipping makeup
     makeup = true
-
     file = Graph.get_next('prob', problem_id)
     set_until_problem(file, makeup)
   end
@@ -56,7 +55,7 @@ class Marker < ApplicationRecord
   # takes a file of format {typ: typ, id: id}, which represents a file in
   # a context; sets that file and all following theory files, in that context,
   # until the next problem in that context is found and set
-  def set_until_problem(file, makeup)
+  def set_until_problem(file, makeup = true)
       while true
         # if end of context or unknown error
         if file[:typ] == nil
