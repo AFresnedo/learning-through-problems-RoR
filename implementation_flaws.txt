@@ -1,2 +1,4 @@
 in model/marker you have a DB call for getting problem attributes, it's faster
 to send these as parameters back from the graph
+
+forgot to slice user input to maximum of 2 decimals (so 23.457 would be 23.45)

@@ -35,24 +35,31 @@ class AnswersController < ApplicationController
     # get amount of hints seen by user for this problem
     hint_count = SeenHint.hints_count(current_user.id, prob.id)
     # if all answers were correct
+    feedback = ""
     if results[0] == true
       if (hint_count > SCORES_PER_PROBLEM.length) or
         (SCORES_PER_PROBLEM[hint_count] == 0)
-        # TODO fail with user feedback stating too many hints
         score.update_attribute(:score, 0)
+        feedback = "Too many hints requested to reward any points."
       else
         score.update_attribute(:score, SCORES_PER_PROBLEM[hint_count])
+        feedback = "#{hint_count.to_s} hints were requested. "
+                    +"You were deducted "
+                    +"#{(SCORES_PER_PROBLEM[0]-SCORES_PER_PROBLEM[hint_count]).to_s} points."
       end
     # else at least one incorrect answer
     else
-      # TODO provide results[1...] feedback
       score.update_attribute(:score, 0)
+      # TODO these are just the indicies of the incorrect answers sent to
+      # evaluate_hash...how can we use this?
+      incorrect_indicies= results[1..-1]
+      feedback = "These answers were incorrect: "
     end
     # move user's progression
     # TODO update for curriculum name
     marker = current_user.markers.find_by(curriculum: 'lifetomath')
     marker.set_next_problem(prob.id)
-    # redirect_to results_path
+    # TODO redirect_to results_path, part of scores controller
     newestScore = Score.where(user_id: current_user.id, ip: true).order(:updated_at).last
     if score == newestScore
       flash[:warning] = "No problems remain in context."

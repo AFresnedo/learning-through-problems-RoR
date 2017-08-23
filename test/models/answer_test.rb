@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class AnswerTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  # TODO test hints deductions are correct
+  # TODO test get_hint
+  # TODO test evaluate correct/false + incorrect ids
 end
