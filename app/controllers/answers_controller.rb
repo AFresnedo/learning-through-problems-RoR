@@ -1,5 +1,4 @@
 class AnswersController < ApplicationController
-  # respond and act on actions taken: answer, hint request
 
   # displays problem-to-answer page (problem, hint(s), answer_interface)
   def problem
@@ -24,8 +23,10 @@ class AnswersController < ApplicationController
   def evaluate
     # get problem, and therefore its answers
     prob = Problem.find(params[:id])
+    # process user answers, not standard parameter so its needed
+    userAnswers = process_user_answers
     # results[0] is bool, results[1..-1] are indicies
-    results = prob.answer.evaluate_hash(params[:ans])
+    results = prob.answer.evaluate_list(userAnswers)
     score = Score.find_by(user_id: current_user.id, problem_id: prob.id)
     score.update_attribute(:ip, false)
     # get amount of hints seen by user for this problem
@@ -39,7 +40,8 @@ class AnswersController < ApplicationController
       else
         # answers correct and score awarded
         score.update_attribute(:score, SCORES_PER_PROBLEM[hint_count])
-        feedback = "#{hint_count.to_s} hint(s) were requested."
+        feedback = "Your answer was correct."
+        feedback += " #{hint_count.to_s} hint(s) were requested."
         feedback += " You were deducted "
         feedback += " #{(SCORES_PER_PROBLEM[0]-SCORES_PER_PROBLEM[hint_count]).to_s} points."
       end
@@ -47,15 +49,19 @@ class AnswersController < ApplicationController
       # at least one incorrect answer
       # TODO if giving partial credit, change here or in Answers.evaluate_hash
       score.update_attribute(:score, 0)
-      incorrect_indicies= results[1..-1]
+      incorrect_indicies = results[1..-1]
+      expected_answers = prob.answer.answers
+      correct_answers = []
       incorrect_answers = []
-      correct_answers = prob.answer.answers
-      incorrect_indicies.each do |index|
-        # NOTE index-1 because incorrect_indicies has index values inflated
-        incorrect_answers << correct_answers.delete_at(index-1)
+      for i in 1..expected_answers.length do
+        if incorrect_indicies.include?(i-1)
+          incorrect_answers << expected_answers[i-1]
+        else
+          correct_answers << expected_answers[i-1]
+        end
       end
       feedback = "These answer(s) were correct: #{correct_answers}"
-      feedback += " These answer(s) were incorrect: #{incorrect_answers}"
+      feedback += " and ~nswer(s) that were missed: #{incorrect_answers}."
     end
     # move user's progression
     # TODO update for curriculum name
@@ -67,6 +73,18 @@ class AnswersController < ApplicationController
     if score == newestScore
       flash[:warning] = "No problems remain in context."
     end
-    redirect_to solve_path(id: newestScore.problem_id)
+    redirect_to results_path(id: prob.id, ans: userAnswers)
   end
+
+  private
+
+    # TODO security, but kind of hard since so many different answers possible
+    # maybe blacklist instead of whitelist?
+    def process_user_answers
+      userAnswers = []
+      params.to_unsafe_h[:ans].each do |answer, value|
+        userAnswers << value
+      end
+      return userAnswers
+    end
 end

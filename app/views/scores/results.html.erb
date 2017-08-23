@@ -1,0 +1,41 @@
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<%== @problem.text %>
+<br>
+<h3>Expected Answers:</h3>
+<%= @problem.answer.answers %>
+<br>
+<h3>Your Answers:</h3>
+<%= @user_answers %>
+<br>
+<% @problem.solutions.each do |solution| %>
+  <h3>A Solution</h3>
+  <b><%= "Type of solution: " %></b>
+  <em><%= solution.typ %></em>
+  <br>
+  <br>
+  <%== solution.text %>
+  <h4>Hints that were related to this solution:</h4>
+  <ol>
+  <% solution.hints.each do |hint| %>
+    <li><%== hint.text %></li>
+  <% end %>
+  </ol>
+<% end %>
+<br>
+<br>
+<%# TODO the following problem details should be a partial %>
+<h4>Problem details:</h4>
+<p><b>Curriculum: &nbsp</b>
+<em><%= @problem.metadata.category %></em></p>
+<p><b>Category: &nbsp</b>
+<em><%= @problem.category %></em></p>
+<p><b>Context: &nbsp</b>
+<em><%= @problem.context %></em></p>
+<p><b>Difficulty: &nbsp</b>
+<em><%= @problem.metadata.diff %></em></p>
+<p><b>Source: &nbsp</b>
+<em><%= @problem.metadata.source %></em></p>
+
+<%# TODO go to next problem %>

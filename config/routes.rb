@@ -28,6 +28,10 @@ Rails.application.routes.draw do
   post '/solve/evaluate', to: 'answers#evaluate'
   post '/solve/:id', to: 'answers#get_hint', as: 'get_hint'
 
+  # scores
+  # TODO determine method, params
+  get '/results', to: 'scores#results'
+
   # problems
   resources :problems, except: [:new, :create]
 

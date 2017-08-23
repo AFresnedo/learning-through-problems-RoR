@@ -2,3 +2,10 @@ in model/marker you have a DB call for getting problem attributes, it's faster
 to send these as parameters back from the graph
 
 forgot to slice user input to maximum of 2 decimals (so 23.457 would be 23.45)
+
+authenticity token gets cached and becomes stale: fix disease, not symptom
+    -first thoughts: you are "getting" a page, so that page could be cached if
+    you saw it before, but then you are "posting" data which includes the
+    cached authenticity token
+        -do i somehow force a refresh of the page every time?
+        -do i NOT post the authenticity token, ever, on this page?
