@@ -1,6 +1,7 @@
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
+<% makeup = Graph.find_by(file_id: @problem.id, typ: 'prob') %>
 <%== @problem.text %>
 <br>
 <h3>Expected Answers:</h3>
@@ -10,7 +11,11 @@
 <%= @user_answers %>
 <br>
 <% score = Score.find_by(user_id: current_user.id, problem_id: @problem.id) %>
-<h3>Your score for this problem:</h3>
+<% if makeup %>
+  <h3>Your score for this makeup problem (reduced worth):</h3>
+<% else %>
+  <h3>Your score for this problem:</h3>
+<% end %>
 <p><%= score.score %></p>
 <p><%= @feedback %></p>
 <% @problem.solutions.each do |solution| %>

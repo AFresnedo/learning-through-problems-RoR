@@ -23,6 +23,12 @@ class AnswersController < ApplicationController
   def evaluate
     # get problem, and therefore its answers
     prob = Problem.find(params[:id])
+    makeup = Graph.find_by(file_id: prob.id, typ: 'prob').makeup
+    if makeup
+      penalty = SCORES_PER_MAKEUP
+    else
+      penalty = SCORES_PER_PROBLEM
+    end
     # process user answers, not standard parameter so its needed
     userAnswers = process_user_answers
     # results[0] is bool, results[1..-1] are indicies
@@ -33,17 +39,17 @@ class AnswersController < ApplicationController
     hint_count = SeenHint.hints_count(current_user.id, prob.id)
     feedback = ""
     if results[0] == true
-      if (hint_count > SCORES_PER_PROBLEM.length) or (SCORES_PER_PROBLEM[hint_count] == 0)
+      if (hint_count > penalty.length) or (penalty[hint_count] == 0)
         # answers correct but too many hints asked for
         score.update_attribute(:score, 0)
         feedback = "Too many hints requested to reward any points."
       else
         # answers correct and score awarded
-        score.update_attribute(:score, SCORES_PER_PROBLEM[hint_count])
+        score.update_attribute(:score, penalty[hint_count])
         feedback = "Your answer was correct."
         feedback += " #{hint_count.to_s} hint(s) were requested."
         feedback += " You were deducted "
-        feedback += " #{(SCORES_PER_PROBLEM[0]-SCORES_PER_PROBLEM[hint_count]).to_s} points."
+        feedback += " #{(penalty[0]-penalty[hint_count]).to_s} point(s)."
       end
     else
       # at least one incorrect answer
@@ -63,7 +69,7 @@ class AnswersController < ApplicationController
       feedback = "These answer(s) were correct: #{correct_answers}"
       feedback += " and these answer(s) were missed: #{incorrect_answers}."
       feedback += " Since all answers were not correct,"
-      feedback += " you missed #{SCORES_PER_PROBLEM[0]} points."
+      feedback += " you missed #{penalty[0]} points."
     end
     # move user's progression
     # TODO update for curriculum name
