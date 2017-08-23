@@ -9,6 +9,10 @@
 <h3>Your Answers:</h3>
 <%= @user_answers %>
 <br>
+<% score = Score.find_by(user_id: current_user.id, problem_id: @problem.id) %>
+<h3>Your score for this problem:</h3>
+<p><%= score.score %></p>
+<p><%= @feedback %></p>
 <% @problem.solutions.each do |solution| %>
   <h3>A Solution</h3>
   <b><%= "Type of solution: " %></b>
@@ -28,14 +32,15 @@
 <%# TODO the following problem details should be a partial %>
 <h4>Problem details:</h4>
 <p><b>Curriculum: &nbsp</b>
-<em><%= @problem.metadata.category %></em></p>
+<% metadata = @problem.metadata %>
+<em><%= metadata.category %></em></p>
 <p><b>Category: &nbsp</b>
 <em><%= @problem.category %></em></p>
 <p><b>Context: &nbsp</b>
 <em><%= @problem.context %></em></p>
 <p><b>Difficulty: &nbsp</b>
-<em><%= @problem.metadata.diff %></em></p>
+<em><%= metadata.diff %></em></p>
 <p><b>Source: &nbsp</b>
-<em><%= @problem.metadata.source %></em></p>
+<em><%= metadata.source %></em></p>
 
 <%# TODO go to next problem %>

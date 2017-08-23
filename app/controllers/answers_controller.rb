@@ -61,7 +61,9 @@ class AnswersController < ApplicationController
         end
       end
       feedback = "These answer(s) were correct: #{correct_answers}"
-      feedback += " and ~nswer(s) that were missed: #{incorrect_answers}."
+      feedback += " and these answer(s) were missed: #{incorrect_answers}."
+      feedback += " Since all answers were not correct,"
+      feedback += " you missed #{SCORES_PER_PROBLEM[0]} points."
     end
     # move user's progression
     # TODO update for curriculum name
@@ -69,11 +71,11 @@ class AnswersController < ApplicationController
     marker.set_next_problem(prob.id)
     # TODO redirect_to results_path, part of scores controller
     newestScore = Score.where(user_id: current_user.id, ip: true).order(:updated_at).last
-    flash[:success] = feedback
     if score == newestScore
       flash[:warning] = "No problems remain in context."
     end
-    redirect_to results_path(id: prob.id, ans: userAnswers)
+    redirect_to results_path(id: prob.id, ans: userAnswers,
+                             feedback: feedback)
   end
 
   private
