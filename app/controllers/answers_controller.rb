@@ -24,31 +24,28 @@ class AnswersController < ApplicationController
   def evaluate
     # get problem, and therefore its answers
     prob = Problem.find(params[:id])
-    # evaluate the answers, results[0] is a boolean followed by indicies
-    # relative to prob.answer.answers
-    # true means answers were correct and appended indicies are indicies of
-    # incorrect answers
+    # results[0] is bool, results[1..-1] are indicies
     results = prob.answer.evaluate_hash(params[:ans])
-    # TODO if giving partial credit, change here or in Answers.evaluate_hash
     score = Score.find_by(user_id: current_user.id, problem_id: prob.id)
     score.update_attribute(:ip, false)
     # get amount of hints seen by user for this problem
     hint_count = SeenHint.hints_count(current_user.id, prob.id)
-    # if all answers were correct
     feedback = ""
     if results[0] == true
-      if (hint_count > SCORES_PER_PROBLEM.length) or
-        (SCORES_PER_PROBLEM[hint_count] == 0)
+      if (hint_count > SCORES_PER_PROBLEM.length) or (SCORES_PER_PROBLEM[hint_count] == 0)
+        # answers correct but too many hints asked for
         score.update_attribute(:score, 0)
         feedback = "Too many hints requested to reward any points."
       else
+        # answers correct and score awarded
         score.update_attribute(:score, SCORES_PER_PROBLEM[hint_count])
         feedback = "#{hint_count.to_s} hint(s) were requested."
         feedback += " You were deducted "
         feedback += " #{(SCORES_PER_PROBLEM[0]-SCORES_PER_PROBLEM[hint_count]).to_s} points."
       end
-    # else at least one incorrect answer
     else
+      # at least one incorrect answer
+      # TODO if giving partial credit, change here or in Answers.evaluate_hash
       score.update_attribute(:score, 0)
       incorrect_indicies= results[1..-1]
       incorrect_answers = []
