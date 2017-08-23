@@ -43,17 +43,22 @@ class AnswersController < ApplicationController
         feedback = "Too many hints requested to reward any points."
       else
         score.update_attribute(:score, SCORES_PER_PROBLEM[hint_count])
-        feedback = "#{hint_count.to_s} hints were requested. "
-                    +"You were deducted "
-                    +"#{(SCORES_PER_PROBLEM[0]-SCORES_PER_PROBLEM[hint_count]).to_s} points."
+        feedback = "#{hint_count.to_s} hint(s) were requested."
+        feedback += " You were deducted "
+        feedback += " #{(SCORES_PER_PROBLEM[0]-SCORES_PER_PROBLEM[hint_count]).to_s} points."
       end
     # else at least one incorrect answer
     else
       score.update_attribute(:score, 0)
-      # TODO these are just the indicies of the incorrect answers sent to
-      # evaluate_hash...how can we use this?
       incorrect_indicies= results[1..-1]
-      feedback = "These answers were incorrect: "
+      incorrect_answers = []
+      correct_answers = prob.answer.answers
+      incorrect_indicies.each do |index|
+        # NOTE index-1 because incorrect_indicies has index values inflated
+        incorrect_answers << correct_answers.delete_at(index-1)
+      end
+      feedback = "These answer(s) were correct: #{correct_answers}"
+      feedback += " These answer(s) were incorrect: #{incorrect_answers}"
     end
     # move user's progression
     # TODO update for curriculum name
@@ -61,6 +66,7 @@ class AnswersController < ApplicationController
     marker.set_next_problem(prob.id)
     # TODO redirect_to results_path, part of scores controller
     newestScore = Score.where(user_id: current_user.id, ip: true).order(:updated_at).last
+    flash[:success] = feedback
     if score == newestScore
       flash[:warning] = "No problems remain in context."
     end
