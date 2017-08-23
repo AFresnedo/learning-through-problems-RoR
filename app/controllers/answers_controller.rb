@@ -29,7 +29,7 @@ class AnswersController < ApplicationController
     score = Score.find_by(user_id: current_user.id, problem_id: prob.id)
     score.update_attribute(:ip, false)
     # get amount of hints seen by user for this problem
-    hint_count = SeenHint.hints_seen(current_user.id, prob.id)
+    hint_count = SeenHint.hints_count(current_user.id, prob.id)
     # if all answers were correct
     if results[0] == true
       if (hint_count > SCORES_PER_PROBLEM.length) or

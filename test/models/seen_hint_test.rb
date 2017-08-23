@@ -12,9 +12,9 @@ class SeenHintTest < ActiveSupport::TestCase
     @hintTwo = Hint.create!(solution_id: @solution.id)
   end
 
-  test "test hints_seen" do
-    assert_equal 1, SeenHint.hints_seen(@user.id, @problem.id)
-    assert_difference "SeenHint.hints_seen(@user.id, @problem.id)" do
+  test "test hints_count" do
+    assert_equal 1, SeenHint.hints_count(@user.id, @problem.id)
+    assert_difference "SeenHint.hints_count(@user.id, @problem.id)" do
       SeenHint.create!(user_id: @user.id, problem_id: @problem.id, solution_id:
                        @solution.id, hint_id: @hintTwo.id)
     end

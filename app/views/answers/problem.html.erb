@@ -1,3 +1,4 @@
+<%# NOTE sourced from Robert Cranfill's ma/resources/views/answer/test.blade.php %>
 <%# TODO determine what should be partials (obvious sections: problem, hint, %>
 <%# answer) %>
 <script type="text/javascript" async
@@ -6,15 +7,36 @@
 <div class="problem_statement">
 <%== @problem.text %>
 </div>
-<%# TODO use helper to check if any hints remain of type T %>
+<%# get id list of hints user has unlocked %>
+<% usersHints = users_hints(@problem.id) %>
+
 <%# TODO code for displaying button(s) asking for hints of type(s) T %>
 <%# button will call answers controller's get_hint to do DB work and redraw page %>
-<%# TODO code for no hints remaining of type T %>
-
 <%# TODO use helper to display hint(s) unlocked by user %>
+<% buttonText = "" %>
+<% @problem.solutions.each do |solution|%>
+  <% solHints = solution.hints %>
+  <% maxNumSolHints = solHints.count %>
+  <% usrTypHints = users_hints(@problem.id, solution.typ) %>
+  <% usrNumTypHints = usrTypHints.count %>
+  <% if usrNumTypHints == maxNumSolHints%>
+    <% buttonText = "<em>(There are no more</em>"+solution.typ+"<em>hints)</em>" %>
+  <% elsif usrNumTypHints == 0 %>
+    <% buttonText = "Show me a <em>"+solution.typ+"</em> hint" %>
+  <% else %>
+    <% buttonText = "Show me another <em>"+solution.typ+"</em> hint" %>
+  <% end %>
+  <%# show me a hint button %>
+  <p><a href="{{$problem_id}}?show_hint_for_sol={{$solution->id}}"
+        class="btn btn-info btn-sm {{$seenAllButtonStatus}}"
+        role="button"><%==buttonText%></a></p>
+<% end %>
+<%# display hints unlocked %>
+<%# TODO use helper to check if any hints remain of type T %>
+<%# code for no hints remaining of type T %>
 
 <%# TODO select proper interface for answering a problem %>
-<%# NOTE interface for answering the problem %>
+<%# interface for answering the problem %>
 <%= form_tag do %>
   <%# NOTE user input hashed under :ans from 0...n %>
   <%== boxes_interface(@problem.answer.interface) %>
