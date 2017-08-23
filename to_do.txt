@@ -102,6 +102,9 @@ solutions db:
         -can't forsee any pitfalls here...solutions shouldn't be involved in
         any big queries at any point
 
+metadata db:
+    -fix (don't destroy, difficulty and such)
+
 migrations:
     -make sure that the code, (create and drop in particular) is setup properly
     so that the migrations aren't bugged depending on ordering/status
