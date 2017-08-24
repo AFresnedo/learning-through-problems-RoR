@@ -31,7 +31,8 @@ class MarkersController < ApplicationController
     if next_problem
       redirect_to solve_path(id: next_problem.problem_id)
     else
-      flash[:danger] = "No problems remain in context, return to index."
+      flash[:warning] = "No problems remained in context."
+      redirect_to resume_path(curriculum: 'lifetomath')
     end
   end
 

@@ -70,5 +70,6 @@
   <%# NOTE user input hashed under :ans from 0...n %>
   <%== boxes_interface(@problem.answer.interface) %>
   <%= hidden_field_tag :id , @problem.id %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
   <%= submit_tag("Evaluate") %>
 <% end %>
