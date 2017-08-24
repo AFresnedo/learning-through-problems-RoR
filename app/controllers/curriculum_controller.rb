@@ -47,16 +47,6 @@ class CurriculumController < ApplicationController
   # with the type of file (theory, problem), the file name, and if it is
   # a makeup denoted cleanly...also maybe group by batch using <br>
   def files
-    all = Graph.where(context: params[:context])
-    @typ = []
-    @ids = []
-    @batches = []
-    @makeup = []
-    all.each do |file|
-      @typ << file.typ
-      @ids << file.file_id
-      @batches << file.batch
-      @makeup << file.makeup
-    end
+    @graphs = Graph.where(context: params[:context])
   end
 end
