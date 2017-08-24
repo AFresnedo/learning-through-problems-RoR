@@ -3,9 +3,11 @@
   <h4><%= 'Congratulations, you\'ve completed the '+@category+' category.' %></h4>
   <%= link_to 'Next Category', resume_path, method: :post%>
 <% else %>
-  <h3><%= "Category: #{@category}" %></h3>
+  <h4><%= @category %></h4>
+  <ul>
+    <% @contexts.each do |context| %>
+      <li><%= link_to context, next_path(context: context) %></li>
+    <% end %>
+  </ul>
 <% end %>
 <%# TODO sort by globalgraph order %>
-<% @contexts.each do |context| %>
-  <p><%= link_to context, next_path(context: context) %></p>
-<% end %>
