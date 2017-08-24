@@ -1,9 +1,13 @@
 <h3><%= "#{@graphs.first.context}" %></h3>
 <ol>
+  <% set = 0 %>
   <% @graphs.each do |graph| %>
+    <%# TODO horizontal line %>
+    <% unless set == graph.batch %>
+      <% set += 1 %>
+      <hr>
+    <% end %>
     <li>
-      <%# get actual file %>
-      <% file = nil %>
       <% if graph.typ  == 'prob' %>
         <% file = Problem.find(graph.file_id) %>
         Problem: <%= link_to file.filename, problem_path(file) %>
@@ -21,7 +25,6 @@
           <li>Makeup</li>
         <% end %>
       </ul>
-      <br>
     </li>
   <% end %>
 </ol>
