@@ -72,25 +72,27 @@ class MarkersController < ApplicationController
 
   def resume_curriculum
     marker = current_user.markers.find_by(curriculum: params[:curriculum])
-    scores = Score.where(user_id: current_user.id,
+
+    # get all active contexts (unread theories or unsolved problems) in cat
+    unsolved = Score.where(user_id: current_user.id,
                          category: marker.category,
                          ip: true)
-    @ip = []
-    scores.each do |score|
-      prob = Problem.find(score.problem_id)
-      @ip << prob
-    end
-
-    @not_seen = []
-    unlockedTheories = UnlockedTheory.where(user_id: current_user.id,
+    unread = UnlockedTheory.where(user_id: current_user.id,
                                             category: marker.category,
                                             seen: false)
-    unlockedTheories.each do |unlock|
-      theory = Theory.find(unlock.theory_id)
-      @not_seen << theory
+    # create a list of all active contexts for category
+    @contexts = []
+    unsolved.each do |score|
+      unless @contexts.include? score.context
+        @contexts << score.context
+      end
     end
-
-    # for when @ip is empty
+    unread.each do |unlock|
+      unless @contexts.include? unlock.context
+        @contexts << unlock.context
+      end
+    end
+    # for when active contexts is empty
     @category = marker.category
 
     render '/markers/resume'
