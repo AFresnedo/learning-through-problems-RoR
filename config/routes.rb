@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   # markers
-  get '/start', to: 'markers#index'
+  get '/start', to: 'markers#start'
   post '/curriculum', to: 'markers#begin_curriculum'
   get '/theories', to: 'markers#theories'
   get '/resume', to: 'markers#resume_curriculum'

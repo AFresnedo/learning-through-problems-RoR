@@ -1,3 +1,6 @@
-<% @cat_list.each do |category| %>
-  <p><%= link_to category, curriculum_contexts_path(category: category) %></p>
-<% end %>
+<h3>Categories for this curriculum:</h3>
+<ol>
+  <% @cat_list.each do |category| %>
+    <li><%= link_to category, curriculum_contexts_path(category: category) %></li>
+  <% end %>
+</ul>
