@@ -7,7 +7,7 @@ class AnswersController < ApplicationController
     unless Score.find_by(user_id: current_user.id,
                          problem_id: @problem.id,
                          ip: true)
-      flash[:danger] = "You have not unlocked that problem."
+      flash[:danger] = "You have not unlocked, or already finished, that problem."
       redirect_to root_path
     end
   end
