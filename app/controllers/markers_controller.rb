@@ -32,7 +32,7 @@ class MarkersController < ApplicationController
                                          context: params[:context],
                                          seen: false)
     if next_theory
-      redirect_to theory_path(id: next_theory.theory_id)
+      redirect_to view_path(id: next_theory.theory_id)
     else
       next_problem = Score.find_by(user_id: current_user.id,
                               context: params[:context],

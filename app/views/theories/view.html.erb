@@ -1,0 +1,20 @@
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<%# TODO pretty name %>
+<% provide(:title, "#{@theory.filename}") %>
+
+<h2>Filename</h2>
+<p><%= @theory.filename %></p>
+
+<p><%== @theory.text %></p>
+
+<% if @first_viewing %>
+  <em><%= "Since this is the first time you are viewing this theory, you may
+  jump to the next part of \"#{@theory.context}\" with this link:" %></em>
+  <p><%= link_to @theory.context, next_path(context: @theory.context) %></p>
+<% else %>
+  <em><%= "Since this is not the first time you are viewing this theory, please
+  use the \"Curriculum\" link above to resume \"#{@theory.context}\", if it is not
+  yet finished." %></em>
+<% end %>

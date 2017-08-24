@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resources :problems, except: [:new, :create]
 
   # theories
+  get '/view/:id', to: 'theories#view', as: 'view'
   resources :theories, only: [:show]
 
   # curriculum pages for teachers/admins

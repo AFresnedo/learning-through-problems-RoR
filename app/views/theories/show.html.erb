@@ -8,7 +8,3 @@
 <p><%= @theory.filename %></p>
 
 <p><%== @theory.text %></p>
-
-<% if @first_viewing %>
-  <p><%= link_to @theory.context, next_path(context: @theory.context) %></p>
-<% end %>

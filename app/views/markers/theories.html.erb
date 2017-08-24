@@ -7,7 +7,7 @@
     <% unlocks = @unlocked_theories.where(category: category, context: context) %>
     <% unlocks.each do |unlock| %>
       <% theory = Theory.find(unlock.theory_id) %>
-      <li><%= link_to theory.filename, theory_path(theory.id) %></li>
+      <li><%= link_to theory.filename, view_path(theory.id) %></li>
     <% end %>
     </ol>
   <% end %>
