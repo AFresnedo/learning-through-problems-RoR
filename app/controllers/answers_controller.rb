@@ -4,6 +4,12 @@ class AnswersController < ApplicationController
   def problem
     # NOTE answer, hints are retrieved by view using @problem and current_user
     @problem = Problem.find_by_id(params[:id])
+    unless Score.find_by(user_id: current_user.id,
+                         problem_id: @problem.id,
+                         ip: true)
+      flash[:danger] = "You have not unlocked that problem."
+      redirect_to root_path
+    end
   end
 
   # unlocks next hint for current_user
@@ -80,6 +86,10 @@ class AnswersController < ApplicationController
     if score == newestScore
       flash[:warning] = "No problems remain in context."
     end
+    # TODO error, cannot post (breaks html convention), instead look to
+    # redirect to results page and have results grab this info
+    # NOTE of course it does lol, the data must be somewhere, in this case its
+    # in the url
     redirect_to results_path(id: prob.id, ans: userAnswers,
                              feedback: feedback)
   end

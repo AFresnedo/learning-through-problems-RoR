@@ -1,7 +1,11 @@
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-<% makeup = Graph.find_by(file_id: @problem.id, typ: 'prob') %>
+<% graph = Graph.find_by(file_id: @problem.id, typ: 'prob') %>
+<% makeup = graph.makeup %>
+<% metadata = @problem.metadata %>
+<% score = Score.find_by(user_id: current_user.id, problem_id: @problem.id) %>
+
 <%== @problem.text %>
 <br>
 <h3>Expected Answers:</h3>
@@ -10,13 +14,12 @@
 <h3>Your Answers:</h3>
 <%= @user_answers %>
 <br>
-<% score = Score.find_by(user_id: current_user.id, problem_id: @problem.id) %>
 <% if makeup %>
-  <h3>Your score for this makeup problem (reduced worth):</h3>
+  <h3>Score for this makeup problem (reduced worth):</h3>
 <% else %>
-  <h3>Your score for this problem:</h3>
+  <h3>Score for this problem:</h3>
 <% end %>
-<p><%= score.score %></p>
+<p><b>Total:</b> <%= score.score %></p>
 <p><%= @feedback %></p>
 <% @problem.solutions.each do |solution| %>
   <h3>A Solution</h3>
@@ -37,7 +40,6 @@
 <%# TODO the following problem details should be a partial %>
 <h4>Problem details:</h4>
 <p><b>Curriculum: &nbsp</b>
-<% metadata = @problem.metadata %>
 <em><%= metadata.category %></em></p>
 <p><b>Category: &nbsp</b>
 <em><%= @problem.category %></em></p>
@@ -48,4 +50,5 @@
 <p><b>Source: &nbsp</b>
 <em><%= metadata.source %></em></p>
 
-<%# TODO go to next problem %>
+<%= link_to "Next Problem", next_path(context: @problem.context) %>
+<%# TODO go back %>

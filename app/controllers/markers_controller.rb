@@ -24,6 +24,18 @@ class MarkersController < ApplicationController
     redirect_to resume_path(curriculum: 'lifetomath')
   end
 
+  def next_unsolved_problem_by_context
+    next_problem = Score.find_by(user_id: current_user.id,
+                            context: params[:context],
+                            ip: true)
+    if next_problem
+      redirect_to solve_path(id: next_problem.problem_id)
+    else
+      flash[:danger] = "No problems remain in context, return to index."
+    end
+  end
+
+  # TODO lots of code change and no testing, not in website atm anyway
   # TODO make this teacher+ priv, fix all lack of security/permissions/checks
   def skip_problem
     prob = Problem.find(params[:id])
@@ -34,11 +46,7 @@ class MarkersController < ApplicationController
     score.update_attribute(:ip, false)
     marker.set_next_problem(prob.id)
     # redirect_to newest score
-    newestScore = Score.where(user_id: current_user.id).order(:updated_at).last
-    if score == newestScore
-      flash[:warning] = "No problems remain in context."
-    end
-    redirect_to solve_path(id: newestScore.problem_id)
+    redirect_to action: "next_unsolved_problem_by_context", context: prob.context
   end
 
   # TODO make this curriculum-specific

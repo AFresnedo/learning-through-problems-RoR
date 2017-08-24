@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   post '/resume', to: 'markers#next_category'
   delete '/start', to: 'markers#reset_curriculum'
   post '/problem/skip', to: 'markers#skip_problem'
+  get '/next', to: 'markers#next_unsolved_problem_by_context'
 
   # answers
   get '/solve/:id', to: 'answers#problem', as: 'solve'
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
   post '/solve/:id', to: 'answers#get_hint', as: 'get_hint'
 
   # scores
-  # TODO determine method, params
+  # TODO redesign to get results without taking (too many) params
   get '/results', to: 'scores#results'
 
   # problems
