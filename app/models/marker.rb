@@ -96,17 +96,18 @@ class Marker < ApplicationRecord
       end
   end
 
-    # TODO replace DB call with passing parameters, refactor & test
+    # TODO replace DB get with passing parameters, refactor & test
     # fix curriculum source?
     def set_unlocked_theory(id)
       theory = Theory.find(id)
       user.unlocked_theories.create!(theory_id: id,
                                      curriculum: self.curriculum,
                                      category: theory.category,
-                                     context: theory.context)
+                                     context: theory.context,
+                                     seen: false)
     end
 
-    # TODO replace DB call with passing parameters, refactor & test
+    # TODO replace DB get with passing parameters, refactor & test
     # fix curriculum source?
     def set_new_problem(id)
       prob = Problem.find(id)

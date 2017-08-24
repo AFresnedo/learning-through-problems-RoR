@@ -1,10 +1,16 @@
-<h2>Current Open Problems</h2>
+<h2>Current Unlocks</h2>
 <% if @ip.empty? %>
   <h4><%= 'Congratulations, you\'ve completed the '+@category+' category.' %></h4>
   <%= link_to 'Next Category', resume_path, method: :post%>
 <% else %>
   <h3><%= 'Category: '+@ip[0].category %></h3>
 <% end %>
+<%# TODO hide in_progress link if there is a theory file in same context %>
+<h4>Unread Theories</h4>
+<% @not_seen.each do |theory| %>
+  <p><%= link_to theory.context, theory_path(theory.id) %></p>
+<% end %>
+<h4>Open Problems</h4>
 <% @ip.each do |prob| %>
   <p><%= link_to prob.context, solve_path(prob.id) %></p>
 <% end %>

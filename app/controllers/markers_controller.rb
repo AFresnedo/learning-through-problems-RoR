@@ -24,15 +24,25 @@ class MarkersController < ApplicationController
     redirect_to resume_path(curriculum: 'lifetomath')
   end
 
-  def next_unsolved_problem_by_context
-    next_problem = Score.find_by(user_id: current_user.id,
-                            context: params[:context],
-                            ip: true)
-    if next_problem
-      redirect_to solve_path(id: next_problem.problem_id)
+  # redirects user to next unlocked file in context (theory or problem)
+  def next_unlocked_by_context
+    # get next unlocked & unseen theory, if nil get next problem
+    # TODO sort by oldest unseen unlocked theory
+    next_theory = UnlockedTheory.find_by(user_id: current_user.id,
+                                         context: params[:context],
+                                         seen: false)
+    if next_theory
+      redirect_to theory_path(id: next_theory.theory_id)
     else
-      flash[:warning] = "No problems remained in context."
-      redirect_to resume_path(curriculum: 'lifetomath')
+      next_problem = Score.find_by(user_id: current_user.id,
+                              context: params[:context],
+                              ip: true)
+      if next_problem
+        redirect_to solve_path(id: next_problem.problem_id)
+      else
+        flash[:warning] = "No problems remained in context."
+        redirect_to resume_path(curriculum: 'lifetomath')
+      end
     end
   end
 
@@ -61,7 +71,6 @@ class MarkersController < ApplicationController
   end
 
   def resume_curriculum
-    # TODO add curriculum attribute to scores instead of using marker
     marker = current_user.markers.find_by(curriculum: params[:curriculum])
     scores = Score.where(user_id: current_user.id,
                          category: marker.category,
@@ -70,6 +79,15 @@ class MarkersController < ApplicationController
     scores.each do |score|
       prob = Problem.find(score.problem_id)
       @ip << prob
+    end
+
+    @not_seen = []
+    unlockedTheories = UnlockedTheory.where(user_id: current_user.id,
+                                            category: marker.category,
+                                            seen: false)
+    unlockedTheories.each do |unlock|
+      theory = Theory.find(unlock.theory_id)
+      @not_seen << theory
     end
 
     # for when @ip is empty

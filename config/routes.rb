@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   post '/resume', to: 'markers#next_category'
   delete '/start', to: 'markers#reset_curriculum'
   post '/problem/skip', to: 'markers#skip_problem'
-  get '/next', to: 'markers#next_unsolved_problem_by_context'
+  get '/next', to: 'markers#next_unlocked_by_context'
 
   # answers
   get '/solve/:id', to: 'answers#problem', as: 'solve'
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   # scores
   # TODO redesign to get results without taking (too many) params
+  # options maybe could be "pretty" wrapped params by a JSON obj or something
   get '/results', to: 'scores#results'
 
   # problems
