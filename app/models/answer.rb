@@ -2,6 +2,7 @@ class Answer < ApplicationRecord
   # NOTE evaluate method sourced from Robert Cranfill's ma/app/helpers.php
   belongs_to :problem
   # TODO answer attribute validations
+  before_create :not_blank
 
   def answers
     self.values.split('|')
@@ -59,4 +60,9 @@ class Answer < ApplicationRecord
     results.unshift(flawless)
     return results
   end
+
+  private
+    def not_blank
+      self.values != ''
+    end
 end
