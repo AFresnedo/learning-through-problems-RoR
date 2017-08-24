@@ -8,7 +8,7 @@
               <ul>
                 <%# TODO unlocked_theories url %>
                 <% url = theories_path %>
-                <li><%= link_to "Unlocked Theories", url %></li>
+                <li><%= link_to "Unlocked Theories", url, target: '_blank' %></li>
               </ul>
             <% else %>
               <li><%= link_to "Sign up for free trial!", signup_path %></li>
