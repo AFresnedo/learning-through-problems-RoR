@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # mostly-static pages
   root 'static_pages#welcome'
   get '/support', to: 'static_pages#support'
@@ -45,6 +46,9 @@ Rails.application.routes.draw do
 
   # globalgraphs
   resources :globalgraphs, only: [:index, :show]
+
+  # graphs
+  resources :graphs, only: [:index, :show]
 
   # curriculum pages for teachers/admins
   get '/curriculum/edit', to: 'curriculum#index'
