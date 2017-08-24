@@ -62,7 +62,10 @@ class Answer < ApplicationRecord
   end
 
   private
+    # TODO neaten this up, this hard uncatched fail is bad later
     def not_blank
-      self.values != ''
+      if self.values == ''
+        raise "cannot create problem: #{problem.filename} with empty answer"
+      end
     end
 end
