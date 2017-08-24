@@ -43,6 +43,9 @@ Rails.application.routes.draw do
   get '/theories/index', to: 'theories#index'
   resources :theories, except: [:new, :create, :index]
 
+  # globalgraphs
+  resources :globalgraphs, only: [:index, :show]
+
   # curriculum pages for teachers/admins
   get '/curriculum/edit', to: 'curriculum#index'
   get '/curricula', to: 'curriculum#curricula'
