@@ -1,10 +1,10 @@
-<h3>Theory File(s) To Introduce The Category:</h3>
+<h3><%= "Introduction to #{@category}" %></h3>
 <ol>
   <% @cat_intro_ids.each do |id| %>
     <li><%= link_to 'Introduction Theory', theory_path(id) %></li>
   <% end %>
 </ol>
-<h3>Index of Context(s)</h3>
+<h3><%= "Contexts of #{@category}:" %></h3>
 <ul>
   <% @context_list.each do |context| %>
     <li><%= link_to context, curriculum_files_path(context: context) %></li>

@@ -13,7 +13,9 @@ class CurriculumController < ApplicationController
   end
 
   def categories
+    # TODO fix for multiple curricula
     all = Globalgraph.all
+    @curriculum = all.first.curriculum
     @cat_list = []
     all.each do |tuple|
       if (@cat_list.last != tuple.category) ? (@cat_list << tuple.category) : nil
@@ -24,6 +26,7 @@ class CurriculumController < ApplicationController
   def contexts
     # all tuples from globalgraph for this category
     all = Globalgraph.where(category: params[:category])
+    @category = params[:category]
     @cat_intro_ids = []
     @context_list = []
     # process theory files and context directories
