@@ -1,0 +1,11 @@
+<% provide(:title, 'Globalgraphs Index') %>
+<h2>Globalgraphs</h2>
+
+<%# group by curriculum (actual globalgraph.txt scope) %>
+<ul class="globalgraphs">
+  <% curriculum = @globalgraphs.first.curriculum %>
+  <li><%= link_to curriculum, globalgraph_path(curriculum) %></li>
+  <% @globalgraphs.each do |globalgraph| %>
+
+  <% end %>
+</ul>
