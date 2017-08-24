@@ -1,6 +1,10 @@
 class TheoriesController < ApplicationController
   # TODO is_teacher (application controller) or redirect, only: show
 
+  def index
+    @theories = Theory.all.paginate(page: params[:page])
+  end
+
   # teacher tool viewer
   def show
     @theory = Theory.find(params[:id])
@@ -19,5 +23,9 @@ class TheoriesController < ApplicationController
       flash[:danger] = "You do not have access to that theory file."
       redirect_to root_path
     end
+  end
+
+  def edit
+    @theory = Theory.find(params[:id])
   end
 end

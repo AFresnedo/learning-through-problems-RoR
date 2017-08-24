@@ -1,10 +1,11 @@
 class ProblemsController < ApplicationController
+
   def index
     @problems = Problem.all.paginate(page: params[:page])
   end
 
   def show
-    @problem = Problem.find_by_id(params[:id])
+    @problem = Problem.find(params[:id])
     @answer = @problem.answer
     @solutions = @problem.solutions
     @hints = []
@@ -15,6 +16,6 @@ class ProblemsController < ApplicationController
   end
 
   def edit
-    @problem = Problem.find_by_id(params[:id])
+    @problem = Problem.find(params[:id])
   end
 end

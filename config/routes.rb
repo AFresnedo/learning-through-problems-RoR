@@ -40,7 +40,8 @@ Rails.application.routes.draw do
 
   # theories
   get '/view/:id', to: 'theories#view', as: 'view'
-  resources :theories, only: [:show]
+  get '/theories/index', to: 'theories#index'
+  resources :theories, except: [:new, :create, :index]
 
   # curriculum pages for teachers/admins
   get '/curriculum/edit', to: 'curriculum#index'

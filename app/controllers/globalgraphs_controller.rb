@@ -1,0 +1,2 @@
+class GlobalgraphsController < ApplicationController
+end
