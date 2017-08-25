@@ -10,11 +10,14 @@
       <hr>
     <% end %>
     <% if graph.typ == 'prob' and graph.makeup %>
-      <li>+<%= Problem.find(graph.file_id).filename %></li>
+      <% problem = Problem.find(graph.file_id) %>
+      <li>+<%= link_to problem.filename, problem %></li>
     <% elsif graph.typ == 'prob' %>
-      <li><%= Problem.find(graph.file_id).filename %></li>
+      <% problem = Problem.find(graph.file_id) %>
+      <li><%= link_to problem.filename, problem %></li>
     <% elsif graph.typ == 'theory' %>
-      <li><%= Theory.find(graph.file_id).filename %></li>
+      <% theory = Theory.find(graph.file_id) %>
+      <li><%= link_to theory.filename, theory %></li>
     <% else %>
       <li><b><%= "Bug detected, file id: #{graph.file_id} of type: #{graph.typ}
       was not found." %></b><li>
