@@ -149,3 +149,6 @@ input scripts:
 optimization:
     -determine if using scores to find ip problems or if having a seperate
     table for a list of a user's IP problems is better
+
+index(s) for tables:
+    -check your controllers and models (espiecally marker model)

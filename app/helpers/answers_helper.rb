@@ -1,5 +1,5 @@
 module AnswersHelper
-  # NOTE sourced from Robert Cranfill's ma/app/helpers.php
+  # NOTE inspired by Robert Cranfill's ma/app/helpers.php
 
   # returns a list of seen hints ids for a problem for current_user
   def users_hints(problem_id, typ = nil)
