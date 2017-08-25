@@ -1,5 +1,4 @@
 class Graph < ApplicationRecord
-
   # NOTE standard return is a hash with :typ, :id, :makeup
 
   # get first file in context
@@ -19,7 +18,8 @@ class Graph < ApplicationRecord
       return {typ: nil}
     # else return next file, regardless of batch
     else
-      return {typ: nxt[:typ], id: nxt[:id], makeup: nxt[:makeup]}
+      return {typ: nxt[:typ], id: nxt[:id], makeup: nxt[:makeup],
+              batch: nxt[:batch]}
     end
   end
 
@@ -54,6 +54,7 @@ class Graph < ApplicationRecord
         result[:typ] = tuple.typ
         result[:id] = tuple.file_id
         result[:makeup] = tuple.makeup
+        result[:batch] = tuple.batch
       end
       return result
     end
@@ -80,12 +81,14 @@ class Graph < ApplicationRecord
           result[:typ] = tuple.typ
           result[:id] = tuple.file_id
           result[:makeup] = tuple.makeup
+          result[:batch] = tuple.batch
         end
       # else increasing order succeeded, remained in batch
       else
         result[:typ] = tuple.typ
         result[:id] = tuple.file_id
         result[:makeup] = tuple.makeup
+        result[:batch] = tuple.batch
       end
       return result
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825004534) do
+ActiveRecord::Schema.define(version: 20170825125304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20170825004534) do
     t.string "category"
     t.string "context"
     t.string "curriculum"
+    t.integer "batch"
     t.index ["user_id", "ip"], name: "index_scores_on_user_id_and_ip"
     t.index ["user_id", "problem_id"], name: "index_scores_on_user_id_and_problem_id", unique: true
   end

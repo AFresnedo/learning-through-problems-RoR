@@ -44,10 +44,8 @@ class Marker < ApplicationRecord
   end
 
   def set_next_problem(problem_id)
-    # TODO check user's batch score and determine if skipping makeup
-    makeup = true
     file = Graph.get_next('prob', problem_id)
-    set_until_problem(file, makeup)
+    set_until_problem(file)
   end
 
   private
@@ -55,32 +53,37 @@ class Marker < ApplicationRecord
   # takes a file of format {typ: typ, id: id}, which represents a file in
   # a context; sets that file and all following theory files, in that context,
   # until the next problem in that context is found and set
-  def set_until_problem(file, makeup = true)
-      while true
-        # if end of context or unknown error
-        if file[:typ] == nil
-          break
+  def set_until_problem(file)
+    continue = true
+    while continue
+      # if end of context or unknown error
+      if file[:typ] == nil
+        continue = false
         # elsif theory file, unlock and continue
-        elsif file[:typ] == 'theory'
-          set_file(file)
+      elsif file[:typ] == 'theory'
+        set_file(file)
         # elsif regular problem file, unlock but do not continue
-        elsif !file[:makeup]
+      elsif !file[:makeup]
+        set_file(file)
+          continue = false
+          # elsif makeup file and makeup true (do not skip), unlock & stop
+      elsif file[:makeup]
+        # check if makeup wanted
+        makeup = Score.problem_set(user.id, file[:id], file[:batch])
+        if makeup
           set_file(file)
-          break
-        # elsif makeup file and makeup true (do not skip), unlock & stop
-        elsif file[:makeup] and makeup
-          set_file(file)
-          break
-        # elsif makeup and makeup false (not wanted, skip), continue
-        elsif file[:makeup]
-          set_file(file)
-        # else bad return from Graph
+          continue = false
         else
-          raise "unknown return from Graph calls during set_until_problem"
+          skip_problem(file[:id])
         end
-        # if while loop continued, get next file
+      else
+        raise "unknown return from Graph calls during set_until_problem"
+      end
+      # if while loop continued, get next file
+      if continue
         file = Graph.get_next(file[:typ], file[:id])
       end
+    end
   end
 
   # takes a file of format {typ: typ, id: id} and unlocks it for the user
@@ -111,9 +114,24 @@ class Marker < ApplicationRecord
     # fix curriculum source?
     def set_new_problem(id)
       prob = Problem.find(id)
+      batchNum = Graph.find_by(file_id: id, typ: 'prob')
       user.scores.create!(problem_id: id, ip: true,
                           curriculum: self.curriculum,
                           category: prob.category,
-                          context: prob.context)
+                          context: prob.context,
+                          batch: batchNum)
+    end
+
+    # skips file with a score of 0, good for skipping makeups
+    def skip_problem(id)
+      prob = Problem.find(id)
+      batchNum = Graph.find_by(file_id: id, typ: 'prob')
+      user.scores.create!(problem_id: id, ip: false,
+                          curriculum: self.curriculum,
+                          category: prob.category,
+                          context: prob.context,
+                          score: 0,
+                          batch: batchNum)
+
     end
 end
