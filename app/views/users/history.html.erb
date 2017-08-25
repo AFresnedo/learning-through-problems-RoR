@@ -2,11 +2,22 @@
 <p>Total: <%= Score.total_score(current_user.id) %></p>
 
 <h3>Breakdown:</h3>
-<ul>
   <% all = Score.my_history(current_user.id) %>
+  <ol>
   <% all.each do |hash| %>
-    <li><%= hash.to_s %></li>
+    <li>
+    <ul>
+      <li><%= "#{hash[:curriculum]}, #{hash[:category]},
+      #{hash[:context]}, #{hash[:filename]}" %> </li>
+      <li><%= "score: #{hash[:score]}" %></li>
+      <li><%= "hints requested: #{hash[:hints]}" %></li>
+      <li><%= "difficulty: #{hash[:difficulty]}" %></li>
+      <li><%= "start time: #{hash[:start]}" %></li>
+      <li><%= "end time: #{hash[:finish]}" %></li>
+    </ul>
+    </li>
+    <br>
   <% end %>
-</ul>
+  </ol>
 <em><p>Note: will be javascript enabled to present scores for different scopes
   and times</p></em>
