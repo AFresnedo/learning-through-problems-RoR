@@ -1,0 +1,8 @@
+analytics is the best place to learn/test/implement javascript
+    -controller loads everything up (how much?)
+        -problem scores
+        -hints asked
+    -view has a dynamic display of data that teacher/admin manipulates
+    -graphs, numbers, charts, different perspectives
+    -scope change (all? 1 curr? 3 con? 2 prob?)
+    -time change
