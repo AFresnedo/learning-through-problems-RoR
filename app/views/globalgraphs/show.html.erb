@@ -8,9 +8,8 @@
   <ol>
   <% @globalgraphs.each do |globalgraph| %>
       <% unless globalgraph.context == 'category_introduction' %>
-        <li><%= link_to globalgraph.context, 
+        <li><%= link_to globalgraph.context,
           curriculum_files_path(context: globalgraph.context) %></li>
-
       <% end %>
   <% end %>
   </ol>

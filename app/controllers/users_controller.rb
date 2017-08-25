@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def history
+    @user = User.find(params[:id])
+  end
+
   # list of accounts
   def index
     @students = User.where(priv: 1).paginate(page: params[:page], per_page:

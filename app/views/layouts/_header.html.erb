@@ -26,7 +26,9 @@
               <% url = edit_user_path(current_user) %>
               <li><%= link_to "Edit Account", url %></li>
               <% url = user_path(current_user) %>
-              <li><%= link_to "View Activity", url %></li>
+              <li><%= link_to "View Profile", url %></li>
+              <% url = history_path(current_user.id) %>
+              <li><%= link_to "History", url %></li>
               <li class="divider"></li>
               <%# admin only %>
               <% if is_teacher %>

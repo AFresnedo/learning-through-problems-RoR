@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # User model, custom routes above resources to match first
   get '/signup', to: 'users#new'
+  get '/history/:id', to: 'users#history', as: 'history'
   post '/signup', to: 'users#create'
   resources :users, only: [:show, :edit, :index, :update, :destroy]
 
