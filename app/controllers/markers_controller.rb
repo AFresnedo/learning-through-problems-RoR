@@ -48,17 +48,17 @@ class MarkersController < ApplicationController
 
   # TODO lots of code change and no testing, not in website atm anyway
   # TODO make this teacher+ priv, fix all lack of security/permissions/checks
-  def skip_problem
-    prob = Problem.find(params[:id])
-    # TODO replace hardcoded lifetomath with curriculum after script update
-    marker = current_user.markers.find_by(curriculum: 'lifetomath')
-    # TODO actual score method, something along the lines of answer_problem
-    score = Score.find_by(user_id: current_user.id, problem_id: prob.id)
-    score.update_attribute(:ip, false)
-    marker.set_next_problem(prob.id)
-    # redirect_to newest score
-    redirect_to action: "next_unsolved_problem_by_context", context: prob.context
-  end
+  # def skip_problem
+    # prob = Problem.find(params[:id])
+    # # TODO replace hardcoded lifetomath with curriculum after script update
+    # marker = current_user.markers.find_by(curriculum: 'lifetomath')
+    # # TODO actual score method, something along the lines of answer_problem
+    # score = Score.find_by(user_id: current_user.id, problem_id: prob.id)
+    # score.update_attribute(:ip, false)
+    # marker.set_next_problem(prob.id)
+    # # redirect_to newest score
+    # redirect_to action: "next_unsolved_problem_by_context", context: prob.context
+  # end
 
   # TODO make this curriculum-specific
   # TODO either delete this or hide it behind teacher access

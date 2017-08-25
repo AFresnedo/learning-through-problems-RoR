@@ -147,5 +147,6 @@ class MarkerTest < ActiveSupport::TestCase
     # assert next-problem-to-solve in context is the makeup
     assert makeup.id, Score.find_by(user_id: @user.id, ip: true,
                                     context: 'quantities').problem_id
+    assert Score.find_by(problem_id: makeup.id).ip
   end
 end

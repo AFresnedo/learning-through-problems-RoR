@@ -59,21 +59,23 @@ class Marker < ApplicationRecord
       # if end of context or unknown error
       if file[:typ] == nil
         continue = false
-        # elsif theory file, unlock and continue
+      # elsif theory file, unlock and continue
       elsif file[:typ] == 'theory'
         set_file(file)
-        # elsif regular problem file, unlock but do not continue
+      # elsif regular problem file, unlock but do not continue
       elsif !file[:makeup]
         set_file(file)
-          continue = false
-          # elsif makeup file and makeup true (do not skip), unlock & stop
+        continue = false
+      # elsif makeup file
       elsif file[:makeup]
         # check if makeup wanted
         makeup = Score.problem_set(user.id, file[:id], file[:batch])
         if makeup
+          # unlock makeup and do not skip
           set_file(file)
           continue = false
         else
+          # give makeup a score of 0 and continue
           skip_problem(file[:id])
         end
       else
@@ -114,7 +116,7 @@ class Marker < ApplicationRecord
     # fix curriculum source?
     def set_new_problem(id)
       prob = Problem.find(id)
-      batchNum = Graph.find_by(file_id: id, typ: 'prob')
+      batchNum = Graph.find_by(file_id: id, typ: 'prob').batch
       user.scores.create!(problem_id: id, ip: true,
                           curriculum: self.curriculum,
                           category: prob.category,
@@ -125,7 +127,7 @@ class Marker < ApplicationRecord
     # skips file with a score of 0, good for skipping makeups
     def skip_problem(id)
       prob = Problem.find(id)
-      batchNum = Graph.find_by(file_id: id, typ: 'prob')
+      batchNum = Graph.find_by(file_id: id, typ: 'prob').batch
       user.scores.create!(problem_id: id, ip: false,
                           curriculum: self.curriculum,
                           category: prob.category,
