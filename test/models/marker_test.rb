@@ -97,4 +97,55 @@ class MarkerTest < ActiveSupport::TestCase
       @marker.set_next_problem(prob.id)
     end
   end
+
+  test "skip makeup with a score of 0 and unlock next problem" do
+    # create a total of 2 missing points
+    probOne = Problem.find_by(filename: 'quantity7.html')
+    probTwo = Problem.find_by(filename: 'quantity1.html')
+    graphOne = Graph.find_by(file_id: probOne.id, typ: 'prob')
+    graphTwo = Graph.find_by(file_id: probTwo.id, typ: 'prob')
+    Score.create!(user_id: @user.id, context: probOne.context,
+                  problem_id: probOne.id, score: 7,
+                  batch: graphOne.batch, curriculum: @curriculum,
+                  ip: false)
+    Score.create!(user_id: @user.id, context: probTwo.context,
+                  problem_id: probTwo.id, score: 5,
+                  batch: graphTwo.batch, curriculum: @curriculum,
+                  ip: false)
+    # makeup and next regular problem should be added to scores
+    assert_difference '@user.scores.count', 2 do
+      @marker.set_next_problem(probTwo.id)
+    end
+    # assert makeup is not in progress
+    makeup = Problem.find_by(filename: 'quantity4.html')
+    assert_not Score.find_by(problem_id: makeup.id).ip
+    # assert next-problem-to-solve in context is the problem after makeup
+    probThree = Problem.find_by(filename: 'quantity5.html')
+    assert probThree.id, Score.find_by(user_id: @user.id, ip: true,
+                                    context: 'quantities').problem_id
+  end
+
+  test "do makeup if missing more than 7 points in a batch" do
+    # create a total of 9 missing points
+    probOne = Problem.find_by(filename: 'quantity7.html')
+    probTwo = Problem.find_by(filename: 'quantity1.html')
+    graphOne = Graph.find_by(file_id: probOne.id, typ: 'prob')
+    graphTwo = Graph.find_by(file_id: probTwo.id, typ: 'prob')
+    Score.create!(user_id: @user.id, context: probOne.context,
+                  problem_id: probOne.id, score: 0,
+                  batch: graphOne.batch, curriculum: @curriculum,
+                  ip: false)
+    Score.create!(user_id: @user.id, context: probTwo.context,
+                  problem_id: probTwo.id, score: 5,
+                  batch: graphTwo.batch, curriculum: @curriculum,
+                  ip: false)
+    makeup = Problem.find_by(filename: 'quantity4.html')
+    # only makeup should be added to scores
+    assert_difference '@user.scores.count' do
+      @marker.set_next_problem(probTwo.id)
+    end
+    # assert next-problem-to-solve in context is the makeup
+    assert makeup.id, Score.find_by(user_id: @user.id, ip: true,
+                                    context: 'quantities').problem_id
+  end
 end

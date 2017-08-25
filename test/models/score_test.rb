@@ -24,7 +24,11 @@ class ScoreTest < ActiveSupport::TestCase
   test "problem set allows skipping makeup" do
     10.times do |index|
       Score.create!(user_id: @user.id, context: 'test',
-                    problem_id: index*100, score: 7, batch: 1)
+                    problem_id: index+100, score: 7, batch: 1)
+    end
+    5.times do |index|
+      Score.create!(user_id: @user.id, context: 'not_test',
+                    problem_id: index+200, score: 0, batch: 1)
     end
     assert_not Score.problem_set(@user.id, @problemTwo.id, 1)
   end
