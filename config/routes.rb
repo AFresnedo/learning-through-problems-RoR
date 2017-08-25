@@ -57,5 +57,6 @@ Rails.application.routes.draw do
   get '/curriculum/categories', to: 'curriculum#categories'
   get '/curriculum/contexts', to: 'curriculum#contexts'
   get '/curriculum/files', to: 'curriculum#files'
+  get '/curriculum/history', to: 'curriculum#history'
 
 end

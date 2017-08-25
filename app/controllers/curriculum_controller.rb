@@ -5,6 +5,12 @@ class CurriculumController < ApplicationController
   # content controllers like problems (creating a problem and adding it to the
   # curriculum progression)
 
+  # page for analytics
+  def history
+    # TODO some pagination (can't use .paginate, not an association)
+    @all = Score.activity
+  end
+
   # TODO search feature, otherwise it seems pointless (well it has graphs)
   def index
   end

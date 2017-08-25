@@ -23,13 +23,36 @@ class Score < ApplicationRecord
       curriculum = tuple.curriculum
       filename = problem.filename
       difficulty = problem.metadata.diff
-      user = User.find(user_id)
-      hints = SeenHint.where(problem_id: problem.id, user_id: user.id).count
+      hints = SeenHint.where(problem_id: problem.id, user_id: user_id).count
       listOfHashes << {start: start, finish: finish,
                        curriculum: curriculum, category: category,
                        context: context, score: score,
                        filename: filename, difficulty: difficulty,
                        hints: hints}
+    end
+    return listOfHashes
+  end
+
+  def Score.activity
+    scores = Score.all
+    listOfHashes = []
+    scores.each do |tuple|
+      user = tuple.user_id
+      problem = Problem.find(tuple.problem_id)
+      start = tuple.created_at
+      finish = tuple.updated_at
+      score = tuple.score
+      category = tuple.category
+      context = tuple.context
+      curriculum = tuple.curriculum
+      filename = problem.filename
+      difficulty = problem.metadata.diff
+      hints = SeenHint.where(problem_id: problem.id, user_id: user).count
+      listOfHashes << {start: start, finish: finish,
+                       curriculum: curriculum, category: category,
+                       context: context, score: score,
+                       filename: filename, difficulty: difficulty,
+                       hints: hints, user: user}
     end
     return listOfHashes
   end
