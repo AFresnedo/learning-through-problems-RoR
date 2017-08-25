@@ -1,5 +1,6 @@
 require 'test_helper'
 
+# application category in mathtolife
 load "#{Rails.root}/db/seeds/test_problem_seed.rb"
 load "#{Rails.root}/db/seeds/theory_seed.rb"
 load "#{Rails.root}/db/seeds/test_graph_seed.rb"
