@@ -1,5 +1,12 @@
 <h3>Scores</h3>
 <p>Total: <%= Score.total_score(current_user.id) %></p>
 
-<em><p>Note: will be javascript enabled to present scores for different scopes and
-  times</p></em>
+<h3>Breakdown:</h3>
+<ul>
+  <% all = Score.my_history(current_user.id) %>
+  <% all.each do |hash| %>
+    <li><%= hash.to_s %></li>
+  <% end %>
+</ul>
+<em><p>Note: will be javascript enabled to present scores for different scopes
+  and times</p></em>

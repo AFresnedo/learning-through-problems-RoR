@@ -8,6 +8,32 @@ class Score < ApplicationRecord
 
   # TODO returns all "ip" problems for current_user
 
+  # NOTE this is a class method so that the type of loading can be controlled
+  # here (encapsulate from views/controllers/helpers); eager/lazy loading
+  def Score.my_history(user_id)
+    scores = Score.where(user_id: user_id, ip: false)
+    listOfHashes = []
+    scores.each do |tuple|
+      problem = Problem.find(tuple.problem_id)
+      start = tuple.created_at
+      finish = tuple.updated_at
+      score = tuple.score
+      category = tuple.category
+      context = tuple.context
+      curriculum = tuple.curriculum
+      filename = problem.filename
+      difficulty = problem.metadata.diff
+      user = User.find(user_id)
+      hints = SeenHint.where(problem_id: problem.id, user_id: user.id).count
+      listOfHashes << {start: start, finish: finish,
+                       curriculum: curriculum, category: category,
+                       context: context, score: score,
+                       filename: filename, difficulty: difficulty,
+                       hints: hints}
+    end
+    return listOfHashes
+  end
+
 
   # returns true iff user has missed too many points in a batch
   def Score.problem_set(user_id, problem_id, batch)
