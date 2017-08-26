@@ -6,10 +6,10 @@
 <hr>
 <%== @problem.text %>
 <hr>
-<%== @answer.interface %>
-<p><%= "value(s): #{@answer.values}" %></p>
+<%== @problem.answer.interface %>
+<p><%= "value(s): #{@problem.answer.values}" %></p>
 <% x = 0 %>
-<% @solutions.each do |solution| %>
+<% @problem.solutions.each do |solution| %>
   <hr>
   <h3><%= "Solution #{x+1}" %></h3>
   <em><%= "Type: #{solution.typ}" %></em>
@@ -18,7 +18,7 @@
   <%== solution.text %>
   <h4>Hints</h4>
   <ol>
-  <% @hints[x].each do |hint| %>
+  <% solution.hints.each do |hint| %>
     <li><%== hint.text %></li>
   <% end %>
   </ol>
@@ -27,9 +27,9 @@
 <hr>
 <h4>Details</h4>
 <ul>
-  <li>Curriculum: <em><%= @metadata.category %></em></li>
+  <li>Curriculum: <em><%= @problem.metadata.category %></em></li>
   <li>Category: <em><%= @problem.category %></em></li>
   <li>Context: <em><%= @problem.context %></em></li>
-  <li>Difficulty: <em><%= @metadata.diff %></em></li>
-  <li>Source: <em><%= @metadata.source %></em></li>
+  <li>Difficulty: <em><%= @problem.metadata.diff %></em></li>
+  <li>Source: <em><%= @problem.metadata.source %></em></li>
 </ul>
