@@ -1,7 +1,7 @@
 <h2>Choose Context</h2>
 <% if @contexts.empty? %>
   <h4><%= 'Congratulations, you\'ve completed the '+@category+' category.' %></h4>
-  <%= link_to 'Next Category', resume_path, method: :post%>
+  <%= link_to 'Next Category', category_next_path, method: :post%>
 <% else %>
   <h4><%= @category %></h4>
   <ul>

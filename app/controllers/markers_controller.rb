@@ -1,4 +1,6 @@
 class MarkersController < ApplicationController
+  before_action :least_teacher, only: [:skip_category, :reset_curriculum]
+  before_action :started, only: [:skip_category]
 
   # TODO find the best place to "check"? for no in progress problems and get
   # next category; currently i'm suspecting some callbackish response from
@@ -18,7 +20,14 @@ class MarkersController < ApplicationController
   end
 
   # TODO make this automatic, instead of a controller action
+  # maybe add a success flash for letting user know what is coming?
   def next_category
+    marker = current_user.markers.find_by(curriculum: 'lifetomath')
+    marker.next_category('lifetomath', marker.category)
+    redirect_to resume_path(curriculum: 'lifetomath')
+  end
+
+  def skip_category
     marker = current_user.markers.find_by(curriculum: 'lifetomath')
     marker.next_category('lifetomath', marker.category)
     redirect_to resume_path(curriculum: 'lifetomath')
@@ -122,4 +131,14 @@ class MarkersController < ApplicationController
       @directories[category] = contexts
     end
   end
+
+  private
+
+    def started
+      marker = current_user.markers.find_by(curriculum: 'lifetomath')
+      unless marker
+        flash[:danger] = "Please begin before skipping."
+        redirect_to start_path
+      end
+    end
 end
