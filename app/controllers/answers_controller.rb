@@ -19,6 +19,7 @@ class AnswersController < ApplicationController
     redirect_to solve_path(id: params[:id])
   end
 
+  # TODO refactor into models?
   # submits user's answers for problem
   def evaluate
     # get problem, and therefore its answers

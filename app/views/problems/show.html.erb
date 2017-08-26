@@ -1,37 +1,35 @@
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-<h2>problem filename</h2>
+<h3>Problem Data</h3>
 <p><%= @problem.filename %></p>
-<h3>problem statement</h3>
+<hr>
 <%== @problem.text %>
-
-<h2>answer interface</h2>
+<hr>
 <%== @answer.interface %>
-<h3>answers</h3>
-<p><%= @answer.values %></p>
-
+<p><%= "value(s): #{@answer.values}" %></p>
 <% x = 0 %>
 <% @solutions.each do |solution| %>
-  <h2>solution statement</h2>
-  <p><%= solution.typ %></p>
+  <hr>
+  <h3><%= "Solution #{x+1}" %></h3>
+  <em><%= "Type: #{solution.typ}" %></em>
+  <br>
+  <br>
   <%== solution.text %>
-  <h3>hint statement(s) for solution</h3>
+  <h4>Hints</h4>
+  <ol>
   <% @hints[x].each do |hint| %>
-    <h4>a hint</h4>
-    <%== hint.text %>
+    <li><%== hint.text %></li>
   <% end %>
+  </ol>
   <% x+=1 %>
 <% end %>
-
-<h2>metadata</h2>
-<h4>curriculum</h4>
-<%= @metadata.category %>
-<h4>category</h4>
-<%= @problem.category %>
-<h4>context</h4>
-<%= @problem.context %>
-<h4>difficulty</h4>
-<%= @metadata.diff %>
-<h4>source</h4>
-<%= @metadata.source %>
+<hr>
+<h4>Details</h4>
+<ul>
+  <li>Curriculum: <em><%= @metadata.category %></em></li>
+  <li>Category: <em><%= @problem.category %></em></li>
+  <li>Context: <em><%= @problem.context %></em></li>
+  <li>Difficulty: <em><%= @metadata.diff %></em></li>
+  <li>Source: <em><%= @metadata.source %></em></li>
+</ul>
