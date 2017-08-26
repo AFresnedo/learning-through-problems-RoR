@@ -1,9 +1,6 @@
 <%# NOTE inspired by Robert Cranfill's ma/resources/views/answer/test.blade.php %>
 <%# TODO determine what should be partials (obvious sections: problem, hint, %>
 <%# answer) %>
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 <h4><%= "#{@problem.category}, #{@problem.context}" %></h4>
 <div class="problem_statement">
 <%== @problem.text %>
