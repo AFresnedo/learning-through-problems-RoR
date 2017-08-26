@@ -18,8 +18,8 @@
   <%# figure out this user's hint status with this solution %>
   <% nextHint = nil %>
   <% if usrNumTypHints == maxNumSolHints%>
-    <% noButtonText = "<p><em>(There are no more "+solution.typ+"
-    hints)</em></p>" %>
+    <%# NOTE #{solution.type} if you want to give hint type feedback %>
+    <% noButtonText = "<p><em>(Those were all the hints, of that type.)</em></p>" %>
   <% elsif usrNumTypHints == 0 %>
     <% buttonText = "Show me a hint" %>
     <% nextHint = solHints[usrNumTypHints]%>

@@ -16,3 +16,8 @@ byebye:
     -add "debugger" line to a controller action to get a prompt to evaluate
     code that you think may be causing trouble...obviously the goal is to pick
     the right controller action
+
+marker model test:
+    -proportions doesn't unlock proportionstheory2 or subsequent files
+        -was because of two spaces, write a test to make sure that all files in
+        a context are accessible

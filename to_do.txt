@@ -99,6 +99,8 @@ server-side input figures:
 input scripts:
     -write a script to fix curriculum/category/context, if useful in any way
     -also have curriculum properly inputted into problems and theories
+    -increase robustness of graph reader script
+        -multiple blank lines should be equivalent to 1
 
 optimization:
     -"where" queries should all be moved into models and eagerly loaded sanely
