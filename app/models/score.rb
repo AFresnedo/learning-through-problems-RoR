@@ -34,7 +34,7 @@ class Score < ApplicationRecord
   end
 
   def Score.activity
-    scores = Score.all
+    scores = Score.where(ip: false)
     listOfHashes = []
     scores.each do |tuple|
       user = tuple.user_id
