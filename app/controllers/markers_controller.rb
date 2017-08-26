@@ -1,6 +1,7 @@
 class MarkersController < ApplicationController
   before_action :least_teacher, only: [:skip_category, :reset_curriculum]
   before_action :started, only: [:skip_category]
+  before_action :least_user
 
   # TODO find the best place to "check"? for no in progress problems and get
   # next category; currently i'm suspecting some callbackish response from

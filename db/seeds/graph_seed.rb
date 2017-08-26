@@ -729,10 +729,10 @@ p = Problem.find_by!(category: 'algebraic', context: 'morevar', filename: 'morev
 Graph.create!(typ: 'prob', context: 'morevar', batch: 6, makeup: false, category: 'algebraic', order: 1, file_id: p.id)
 p = Problem.find_by!(category: 'algebraic', context: 'morevar', filename: 'morevar1.html')
 Graph.create!(typ: 'prob', context: 'morevar', batch: 6, makeup: false, category: 'algebraic', order: 2, file_id: p.id)
-#GRAPH TUPLES FROM ./INTRODUCTION/example/graph.txt
-t = Theory.find_by!(category: 'introduction', context: 'example', filename: 'exampletheory1.html')
-Graph.create!(typ: 'theory', context: 'example', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'introduction')
-t = Theory.find_by!(category: 'introduction', context: 'example', filename: 'exampletheory2.html')
-Graph.create!(typ: 'theory', context: 'example', batch: 1, file_id: t.id, makeup: false, order: 0, category: 'introduction')
-t = Theory.find_by!(category: 'introduction', context: 'example', filename: 'exampletheory3.html')
-Graph.create!(typ: 'theory', context: 'example', batch: 2, file_id: t.id, makeup: false, order: 0, category: 'introduction')
+#GRAPH TUPLES FROM ./INTRODUCTION/EXAMPLES/graph.txt
+t = Theory.find_by!(category: 'introduction', context: 'examples', filename: 'exampletheory1.html')
+Graph.create!(typ: 'theory', context: 'examples', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'introduction')
+t = Theory.find_by!(category: 'introduction', context: 'examples', filename: 'exampletheory2.html')
+Graph.create!(typ: 'theory', context: 'examples', batch: 0, file_id: t.id, makeup: false, order: 1, category: 'introduction')
+t = Theory.find_by!(category: 'introduction', context: 'examples', filename: 'exampletheory3.html')
+Graph.create!(typ: 'theory', context: 'examples', batch: 0, file_id: t.id, makeup: false, order: 2, category: 'introduction')

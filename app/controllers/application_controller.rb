@@ -15,4 +15,27 @@ class ApplicationController < ActionController::Base
         redirect_to root_path
       end
     end
+
+    # TODO determine performance cost of fetching current_user
+    def restrict_to_self
+      unless user_is_self(current_user)
+        flash[:danger] = "You have been identified as the wrong user."
+        redirect_to root_url
+      end
+    end
+
+    def restrict_to_admin
+      unless is_admin
+        flash[:danger] = "You are not an administrator."
+        redirect_to root_url
+      end
+    end
+
+    def least_user
+      unless logged_in
+        flash[:danger] = "Please log in, first."
+        redirect_to login_url
+      end
+    end
+
 end
