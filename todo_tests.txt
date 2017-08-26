@@ -21,3 +21,9 @@ marker model test:
     -proportions doesn't unlock proportionstheory2 or subsequent files
         -was because of two spaces, write a test to make sure that all files in
         a context are accessible
+    -similiar to above (different bug, same symptom of inacessibility),
+    average10 was an inaccessible makeup file because the problem group could
+    not exceed missing 7 points
+
+hints:
+    -ordering was reverse, write a test to make sure ordering is correct
