@@ -1,4 +1,5 @@
 class CurriculumController < ApplicationController
+  before_action :least_teacher
 
   # NOTE the significance of having a curriculum controller is syncing RESTful
   # actions for the globalgraph/graph controllers with RESTful actions of the

@@ -5,13 +5,6 @@ data validations:
     -integration tests are tightly connected with this, start making those at
     the same time
 
-context: theoryfile bug
-    -unable to find file from Globalgraph tuple
-        -obvious solution is to add file id to globaltuple but no
-        -better solution is to add category, context attributes to Theory
-            -remove filename att? might be bad for interfaces
-            -context for globalgraph theory files is "theoryfile", so if
-            a theoryfile doesn't have a context: write that
 deployment
     -Dreamhost
         -Passenger
@@ -19,7 +12,6 @@ deployment
 basic User resource
     -RESTful Users controller actions
         -deny access for unintended user actions
-    -fixtures or seeds?
     -student, admin, teacher, owner (parent)
         -in increasing order of likelihood to be removed
         -admin is 0
@@ -29,32 +21,19 @@ basic User resource
     -model
         -validity
 
-QoL User resource
+QoL account functionality
     -email validation registration
     -account recovery
 
 security
-    -user input is paramatarized
-        -supposedly, rails view templates combat this
-            -make sure they use whitelisting
+    -user input is paramatarized (whitelist, blacklist)
+        -when using ==, is it always safe?
     -check incomplete_security_checklist.txt in Dropbox
-    -automatically log out people after a week
+    -automatically log out people after a (time_period)?
         -resets remember_tokens
 
 DBs in general:
     -foreign keys
-        -foreign keys are actually pretty new to rails (and not supported by
-        all DB types)...they are in addition to references (not references
-        themselves) the standard/old rails convention is for the application
-        (models) to enforce integrity not the db itself; add them later if
-        wanted
-            -okay, regardless, with rails 5: using references DOES add the
-            foriegn keys; they just aren't showing up on the schema
-                -a schema is NOT a db...look it up with db viewer if you need
-                to
-                    -issue here is your viewer is sqlite and it seems to ignore
-                    foreign keys (there's an option in it with foriegn keys
-                    disabled, do i enable it?)
     -missing indicies (based off controller actions)
     -remove timestamps where not used
 
@@ -82,7 +61,6 @@ problem dbs:
     -favor flexibility over performance, limited content
         -keep track of big SQL queries...they atm they don't involve the
         problems storage db (instead they involve DBs like score)
-    -seperate dbs for word-only, figure-enhanced problems?
 
 answers db
     -how to address answer modularity for a single answer?
@@ -97,58 +75,37 @@ score db:
             -likewise, ALL user_id, problem_id
     -created_at, updated_at attributes to see where user left off
 
-solutions db:
-    -favor flexibility over performance, limited content
-        -can't forsee any pitfalls here...solutions shouldn't be involved in
-        any big queries at any point
-
 metadata db:
-    -fix (don't destroy, difficulty and such)
+    -curriculum/category/context are labeled incorrectly
+    -consider moving difficulty to problem db
 
 migrations:
-    -make sure that the code, (create and drop in particular) is setup properly
-    so that the migrations aren't bugged depending on ordering/status
-        -i mean make sure the code does everything properly so that rails
-        doesn't get confused and lose sync between actual DBs, schema, and
-        migrations
+    -remove build bug
 
-do not forget:
+controller filters:
     -editing profiles should be limited to owner of said profile:
-    view/controller/route should reflect this...use cookies to identify and
-    require login
+    -curriculum should only be accessible by teachers/admins
 
 user friendliness:
     -improve user index, label students/admins/teachers
-    -add personal accounts as part of the seed
     -friendly forwarding (chp 10)
-    -right now "current_user" auto-logins the user through cookies, but
-    isn't it still possible that a user appears "logged out" at a page when
-    they have cookies enabled? aka: close browser, enter bookmarked page
-    without "current_user"
-        -no, because header and footer appear on all pages, REGRESSION TEST
-            -header/footer appear everywhere AND (another test) cookied user
-            always appears logged in on ALL pages
+        -does this include: back during results -> re-post -> error?
 
-documentation:
-    -navigation and restrictions
-        -only admin can see delete links, only admin can delete action
-            -anything else in this vein
-    -temp/perm login
-    -user model, actions, and views
-    -RESTful architecture
-    -different account privilages
-    -header/footer, and site in general, changing based on login
-
-batch input:
-    -fix figures, hardcoded addresses in input html must be wrong
-    -see input scripts file(s) in dropbox
+server-side input figures:
+    -fix figures
+        -either have a script re-write them at their source or figure out how
+        to handle them all saying /FIG
 
 input scripts:
     -write a script to fix curriculum/category/context, if useful in any way
+    -also have curriculum properly inputted into problems and theories
 
 optimization:
-    -determine if using scores to find ip problems or if having a seperate
-    table for a list of a user's IP problems is better
+    -"where" queries should all be moved into models and eagerly loaded sanely
+    -redesign instances where calling tons of different DBs like user history
+        -moving 'diff' out of metadata is an example of fixing this, but
+        obivously better queries is going to be the most common improvement
 
-index(s) for tables:
-    -check your controllers and models (espiecally marker model)
+documentation:
+    -nothing for this but to literally go through rails with a fine tooth comb
+        -obviously easier when working on tests, redesigns, and bugs

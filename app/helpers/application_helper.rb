@@ -19,6 +19,9 @@ module ApplicationHelper
   end
 
   def is_teacher
+    unless current_user
+      return false
+    end
     current_user.priv == ADMIN || current_user.priv == TEACHER
   end
 

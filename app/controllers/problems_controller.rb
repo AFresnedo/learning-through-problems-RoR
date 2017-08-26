@@ -1,4 +1,5 @@
 class ProblemsController < ApplicationController
+  before_action :least_teacher
 
   def index
     @problems = Problem.all.paginate(page: params[:page])

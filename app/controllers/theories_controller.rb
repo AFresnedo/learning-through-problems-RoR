@@ -1,5 +1,5 @@
 class TheoriesController < ApplicationController
-  # TODO is_teacher (application controller) or redirect, only: show
+  before_action :least_teacher, except: :view
 
   def index
     @theories = Theory.all.paginate(page: params[:page])
