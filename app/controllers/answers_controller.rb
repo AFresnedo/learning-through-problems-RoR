@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_action :problem_unlocked, only: [:problem, :evaluate]
+  before_action :problem_unlocked
 
   # displays problem-to-answer page (problem, hint(s), answer_interface)
   def problem
