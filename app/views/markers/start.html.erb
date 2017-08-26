@@ -10,6 +10,8 @@
 <%= link_to '(Dead Link Until Globalgraph and Graphs Are Made)', '#' %>
 <% if is_teacher %>
   <h3>(Teacher Tools)</h3>
-  <p><%= link_to 'Skip Current Category and Resume', category_skip_path, method: :post %></p>
-  <p><%= link_to 'Delete All of Your Progress', start_path, method: :delete %></p>
+  <ul>
+    <li><%= link_to 'Skip Current Category and Resume', category_skip_path, method: :post %></li>
+    <li><%= link_to 'Delete All of Your Progress', start_path, method: :delete %></li>
+  <ul>
 <% end %>
