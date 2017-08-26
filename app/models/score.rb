@@ -68,7 +68,7 @@ class Score < ApplicationRecord
                                         context: problem.context,
                                         batch: batch))
     totalScore = SCORES_PER_PROBLEM[0]*count
-    (totalScore - userScore) > SCORE_REQUIRED_MAKEUP
+    (totalScore - userScore) >= SCORE_REQUIRED_MAKEUP
   end
 
   def Score.context_score(user_id, context)
