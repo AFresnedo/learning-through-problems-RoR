@@ -1,15 +1,9 @@
 class AnswersController < ApplicationController
+  before_action :problem_unlocked, only: [:problem, :evaluate]
 
   # displays problem-to-answer page (problem, hint(s), answer_interface)
   def problem
-    # NOTE answer, hints are retrieved by view using @problem and current_user
     @problem = Problem.find_by_id(params[:id])
-    unless Score.find_by(user_id: current_user.id,
-                         problem_id: @problem.id,
-                         ip: true)
-      flash[:danger] = "You have not unlocked, or already finished, that problem."
-      redirect_to root_path
-    end
   end
 
   # unlocks next hint for current_user
@@ -104,5 +98,20 @@ class AnswersController < ApplicationController
         userAnswers << value
       end
       return userAnswers
+    end
+
+    def problem_unlocked
+      # returns nil if problem not unlocked for user
+      score = Score.find_by(user_id: current_user.id, problem_id: params[:id],
+                           ip: true)
+      unless score
+        if Score.find_by(user_id: current_user.id, problem_id: params[:id],
+                           ip: false)
+          flash[:danger] = "You already answered that problem."
+        else
+          flash[:danger] = "You have not unlocked that problem."
+        end
+        redirect_to root_path
+      end
     end
 end
