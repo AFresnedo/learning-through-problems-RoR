@@ -21,10 +21,10 @@
     <% noButtonText = "<p><em>(There are no more "+solution.typ+"
     hints)</em></p>" %>
   <% elsif usrNumTypHints == 0 %>
-    <% buttonText = "Show me a "+solution.typ+" hint" %>
+    <% buttonText = "Show me a hint" %>
     <% nextHint = solHints[usrNumTypHints]%>
   <% else %>
-    <% buttonText = "Show me another "+solution.typ+" hint" %>
+    <% buttonText = "Show me another hint" %>
     <% nextHint = solHints[usrNumTypHints]%>
   <% end %>
   <% if nextHint %>
