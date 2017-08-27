@@ -1,6 +1,5 @@
 class MarkersController < ApplicationController
   before_action :least_teacher, only: [:skip_category, :reset_curriculum]
-  before_action :started, only: [:skip_category]
   before_action :least_user
 
   # TODO find the best place to "check"? for no in progress problems and get
@@ -30,8 +29,17 @@ class MarkersController < ApplicationController
 
   def skip_category
     marker = current_user.markers.find_by(curriculum: 'lifetomath')
-    marker.next_category('lifetomath', marker.category)
-    redirect_to resume_path(curriculum: 'lifetomath')
+    if marker
+      # next category code
+      marker.next_category('lifetomath', marker.category)
+      redirect_to resume_path(curriculum: 'lifetomath')
+    else
+      # begin curriculum code and next category code in sequence
+      marker = current_user.markers.create!(curriculum: 'lifetomath')
+      marker.begin_curriculum('lifetomath')
+      marker.next_category('lifetomath', marker.category)
+      redirect_to resume_path(curriculum: 'lifetomath')
+    end
   end
 
   # redirects user to next unlocked file in context (theory or problem)
