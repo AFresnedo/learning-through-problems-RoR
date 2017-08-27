@@ -8,7 +8,7 @@
   <ol>
   <% @globalgraphs.each do |globalgraph| %>
       <% unless globalgraph.context == 'category_introduction' %>
-        <li><%= link_to globalgraph.context,
+        <li><%= link_to "#{globalgraph.category}/#{globalgraph.context}",
           graph_path(globalgraph.context) %></li>
       <% end %>
   <% end %>
