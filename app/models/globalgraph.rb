@@ -1,5 +1,8 @@
 class Globalgraph < ApplicationRecord
-  default_scope -> { order(context_order: :asc) }
+
+  def Globalgraph.get_ordering(curriculum)
+    Globalgraph.order(category_order: :asc, context_order: :asc)
+  end
 
 
   # returns the first category of a curriculum

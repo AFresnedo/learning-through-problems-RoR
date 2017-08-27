@@ -5,6 +5,6 @@ class GlobalgraphsController < ApplicationController
 
   def show
     # NOTE :id in form of curriculum name, as a string
-    @globalgraphs = Globalgraph.where(curriculum: params[:id])
+    @globalgraphs = Globalgraph.get_ordering(params[:id])
   end
 end

@@ -1,7 +1,7 @@
 class GraphsController < ApplicationController
   def index
     # each context (graph.txt)
-    @graphs = Graph.all
+    @graphs = Graph.order(context: :asc)
   end
 
   def show
