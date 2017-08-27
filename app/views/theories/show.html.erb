@@ -1,7 +1,6 @@
 <%# TODO pretty name %>
 <% provide(:title, "#{@theory.filename}") %>
 
-<h2>Filename</h2>
-<p><%= @theory.filename %></p>
+<h4><%= @theory.filename %></h4>
 
-<p><%== @theory.text %></p>
+<div class="well well-lg"><%== @theory.text %></div>

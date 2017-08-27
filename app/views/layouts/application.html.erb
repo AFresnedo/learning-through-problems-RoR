@@ -26,14 +26,15 @@
       <%= yield %>
     </div>
     <div class="container">
-    <%# Rails.env.development will show in localhost but not heroku %>
-    <%= debug(params) if Rails.env.development? %>
+      <%# Rails.env.development will show in localhost but not heroku %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
     <%= render 'layouts/footer' %>
-  </body>
-  <%# TODO determine if you can put this before closing body %>
-  <%# temporary hack to get mathjax to typeset the page after page loaded %>
-<script>
+
+
+    <%# temporary hack to get mathjax to typeset the page after page loaded %>
+    <script>
       MathJax.Hub.Typeset();
-</script>
+    </script>
+  </body>
 </html>

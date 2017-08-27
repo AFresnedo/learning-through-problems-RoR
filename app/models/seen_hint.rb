@@ -11,12 +11,12 @@ class SeenHint < ApplicationRecord
     count += SeenHint.where(user_id: user_id, problem_id: problem_id).count
   end
 
-  def SeenHint.hints_id(user_id, problem_id, typ = nil)
-    if typ
-      hints = SeenHint.where(user_id: user_id, problem_id: problem_id)
-    else
+  def SeenHint.hints_id(user_id, problem_id, solution_id = nil)
+    if solution_id
       hints = SeenHint.where(user_id: user_id, problem_id: problem_id,
-                             typ: typ)
+                            solution_id: solution_id)
+    else
+      hints = SeenHint.where(user_id: user_id, problem_id: problem_id)
     end
     list = []
     hints.each do |hint|

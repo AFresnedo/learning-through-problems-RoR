@@ -2,8 +2,8 @@ module AnswersHelper
   # NOTE inspired by Robert Cranfill's ma/app/helpers.php
 
   # returns a list of seen hints ids for a problem for current_user
-  def users_hints(problem_id, typ = nil)
-    SeenHint.hints_id(current_user.id, problem_id, typ)
+  def users_hints(problem_id, solution_id = nil)
+    SeenHint.hints_id(current_user.id, problem_id, solution_id)
   end
 
   # TODO check for hints of type T remaining; more like check for all hints

@@ -1,3 +1,7 @@
+view answer problem:
+    -displaying hints based off of solution type, so it breaks when multiple
+    solutions have the same type
+
 data validations:
     -not only input (is answer missing?)
     -remember that bug with "nil" category saves in unlocked_theory because the

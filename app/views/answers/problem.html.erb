@@ -1,43 +1,59 @@
 <%# NOTE inspired by Robert Cranfill's ma/resources/views/answer/test.blade.php %>
 <%# TODO determine what should be partials (obvious sections: problem, hint, %>
 <%# answer) %>
-<h4><%= "#{@problem.category}, #{@problem.context}" %></h4>
-<div class="problem_statement">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6"><h4><%= @problem.context %></h4></div>
+    <div class="col-sm-3"><h4><%= @problem.category %></h4></div>
+    <div class="col-sm-3"><h4>Life To Math</h4></div>
+  </div>
+</div>
+<div class="well">
 <%== @problem.text %>
 </div>
 
 <%# hints %>
 <% buttonText = "" %>
+<%# TODO refactor and optimize as appropriate (model + helper code) %>
 <% @problem.solutions.each do |solution|%>
   <%# get active record collection of all hints of this solution %>
   <% solHints = solution.hints %>
   <% maxNumSolHints = solHints.count %>
   <%# get hint ids of seen hints for this solution by user %>
-  <% usrTypHints = users_hints(@problem.id, solution.typ) %>
-  <% usrNumTypHints = usrTypHints.count %>
-  <%# figure out this user's hint status with this solution %>
+  <% usrHints = users_hints(@problem.id, solution.id) %>
+  <% usrNumHints = usrHints.count %>
+  <%# determine this user's hint status with this solution %>
   <% nextHint = nil %>
-  <% if usrNumTypHints == maxNumSolHints%>
-    <%# NOTE #{solution.type} if you want to give hint type feedback %>
-    <% noButtonText = "<p><em>(Those were all the hints, of that type.)</em></p>" %>
-  <% elsif usrNumTypHints == 0 %>
+  <%# check if user has seen all hints from this solution %>
+  <% if usrNumHints == maxNumSolHints%>
+    <%# nextHint remains nil because user has seen all hints %>
+    <% buttonText = "No hints remain" %>
+  <%# if first hint %>
+  <% elsif usrNumHints == 0 %>
     <% buttonText = "Show me a hint" %>
-    <% nextHint = solHints[usrNumTypHints]%>
+    <%# set next hint to display %>
+    <% nextHint = solHints[usrNumHints]%>
+  <%# if hint, but not first %>
   <% else %>
     <% buttonText = "Show me another hint" %>
-    <% nextHint = solHints[usrNumTypHints]%>
+    <%# set next hint to display %>
+    <% nextHint = solHints[usrNumHints]%>
   <% end %>
+  <%# draw determined button, 2 options (live or dead) %>
   <% if nextHint %>
-    <%# "show me a hint" button %>
-    <%= button_to buttonText, params: {hint_id: nextHint.id, solution_id:
-                                       solution.id, typ: solution.typ } %>
+    <%# live button %>
+    <%= button_to buttonText, {hint_id: nextHint.id, solution_id: solution.id,
+                               typ: solution.typ}, {class: "btn btn-info"} %>
   <% else %>
-    <%# "no button to press" %>
-    <%== noButtonText %>
+    <%# dead button %>
+    <button type="button" class="btn btn-info disabled">
+      No hints remain
+    </button>
   <% end %>
+  <%# TODO bug when multiple solutions have the same type %>
   <%# display hints unlocked %>
   <ol>
-  <% usrTypHints.each do |hint_id| %>
+  <% usrHints.each do |hint_id| %>
     <% i = -1 %>
     <% unmatched = true %>
     <% while unmatched %>
@@ -69,5 +85,5 @@
   <%== boxes_interface(@problem.answer.interface) %>
   <%= hidden_field_tag :id , @problem.id %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-  <%= submit_tag("Evaluate") %>
+  <%= submit_tag "Evaluate", class: "btn btn-primary" %>
 <% end %>
