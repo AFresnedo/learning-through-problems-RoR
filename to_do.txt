@@ -1,6 +1,6 @@
-view answer problem:
-    -displaying hints based off of solution type, so it breaks when multiple
-    solutions have the same type
+markers controller:
+    -the html list is unordered in curriculum_resume
+        -didn't fix that now because it might need to be re-designed
 
 data validations:
     -not only input (is answer missing?)

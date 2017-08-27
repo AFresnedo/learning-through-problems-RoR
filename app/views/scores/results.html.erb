@@ -54,5 +54,5 @@
 <p><b>Source: &nbsp</b>
 <em><%= metadata.source %></em></p>
 
-<%= link_to "Next", next_path(context: @problem.context) %>
-<%# TODO go back %>
+<p><%= link_to "Next", next_path(context: @problem.context) %></p>
+<p><%= link_to "Back to Contexts", resume_path(curriculum: metadata.category) %></p>

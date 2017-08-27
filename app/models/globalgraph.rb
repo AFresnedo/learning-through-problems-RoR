@@ -1,4 +1,5 @@
 class Globalgraph < ApplicationRecord
+  default_scope -> { order(context_order: :asc) }
 
 
   # returns the first category of a curriculum

@@ -21,11 +21,12 @@ class CurriculumController < ApplicationController
 
   def categories
     # TODO fix for multiple curricula
-    all = Globalgraph.all
+    all = Globalgraph.order(category_order: :asc)
     @curriculum = all.first.curriculum
     @cat_list = []
     all.each do |tuple|
-      if (@cat_list.last != tuple.category) ? (@cat_list << tuple.category) : nil
+      unless @cat_list.include? tuple.category
+        @cat_list << tuple.category
       end
     end
   end
@@ -44,8 +45,10 @@ class CurriculumController < ApplicationController
                     'category_introduction')
         @cat_intro_ids << theoryfile.id
       # if new context, add it to list
-      elsif item.context != @context_list.last
-        @context_list << item.context
+      else
+        unless @context_list.include? item.context
+          @context_list << item.context
+        end
       end
     end
   end

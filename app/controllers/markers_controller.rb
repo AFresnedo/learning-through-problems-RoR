@@ -88,6 +88,7 @@ class MarkersController < ApplicationController
     redirect_to start_path
   end
 
+  # TODO optimize, use actual comp sci after better design
   def resume_curriculum
     marker = current_user.markers.find_by(curriculum: params[:curriculum])
 
@@ -99,17 +100,26 @@ class MarkersController < ApplicationController
                                             category: marker.category,
                                             seen: false)
     # create a list of all active contexts for category
-    @contexts = []
+    unorderedContexts = []
     unsolved.each do |score|
-      unless @contexts.include? score.context
-        @contexts << score.context
+      unless unorderedContexts.include? score.context
+        unorderedContexts << score.context
       end
     end
     unread.each do |unlock|
-      unless @contexts.include? unlock.context
-        @contexts << unlock.context
+      unless unorderedContexts.include? unlock.context
+        unorderedContexts << unlock.context
       end
     end
+
+    categoryOrdering = Globalgraph.where(category: marker.category)
+    @contexts = []
+    categoryOrdering.each do |tuple|
+      if unorderedContexts.include? tuple.context
+        @contexts << tuple.context
+      end
+    end
+
     # for when active contexts is empty
     @category = marker.category
 

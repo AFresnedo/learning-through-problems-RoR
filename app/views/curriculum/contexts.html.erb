@@ -5,8 +5,8 @@
   <% end %>
 </ol>
 <h3><%= "Contexts of #{@category}:" %></h3>
-<ul>
+<ol>
   <% @context_list.each do |context| %>
     <li><%= link_to context, curriculum_files_path(context: context) %></li>
   <% end %>
-</ul>
+</ol>
