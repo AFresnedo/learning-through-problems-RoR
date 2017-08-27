@@ -51,6 +51,7 @@ module AnswersHelper
 
   # create a fill-in html input box with name, id: "id"
   def input_box(id)
-    "<input type='text' name='ans[#{id}]' id='ans_box_#{id}'/>"
+    "<input type='text' name='ans[#{id}]' class='form-control' id='ans_box_#{id}' \
+    style='width:70px'/>"
   end
 end
