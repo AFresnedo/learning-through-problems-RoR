@@ -111,3 +111,8 @@ optimization:
 documentation:
     -nothing for this but to literally go through rails with a fine tooth comb
         -obviously easier when working on tests, redesigns, and bugs
+
+marker skip for context:
+    -create a list of active contexts, send "skip context param[:clicked on]"
+        -requires a javascript menu (don't take clicked on literally, it might
+        not be a thing; but maybe it is, i seem to recall it)
