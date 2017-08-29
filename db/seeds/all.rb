@@ -1,5 +1,81 @@
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp11.html
-p = Problem.create!(filename: 'falsehyp11.html', category: 'methods', context: 'falsehyp', text: "<p>We have 30 beams of wood of length either 3 or 5 meters, having a total length of 100 meters. How many cuts do\r\nwe have to make to turn all of them into beams of length\r\n1 meter? (Each cut acts on one beam only.)\r\n</p>\r\n")
+# This file should contain all the record creation needed to seed the database
+# with its default values.  The data can then be loaded with the rails db:seed
+# command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings'
+#   }]) Character.create(name: 'Luke', movie: movies.first)
+
+# Sample Users
+User.create!(name: "Andres Fresnedo",
+             email: "andfresnedo@gmail.com",
+             password: "iamandres37",
+             password_confirmation: "iamandres37",
+             priv: 0)
+
+User.create!(name: "Robert Cranfill",
+             email: "robcranfill@gmail.com",
+             password: "iamrobert43",
+             password_confirmation: "iamrobert43",
+             priv: 0)
+
+User.create!(name: "Razvan Gelca",
+             email: "rgelca@gmail.com",
+             password: "iamrazvan41",
+             password_confirmation: "iamrazvan41",
+             priv: 0)
+
+User.create!(name: "Dragos Margineantu",
+             email: "ddmargin@gmail.com",
+             password: "iamdragos25",
+             password_confirmation: "iamdragos25",
+             priv: 0)
+
+User.create!(name: "Roman Fresnedo",
+             email: "romanf52@gmail.com",
+             password: "iamroman83",
+             password_confirmation: "iamroman83",
+             priv: 0)
+
+User.create!(name:  "Student User",
+             email: "student@test.org",
+             password:              "iamstudent72",
+             password_confirmation: "iamstudent72",
+             priv: 1)
+
+User.create!(name: "Teacher User",
+             email: "teacher@test.org",
+             password: "iamteacher98",
+             password_confirmation: "iamteacher98",
+             priv: 2)
+
+20.times do |n|
+  name  = Faker::Name.name
+  email = "example-#{n+1}@railstutorial.org"
+  password = "password"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password,
+               priv: 1)
+end
+
+# Problem
+
+# Answers
+
+# Solutions
+
+# Hints
+
+# Metadata
+
+# Theories
+
+# Graphs
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp11.html
+p = Problem.create!(filename: 'falsehyp11.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p>We have 30 beams of wood of length either 3 or 5 meters, having a total length of 100 meters. How many cuts do\r\nwe have to make to turn all of them into beams of length\r\n1 meter? (Each cut acts on one beam only.)\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "70", interface: "You have to make [ ] cuts. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -9,9 +85,9 @@ s.hints.create!(text: "How many 3-meter long beams are there?\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many times do you cut a 3-meter long beam?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "Moscow Math Olympiad 1999-2000, rookies, modified")
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp7.html
-p = Problem.create!(filename: 'falsehyp7.html', category: 'methods', context: 'falsehyp', text: "<p>A person wants to mail one heavy, large envelope, and a total of 6  medium and small envelopes. The person\r\npaid 3.8 dollars at the cashier, and received a stamp for the large envelope, and 50-cent and 30-cent stamps\r\nfor the medium and small envelopes. The cost of the stamp for \r\nthe large envelope was by 1 dollar less than the total cost of the other  6 stamps.  How many small envelopes did the person mail?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "Moscow Math Olympiad 1999-2000, rookies, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp7.html
+p = Problem.create!(filename: 'falsehyp7.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p>A person wants to mail one heavy, large envelope, and a total of 6  medium and small envelopes. The person\r\npaid 3.8 dollars at the cashier, and received a stamp for the large envelope, and 50-cent and 30-cent stamps\r\nfor the medium and small envelopes. The cost of the stamp for \r\nthe large envelope was by 1 dollar less than the total cost of the other  6 stamps.  How many small envelopes did the person mail?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "3", interface: "The person mailed [ ] small envelopes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -19,9 +95,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>Building on what we have lear
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Represent the price of the stamp for the large envelope\r\nby a line segment. Then how do you represent the price of\r\nthe other 6 envelopes?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "After Calugaru's Notes, GM 3102, 1968/12")
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp14.html
-p = Problem.create!(filename: 'falsehyp14.html', category: 'methods', context: 'falsehyp', text: "<p>\r\nAll of the 25 students in one class play either chess or\r\ngo. We know that 15 students play chess and 16 play go. How many\r\nstudents play chess but don't play go? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "After Calugaru's Notes, GM 3102, 1968/12")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp14.html
+p = Problem.create!(filename: 'falsehyp14.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p>\r\nAll of the 25 students in one class play either chess or\r\ngo. We know that 15 students play chess and 16 play go. How many\r\nstudents play chess but don't play go? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "9", interface: "There are [ ] students who play chess but don't play go. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -29,9 +105,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nLet us assume that no stu
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many students play both chess and go?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp4.html
-p = Problem.create!(filename: 'falsehyp4.html', category: 'methods', context: 'falsehyp', text: "<p>\r\nIn a computer game, for each red brick that I hit I\r\nget 25 points, and for each blue brick that I hit I get\r\n16 points. If I have hit 20 bricks and gained \r\n455 points, how many blue bricks did I hit?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp4.html
+p = Problem.create!(filename: 'falsehyp4.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p>\r\nIn a computer game, for each red brick that I hit I\r\nget 25 points, and for each blue brick that I hit I get\r\n16 points. If I have hit 20 bricks and gained \r\n455 points, how many blue bricks did I hit?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "5", interface: "I hit [ ] blue bricks. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -39,9 +115,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nBy hitting only red brick
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many points would I have, had I hit only red bricks?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp2.html
-p = Problem.create!(filename: 'falsehyp2.html', category: 'methods', context: 'falsehyp', text: "<p>\r\nAfter producing the  camera for a space telescope, the scientists\r\nwere told that its weight had to be reduced by 10%. \r\nOnce its weight was reduced, they added an optical device\r\nwhose weight was 12% of the weight of the camera. The weight\r\nof the entire ensemble had to be reduced by 4% so as to fit the\r\nadmissible weight of 48.384 kilograms. What\r\nwas the initial weight of the camera?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp2.html
+p = Problem.create!(filename: 'falsehyp2.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p>\r\nAfter producing the  camera for a space telescope, the scientists\r\nwere told that its weight had to be reduced by 10%. \r\nOnce its weight was reduced, they added an optical device\r\nwhose weight was 12% of the weight of the camera. The weight\r\nof the entire ensemble had to be reduced by 4% so as to fit the\r\nadmissible weight of 48.384 kilograms. What\r\nwas the initial weight of the camera?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "50", interface: "The initial weight of the camera was [ ] kilograms. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -49,9 +125,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nLet us see what happens i
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Assume that the initial weight of the camera was 10 kilograms.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 3, source: "Calugaru, modified")
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp6.html
-p = Problem.create!(filename: 'falsehyp6.html', category: 'methods', context: 'falsehyp', text: "<p> A farmer raised chickens and goats. How many of each did the\r\nfarmer raise, knowing that there are 190 heads and 460 legs. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 3, source: "Calugaru, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp6.html
+p = Problem.create!(filename: 'falsehyp6.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p> A farmer raised chickens and goats. How many of each did the\r\nfarmer raise, knowing that there are 190 heads and 460 legs. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "150|40", interface: "The farmer raised [ ] chickens and [ ] goats. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -59,9 +135,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nHere we use proportionali
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many legs would there be if the farmer had only raised chicken?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "Calugaru")
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp1.html
-p = Problem.create!(filename: 'falsehyp1.html', category: 'methods', context: 'falsehyp', text: "<p>\r\nMike's city car averages 30 miles per gallon. His SUV averages\r\n20 miles per gallon. One week, Mike drove the same number\r\nof miles with each car. On the average, how many miles per gallon of gas did he make? (30 miles per gallon means that for each\r\ngallon of gas, that car travels 30 miles.)\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "Calugaru")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp1.html
+p = Problem.create!(filename: 'falsehyp1.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p>\r\nMike's city car averages 30 miles per gallon. His SUV averages\r\n20 miles per gallon. One week, Mike drove the same number\r\nof miles with each car. On the average, how many miles per gallon of gas did he make? (30 miles per gallon means that for each\r\ngallon of gas, that car travels 30 miles.)\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "24", interface: "Mike averaged [ ] miles per gallon. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -71,9 +147,9 @@ s.hints.create!(text: "The average usage of gas is obtained by dividing the tota
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Assume that Mike drove 100 miles with each car. Do the computation with\r\nthis assumption.  What if he drove a different amount of miles?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "AMC8, modified.")
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp13.html
-p = Problem.create!(filename: 'falsehyp13.html', category: 'methods', context: 'falsehyp', text: "<p>\r\nIn one school 47 students took part in the mathematics, physics,\r\nand chemistry Olympiads. 17 students took part in the mathematics\r\nOlympiad, 22 students took part in the physics Olympiad,\r\nand 12 students took part in the chemistry Olympiad. Knowing\r\nthat no student took part in both the mathematics and physics Olympiads,\r\nfind how many students took part in exactly one of the Olympiads.\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "AMC8, modified.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp13.html
+p = Problem.create!(filename: 'falsehyp13.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p>\r\nIn one school 47 students took part in the mathematics, physics,\r\nand chemistry Olympiads. 17 students took part in the mathematics\r\nOlympiad, 22 students took part in the physics Olympiad,\r\nand 12 students took part in the chemistry Olympiad. Knowing\r\nthat no student took part in both the mathematics and physics Olympiads,\r\nfind how many students took part in exactly one of the Olympiads.\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "43", interface: "There are [ ] students who took part in exactly one of the Olympiads. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -83,9 +159,9 @@ s.hints.create!(text: "Put the students who took part in  the mathematics and ph
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What is the overlap of the two groups?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp9.html
-p = Problem.create!(filename: 'falsehyp9.html', category: 'methods', context: 'falsehyp', text: "<p> To buy a book a student pays 200 dollars. He receives the\r\nchange as one fourth of the price of the book and an additional\r\n5 dollars. Knowing that he has received the change in \r\n1-dollar and 5-dollar bills, and that he has received a total of\r\n20 bills, find out how many 1-dollar bills did he receive. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp9.html
+p = Problem.create!(filename: 'falsehyp9.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p> To buy a book a student pays 200 dollars. He receives the\r\nchange as one fourth of the price of the book and an additional\r\n5 dollars. Knowing that he has received the change in \r\n1-dollar and 5-dollar bills, and that he has received a total of\r\n20 bills, find out how many 1-dollar bills did he receive. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "14", interface: "He received [ ] 5-dollar bills. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -93,9 +169,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nWe start the solution wit
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the comparison method to find the value of the change that the student has received. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 3, source: "Petrica, Stefan, Alexe")
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp12.html
-p = Problem.create!(filename: 'falsehyp12.html', category: 'methods', context: 'falsehyp', text: "<p> One day a kiosk sold 50 magazines, some worth 3 dollars each\r\nand some worth 4 dollars each, making a total of 170 dollars. How\r\nmany magazines of each type did the kiosk sell?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 3, source: "Petrica, Stefan, Alexe")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp12.html
+p = Problem.create!(filename: 'falsehyp12.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p> One day a kiosk sold 50 magazines, some worth 3 dollars each\r\nand some worth 4 dollars each, making a total of 170 dollars. How\r\nmany magazines of each type did the kiosk sell?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "30|20", interface: "The kiosk sold [ ] 3-dollar magazines and [ ] 4-dollar magazines. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -103,9 +179,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nHad the kiosk sold only 4
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What if the kiosk had sold on 4-dollar magazines?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "GM 3279 1969/8")
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp10.html
-p = Problem.create!(filename: 'falsehyp10.html', category: 'methods', context: 'falsehyp', text: "<p>\r\nA group of 24  people visited an amusement park.\r\n For the roller coaster\r\nthey paid a total of 352 dollars, at 22 dollars per person,\r\nand for the ferris wheel they paid 210 dollars, at 14 dollars\r\nper person.  They went on either the roller coaster, or\r\nthe ferries  wheel, or both.  Find out how many \r\npeople went on the ferris wheel but not on the roller coaster. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "GM 3279 1969/8")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp10.html
+p = Problem.create!(filename: 'falsehyp10.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p>\r\nA group of 24  people visited an amusement park.\r\n For the roller coaster\r\nthey paid a total of 352 dollars, at 22 dollars per person,\r\nand for the ferris wheel they paid 210 dollars, at 14 dollars\r\nper person.  They went on either the roller coaster, or\r\nthe ferries  wheel, or both.  Find out how many \r\npeople went on the ferris wheel but not on the roller coaster. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "7", interface: "There were [ ]  people who went on the ferris wheel but not on the roller coaster. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -113,9 +189,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nThere were \\(\\frac{352}
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many people went on the ferris wheel? How many on the roller coaster? How many on both?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp8.html
-p = Problem.create!(filename: 'falsehyp8.html', category: 'methods', context: 'falsehyp', text: "<p>\r\nIn an apartment building there are 39 apartments, with 3 and 4 rooms. How many apartments of each type are there, if\r\nthe total number of rooms is 141?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp8.html
+p = Problem.create!(filename: 'falsehyp8.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p>\r\nIn an apartment building there are 39 apartments, with 3 and 4 rooms. How many apartments of each type are there, if\r\nthe total number of rooms is 141?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "15|24", interface: "There are [ ] 3-room apartments and [ ] 4-room apartments. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -123,9 +199,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nIf all apartments had 3 r
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Assume only apartments of one type were built.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "Petrica, Stefan, Alexe")
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp5.html
-p = Problem.create!(filename: 'falsehyp5.html', category: 'methods', context: 'falsehyp', text: "<p>\r\nTwo kids went with the same amount of money to the store to buy  compact disks. The \r\nfirst kid bought them at 11.20 dollars a piece and was left with\r\n8 dollars, and the second bought them at 9.60 dollars a piece\r\nand was left with 4.80 dollars. Knowing that the second\r\nkid bought 2 compact disks more than the first, find \r\n how many compact disks\r\ndid each buy? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "Petrica, Stefan, Alexe")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp5.html
+p = Problem.create!(filename: 'falsehyp5.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p>\r\nTwo kids went with the same amount of money to the store to buy  compact disks. The \r\nfirst kid bought them at 11.20 dollars a piece and was left with\r\n8 dollars, and the second bought them at 9.60 dollars a piece\r\nand was left with 4.80 dollars. Knowing that the second\r\nkid bought 2 compact disks more than the first, find \r\n how many compact disks\r\ndid each buy? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "10|12", interface: "The first kid bought [ ] compact disks and the second kid bought [ ] compact disks. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -135,9 +211,9 @@ s.hints.create!(text: "How much money would have had the second kid had he bough
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Where does this difference come from?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "Gheba, modified")
-#PROBLEM TUPLE FOR ./METHODS/FALSEHYP/falsehyp3.html
-p = Problem.create!(filename: 'falsehyp3.html', category: 'methods', context: 'falsehyp', text: "<p>\r\nIrina read a 301 page novel in 7 days. Each day she read one page\r\nless than on the previous day. How many pages did Irina read\r\non  the first day?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "Gheba, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/falsehyp3.html
+p = Problem.create!(filename: 'falsehyp3.html', curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', text: "<p>\r\nIrina read a 301 page novel in 7 days. Each day she read one page\r\nless than on the previous day. How many pages did Irina read\r\non  the first day?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "46", interface: "On the first day Irina read [ ] pages. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -145,9 +221,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nIf Irina had kept reading
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many pages would Irina have read on the 7-day period, had she\r\nkept the pace of the first day?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/CASETRY/casetry2.html
-p = Problem.create!(filename: 'casetry2.html', category: 'methods', context: 'casetry', text: "<p>\r\nMike and Mary left home with 140 dollars to buy balloons for a birthday party. On their way they bought lunch with some of the money. When they arrived at the party store they noticed that, if they were to buy with the money they had left   balloons in\r\n5 dollar packs, they would be left with 2 dollars,\r\nif they were to buy them in 7 dollar packs, they would be left with 3 dollars, and if they were to buy them in 9 dollar packs they would be left with 6 dollars. How much did Mike and Mary spend on  lunch?   \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/CASETRY/casetry2.html
+p = Problem.create!(filename: 'casetry2.html', curriculum: 'lifetomath', category: 'methods', context: 'casetry', text: "<p>\r\nMike and Mary left home with 140 dollars to buy balloons for a birthday party. On their way they bought lunch with some of the money. When they arrived at the party store they noticed that, if they were to buy with the money they had left   balloons in\r\n5 dollar packs, they would be left with 2 dollars,\r\nif they were to buy them in 7 dollar packs, they would be left with 3 dollars, and if they were to buy them in 9 dollar packs they would be left with 6 dollars. How much did Mike and Mary spend on  lunch?   \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "53", interface: "Mike and Mary have spent [ ] dollars on lunch. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -157,9 +233,9 @@ s.hints.create!(text: "Make a list of the numbers between 1 and 140 that exceed 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many of these numbers exceed a multiple of 5 by 2? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/CASETRY/casetry4.html
-p = Problem.create!(filename: 'casetry4.html', category: 'methods', context: 'casetry', text: "<p> Jimmy bought 30 balls for 30 dollars. For every 5 red\r\nballs he paid 3 dollars, for every blue ball he paid 2 dollars,\r\nand for every pair of green balls he paid 1 dollar. How many\r\nballs of each color did Jimmy buy?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/CASETRY/casetry4.html
+p = Problem.create!(filename: 'casetry4.html', curriculum: 'lifetomath', category: 'methods', context: 'casetry', text: "<p> Jimmy bought 30 balls for 30 dollars. For every 5 red\r\nballs he paid 3 dollars, for every blue ball he paid 2 dollars,\r\nand for every pair of green balls he paid 1 dollar. How many\r\nballs of each color did Jimmy buy?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "15|9|6", interface: "Jimmy bought [ ] red balls, [ ] blue balls, [ ] green balls. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -169,9 +245,9 @@ s.hints.create!(text: "Did Jimmy buy any blue balls? \r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Jimmy bought at least 8 blue balls! (Why?)\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 6, source: "judeteana Mehedinti, VIII-a, 1994,")
-#PROBLEM TUPLE FOR ./METHODS/CASETRY/casetry9.html
-p = Problem.create!(filename: 'casetry9.html', category: 'methods', context: 'casetry', text: "<p>\r\nHow many different necklaces can you make out of 3 identical\r\nred beads\r\nand 2 identical blue beads? (Each bead has to be used, and two\r\nnecklaces are the same if one can turn the first around\r\nuntil it coincides with the second.)\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 6, source: "judeteana Mehedinti, VIII-a, 1994,")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/CASETRY/casetry9.html
+p = Problem.create!(filename: 'casetry9.html', curriculum: 'lifetomath', category: 'methods', context: 'casetry', text: "<p>\r\nHow many different necklaces can you make out of 3 identical\r\nred beads\r\nand 2 identical blue beads? (Each bead has to be used, and two\r\nnecklaces are the same if one can turn the first around\r\nuntil it coincides with the second.)\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2", interface: "One can make [ ] different necklaces. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -181,9 +257,9 @@ s.hints.create!(text: "Look at the blue beads.\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The blue beads can be next to each other or separated by\r\nsome red beads. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "letscount", context: "casetry", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/CASETRY/casetry3.html
-p = Problem.create!(filename: 'casetry3.html', category: 'methods', context: 'casetry', text: "<p> A grandmother has two grandchildren. The age of the grandmother is written with two digits, each of the digits\r\nbeing the age of one of the two grandchildren. The\r\nsum of the ages of the grandmother and the grandchildren\r\nis \\(83\\). How old is the grandmother?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "letscount", category: "methods", context: "casetry", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/CASETRY/casetry3.html
+p = Problem.create!(filename: 'casetry3.html', curriculum: 'lifetomath', category: 'methods', context: 'casetry', text: "<p> A grandmother has two grandchildren. The age of the grandmother is written with two digits, each of the digits\r\nbeing the age of one of the two grandchildren. The\r\nsum of the ages of the grandmother and the grandchildren\r\nis \\(83\\). How old is the grandmother?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "73", interface: "The grandmother is [ ] years old. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -191,9 +267,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nOf course we could try all
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Try to find a range in which the age of the grandmother can be.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "judeteana Harghita, a VI-a, 1994")
-#PROBLEM TUPLE FOR ./METHODS/CASETRY/casetry1.html
-p = Problem.create!(filename: 'casetry1.html', category: 'methods', context: 'casetry', text: "<p> \r\nAt the book store, the pens come in packs of 6 or  10. Show that by combining the packs\r\na teacher can buy  exactly 44 pens for the students in one class. How many packs of\r\neach type should the teacher buy?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "judeteana Harghita, a VI-a, 1994")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/CASETRY/casetry1.html
+p = Problem.create!(filename: 'casetry1.html', curriculum: 'lifetomath', category: 'methods', context: 'casetry', text: "<p> \r\nAt the book store, the pens come in packs of 6 or  10. Show that by combining the packs\r\na teacher can buy  exactly 44 pens for the students in one class. How many packs of\r\neach type should the teacher buy?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4|2", interface: "The teacher should buy [ ] 6-pen packs and [ ] 10-pen packs. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -201,9 +277,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nThe teacher should buy les
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many 10-pen packs should the teacher buy?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/CASETRY/casetry8.html
-p = Problem.create!(filename: 'casetry8.html', category: 'methods', context: 'casetry', text: "<p>\r\nGoing to school in the morning, Peter took with him 20 candies. On his way to\r\nschool he ate 3 times as many candies as he ate at school. Knowing that at school\r\nPeter ate three times as many candies as he ate on his way back from school, find\r\nout  how many\r\ncandies did he still have when he arrived at home?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/CASETRY/casetry8.html
+p = Problem.create!(filename: 'casetry8.html', curriculum: 'lifetomath', category: 'methods', context: 'casetry', text: "<p>\r\nGoing to school in the morning, Peter took with him 20 candies. On his way to\r\nschool he ate 3 times as many candies as he ate at school. Knowing that at school\r\nPeter ate three times as many candies as he ate on his way back from school, find\r\nout  how many\r\ncandies did he still have when he arrived at home?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "7", interface: "When Peter arrived at home, he still had [ ] candies. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -213,9 +289,9 @@ s.hints.create!(text: "The number of candies that Peter ate on his way\r\nto sch
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What could be the number of candies that Peter ate on his\r\nway to school? Notice that this number can be divided evenly\r\nby 9. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 3, source: "7steps 88 IMG1550 IMG1592")
-#PROBLEM TUPLE FOR ./METHODS/CASETRY/casetry7.html
-p = Problem.create!(filename: 'casetry7.html', category: 'methods', context: 'casetry', text: "<p>\r\nIn an office, at various times during the day \r\nthe boss gives the secretary a letter to type, each time putting \r\nthe letter on top of the pile in the secretary's inbox. When\r\nthere is time, the secretary takes the top letter in the pile and types it. If there are five letters at all, and the boss\r\ndelivers them in the order 1,2,3,4,5, which of the following\r\ncould <b>not</b> be the order in which the secretary types them?<br>\r\n(1) 1,2,3,4,5 &nbsp;(2) 2,4,3,5,1 &nbsp;(3) 3,2,4,1,5 &nbsp;(4) 4,5,2,3,1 &nbsp;(5) 5,4,3,2,1.\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 3, source: "7steps 88 IMG1550 IMG1592")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/CASETRY/casetry7.html
+p = Problem.create!(filename: 'casetry7.html', curriculum: 'lifetomath', category: 'methods', context: 'casetry', text: "<p>\r\nIn an office, at various times during the day \r\nthe boss gives the secretary a letter to type, each time putting \r\nthe letter on top of the pile in the secretary's inbox. When\r\nthere is time, the secretary takes the top letter in the pile and types it. If there are five letters at all, and the boss\r\ndelivers them in the order 1,2,3,4,5, which of the following\r\ncould <b>not</b> be the order in which the secretary types them?<br>\r\n(1) 1,2,3,4,5 &nbsp;(2) 2,4,3,5,1 &nbsp;(3) 3,2,4,1,5 &nbsp;(4) 4,5,2,3,1 &nbsp;(5) 5,4,3,2,1.\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4", interface: "Pattern [ ] cannot be the  order in which the secretary typed the letters. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -225,9 +301,9 @@ s.hints.create!(text: "Try to construct scenarios for each case.\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If two letters are both received before they are typed,\r\nthen they are typed in reverse order.  \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 3, source: "AHSME 1987")
-#PROBLEM TUPLE FOR ./METHODS/CASETRY/casetry5.html
-p = Problem.create!(filename: 'casetry5.html', category: 'methods', context: 'casetry', text: "<p>\r\nIn a computer game, for every red brick that I hit I\r\nget 25 points,  for every blue brick that I hit I get\r\n16 points, and for every green brick that I hit I loose 100 points. If I have hit 18 bricks and have made  262 points, \r\nhow many blue bricks did I hit?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 3, source: "AHSME 1987")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/CASETRY/casetry5.html
+p = Problem.create!(filename: 'casetry5.html', curriculum: 'lifetomath', category: 'methods', context: 'casetry', text: "<p>\r\nIn a computer game, for every red brick that I hit I\r\nget 25 points,  for every blue brick that I hit I get\r\n16 points, and for every green brick that I hit I loose 100 points. If I have hit 18 bricks and have made  262 points, \r\nhow many blue bricks did I hit?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "7", interface: "I have hit [ ] blue bricks. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -237,9 +313,9 @@ s.hints.create!(text: "Look at the cases where I have hit 0, 1, and more than 2 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Once you know the exact number of green bricks, you know how many\r\npoints you made from just the red and blue bricks. Now use\r\nthe method of false hypothesis, and look at what score you\r\nwould have made, had you  hit only red bricks. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/CASETRY/casetry6.html
-p = Problem.create!(filename: 'casetry6.html', category: 'methods', context: 'casetry', text: "<p>\r\nAn airline allows two checked bags, each weighing at most 50 pounds, and a carry on bag weighing 10 pounds. I have several packages, one weighing 28 pounds, one  25 pounds, one\r\n23 pounds, one 9 pounds, and 4 weighing 4.5 pounds each. \r\nIf I pack them in the three bags as allowed,\r\nwhat will the weights of these bags be?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/CASETRY/casetry6.html
+p = Problem.create!(filename: 'casetry6.html', curriculum: 'lifetomath', category: 'methods', context: 'casetry', text: "<p>\r\nAn airline allows two checked bags, each weighing at most 50 pounds, and a carry on bag weighing 10 pounds. I have several packages, one weighing 28 pounds, one  25 pounds, one\r\n23 pounds, one 9 pounds, and 4 weighing 4.5 pounds each. \r\nIf I pack them in the three bags as allowed,\r\nwhat will the weights of these bags be?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "48|46|9", interface: "The weight of the heavier checked bag is [ ], the weight of the lighter checked bag is [ ], and the weight of the carry on bag is [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -247,9 +323,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nThis problem has only fini
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Where should the packages weighing 28, 25, and 23 pounds be?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/BACKWARDS/backwards1.html
-p = Problem.create!(filename: 'backwards1.html', category: 'methods', context: 'backwards', text: "<p>\r\nOne third of the students in the Math Summer Program\r\nare boys, the rest are girls. One third are in middle\r\nschool, the rest are in high school.  Of the girls\r\nwho are in high school one third know how to solve this \r\nproblem, and the\r\nremaining 24 do not. How many students are in the Math\r\nSummer Program?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/BACKWARDS/backwards1.html
+p = Problem.create!(filename: 'backwards1.html', curriculum: 'lifetomath', category: 'methods', context: 'backwards', text: "<p>\r\nOne third of the students in the Math Summer Program\r\nare boys, the rest are girls. One third are in middle\r\nschool, the rest are in high school.  Of the girls\r\nwho are in high school one third know how to solve this \r\nproblem, and the\r\nremaining 24 do not. How many students are in the Math\r\nSummer Program?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "81", interface: "In the Math Summer Program there are [ ] students. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -259,9 +335,9 @@ s.hints.create!(text: "How many girls know how to solve the problem? \r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many girls are in high school? How many girls are in middle school? How many girls are there? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/BACKWARDS/backwards3.html
-p = Problem.create!(filename: 'backwards3.html', category: 'methods', context: 'backwards', text: "<p> A family has divided its montly income as follows: one half went on\r\nrent, one half of what was left went on food, one fourth of what\r\nwas left of this for utilities, and the rest of 750 dollars were\r\nleft in their bank account. What is the monthly income of\r\nthat family?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/BACKWARDS/backwards3.html
+p = Problem.create!(filename: 'backwards3.html', curriculum: 'lifetomath', category: 'methods', context: 'backwards', text: "<p> A family has divided its montly income as follows: one half went on\r\nrent, one half of what was left went on food, one fourth of what\r\nwas left of this for utilities, and the rest of 750 dollars were\r\nleft in their bank account. What is the monthly income of\r\nthat family?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4000", interface: "The montly income of the family is [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -269,9 +345,9 @@ s = p.solutions.create!(typ: "backwards", text: "<p>\r\nThe amount left in the b
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The amount left in the bank is what fraction of the amount\r\nthat was there before paying for utilities?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "manual clasa a IV-a")
-#PROBLEM TUPLE FOR ./METHODS/BACKWARDS/backwards4.html
-p = Problem.create!(filename: 'backwards4.html', category: 'methods', context: 'backwards', text: "<p> The land of a farm was sown as follows: half of the land\r\nless  60 acres was sown with corn, then \\(\\frac{5}{8}\\) of the rest\r\nand another 100 acres was sown with soybeans. The remaing 80 acres was turned into pasture. What is the total surface of\r\nthe farm? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "manual clasa a IV-a")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/BACKWARDS/backwards4.html
+p = Problem.create!(filename: 'backwards4.html', curriculum: 'lifetomath', category: 'methods', context: 'backwards', text: "<p> The land of a farm was sown as follows: half of the land\r\nless  60 acres was sown with corn, then \\(\\frac{5}{8}\\) of the rest\r\nand another 100 acres was sown with soybeans. The remaing 80 acres was turned into pasture. What is the total surface of\r\nthe farm? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "840", interface: "The farm had [ ] acres of land. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -281,9 +357,9 @@ s.hints.create!(text: "How many acres has the land that is not cultivated with c
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "By how many acres is the area not cultivated with corn bigger than half of the total area? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 3, source: "Alexe, Stefan, Petrica")
-#PROBLEM TUPLE FOR ./METHODS/BACKWARDS/backwards2.html
-p = Problem.create!(filename: 'backwards2.html', category: 'methods', context: 'backwards', text: "<p>\r\nTo install Internet in a 4-story building, cable was used in\r\nthe following way:\r\non the first floor they used \\(\\frac{1}{3}\\) of the cable plus \r\nanother 90 feet,\r\non the second floor they used  \\(\\frac{1}{3}\\) of the remaining\r\ncable plus another 60 feet, on the third floor they used \r\n\\(\\frac{1}{3}\\) of the cable that was left at this moment plus another 20 feet. Finally, on the fourth floor they used\r\nthe remaining 40 feet of cable. How much cable was used for installing the Internet in the building? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 3, source: "Alexe, Stefan, Petrica")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/BACKWARDS/backwards2.html
+p = Problem.create!(filename: 'backwards2.html', curriculum: 'lifetomath', category: 'methods', context: 'backwards', text: "<p>\r\nTo install Internet in a 4-story building, cable was used in\r\nthe following way:\r\non the first floor they used \\(\\frac{1}{3}\\) of the cable plus \r\nanother 90 feet,\r\non the second floor they used  \\(\\frac{1}{3}\\) of the remaining\r\ncable plus another 60 feet, on the third floor they used \r\n\\(\\frac{1}{3}\\) of the cable that was left at this moment plus another 20 feet. Finally, on the fourth floor they used\r\nthe remaining 40 feet of cable. How much cable was used for installing the Internet in the building? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "472.5", interface: "For installing the Internet in the building, [ ] feet of cable were used. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -293,9 +369,9 @@ s.hints.create!(text: "If we add the 40 feet from the fourth floor to the\r\n20 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: " The 60 feet make up \\(\\frac{2}{3}\\) of what was left after\r\nwiring the first and second floors.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "Gheba, modified")
-#PROBLEM TUPLE FOR ./METHODS/BACKWARDS/backwards5.html
-p = Problem.create!(filename: 'backwards5.html', category: 'methods', context: 'backwards', text: "<p> \r\nLinda has some amount of money. After doubling that amount, Linda spends 16 dollars. Then she doubles again\r\nthe remaining amount and spends 21 dollars. She doubles\r\nthe amount again, and spends 25 dollars. Now she has 5 dollars\r\nleft. What was the initial amount of money that Linda had?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "Gheba, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/BACKWARDS/backwards5.html
+p = Problem.create!(filename: 'backwards5.html', curriculum: 'lifetomath', category: 'methods', context: 'backwards', text: "<p> \r\nLinda has some amount of money. After doubling that amount, Linda spends 16 dollars. Then she doubles again\r\nthe remaining amount and spends 21 dollars. She doubles\r\nthe amount again, and spends 25 dollars. Now she has 5 dollars\r\nleft. What was the initial amount of money that Linda had?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "17", interface: "Linda started with [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -303,9 +379,9 @@ s = p.solutions.create!(typ: "backwards", text: "<p>\r\nAfter Linda doubled the 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How much money did Linda have before doubling the amount for the last time?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "Petrica, Stefan, Alexe")
-#PROBLEM TUPLE FOR ./METHODS/BACKWARDS/backwards6.html
-p = Problem.create!(filename: 'backwards6.html', category: 'methods', context: 'backwards', text: "<p> At the bakery at the moment of closing there were 4 buyers\r\nstill inside, who bought all the bread left. How many loaves\r\nof bread were still left at the time of closing, knowing that\r\nof the 4 buyers, each bought half of the bread that was available\r\nwhen their turn came plus one half of a loaf of bread? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "Petrica, Stefan, Alexe")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/BACKWARDS/backwards6.html
+p = Problem.create!(filename: 'backwards6.html', curriculum: 'lifetomath', category: 'methods', context: 'backwards', text: "<p> At the bakery at the moment of closing there were 4 buyers\r\nstill inside, who bought all the bread left. How many loaves\r\nof bread were still left at the time of closing, knowing that\r\nof the 4 buyers, each bought half of the bread that was available\r\nwhen their turn came plus one half of a loaf of bread? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "15", interface: "At the time of closing there were [ ] loaves of bread left. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -313,9 +389,9 @@ s = p.solutions.create!(typ: "backwards", text: "<p>\r\nThe last buyer bought on
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The last buyer bought one full loaf (half of the available bread, plus the other half which amounts to one half of a loaf).\r\nSo after the next to last bought bread, there was one loaf left.\r\nAdd to it half of a loaf, and you get half of the quantity that\r\nwas there after the next to last buyer got half of the bread.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "Petrica, Stefan, Alexe")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison8.html
-p = Problem.create!(filename: 'comparison8.html', category: 'methods', context: 'comparison', text: "<p> The students in one school bought 40 copies of the third edition of a text book, 150 copies of the second edition of that\r\ntext book, and 120 copies of the first edition of that text book, \r\nfor a total of 20320 dollars. Find how much does one book\r\nof each edition cost, if the third edition costs twice as\r\nmuch as the second edition, and the second edition costs \r\nfive times as much as the first. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "Petrica, Stefan, Alexe")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison8.html
+p = Problem.create!(filename: 'comparison8.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p> The students in one school bought 40 copies of the third edition of a text book, 150 copies of the second edition of that\r\ntext book, and 120 copies of the first edition of that text book, \r\nfor a total of 20320 dollars. Find how much does one book\r\nof each edition cost, if the third edition costs twice as\r\nmuch as the second edition, and the second edition costs \r\nfive times as much as the first. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "160|80|16", interface: "One book of the first edition costs [ ] dollars, one book of the second edition costs [ ] dollars, and one book of the third edition costs [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -323,9 +399,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nA student who bought on
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many copies of the first edition could be bought for the\r\nsame amount?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "Petrica, Stefan, Alexe, modified")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison14.html
-p = Problem.create!(filename: 'comparison14.html', category: 'methods', context: 'comparison', text: "<p> There are 64 students split into two classes. If 3 students  moved from the first class to the second, then the first class would have 2 students more than the second. How many students are there in each class?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "Petrica, Stefan, Alexe, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison14.html
+p = Problem.create!(filename: 'comparison14.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p> There are 64 students split into two classes. If 3 students  moved from the first class to the second, then the first class would have 2 students more than the second. How many students are there in each class?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "36|28", interface: "In the first class there are [ ] students, in the second class there are [ ] students. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -333,9 +409,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nWhen one student moves 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "When one student moves from the first class to the second, the \r\ndifference in the number of students between the two classes drops by 2. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 3, source: "GM, 3/1984, from Petrica, Stefan, Alexe")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison1.html
-p = Problem.create!(filename: 'comparison1.html', category: 'methods', context: 'comparison', text: "<p>\r\nSusan pays for 4 muffins and 3 bananas. Calvin spends twice as\r\nmuch paying for 3 muffins and 18 bananas. A muffin is how many\r\ntimes as expensive as a banana? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 3, source: "GM, 3/1984, from Petrica, Stefan, Alexe")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison1.html
+p = Problem.create!(filename: 'comparison1.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p>\r\nSusan pays for 4 muffins and 3 bananas. Calvin spends twice as\r\nmuch paying for 3 muffins and 18 bananas. A muffin is how many\r\ntimes as expensive as a banana? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2.4", interface: "A muffin is [ ] times as expensive as a banana. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -343,9 +419,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nIf Susan buys 8 muffins
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If Susan buys 8 muffins and 6 bananas she spends as much as Calvin.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "AMC8, modified.")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison12.html
-p = Problem.create!(filename: 'comparison12.html', category: 'methods', context: 'comparison', text: "<p>\r\nAlejandro has sold one month \r\n 255 copies of the game TYT, 320 copies of\r\nthe game UVU, and 101 copies of the game GRM that he had created,\r\nfor a total of 8480 dollars.    Next month he only sold \r\n220 copies of TYT, 160 copies of UVU, and 87 copies of GRM for\r\na total of 5805 dollars. Knowing that TYT is  2 dollars cheaper than UVU, find how much does each game cost?\r\n\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "AMC8, modified.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison12.html
+p = Problem.create!(filename: 'comparison12.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p>\r\nAlejandro has sold one month \r\n 255 copies of the game TYT, 320 copies of\r\nthe game UVU, and 101 copies of the game GRM that he had created,\r\nfor a total of 8480 dollars.    Next month he only sold \r\n220 copies of TYT, 160 copies of UVU, and 87 copies of GRM for\r\na total of 5805 dollars. Knowing that TYT is  2 dollars cheaper than UVU, find how much does each game cost?\r\n\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "11|13|15", interface: "TYT costs [ ] dollars, UVU costs [ ] dollars, while GRM costs [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -355,9 +431,9 @@ s.hints.create!(text: "Combine the elimination by subtraction method with the el
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If in two rows the quantities are different, you might want\r\nto multiply the rows by some numbers in such a way that one\r\nquantity can be eliminated by subtraction.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison4.html
-p = Problem.create!(filename: 'comparison4.html', category: 'methods', context: 'comparison', text: "<p> If 125 cows and 78 horses eat 2592 kilograms of hay per\r\nday and 109 cows and 78 horses eat 2400 kilograms of\r\nhay per day, how much does one cow and how much does one horse\r\neat per day?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison4.html
+p = Problem.create!(filename: 'comparison4.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p> If 125 cows and 78 horses eat 2592 kilograms of hay per\r\nday and 109 cows and 78 horses eat 2400 kilograms of\r\nhay per day, how much does one cow and how much does one horse\r\neat per day?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "12|14", interface: "A cow eats [ ] kilograms of hay per day and  a horse eats [ ] kilograms of hay per day. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -367,9 +443,9 @@ s.hints.create!(text: "Follow the idea from the first example from the theory. D
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "In both cases the number of horses is the same. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "Calugaru")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison3.html
-p = Problem.create!(filename: 'comparison3.html', category: 'methods', context: 'comparison', text: "<p>\r\nAt the farmer's market John paid 20 dollars for 3 pounds of apples, 3 pounds of pears, and 5 pounds of peaches, Mary paid\r\n28 dollars for 6 pounds of apples, 4 pounds of pears, and\r\n2 pounds of peaches, and Bob paid 39 dollars for 6 pounds of \r\napples, 7 pounds of pears, and 7 pounds of peaches. Laura\r\nbought 1 pound of apples, 2 pounds of pears, and 3 pounds of\r\npeaches. How much did Laura pay?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "Calugaru")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison3.html
+p = Problem.create!(filename: 'comparison3.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p>\r\nAt the farmer's market John paid 20 dollars for 3 pounds of apples, 3 pounds of pears, and 5 pounds of peaches, Mary paid\r\n28 dollars for 6 pounds of apples, 4 pounds of pears, and\r\n2 pounds of peaches, and Bob paid 39 dollars for 6 pounds of \r\napples, 7 pounds of pears, and 7 pounds of peaches. Laura\r\nbought 1 pound of apples, 2 pounds of pears, and 3 pounds of\r\npeaches. How much did Laura pay?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "10", interface: "Laura paid [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -377,9 +453,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nLet us look at John and
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Put John and Mary together, then compare to Bob.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "Calugaru")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison13.html
-p = Problem.create!(filename: 'comparison13.html', category: 'methods', context: 'comparison', text: "<p> Four apples, three oranges, and three grapefruit cost \r\n3.85 dollars. Six apples, five oranges, and 2 grapefruit cost\r\n4.55 dollars. How much does each fruit cost if one grapefruit costs\r\nas much as an apple plus an orange?   \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "Calugaru")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison13.html
+p = Problem.create!(filename: 'comparison13.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p> Four apples, three oranges, and three grapefruit cost \r\n3.85 dollars. Six apples, five oranges, and 2 grapefruit cost\r\n4.55 dollars. How much does each fruit cost if one grapefruit costs\r\nas much as an apple plus an orange?   \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2.50|3.50|.60", interface: "One apple costs [ ] dollars, one orange costs [ ] dollars, and one grapefruit costs [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -387,9 +463,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nWe have\r\n\\begin{alig
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Substitute 1 grapefruit for one orange and one apple. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison10.html
-p = Problem.create!(filename: 'comparison10.html', category: 'methods', context: 'comparison', text: "<p>\r\nEight calves and five sheep eat 167 pounds of food in one day.\r\nOne calf eats with 5.6 pounds more than a sheep. How much food does\r\none sheep eat and how much does one calf eat in one day? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison10.html
+p = Problem.create!(filename: 'comparison10.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p>\r\nEight calves and five sheep eat 167 pounds of food in one day.\r\nOne calf eats with 5.6 pounds more than a sheep. How much food does\r\none sheep eat and how much does one calf eat in one day? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "9.4|15", interface: "A sheep eats [ ] pounds of food in one  day, and a calf eats [ ] pounds of food in one day. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -397,9 +473,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nIf we replace each calf
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Replace the 8 calves by 8 sheep.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "Calugaru")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison6.html
-p = Problem.create!(filename: 'comparison6.html', category: 'methods', context: 'comparison', text: "<p>\r\nFind how much do 2 pounds of sugar and 3 pounds of flour cost knowing that 5 pounds of sugar and 12 pounds of flour cost \r\n32.50 dollars, while 7 pounds of sugar and 6 pounds of flour\r\ncost 32 dollars.  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "Calugaru")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison6.html
+p = Problem.create!(filename: 'comparison6.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p>\r\nFind how much do 2 pounds of sugar and 3 pounds of flour cost knowing that 5 pounds of sugar and 12 pounds of flour cost \r\n32.50 dollars, while 7 pounds of sugar and 6 pounds of flour\r\ncost 32 dollars.  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "10.75", interface: "2 pounds of sugar and 3 pounds of flour cost [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -409,9 +485,9 @@ s.hints.create!(text: "Find the cost of 1 pound of sugar and the cost of 1 pound
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Write the information of the problem on two rows, then double the second row.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "Petrica, Stefan, Alexe, modified")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison5.html
-p = Problem.create!(filename: 'comparison5.html', category: 'methods', context: 'comparison', text: "<p>\r\nIf 20 notebooks and 35 pens cost 108 dollars, but 15 notebooks and\r\n9 pencils cost 53.40 dollars, how much does one notebook\r\nand how much does one pencil cost? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "Petrica, Stefan, Alexe, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison5.html
+p = Problem.create!(filename: 'comparison5.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p>\r\nIf 20 notebooks and 35 pens cost 108 dollars, but 15 notebooks and\r\n9 pencils cost 53.40 dollars, how much does one notebook\r\nand how much does one pencil cost? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2.99|.95", interface: "A notebook costs [ ] dollars and a pencil costs [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -423,9 +499,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nWrite the information o
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Write the information of the problem on two rows as\r\nshown in the examples from the theory. Then divide the\r\nfirst row by 5 and the second by 3. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "Petrica, Stefan, Alexe")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison11.html
-p = Problem.create!(filename: 'comparison11.html', category: 'methods', context: 'comparison', text: "<p> For 2 papayas, 3 melons, and 4 mangos, Guadalupe paid 44.50 dollars. Had she bought 3 papayas, 4 melons, and 2 mangos, she\r\nwould have paid 5.50 dollars more. Find the price of each fruit\r\nknowing that one papaya costs as much as 2 mangos.\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "Petrica, Stefan, Alexe")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison11.html
+p = Problem.create!(filename: 'comparison11.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p> For 2 papayas, 3 melons, and 4 mangos, Guadalupe paid 44.50 dollars. Had she bought 3 papayas, 4 melons, and 2 mangos, she\r\nwould have paid 5.50 dollars more. Find the price of each fruit\r\nknowing that one papaya costs as much as 2 mangos.\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "7|5.50|3.50", interface: "One papaya costs [ ] dollars, one melon costs [ ] dollars, one mango costs [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -433,9 +509,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nWe have \r\n\\begin{ali
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Combine the elimination by subtraction method with the elimination by substitution method.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison15.html
-p = Problem.create!(filename: 'comparison15.html', category: 'methods', context: 'comparison', text: "<p>\r\nIn a group of 5 girls and 2 boys, each girl has solved the same number of problems, while the first boy has solved twice as many\r\nas a girl and the second boy has solved half as many as a girl. Knowing that altogether the children have solved 165 problems, find how many problems did each of them solve.\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison15.html
+p = Problem.create!(filename: 'comparison15.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p>\r\nIn a group of 5 girls and 2 boys, each girl has solved the same number of problems, while the first boy has solved twice as many\r\nas a girl and the second boy has solved half as many as a girl. Knowing that altogether the children have solved 165 problems, find how many problems did each of them solve.\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "44|22|11", interface: "Each of the girls solved [ ] problems, the first boy solved [ ] problems, and the second boy solved [ ] problems. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -443,9 +519,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nLet us assume that instea
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Replace the first boy by two girls. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison7.html
-p = Problem.create!(filename: 'comparison7.html', category: 'methods', context: 'comparison', text: "<p>\r\nFor 3 pens, 2 pencils, and 4 notebooks a student pays\r\n21.40 dollars. Had the student bought 1 pen, 4 pencils and 3 notebooks, the student would have paid 13.80 dollars.\r\nKnowing that 3 pens, 2 pencils and 2 notebooks cost 15.40 dollars, find the price of each item. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison7.html
+p = Problem.create!(filename: 'comparison7.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p>\r\nFor 3 pens, 2 pencils, and 4 notebooks a student pays\r\n21.40 dollars. Had the student bought 1 pen, 4 pencils and 3 notebooks, the student would have paid 13.80 dollars.\r\nKnowing that 3 pens, 2 pencils and 2 notebooks cost 15.40 dollars, find the price of each item. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2.80|.50|3", interface: "One pen costs [ ] dollars, one pencil costs [ ] dollars, one notebook costs [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -455,9 +531,9 @@ s.hints.create!(text: "Write the information from the statement on 3 rows, than 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Now reduce the problem to just 2 items. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "Petrica, Stefan, Alexe")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison2.html
-p = Problem.create!(filename: 'comparison2.html', category: 'methods', context: 'comparison', text: "<p>\r\nDuring one month a plant produced  a total of 400 freezers and refrigerators. Next month it produced twice as many freezers\r\nand by \\(\\frac{3}{20}\\) more refrigerators, for a total of 715. \r\nHow many freezers and how many refrigerators did the plant produce each\r\nmonth?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "Petrica, Stefan, Alexe")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison2.html
+p = Problem.create!(filename: 'comparison2.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p>\r\nDuring one month a plant produced  a total of 400 freezers and refrigerators. Next month it produced twice as many freezers\r\nand by \\(\\frac{3}{20}\\) more refrigerators, for a total of 715. \r\nHow many freezers and how many refrigerators did the plant produce each\r\nmonth?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "300|100|600|115", interface: "During the first month the plant produced [ ] freezers and [ ] refrigerators. During the second month, the plant produced [ ] freezers and [ ] refrigerators. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -467,9 +543,9 @@ s.hints.create!(text: "Double the number of units produced during the first mont
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "After you doubled, how many freezers were produced more during\r\nthe first month than during the second? What fraction do they\r\nrepresent of the number of freezers produced before doubling?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "Calugaru")
-#PROBLEM TUPLE FOR ./METHODS/comparison/comparison9.html
-p = Problem.create!(filename: 'comparison9.html', category: 'methods', context: 'comparison', text: "<p>\r\nA singer sold 300 CD's and 500 DVD's of his last concert for\r\na total of 14200 dollars. For\r\nevery 3 CD's sold, he got by 2 dollars more than what he would\r\nhave got by selling 2 DVD's. How much does a CD and how much does\r\na DVD cost?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "Calugaru")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/comparison9.html
+p = Problem.create!(filename: 'comparison9.html', curriculum: 'lifetomath', category: 'methods', context: 'comparison', text: "<p>\r\nA singer sold 300 CD's and 500 DVD's of his last concert for\r\na total of 14200 dollars. For\r\nevery 3 CD's sold, he got by 2 dollars more than what he would\r\nhave got by selling 2 DVD's. How much does a CD and how much does\r\na DVD cost?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "14|20", interface: "A CD costs [ ] dollars, a DVD costs [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -479,9 +555,9 @@ s.hints.create!(text: "Replace the 300 CD's by 200 DVD's.\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Once you know the price of a DVD you can also find the price of 3 CD's.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 3, source: "Calugaru, modified")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions23.html
-p = Problem.create!(filename: 'proportions23.html', category: 'methods', context: 'proportions', text: "<p>\r\nSuppose that 12 cows give 110 gallons of milk in 4 days. At this rate, how many gallons of milk will 5 cows give in 6 days?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 3, source: "Calugaru, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions23.html
+p = Problem.create!(filename: 'proportions23.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>\r\nSuppose that 12 cows give 110 gallons of milk in 4 days. At this rate, how many gallons of milk will 5 cows give in 6 days?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "68.75", interface: "The cows will give [ ] gallons of milk. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -489,9 +565,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe amount of milk is 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What is proportional to what?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "AMC8, modified")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions17.html
-p = Problem.create!(filename: 'proportions17.html', category: 'methods', context: 'proportions', text: "<p>\r\nA team of workers loads  boxes filled with apples in trucks at a rate of 1240 boxes  every 5 hours. Another team of workers brings boxes filled with apples  from the orchard at a rate of\r\n285 every 45 minutes.\r\nKnowing that at the begining of the day there were 120 boxes\r\nleft at the loading zone from the day before, how many\r\nboxes will there be left at the end of the day if the length\r\nof the work day is 8 hours?     \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "AMC8, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions17.html
+p = Problem.create!(filename: 'proportions17.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>\r\nA team of workers loads  boxes filled with apples in trucks at a rate of 1240 boxes  every 5 hours. Another team of workers brings boxes filled with apples  from the orchard at a rate of\r\n285 every 45 minutes.\r\nKnowing that at the begining of the day there were 120 boxes\r\nleft at the loading zone from the day before, how many\r\nboxes will there be left at the end of the day if the length\r\nof the work day is 8 hours?     \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "216", interface: "At the end of the day there will be [ ] boxes left. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -499,9 +575,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe total amount of bo
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Compute the amount of boxes brought by the second team and the\r\namount of boxes loaded by the first team. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions15.html
-p = Problem.create!(filename: 'proportions15.html', category: 'methods', context: 'proportions', text: "<p>If one needs 25 people to pick 520 pounds of apples at an orchard during\r\nan 8 hour period, how many people are needed to pick 750 pounds of\r\napples during a 5 hour period?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions15.html
+p = Problem.create!(filename: 'proportions15.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>If one needs 25 people to pick 520 pounds of apples at an orchard during\r\nan 8 hour period, how many people are needed to pick 750 pounds of\r\napples during a 5 hour period?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "58", interface: "We need [ ] people. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -511,9 +587,9 @@ s.hints.create!(text: "The amount of apples picked is proportional to both the n
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The answer cannot be a fraction of a person, to solve\r\nthe task you have to round up to the next whole number.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions22.html
-p = Problem.create!(filename: 'proportions22.html', category: 'methods', context: 'proportions', text: "<p>If a town in which live 480 people uses 2040 gallons of\r\nwater per day, how much water would it use if its\r\npopulation were to grow by 100 people? (Assume that\r\nthe amount of water used is proportional to the population.)\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions22.html
+p = Problem.create!(filename: 'proportions22.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>If a town in which live 480 people uses 2040 gallons of\r\nwater per day, how much water would it use if its\r\npopulation were to grow by 100 people? (Assume that\r\nthe amount of water used is proportional to the population.)\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2465", interface: "The town would use [ ] gallons of water per day. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -521,9 +597,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nSet up the problem as 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The new population is 580 people. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions7.html
-p = Problem.create!(filename: 'proportions7.html', category: 'methods', context: 'proportions', text: "<p>\r\nA car travels 5 times  faster than a bicycle. If it\r\ntakes the car 2 and a half hours to cover a \r\ndistance, how long will it take for the bicycle\r\nto cover half that distance? (The distance is proportional to\r\nthe time.) \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions7.html
+p = Problem.create!(filename: 'proportions7.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>\r\nA car travels 5 times  faster than a bicycle. If it\r\ntakes the car 2 and a half hours to cover a \r\ndistance, how long will it take for the bicycle\r\nto cover half that distance? (The distance is proportional to\r\nthe time.) \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "6|15", interface: "The bicycle will cover that distance in [ ] hours and [ ] minutes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -531,9 +607,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe   product of speed
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How long it take for the bicycle to cover the same distance as the car? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions1.html
-p = Problem.create!(filename: 'proportions1.html', category: 'methods', context: 'proportions', text: "<p>\r\nHow much do 6 yards of fabric cost, knowing that for 11 yards a customer paid\r\n275 dollars?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions1.html
+p = Problem.create!(filename: 'proportions1.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>\r\nHow much do 6 yards of fabric cost, knowing that for 11 yards a customer paid\r\n275 dollars?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "150", interface: "Six yards of fabric cost [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -541,9 +617,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>   So we set up the\r\npro
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Well, there is nothing hard in this question. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions21.html
-p = Problem.create!(filename: 'proportions21.html', category: 'methods', context: 'proportions', text: "<p>\r\nThe circumference of the front wheels of a lunar rover is \r\n140 centimeters while  the circumference of the back wheels\r\nof the rover is 165 centimeters. If the rover travels in\r\na straigh forward direction, at what distance from the start\r\nwould the front wheels have made 7 complete\r\n turns more than the back wheels? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions21.html
+p = Problem.create!(filename: 'proportions21.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>\r\nThe circumference of the front wheels of a lunar rover is \r\n140 centimeters while  the circumference of the back wheels\r\nof the rover is 165 centimeters. If the rover travels in\r\na straigh forward direction, at what distance from the start\r\nwould the front wheels have made 7 complete\r\n turns more than the back wheels? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "6468", interface: "The distance from the start is [ ] centimeters. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -551,9 +627,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\n\tThe distance travele
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How are related the number of rotations\r\nand the length of the circumference?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions9.html
-p = Problem.create!(filename: 'proportions9.html', category: 'methods', context: 'proportions', text: "<p>If it takes six hours for four pumps to remove the water\r\nfrom a basin, how long will it take for fifteen pumps to remove\r\nthe water from the same basin?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions9.html
+p = Problem.create!(filename: 'proportions9.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>If it takes six hours for four pumps to remove the water\r\nfrom a basin, how long will it take for fifteen pumps to remove\r\nthe water from the same basin?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1|36", interface: "It takes [ ] hours and  [ ] minutes to pump the water out of the basin. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -561,9 +637,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe time it takes to r
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The time is inverse proportional to the number of pumps.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions18.html
-p = Problem.create!(filename: 'proportions18.html', category: 'methods', context: 'proportions', text: "<p>\r\nA cogwheel has 30 teeth and makes 160 rotations per minute.\r\nAnother cogwheel that is meshed with it has 36 teeth. How fast\r\ndoes the second cogwheel\r\n rotate? If at some moment one tooth of the first\r\nwheel fills a gap on the second wheel, after how long will the same tooth fill the same  gap? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions18.html
+p = Problem.create!(filename: 'proportions18.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>\r\nA cogwheel has 30 teeth and makes 160 rotations per minute.\r\nAnother cogwheel that is meshed with it has 36 teeth. How fast\r\ndoes the second cogwheel\r\n rotate? If at some moment one tooth of the first\r\nwheel fills a gap on the second wheel, after how long will the same tooth fill the same  gap? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "192|1875", interface: "The second cogwheel rotates at [ ] rotations per minute. The same tooth will fill the same gap after [ ] miliseconds (1 second = 1000 miliseconds). ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -571,9 +647,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\n\tBecause </a> the cog
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: " The cogwheels are meshed, so the number of \r\nrotations per minute is proportional to the number of teeth.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions14.html
-p = Problem.create!(filename: 'proportions14.html', category: 'methods', context: 'proportions', text: "<p>If 6 people load 4 trucks of grains in\r\n3 hours, how long will it take for 9 people\r\nto load 5 trucks?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions14.html
+p = Problem.create!(filename: 'proportions14.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>If 6 people load 4 trucks of grains in\r\n3 hours, how long will it take for 9 people\r\nto load 5 trucks?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "150", interface: "It takes [ ] minutes to load the trucks. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -581,9 +657,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe amount of grains l
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The amount of grains loaded in the trucks is proportional to\r\nboth the number of people and the duration of work.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions3.html
-p = Problem.create!(filename: 'proportions3.html', category: 'methods', context: 'proportions', text: "<p>\r\nSeven tractors plowed 2/5 of a lot in 18 days. After that, five more tractors joined\r\nthe eight, and together plowed the rest of the lot. How long did it take to plow the\r\nentire lot? (The work day is 8 hours.)\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions3.html
+p = Problem.create!(filename: 'proportions3.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>\r\nSeven tractors plowed 2/5 of a lot in 18 days. After that, five more tractors joined\r\nthe eight, and together plowed the rest of the lot. How long did it take to plow the\r\nentire lot? (The work day is 8 hours.)\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "33|6", interface: "It took [ ] days and [ ] hours to plow the lot. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -591,9 +667,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\n\tLet us  first find o
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The number of tractors is inverse proportional to the time\r\nrequired to plow the lot. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions12.html
-p = Problem.create!(filename: 'proportions12.html', category: 'methods', context: 'proportions', text: "<p>Kate, who lives in London, was hired on Tuesday, September 30, and she started\r\nwork the next day. The contract stipulates that she works\r\nfive days a week, from Monday to Friday, and that each\r\nmonth she gets paid an amount proportional to the number\r\nof days that she worked that month. If in October she got\r\npaid 1955 pounds, how much will she get paid in November?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions12.html
+p = Problem.create!(filename: 'proportions12.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>Kate, who lives in London, was hired on Tuesday, September 30, and she started\r\nwork the next day. The contract stipulates that she works\r\nfive days a week, from Monday to Friday, and that each\r\nmonth she gets paid an amount proportional to the number\r\nof days that she worked that month. If in October she got\r\npaid 1955 pounds, how much will she get paid in November?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1700", interface: "In November Kate will be paid [ ] pounds. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -601,9 +677,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\n\tHere</a> is the cale
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many days does Kate work in October and in November?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions16.html
-p = Problem.create!(filename: 'proportions16.html', category: 'methods', context: 'proportions', text: "<p>\r\nA farmer hired 32 workers to collect strawberries at his farm.\r\nAfter the first week he noticed that the workers have spent\r\n46 hours of work each to pick the planned amount of strawberries.\r\nTo comply with the 40 hour workweek requirement he\r\ndecided to hire more workers for the second week to pick the same amount of\r\nstrawberries. How many new workers should he hire?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions16.html
+p = Problem.create!(filename: 'proportions16.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>\r\nA farmer hired 32 workers to collect strawberries at his farm.\r\nAfter the first week he noticed that the workers have spent\r\n46 hours of work each to pick the planned amount of strawberries.\r\nTo comply with the 40 hour workweek requirement he\r\ndecided to hire more workers for the second week to pick the same amount of\r\nstrawberries. How many new workers should he hire?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "5", interface: "The farmer should hire [ ] more workers. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -611,9 +687,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe  total amount of s
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: " The total amount of strawberries to be picked in  one week \r\nis proportional to what? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions10.html
-p = Problem.create!(filename: 'proportions10.html', category: 'methods', context: 'proportions', text: "<p>A school organized a day trip on a week end\r\n with 28 of the students.\r\nAs a snack for the 28 students \r\nthe organizers brought 2 kilograms of nuts. At the end of the trip,\r\none of the teachers noticed that each student\r\nate the same amount, and that there were exactly 194\r\ngrams of nuts left (One kilogram is 1000 grams). Next week end only 24 of the 28 students \r\nregistered for a similar day trip, and the school decided to \r\ntake the remaining nuts and add some more, estimating that\r\neach child will eat the same amount as the week before.\r\nWhat amount of nuts should they buy?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions10.html
+p = Problem.create!(filename: 'proportions10.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>A school organized a day trip on a week end\r\n with 28 of the students.\r\nAs a snack for the 28 students \r\nthe organizers brought 2 kilograms of nuts. At the end of the trip,\r\none of the teachers noticed that each student\r\nate the same amount, and that there were exactly 194\r\ngrams of nuts left (One kilogram is 1000 grams). Next week end only 24 of the 28 students \r\nregistered for a similar day trip, and the school decided to \r\ntake the remaining nuts and add some more, estimating that\r\neach child will eat the same amount as the week before.\r\nWhat amount of nuts should they buy?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1354", interface: "The amount is [ ] grams. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -621,9 +697,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe  total amount of n
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Find out the amount of nuts that the 28 students ate, then\r\nfind how much 24 students would eat.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions24.html
-p = Problem.create!(filename: 'proportions24.html', category: 'methods', context: 'proportions', text: "<p>\r\nMy laptop and my wife's laptop cost altogether 1450 dollars. How much did each laptop cost if\r\n\\(\\frac{3}{7}\\) of the cost of my laptop was as much as \\(\\frac{2}{5}\\) of the cost of my wife's laptop?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions24.html
+p = Problem.create!(filename: 'proportions24.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>\r\nMy laptop and my wife's laptop cost altogether 1450 dollars. How much did each laptop cost if\r\n\\(\\frac{3}{7}\\) of the cost of my laptop was as much as \\(\\frac{2}{5}\\) of the cost of my wife's laptop?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "700|750", interface: "My laptop cost [ ] dollars, my wife's laptop cost [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -631,9 +707,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nConsider the sum of mo
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The price of my laptop is what fraction of the price of my wife's laptop?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions20.html
-p = Problem.create!(filename: 'proportions20.html', category: 'methods', context: 'proportions', text: "<p>The velocities of a cargo plane, a passenger plane, and a\r\nmilitary plane are proportional to the numbers \r\n\\(1; \\frac{3}{2}; 3\\). Knowing\r\nthat for the same distance the cargo plane needs eighty minutes\r\n more than the passenger plane, find the time each plane needs to travel this distance.  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions20.html
+p = Problem.create!(filename: 'proportions20.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>The velocities of a cargo plane, a passenger plane, and a\r\nmilitary plane are proportional to the numbers \r\n\\(1; \\frac{3}{2}; 3\\). Knowing\r\nthat for the same distance the cargo plane needs eighty minutes\r\n more than the passenger plane, find the time each plane needs to travel this distance.  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "240|160|80.", interface: "The cargo plane needs [ ] minutes, the passenger plane needs [ ] minutes, the military plane needs [ ] minutes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -641,9 +717,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe  distance traveled
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Is the time of travel  \r\nproportional to  the velocity? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions2.html
-p = Problem.create!(filename: 'proportions2.html', category: 'methods', context: 'proportions', text: "<p>\r\nEight tractors plowed half of a lot in 14 days. After that, six more tractors joined\r\nthose eight, and together plowed the other half of the lot. How long did it take to plow the\r\nentire lot? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions2.html
+p = Problem.create!(filename: 'proportions2.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>\r\nEight tractors plowed half of a lot in 14 days. After that, six more tractors joined\r\nthose eight, and together plowed the other half of the lot. How long did it take to plow the\r\nentire lot? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "22", interface: "It took [ ] days to plow the entire lot. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -651,9 +727,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nSetting up the rule of
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If one tractor plows the lot in 10 days, two tractors plow it in\r\n5 days.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 3, source: "Etapa locala Mehedinti 1993, clasa a VI-a")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions6.html
-p = Problem.create!(filename: 'proportions6.html', category: 'methods', context: 'proportions', text: "<p>The number of customers of a phone company went up, since last year, by \\(\\frac{1}{4}\\). The number \r\nof minutes used by a customer went up by \\(\\frac{1}{5}\\). By how much did the total number of minutes used by the\r\ncustomers of the company grow?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 3, source: "Etapa locala Mehedinti 1993, clasa a VI-a")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions6.html
+p = Problem.create!(filename: 'proportions6.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>The number of customers of a phone company went up, since last year, by \\(\\frac{1}{4}\\). The number \r\nof minutes used by a customer went up by \\(\\frac{1}{5}\\). By how much did the total number of minutes used by the\r\ncustomers of the company grow?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: ".5", interface: "The number of minutes went up by a fraction of [ ] of the total number of minutes (express the answer as a decimal number). ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -661,9 +737,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe  </a> \r\nnumber o
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "View this as a two step process: first the number of clients went up, and afterwards the\r\nnumber of minutes went up.  \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions5.html
-p = Problem.create!(filename: 'proportions5.html', category: 'methods', context: 'proportions', text: "<p>If three red balls are worth five green balls, and four\r\ngreen balls are worth five blue balls, how many red\r\nballs are 1000 blue balls worth?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions5.html
+p = Problem.create!(filename: 'proportions5.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>If three red balls are worth five green balls, and four\r\ngreen balls are worth five blue balls, how many red\r\nballs are 1000 blue balls worth?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "480", interface: "1000 blue balls are worth as much as [ ] red balls. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -671,9 +747,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nWe have to set up two 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Set up two rules of three. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "")
-#PROBLEM TUPLE FOR ./METHODS/PROPORTIONS/proportions19.html
-p = Problem.create!(filename: 'proportions19.html', category: 'methods', context: 'proportions', text: "<p>\r\nThree teams of equally qualified builders worked on an \r\napartment building. The first team, consisting of 8 people,\r\nworked for 5 days, the second team, consisting of 9 people,\r\nworked for 6 days, and the third, consisting of 12 people,\r\nworked for 7 days. How much did each team earn, if the\r\ntotal pay was 18512 dollars? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions19.html
+p = Problem.create!(filename: 'proportions19.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>\r\nThree teams of equally qualified builders worked on an \r\napartment building. The first team, consisting of 8 people,\r\nworked for 5 days, the second team, consisting of 9 people,\r\nworked for 6 days, and the third, consisting of 12 people,\r\nworked for 7 days. How much did each team earn, if the\r\ntotal pay was 18512 dollars? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4160|5616|8736", interface: "The first team earned [ ] dollars, the  second team earned [ ] dollars, the third team earned [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -685,9 +761,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\n\tStarting like\r\nin 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Imagine that the entire task would have been completed by\r\n just one worker, instead of the 3 teams. How many\r\ndays would this worker have spent to complete the task?\r\n\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/NUMERICAL/numerical8.html
-p = Problem.create!(filename: 'numerical8.html', category: 'methods', context: 'numerical', text: "<p> \r\nYour yard has a plum tree and an apple tree. The number of\r\nplums on the plum tree is three times the number\r\nof apples on the apple tree. An apple weighs 8 times as\r\nmuch as a plum. You picked all plums from the plum tree\r\nand they weigh\r\n72 pounds. Then you picked 72 pounds of apples from the\r\napple tree. How many pounds do the apples that have\r\nnot yet been picked  weigh?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/NUMERICAL/numerical8.html
+p = Problem.create!(filename: 'numerical8.html', curriculum: 'lifetomath', category: 'methods', context: 'numerical', text: "<p> \r\nYour yard has a plum tree and an apple tree. The number of\r\nplums on the plum tree is three times the number\r\nof apples on the apple tree. An apple weighs 8 times as\r\nmuch as a plum. You picked all plums from the plum tree\r\nand they weigh\r\n72 pounds. Then you picked 72 pounds of apples from the\r\napple tree. How many pounds do the apples that have\r\nnot yet been picked  weigh?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "120", interface: "The apples that are yet to be picked weigh [ ] pounds. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -695,9 +771,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p> \r\nOne apple weighs 8 time
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What fraction of the weight of the plums on the plum\r\ntree are the apples on the apple  tree?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "7steps")
-#PROBLEM TUPLE FOR ./METHODS/NUMERICAL/numerical3.html
-p = Problem.create!(filename: 'numerical3.html', category: 'methods', context: 'numerical', text: "<p>\r\nMark noticed that during mid summer his weight\r\nhas increased by \\(\\frac{1}{14}\\). He decided to lose weight.\r\nAfter one month he noticed that he has lost \\(\\frac{1}{4}\\) of what\r\nhe had gained. Next month he lost another \\(\\frac{2}{5}\\) of\r\nwhat he had gained. He still had to lose 2 kilograms but he\r\ndecided to stop. What was his weight at that moment?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "7steps")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/NUMERICAL/numerical3.html
+p = Problem.create!(filename: 'numerical3.html', curriculum: 'lifetomath', category: 'methods', context: 'numerical', text: "<p>\r\nMark noticed that during mid summer his weight\r\nhas increased by \\(\\frac{1}{14}\\). He decided to lose weight.\r\nAfter one month he noticed that he has lost \\(\\frac{1}{4}\\) of what\r\nhe had gained. Next month he lost another \\(\\frac{2}{5}\\) of\r\nwhat he had gained. He still had to lose 2 kilograms but he\r\ndecided to stop. What was his weight at that moment?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "82", interface: "Mark's weight when he stopped losing weight was [ ] kilograms. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -705,9 +781,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\n Mark lost \r\n\\begin{e
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Find first what Mark's weight was at the beginning of the year.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/NUMERICAL/numerical6.html
-p = Problem.create!(filename: 'numerical6.html', category: 'methods', context: 'numerical', text: "<p>\r\nMary, Ann, and Linda have altogether 160 cherries. After each received  the same amount of cherries,\r\nMary now has 54, Ann has 69, and Linda has 73 cherries. How many cherries did each girl have\r\nin the beginning? \r\n\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/NUMERICAL/numerical6.html
+p = Problem.create!(filename: 'numerical6.html', curriculum: 'lifetomath', category: 'methods', context: 'numerical', text: "<p>\r\nMary, Ann, and Linda have altogether 160 cherries. After each received  the same amount of cherries,\r\nMary now has 54, Ann has 69, and Linda has 73 cherries. How many cherries did each girl have\r\nin the beginning? \r\n\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "42|57|61", interface: "In the beginning Mary had [ ] cherries, Ann had [ ] cherries, and Linda had [ ] cherries. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -715,9 +791,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\n The amount of cherries 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many cherries do the girls have in the end altogether?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/NUMERICAL/numerical4.html
-p = Problem.create!(filename: 'numerical4.html', category: 'methods', context: 'numerical', text: "<p>\r\nBeatriz  finished reading a novel in 3 days. On the first\r\nday she read \\(\\frac{2}{3}\\) of the novel. On the second day\r\nshe read \\(\\frac{1}{5}\\) of the novel. On the third day she\r\nread the remaining 6 pages. How long is the novel? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/NUMERICAL/numerical4.html
+p = Problem.create!(filename: 'numerical4.html', curriculum: 'lifetomath', category: 'methods', context: 'numerical', text: "<p>\r\nBeatriz  finished reading a novel in 3 days. On the first\r\nday she read \\(\\frac{2}{3}\\) of the novel. On the second day\r\nshe read \\(\\frac{1}{5}\\) of the novel. On the third day she\r\nread the remaining 6 pages. How long is the novel? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "45", interface: "The novel is [ ] page long. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -727,9 +803,9 @@ s.hints.create!(text: "What fraction of the novel did Beatriz read on the first 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What fraction of the novel did Beatriz read on the third day?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/NUMERICAL/numerical7.html
-p = Problem.create!(filename: 'numerical7.html', category: 'methods', context: 'numerical', text: "<p> A father gave to his daughter a surprise box. Inside there were 3 red boxes, each of which had 4 blue boxes inside. Inside each\r\n blue box there are 5 small red boxes, and each\r\nof these small red boxes has 6 tiny blue boxes inside. How many\r\nblue boxes, large and small, were inside the surprise box?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/NUMERICAL/numerical7.html
+p = Problem.create!(filename: 'numerical7.html', curriculum: 'lifetomath', category: 'methods', context: 'numerical', text: "<p> A father gave to his daughter a surprise box. Inside there were 3 red boxes, each of which had 4 blue boxes inside. Inside each\r\n blue box there are 5 small red boxes, and each\r\nof these small red boxes has 6 tiny blue boxes inside. How many\r\nblue boxes, large and small, were inside the surprise box?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "372", interface: "Inside the surprise box there were [ ] blue boxes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -737,9 +813,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p> Each red box had inside 4 b
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many tiny blue boxes are inside a large blue box? How many\r\nlarge blue boxes are in the surprise box?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/NUMERICAL/numerical1.html
-p = Problem.create!(filename: 'numerical1.html', category: 'methods', context: 'numerical', text: "<p>\r\nMary, Ann, and Linda have altogether 478 cherries. After each ate the same amount of cherries,\r\nMary has 27, Ann has 35, and Linda has 47 cherries left. How many cherries did each girl have\r\nin the beginning? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/NUMERICAL/numerical1.html
+p = Problem.create!(filename: 'numerical1.html', curriculum: 'lifetomath', category: 'methods', context: 'numerical', text: "<p>\r\nMary, Ann, and Linda have altogether 478 cherries. After each ate the same amount of cherries,\r\nMary has 27, Ann has 35, and Linda has 47 cherries left. How many cherries did each girl have\r\nin the beginning? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "150|158|170", interface: "Mary had [ ] cherries, Ann had [ ] cherries, Linda had [ ] cherries. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -747,9 +823,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\n The total amount of che
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many cherries did the girls eat altogether?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "Sinus, Suceava, 2007")
-#PROBLEM TUPLE FOR ./METHODS/NUMERICAL/numerical2.html
-p = Problem.create!(filename: 'numerical2.html', category: 'methods', context: 'numerical', text: "<p>\r\nJane noticed that during mid summer her weight\r\nhas increased by \\(\\frac{1}{12}\\). She decided to lose weight.\r\nAfter one month she noticed that she has lost\r\n \\(\\frac{1}{4}\\) of what\r\nshe had gained. She realized that she still has to lose 3.5 more kilograms to get where she was at the beginning of the year. What\r\nwas Jane's weight at the beginning of the year?   \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "Sinus, Suceava, 2007")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/NUMERICAL/numerical2.html
+p = Problem.create!(filename: 'numerical2.html', curriculum: 'lifetomath', category: 'methods', context: 'numerical', text: "<p>\r\nJane noticed that during mid summer her weight\r\nhas increased by \\(\\frac{1}{12}\\). She decided to lose weight.\r\nAfter one month she noticed that she has lost\r\n \\(\\frac{1}{4}\\) of what\r\nshe had gained. She realized that she still has to lose 3.5 more kilograms to get where she was at the beginning of the year. What\r\nwas Jane's weight at the beginning of the year?   \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "56", interface: "Jane's weight at the beginning of the year was [ ] kilograms. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -757,9 +833,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\n During the first month 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What fraction of her initial weight does Jane still have to lose?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/NUMERICAL/numerical5.html
-p = Problem.create!(filename: 'numerical5.html', category: 'methods', context: 'numerical', text: "<p>\r\nRobert decided to solve two thirds of the problems from his\r\nmath book during the first week of his summer vacation. \r\nOne each of the first 3 days he solved 10 problems. On\r\neach of the next 4 days he solved 11 problems. At the end\r\nof the week Robert noticed that he was 12 problems short of\r\nreaching his goal. How many problems does Robert's math book have?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/NUMERICAL/numerical5.html
+p = Problem.create!(filename: 'numerical5.html', curriculum: 'lifetomath', category: 'methods', context: 'numerical', text: "<p>\r\nRobert decided to solve two thirds of the problems from his\r\nmath book during the first week of his summer vacation. \r\nOne each of the first 3 days he solved 10 problems. On\r\neach of the next 4 days he solved 11 problems. At the end\r\nof the week Robert noticed that he was 12 problems short of\r\nreaching his goal. How many problems does Robert's math book have?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "129", interface: "Robert's math book has [ ] problems. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -767,9 +843,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\n Robert has solved \r\n\
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Just count the total number of problems that Robert has solved.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./METHODS/GRAPHICAL/graphical7.html
-p = Problem.create!(filename: 'graphical7.html', category: 'methods', context: 'graphical', text: "<p>\r\nThe father, mother, and daughter have deposited a total of 330 euros\r\nin the bank. The father has deposited 20 euros less than \\(\\frac{2}{3}\\) of what the mother has deposited,\r\n while the mother has deposited by \\(\\frac{1}{5}\\) less than  the daughter. How much\r\nmoney did each member of the family deposit in the bank?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/GRAPHICAL/graphical7.html
+p = Problem.create!(filename: 'graphical7.html', curriculum: 'lifetomath', category: 'methods', context: 'graphical', text: "<p>\r\nThe father, mother, and daughter have deposited a total of 330 euros\r\nin the bank. The father has deposited 20 euros less than \\(\\frac{2}{3}\\) of what the mother has deposited,\r\n while the mother has deposited by \\(\\frac{1}{5}\\) less than  the daughter. How much\r\nmoney did each member of the family deposit in the bank?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "60|120|150", interface: "The father deposited [ ] dollars, the mother deposited [ ] dollars, the daughter deposited [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -779,9 +855,9 @@ s.hints.create!(text: "Use the daugther as reference.\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Represent daughter's savings by 15 equal segments. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "<!--Calugaru's notes-->")
-#PROBLEM TUPLE FOR ./METHODS/GRAPHICAL/graphical12.html
-p = Problem.create!(filename: 'graphical12.html', category: 'methods', context: 'graphical', text: "<p>Two people climb a tower at the same pace, but starting at\r\ndifferent times. At the moment when the first person arrived at half the height\r\nof the tower, this person told the second, who was 48 steps lower: &ldquo;When I will be at the top, you will\r\nbe at a height that is 8 times that at which you are now.&rdquo; How many steps does  the entire  tower have? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "<!--Calugaru's notes-->")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/GRAPHICAL/graphical12.html
+p = Problem.create!(filename: 'graphical12.html', curriculum: 'lifetomath', category: 'methods', context: 'graphical', text: "<p>Two people climb a tower at the same pace, but starting at\r\ndifferent times. At the moment when the first person arrived at half the height\r\nof the tower, this person told the second, who was 48 steps lower: &ldquo;When I will be at the top, you will\r\nbe at a height that is 8 times that at which you are now.&rdquo; How many steps does  the entire  tower have? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "112", interface: "The tower has [ ] steps. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -789,9 +865,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p> Represent the height of the
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many steps below the first climber is the second at any time? What happens when the first climber is\r\nat the top of the tower?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "Calugaru's notes.")
-#PROBLEM TUPLE FOR ./METHODS/GRAPHICAL/graphical2.html
-p = Problem.create!(filename: 'graphical2.html', category: 'methods', context: 'graphical', text: "<p>\r\n\r\nTogether, Rick and George have 80 dollars, George and Mike have 70 dollars, Rick and Mike\r\nhave 90 dollars. How much money does each of the boys have?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "Calugaru's notes.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/GRAPHICAL/graphical2.html
+p = Problem.create!(filename: 'graphical2.html', curriculum: 'lifetomath', category: 'methods', context: 'graphical', text: "<p>\r\n\r\nTogether, Rick and George have 80 dollars, George and Mike have 70 dollars, Rick and Mike\r\nhave 90 dollars. How much money does each of the boys have?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "50|30|40", interface: "Rick has [ ] dollars, George has [ ] dollars, Mike has [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -799,9 +875,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nDraw the sums of money t
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Draw the amounts of money that the kids have as boxes, and\r\nthen find twice the amount of money that the three kids\r\n have together.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "Calugaru's notes")
-#PROBLEM TUPLE FOR ./METHODS/GRAPHICAL/graphical11.html
-p = Problem.create!(filename: 'graphical11.html', category: 'methods', context: 'graphical', text: "<p>\r\nJohn bought two rugs for 920 dollars. How much does each rug cost if \\(\\frac{5}{7}\\) of the cost of the first\r\nis as much as \\(\\frac{3}{5}\\) of the cost of the second?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "Calugaru's notes")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/GRAPHICAL/graphical11.html
+p = Problem.create!(filename: 'graphical11.html', curriculum: 'lifetomath', category: 'methods', context: 'graphical', text: "<p>\r\nJohn bought two rugs for 920 dollars. How much does each rug cost if \\(\\frac{5}{7}\\) of the cost of the first\r\nis as much as \\(\\frac{3}{5}\\) of the cost of the second?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "420|500", interface: "The first rug cost [ ] dollars, the second rug cost [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -809,9 +885,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p> \r\nWe represent the price 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Find a common unit by which to measure \\(\\frac{5}{7}\\) of the price of the first carpet with\r\n\\(\\frac{3}{5}\\) of the price of the second carpet. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "Calugaru's notes, GM 1559, 1960/9.")
-#PROBLEM TUPLE FOR ./METHODS/GRAPHICAL/graphical3.html
-p = Problem.create!(filename: 'graphical3.html', category: 'methods', context: 'graphical', text: "<p>\r\nMaria, Jenny, and Laura have 135 dollars. Maria and Jenny have\r\n95 dollars, and Maria and Laura have 75 dollars. How much money\r\ndoes each of the girls have? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "Calugaru's notes, GM 1559, 1960/9.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/GRAPHICAL/graphical3.html
+p = Problem.create!(filename: 'graphical3.html', curriculum: 'lifetomath', category: 'methods', context: 'graphical', text: "<p>\r\nMaria, Jenny, and Laura have 135 dollars. Maria and Jenny have\r\n95 dollars, and Maria and Laura have 75 dollars. How much money\r\ndoes each of the girls have? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "35|60|40", interface: "Maria has [ ] dollars, Jenny has [ ] dollars, and Laura has [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -819,9 +895,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nDraw the sums of money t
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Draw the amounts of money that the girls have as three colored boxes. Represent the three situations from the statement \r\ngraphically. Now look at the drawing and find out how much\r\nmoney does Laura have?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "")
-#PROBLEM TUPLE FOR ./METHODS/GRAPHICAL/graphical10.html
-p = Problem.create!(filename: 'graphical10.html', category: 'methods', context: 'graphical', text: "<p>\r\nA farmer loaded 150 tons of corn in two freight wagons. After unloading \\(\\frac{1}{3}\\) of the first\r\nwagon and \\(\\frac{1}{4}\\) of the second wagon, the quantity left on the second wagon is twice the quantity left\r\non the first wagon. What quantity of corn did the farmer load in each wagon? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/GRAPHICAL/graphical10.html
+p = Problem.create!(filename: 'graphical10.html', curriculum: 'lifetomath', category: 'methods', context: 'graphical', text: "<p>\r\nA farmer loaded 150 tons of corn in two freight wagons. After unloading \\(\\frac{1}{3}\\) of the first\r\nwagon and \\(\\frac{1}{4}\\) of the second wagon, the quantity left on the second wagon is twice the quantity left\r\non the first wagon. What quantity of corn did the farmer load in each wagon? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "54|96", interface: "The farmer loaded [ ] tons on the first wagon and [ ] tons on the second wagon. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -831,9 +907,9 @@ s.hints.create!(text: "Represent the corn on the first wagon as a red segment di
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "A blue segment is how many times a red segment?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 3, source: "Calugaru's notes, modified.")
-#PROBLEM TUPLE FOR ./METHODS/GRAPHICAL/graphical8.html
-p = Problem.create!(filename: 'graphical8.html', category: 'methods', context: 'graphical', text: "<p>\r\nA train carrying crude oil has 15-ton, 20-ton, and 30-ton cars. The total number of\r\ncars is 60, and we know that the number of 20-ton cars is three times the number\r\nof 30 ton cars, and there are 5 more 15-ton cars than 30-ton cars. Find how many tons of crude\r\noil is the train carrying? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 3, source: "Calugaru's notes, modified.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/GRAPHICAL/graphical8.html
+p = Problem.create!(filename: 'graphical8.html', curriculum: 'lifetomath', category: 'methods', context: 'graphical', text: "<p>\r\nA train carrying crude oil has 15-ton, 20-ton, and 30-ton cars. The total number of\r\ncars is 60, and we know that the number of 20-ton cars is three times the number\r\nof 30 ton cars, and there are 5 more 15-ton cars than 30-ton cars. Find how many tons of crude\r\noil is the train carrying? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1230", interface: "The train is transporting [ ] tons of crude oil. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -843,9 +919,9 @@ s.hints.create!(text: "Compute the number of cars of each type.\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the 30-ton cars as reference. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "<!--Calugaru's notes-->")
-#PROBLEM TUPLE FOR ./METHODS/GRAPHICAL/graphical4.html
-p = Problem.create!(filename: 'graphical4.html', category: 'methods', context: 'graphical', text: "<p>\r\nFour students have saved together 1750 dollars. The first has saved 75 dollars less\r\nthan the second and third altogether, and the second and the third together have\r\n saved 350 dollars more than the fourth. Also, the second has saved  175 dollars\r\nmore than the third. How much money did each student save? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "<!--Calugaru's notes-->")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/GRAPHICAL/graphical4.html
+p = Problem.create!(filename: 'graphical4.html', curriculum: 'lifetomath', category: 'methods', context: 'graphical', text: "<p>\r\nFour students have saved together 1750 dollars. The first has saved 75 dollars less\r\nthan the second and third altogether, and the second and the third together have\r\n saved 350 dollars more than the fourth. Also, the second has saved  175 dollars\r\nmore than the third. How much money did each student save? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "650|450|275|375", interface: "The first student saved [ ] dollars, the second student saved [ ] dollars, the third student saved [ ] dollars, the fourth student saved [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -853,9 +929,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nWe  represent the statem
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the third student as reference, and draw the\r\namount of money saved by him as a box. \r\nThen, represent\r\nthe amount of money saved by the second student. Use this to\r\nrepresent the amounts saved by the first and\r\n fourth students. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "Calugaru,s notes, GM 2984 1968/7")
-#PROBLEM TUPLE FOR ./METHODS/GRAPHICAL/graphical1.html
-p = Problem.create!(filename: 'graphical1.html', category: 'methods', context: 'graphical', text: "<p>\r\nLinda has downloaded a symphony in three  parts that has a total\r\nlength of 88 minutes. The first part is 10 minutes shorter than\r\nthe second and 6 minutes longer than the third. Find the length\r\nof each part of the symphony. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "Calugaru,s notes, GM 2984 1968/7")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/GRAPHICAL/graphical1.html
+p = Problem.create!(filename: 'graphical1.html', curriculum: 'lifetomath', category: 'methods', context: 'graphical', text: "<p>\r\nLinda has downloaded a symphony in three  parts that has a total\r\nlength of 88 minutes. The first part is 10 minutes shorter than\r\nthe second and 6 minutes longer than the third. Find the length\r\nof each part of the symphony. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "28|38|22", interface: "The first part has [ ] minutes, the second part has [ ] minutes, the third part has [ ] minutes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -863,9 +939,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nWe represent the three p
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Draw the parts of the symphony as horizontal segments that lie one underneath the other, then draw a vertical line that separates\r\nthe lengths of the first and the third part.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "Calugaru's notes, GM 2248 1965/1")
-#PROBLEM TUPLE FOR ./METHODS/GRAPHICAL/graphical6.html
-p = Problem.create!(filename: 'graphical6.html', category: 'methods', context: 'graphical', text: "<p>\r\nMark has  a box with 186 stickers, some of which are  red, some are\r\ngreen, and the rest are blue. Asked how many stickers of each color\r\nhe has, Mark replied:  &ldquo;\\(\\frac{3}{4}\\) of the number of red stickers\r\nis twice  the number of blue stickers, while half of the number\r\nof blue stickers is \\(\\frac{1}{3}\\) of the number of green stickers.&rdquo;\r\nHow many stickers of each color does Mark have? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "Calugaru's notes, GM 2248 1965/1")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/GRAPHICAL/graphical6.html
+p = Problem.create!(filename: 'graphical6.html', curriculum: 'lifetomath', category: 'methods', context: 'graphical', text: "<p>\r\nMark has  a box with 186 stickers, some of which are  red, some are\r\ngreen, and the rest are blue. Asked how many stickers of each color\r\nhe has, Mark replied:  &ldquo;\\(\\frac{3}{4}\\) of the number of red stickers\r\nis twice  the number of blue stickers, while half of the number\r\nof blue stickers is \\(\\frac{1}{3}\\) of the number of green stickers.&rdquo;\r\nHow many stickers of each color does Mark have? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "96|36|54", interface: "There are [ ] red stickers, [ ] blue stickers, and [ ] green stickers. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -873,9 +949,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nBecause we are supposed 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Divide the red stickers in 16 equal batches, and represent each\r\nbatch by a box.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 2, source: "")
-#PROBLEM TUPLE FOR ./METHODS/GRAPHICAL/graphical9.html
-p = Problem.create!(filename: 'graphical9.html', category: 'methods', context: 'graphical', text: "<p>\r\nTwo workers received for a project 1680 dollars. The first of them worked only \\(\\frac{3}{4}\\) as much\r\nas the second. What is the fair split of  money? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 2, source: "")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/GRAPHICAL/graphical9.html
+p = Problem.create!(filename: 'graphical9.html', curriculum: 'lifetomath', category: 'methods', context: 'graphical', text: "<p>\r\nTwo workers received for a project 1680 dollars. The first of them worked only \\(\\frac{3}{4}\\) as much\r\nas the second. What is the fair split of  money? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "720|960", interface: "The first worker should receive [ ] dollars, the second worker should receive [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -883,9 +959,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nRepresent the amount of 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use as reference a quarter of the amount of money that the second worker should receive. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "Calugaru's notes")
-#PROBLEM TUPLE FOR ./METHODS/GRAPHICAL/graphical5.html
-p = Problem.create!(filename: 'graphical5.html', category: 'methods', context: 'graphical', text: "<p>\r\nA farmer cultivated tomatoes, peppers, and cucumbers on an 130 acres farm. \r\nKnowing that the areas cultivated with tomatoes and peppers are equal,\r\nand that \\(\\frac{2}{3}\\) of the area cultivated with tomatoes is \r\nequal to \\(\\frac{1}{2}\\) of the area cultivated with cucumbers, find\r\nthe area covered by each crop.   \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "Calugaru's notes")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/GRAPHICAL/graphical5.html
+p = Problem.create!(filename: 'graphical5.html', curriculum: 'lifetomath', category: 'methods', context: 'graphical', text: "<p>\r\nA farmer cultivated tomatoes, peppers, and cucumbers on an 130 acres farm. \r\nKnowing that the areas cultivated with tomatoes and peppers are equal,\r\nand that \\(\\frac{2}{3}\\) of the area cultivated with tomatoes is \r\nequal to \\(\\frac{1}{2}\\) of the area cultivated with cucumbers, find\r\nthe area covered by each crop.   \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "39|39|52", interface: "Tomatoes are cultivated on [ ] acres, peppers are cultivated on [ ] acres, and cucumbers are cultivated on [ ] acres. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -893,9 +969,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nIf we divide the area cu
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Represent the area cultivated with tomatoes by 3 boxes. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "methods", diff: 1, source: "Calugaru")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid8.html
-p = Problem.create!(filename: 'liquid8.html', category: 'applications', context: 'liquids', text: "<p>\r\nWe are given six jugs, the first five containing 2 liters of water each, and the sixth containing one liter.  \r\n At each step we can select any two jugs, and then pour water\r\nfrom one into another until they contain equal amounts of water. \r\nIs it possible to make the quantities of water in all jugs equal?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "Calugaru")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid8.html
+p = Problem.create!(filename: 'liquid8.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>\r\nWe are given six jugs, the first five containing 2 liters of water each, and the sixth containing one liter.  \r\n At each step we can select any two jugs, and then pour water\r\nfrom one into another until they contain equal amounts of water. \r\nIs it possible to make the quantities of water in all jugs equal?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "0", interface: "Enter 1 for yes, 0 for no. The answer is [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -903,9 +979,9 @@ s = p.solutions.create!(typ: "contradiction", text: "<p>\r\nThe answer is <font 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How much water should be in one jug?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 6, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid9.html
-p = Problem.create!(filename: 'liquid9.html', category: 'applications', context: 'liquids', text: "<p>We are given an eight-liter jug filled with water,\r\nand two empty jugs, one holding three liters, the other\r\none five. How can we fill the empty jug with exactly 4 liters by pouring from one jug to another? (The jugs are unmarked, so in order to know how much water we poured at one time we can either\r\npour from a jug the entire amount that a certain jug has, or we can pour into a jug the whole amount that it can hold.) \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 6, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid9.html
+p = Problem.create!(filename: 'liquid9.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>We are given an eight-liter jug filled with water,\r\nand two empty jugs, one holding three liters, the other\r\none five. How can we fill the empty jug with exactly 4 liters by pouring from one jug to another? (The jugs are unmarked, so in order to know how much water we poured at one time we can either\r\npour from a jug the entire amount that a certain jug has, or we can pour into a jug the whole amount that it can hold.) \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1", interface: "Enter 1 for yes, 0 for no. The answer is [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -913,9 +989,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nWe represent the three jug
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Try to see if you can do it?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 3, source: "This is a famous problem.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid13.html
-p = Problem.create!(filename: 'liquid13.html', category: 'applications', context: 'liquids', text: "<p>\r\nA tub can be filled by 3 identical faucets flowing simultaneously\r\nin 5 hours. The tub is empty and we open all three faucets. How long will it take for the tub to fill up if after one hour we stop the first faucet and after another 3 hours we stop the second faucet?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 3, source: "This is a famous problem.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid13.html
+p = Problem.create!(filename: 'liquid13.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>\r\nA tub can be filled by 3 identical faucets flowing simultaneously\r\nin 5 hours. The tub is empty and we open all three faucets. How long will it take for the tub to fill up if after one hour we stop the first faucet and after another 3 hours we stop the second faucet?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "10", interface: "The tub fills in [ ] hours. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -925,9 +1001,9 @@ s.hints.create!(text: "Try a graphical solution. \r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How much water is present after 5 hours? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 2, source: "Nicolae Coculescu Competition, Slatina, 2007.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid3.html
-p = Problem.create!(filename: 'liquid3.html', category: 'applications', context: 'liquids', text: "<p>\r\nThe cold water faucet fills the tub in five hours,\r\n and the hot water faucet fills the tub in four hours.\r\nHow long will it take for the tub to fill if both\r\nfaucets are open?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 2, source: "Nicolae Coculescu Competition, Slatina, 2007.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid3.html
+p = Problem.create!(filename: 'liquid3.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>\r\nThe cold water faucet fills the tub in five hours,\r\n and the hot water faucet fills the tub in four hours.\r\nHow long will it take for the tub to fill if both\r\nfaucets are open?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2|13|20", interface: "With both faucetts open, the tub will fill in [ ] hours [ ] minutes and [ ] seconds. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -935,9 +1011,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nIn one hour the first 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Find out how much of the tub is filled by each faucet in one hour. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid14.html
-p = Problem.create!(filename: 'liquid14.html', category: 'applications', context: 'liquids', text: "<p>We are given six jugs, the first cotaining 2 liters, the second containing 3 liters, the third containing 4 liters, the\r\nfourth containing 5 liters, the fifth containing 6 liters, and the sixth containing 7 liters.  \r\n At each step we can select any two jugs, and then pour water\r\nfrom one into another until they contain equal amounts of water. \r\nIs it possible to make the quantities of water in all jugs equal?   \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid14.html
+p = Problem.create!(filename: 'liquid14.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>We are given six jugs, the first cotaining 2 liters, the second containing 3 liters, the third containing 4 liters, the\r\nfourth containing 5 liters, the fifth containing 6 liters, and the sixth containing 7 liters.  \r\n At each step we can select any two jugs, and then pour water\r\nfrom one into another until they contain equal amounts of water. \r\nIs it possible to make the quantities of water in all jugs equal?   \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1", interface: "Enter 1 for yes, 0 for no: [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -945,9 +1021,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nPour water from the sixth 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What should the amount of water in each jug be?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid5.html
-p = Problem.create!(filename: 'liquid5.html', category: 'applications', context: 'liquids', text: "<p>Two faucets flow in the same  tub. The first one fills the tub in  one hour, \r\nand the second fills the tub in  fourty five minutes. The tub can be drained in thirty minutes. \r\nIf both faucets are open while the drain is also open, how long will it take to fill the tub? \r\n\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid5.html
+p = Problem.create!(filename: 'liquid5.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>Two faucets flow in the same  tub. The first one fills the tub in  one hour, \r\nand the second fills the tub in  fourty five minutes. The tub can be drained in thirty minutes. \r\nIf both faucets are open while the drain is also open, how long will it take to fill the tub? \r\n\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "180", interface: "With both faucets and the drain open, it takes [ ] minutes to fill the tub. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -955,9 +1031,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\n\tWe reduce everything
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Determine how much water flows into the tub, and how much water\r\nflows out, in one minute.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid11.html
-p = Problem.create!(filename: 'liquid11.html', category: 'applications', context: 'liquids', text: "<p>\r\nYou sit on the bank of  a river with two empty buckets, one of 4 gallons and one of 9 gallons. Can you\r\nget exactly 6 gallons of water out of the river? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid11.html
+p = Problem.create!(filename: 'liquid11.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>\r\nYou sit on the bank of  a river with two empty buckets, one of 4 gallons and one of 9 gallons. Can you\r\nget exactly 6 gallons of water out of the river? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1", interface: "Enter 1 for yes, 0 for no. The answer is  [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -965,9 +1041,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\n\tWe represent the three j
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "You should try to see if  you can do it.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 4, source: "This is a famous problem.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid1.html
-p = Problem.create!(filename: 'liquid1.html', category: 'applications', context: 'liquids', text: "<p>\r\nIn a storage room there are 3 casks.  If we were to fill the first cask with water and then pour this water into the second\r\ncask until it fills up, \\(\\frac{2}{7}\\) of the water would still be left in the first cask. However, if we were to fill the second and\r\nthe third casks and then pour their water into the first cask, we would still need 2 gallons to fill the first. What are the volumes of the casks knowing that together they hold 82 gallons?    \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 4, source: "This is a famous problem.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid1.html
+p = Problem.create!(filename: 'liquid1.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>\r\nIn a storage room there are 3 casks.  If we were to fill the first cask with water and then pour this water into the second\r\ncask until it fills up, \\(\\frac{2}{7}\\) of the water would still be left in the first cask. However, if we were to fill the second and\r\nthe third casks and then pour their water into the first cask, we would still need 2 gallons to fill the first. What are the volumes of the casks knowing that together they hold 82 gallons?    \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "42|30|10", interface: "The first cask holds [ ] gallons, the second cask holds [ ] gallons, the third cask holds [ ] gallons. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -975,9 +1051,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\n\tIf we add 2 gallons to
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Compare the volume of the three casks to the volume of the first cask.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid15.html
-p = Problem.create!(filename: 'liquid15.html', category: 'applications', context: 'liquids', text: "<p>\r\nTo fill a tub one used 4 faucets some flowing at 250 liters per hour others at 270 liters per hour.\r\nIn one hour the four faucets filled 1060 liters. How many faucets flow at 250 liters per hour and how many at\r\n270 liters per hour? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid15.html
+p = Problem.create!(filename: 'liquid15.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>\r\nTo fill a tub one used 4 faucets some flowing at 250 liters per hour others at 270 liters per hour.\r\nIn one hour the four faucets filled 1060 liters. How many faucets flow at 250 liters per hour and how many at\r\n270 liters per hour? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1|3", interface: "The number of faucets that  flow at 250 liters per hour is [ ] and the number of faucets that flow at 270 liters per hour is [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -985,9 +1061,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nIf all faucets flow at 25
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the method of the false hypothesis.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 1, source: "<!--Petrica, Stefan, Alexe-->")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid18.html
-p = Problem.create!(filename: 'liquid18.html', category: 'applications', context: 'liquids', text: "<p> \r\nTo fill a tank of water of volume 1500 liters\r\n one can use three faucets. \r\nIf the first faucet is kept open for 1 hour, the second\r\n2 hours, and the third for 4 hours, two thirds of the tank are\r\nfilled. Leaving the first open for 3 hours, the\r\nsecond for 2 hours, and the third for 2 hours, three fourths of the tank are filled. But if the first two are\r\nkept open for 2 hours each, and the third for 5 hours, then only\r\none fifth of the tank is still empty. How much water does flow\r\nthrought the 3 faucets if they are left open for 8 hours?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 1, source: "<!--Petrica, Stefan, Alexe-->")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid18.html
+p = Problem.create!(filename: 'liquid18.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p> \r\nTo fill a tank of water of volume 1500 liters\r\n one can use three faucets. \r\nIf the first faucet is kept open for 1 hour, the second\r\n2 hours, and the third for 4 hours, two thirds of the tank are\r\nfilled. Leaving the first open for 3 hours, the\r\nsecond for 2 hours, and the third for 2 hours, three fourths of the tank are filled. But if the first two are\r\nkept open for 2 hours each, and the third for 5 hours, then only\r\none fifth of the tank is still empty. How much water does flow\r\nthrought the 3 faucets if they are left open for 8 hours?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "3975", interface: "If we leave the faucets open for 8 hours, [ ] gallons flow into the tank. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -997,9 +1073,9 @@ s.hints.create!(text: "Use the comparison method. Write the three parts of the s
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Double the first row. Triple the first row. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid6.html
-p = Problem.create!(filename: 'liquid6.html', category: 'applications', context: 'liquids', text: "<p>\r\nThree faucets flow in the same tub. The first two, flowing\r\nsimultaneously, can fill it in 3 hours. The first and the third, flowing simultaneously, can fill it in 4 hours. The last two,\r\nflowing simultaneously, can fill it in 6 hours. How long will it\r\ntake for the tub to fill if all three faucets are flowing?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid6.html
+p = Problem.create!(filename: 'liquid6.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>\r\nThree faucets flow in the same tub. The first two, flowing\r\nsimultaneously, can fill it in 3 hours. The first and the third, flowing simultaneously, can fill it in 4 hours. The last two,\r\nflowing simultaneously, can fill it in 6 hours. How long will it\r\ntake for the tub to fill if all three faucets are flowing?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2|40", interface: "With all three faucets open, the tub fills in  [ ] hours and [ ] minutes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1007,9 +1083,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe idea is to try to 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "See how much of the tub does each pair the faucets fill in one hour. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid2.html
-p = Problem.create!(filename: 'liquid2.html', category: 'applications', context: 'liquids', text: "<p>\r\nWhen the rainy season started in Southern California, the\r\nvolume of water  in a rain barrel increased by \\(\\frac{1}{2}\\) during the\r\nfirst week. During the second week, the volume of water in\r\nthe barrel increased again by \\(\\frac{1}{2}\\) of what is was at the begining of the second week. And once more, during the third week the volume of water  increased by \\(\\frac{1}{2}\\).  Knowing that the\r\ntotal amount of water present in the barrel at the end of the three weeks was 162 gallons, find how much water was in the barrel at the beginning of the rainy season. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid2.html
+p = Problem.create!(filename: 'liquid2.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>\r\nWhen the rainy season started in Southern California, the\r\nvolume of water  in a rain barrel increased by \\(\\frac{1}{2}\\) during the\r\nfirst week. During the second week, the volume of water in\r\nthe barrel increased again by \\(\\frac{1}{2}\\) of what is was at the begining of the second week. And once more, during the third week the volume of water  increased by \\(\\frac{1}{2}\\).  Knowing that the\r\ntotal amount of water present in the barrel at the end of the three weeks was 162 gallons, find how much water was in the barrel at the beginning of the rainy season. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "48", interface: "At the beginning of the season there were [ ] gallons in the barrel. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1017,9 +1093,9 @@ s = p.solutions.create!(typ: "backwards", text: "<p>\r\nIf  at the beginning of 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Work backwards, and compare the volume at the beginning of\r\neach week to the that at the end of the week.  \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid4.html
-p = Problem.create!(filename: 'liquid4.html', category: 'applications', context: 'liquids', text: "<p>\r\nTwo faucets, flowing simultaneously, can fill a tub\r\nin 8 hours. The two faucets have been flowing for 2 hours,\r\nafter which the first of them has been shut, and the second continued flowing filling the tub after 18 more hours. How\r\nlong does it take for each faucet to fill the tub? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid4.html
+p = Problem.create!(filename: 'liquid4.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>\r\nTwo faucets, flowing simultaneously, can fill a tub\r\nin 8 hours. The two faucets have been flowing for 2 hours,\r\nafter which the first of them has been shut, and the second continued flowing filling the tub after 18 more hours. How\r\nlong does it take for each faucet to fill the tub? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "12|24", interface: "This first faucet fills the tub in [ ] hours, the second faucet fills the tub in [ ]  hours. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1033,9 +1109,9 @@ s.hints.create!(text: "Find out how much of the tub does the second faucet fill 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the rule of three. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid16.html
-p = Problem.create!(filename: 'liquid16.html', category: 'applications', context: 'liquids', text: "<p> A local business gets apple and grape juices in identical jugs and mixes just these juices to make a drink, which is then packaged in same-size bottles (but of different size than the jugs). One\r\njug of apple juice used to be enough for exactly 6 bottles of\r\nthe mix, and one jug of grape juice for exactly 10 bottles of mix. Then the recipe was changed, and one jug of apple juice is\r\nnow sufficient for exactly 5 bottles of the mix. Home many bottles\r\nof mix is one jug of grape juice good for now? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid16.html
+p = Problem.create!(filename: 'liquid16.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p> A local business gets apple and grape juices in identical jugs and mixes just these juices to make a drink, which is then packaged in same-size bottles (but of different size than the jugs). One\r\njug of apple juice used to be enough for exactly 6 bottles of\r\nthe mix, and one jug of grape juice for exactly 10 bottles of mix. Then the recipe was changed, and one jug of apple juice is\r\nnow sufficient for exactly 5 bottles of the mix. Home many bottles\r\nof mix is one jug of grape juice good for now? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "15", interface: "One jug of grape juice is enough for [ ] bottles. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1047,9 +1123,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nWe reduce everything t
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Express the volume of one bottle in terms of the volume of one jug.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 5, source: "Moscow Math Olympiad, 1994, Level A")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid7.html
-p = Problem.create!(filename: 'liquid7.html', category: 'applications', context: 'liquids', text: "<p>\r\nWe are given eight jugs containing various quantities of water. At each step we can select any two jugs, and then pour water\r\nfrom one into another until they contain equal amounts of water. \r\nIs it possible to make the quantities of water in all jugs equal?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 5, source: "Moscow Math Olympiad, 1994, Level A")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid7.html
+p = Problem.create!(filename: 'liquid7.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>\r\nWe are given eight jugs containing various quantities of water. At each step we can select any two jugs, and then pour water\r\nfrom one into another until they contain equal amounts of water. \r\nIs it possible to make the quantities of water in all jugs equal?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1", interface: "Enter 1 for yes, 0 for no. The answer is  [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1057,9 +1133,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nThe answer is <font color=
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Split the jugs into four pairs.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 4, source: "Russian Math Olympiad.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid10.html
-p = Problem.create!(filename: 'liquid10.html', category: 'applications', context: 'liquids', text: "<p>\r\nWe are given a 10-liter jug filled with water,\r\nand two empty jugs, one holding seven liters, the other\r\nholding three. Can we fill the empty jug with exactly 5 liters by pouring from one jug to another? (The jugs are unmarked, \r\nso in order to know how much water we poured at one time we can either\r\npour from a jug the entire amount that a certain jug has, or we can pour into a jug the whole amount that it can hold.) \r\n\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 4, source: "Russian Math Olympiad.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid10.html
+p = Problem.create!(filename: 'liquid10.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p>\r\nWe are given a 10-liter jug filled with water,\r\nand two empty jugs, one holding seven liters, the other\r\nholding three. Can we fill the empty jug with exactly 5 liters by pouring from one jug to another? (The jugs are unmarked, \r\nso in order to know how much water we poured at one time we can either\r\npour from a jug the entire amount that a certain jug has, or we can pour into a jug the whole amount that it can hold.) \r\n\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1", interface: "Enter 1 for yes, 0 for no. The answer is [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1067,9 +1143,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nWe represent the three jug
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Try to see if you can do it.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 4, source: "Romanian Math Olympiad.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/LIQUIDS/liquid17.html
-p = Problem.create!(filename: 'liquid17.html', category: 'applications', context: 'liquids', text: "<p> \r\nTo empty a tank of water one can use three faucets. \r\nIf the first faucet is kept open for 4 hours, the second\r\nfor 6 hours, and the third for 12 hours, a total of 4400 galons of\r\nwater flow out. Leaving the first open for for 3 hours, the\r\nsecond for 2 hours, and the third for 6 hours, a total of \r\n2100 gallons of water flow out. But if the first two are\r\nkept open for 6 hours each, and the third for 9 hours, a\r\ntotal of 4350 gallons of water flow out. How much\r\nwater flows through each faucet in one hour? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 4, source: "Romanian Math Olympiad.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/liquid17.html
+p = Problem.create!(filename: 'liquid17.html', curriculum: 'lifetomath', category: 'applications', context: 'liquids', text: "<p> \r\nTo empty a tank of water one can use three faucets. \r\nIf the first faucet is kept open for 4 hours, the second\r\nfor 6 hours, and the third for 12 hours, a total of 4400 galons of\r\nwater flow out. Leaving the first open for for 3 hours, the\r\nsecond for 2 hours, and the third for 6 hours, a total of \r\n2100 gallons of water flow out. But if the first two are\r\nkept open for 6 hours each, and the third for 9 hours, a\r\ntotal of 4350 gallons of water flow out. How much\r\nwater flows through each faucet in one hour? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "200|300|150", interface: "In one hour through the first faucet flow [ ] gallons, through the second [ ] gallons, and throught the third [ ] gallons. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1079,9 +1155,9 @@ s.hints.create!(text: "Use the comparison method. Write the three parts of the s
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "second faucet flow for 1 hour and the third for 3 hours? \r\nHow much water flows out of the tank if you let the\r\nsecond faucet flow for 2 hours and the third for 6 hours? \r\nCan you use this information to find out how much water\r\nflows through the first faucet in 1 hour?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "liquids", diff: 3, source: "Petrica, Stefan, Alexe, modified")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity7.html
-p = Problem.create!(filename: 'quantity7.html', category: 'applications', context: 'quantities', text: "<p>\r\nA farmer sells apples at the farmers market. A customer\r\nasked for one  and a half kilograms of apples. The farmer\r\nput ten apples on the scale and noticed that they were\r\n250 grams short of the desired weight. How many apples\r\nshould the farmer add? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 3, source: "Petrica, Stefan, Alexe, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity7.html
+p = Problem.create!(filename: 'quantity7.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nA farmer sells apples, all of the same weight, at the farmers market. A customer\r\nasked for one  and a half kilograms of apples. The farmer\r\nput ten apples on the scale and noticed that they were\r\n250 grams short of the desired weight. How many apples\r\nshould the farmer add? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2", interface: "The farmer should add [ ] apples. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1089,9 +1165,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\n\tThe</a> ten apples w
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the rule of three.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity19.html
-p = Problem.create!(filename: 'quantity19.html', category: 'applications', context: 'quantities', text: "<p>\r\nIn a box there are balls of three colors: red, green, and blue. Only 27 of them are not red and only 39 of them are not green. \r\nThere are twice as many red balls as green balls. How many\r\nballs of each color are  in the box? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity19.html
+p = Problem.create!(filename: 'quantity19.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nIn a box there are balls of three colors: red, green, and blue. Only 27 of them are not red and only 39 of them are not green. \r\nThere are twice as many red balls as green balls. How many\r\nballs of each color are  in the box? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "24|12|15", interface: "There are [ ] red balls, [ ] blue balls, and [ ] green balls. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1099,9 +1175,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nWe </a> can solve the pr
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "27 balls are not red means that 27 balls are green and blue.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 5, source: "Etapa locala Arges 1993,  5th grade")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity8.html
-p = Problem.create!(filename: 'quantity8.html', category: 'applications', context: 'quantities', text: "<p>\r\nFrom a total quantity of gasoline a gas station sold the first day \\(\\frac{5}{16}\\) of the total quantity plus 900 gallons,\r\nthe second day \\(\\frac{7}{24}\\) of the total quantity plus 600 gallons, and the third day the rest, which was \\(0.3\\) of\r\nthe total quantity plus another 800 gallons. What was the total\r\nquantity of gasoline sold during the three days? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 5, source: "Etapa locala Arges 1993,  5th grade")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity8.html
+p = Problem.create!(filename: 'quantity8.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nFrom a total quantity of gasoline a gas station sold the first day \\(\\frac{5}{16}\\) of the total quantity plus 900 gallons,\r\nthe second day \\(\\frac{7}{24}\\) of the total quantity plus 600 gallons, and the third day the rest, which was \\(0.3\\) of\r\nthe total quantity plus another 800 gallons. What was the total\r\nquantity of gasoline sold during the three days? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "24000", interface: "The total quantity was [ ] gallons of gas. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1111,9 +1187,9 @@ s.hints.create!(text: "Take out the 900 gallons of the first day, the 600 gallon
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What fraction of the total amount are the gallons that you \r\ntook out?\r\nIf you know how many gallons make a certain fraction of\r\nthe total  amount, then what is the total amount? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity22.html
-p = Problem.create!(filename: 'quantity22.html', category: 'applications', context: 'quantities', text: "<p> Three boys have collected a total of 420 cards. If the first one gave the second four cards, and the third had three times as many\r\nas he has, then each would have the same number or cards. How many cards\r\ndoes each of the boys have?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity22.html
+p = Problem.create!(filename: 'quantity22.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p> Three boys have collected a total of 420 cards. If the first one gave the second four cards, and the third had three times as many\r\nas he has, then each would have the same number or cards. How many cards\r\ndoes each of the boys have?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "184|176|60", interface: "The first boy has collected [ ] cards, the second boy has collected [ ] cards, and the third boy has collected [ ] cards. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1121,9 +1197,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nThe total number of card
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What if the first student does not give the second 4 cards? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity6.html
-p = Problem.create!(filename: 'quantity6.html', category: 'applications', context: 'quantities', text: "<p>\r\nMary, Jane, and Ann posted  55 video clips online. Mary\r\nposted three times more video clips than Jane, while Ann posted\r\nhalf as many video clips as Mary. How many video clips did each of the girls post?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity6.html
+p = Problem.create!(filename: 'quantity6.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nMary, Jane, and Ann posted  55 video clips online. Mary\r\nposted three times more video clips than Jane, while Ann posted\r\nhalf as many video clips as Mary. How many video clips did each of the girls post?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "30|10|15", interface: "Mary has posted [ ] video clips, Jane has posted [ ] video clips, Ann has posted [ ] video clips. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1131,13 +1207,13 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nMary posted three times 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the graphical method. Notice that the number of video clips posted by Mary is a multiple of both 2 and 3, so it is a multiple of 6. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity5.html
-p = Problem.create!(filename: 'quantity5.html', category: 'applications', context: 'quantities', text: "<p>\r\nIf five apples and twenty three plums weigh as much as eleven\r\napples and two plums then seven apples and thirty plums weigh\r\nmore, the same, or less than four apples and fourty  plums? \r\n\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity5.html
+p = Problem.create!(filename: 'quantity5.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nIf five apples and twenty three plums weigh as much as eleven\r\napples and two plums, then seven apples and thirty plums weigh\r\nmore, the same, or less than four apples and fourty  plums? \r\n\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
-p.answer = Answer.new(values: "1", interface: "Enter 1 for  heavier,  2 for same weight, 3 for lighter: [ ] ")
+p.answer = Answer.new(values: "1", interface: "Enter 1 if the seven apples and thirty plums are heavier,  2 for same weight, 3 for lighter: [ ] ")
 #SOLUTION TUPLE FOR PROBLEM P
-s = p.solutions.create!(typ: "comparison", text: "<p>\r\nPlace 5 apples and 23 plums in one pan  of a balance scale and  11\r\napples and 2 plums  in the other. \r\nThe scale is balanced. Now remove five apples and two plums from\r\neach pan. The scale is still balanced, and now one pan contains\r\nonly plums, 21 of them, the other contains only apples, 6 of them. So 21 plums weigh as much as 6 apples.\r\n</p>\r\n\r\n<p>\r\nWe see that 3 groups of 2 apples weigh as much as 3 groups\r\nof 7 plums, and thus each group of apples weighs as much\r\nas each group of plums. This means that 2 apples weigh as much\r\nas 7 plums.\r\n</p>\r\n\r\n<p>\r\nNow we have a balanced scale with 7 apples and 30 plums in\r\none pan and 4 apples and 40 plums in the other. First, remove\r\n4 apples and 30 plums from each pan, which does  which pan is\r\nheavier. Then in one pan we have 3 apples, in the other \r\n10 plums. We know know that 2 apples weigh as much as 7 plums,\r\nso we can remove 2 apples from the first pan and 7 plums\r\nfrom the second, and this still does not change which\r\npan is heavier.\r\n</p>\r\n    \r\n<p>\r\nAt this moment we have a pan with 1 apple and a pan with \r\n3 plums. If the apple is lighter than the 3 plums, then \r\nanother apple would also be lighter than other 3 plums, so \r\n2 apples were lighter than 6 plums. But this is not so because\r\n2 apples are as heavy as 7 plums. So the apple is heavier \r\nthan the 3 plums. Going backwards, we conclude that the \r\n7 apples and 30 plums are <font color=\"red\">heavier</font>\r\nthan the 4 apples and 40 plums.\r\n\t</p>\r\n")
+s = p.solutions.create!(typ: "comparison", text: "<p>\r\nPlace 5 apples and 23 plums in one pan  of a balance scale and  11\r\napples and 2 plums  in the other. \r\nThe scale is balanced. Now remove five apples and two plums from\r\neach pan. The scale is still balanced, and now one pan contains\r\nonly plums, 21 of them, the other contains only apples, 6 of them. So 21 plums weigh as much as 6 apples.\r\n</p>\r\n\r\n<p>\r\nWe see that 3 groups of 2 apples weigh as much as 3 groups\r\nof 7 plums, and thus each group of apples weighs as much\r\nas each group of plums. This means that 2 apples weigh as much\r\nas 7 plums.\r\n</p>\r\n\r\n<p>\r\nNow put 7 apples and 30 plums in\r\none pan and 4 apples and 40 plums in the other. First, remove\r\n4 apples and 30 plums from each pan, which does not change which pan is heavier. Then in one pan we have 3 apples, in the other \r\n10 plums. We know know that 2 apples weigh as much as 7 plums,\r\nso we can remove 2 apples from the first pan and 7 plums\r\nfrom the second, and this still does not change which\r\npan is heavier.\r\n</p>\r\n    \r\n<p>\r\nAt this moment we have a pan with 1 apple and a pan with \r\n3 plums. If the apple is lighter than the 3 plums, then \r\nanother apple would also be lighter than other 3 plums, so \r\n2 apples were lighter than 6 plums. But this is not so because\r\n2 apples are as heavy as 7 plums. So the apple is heavier \r\nthan the 3 plums. Going backwards, we conclude that the \r\n7 apples and 30 plums are <font color=\"red\">heavier</font>\r\nthan the 4 apples and 40 plums.\r\n\t</p>\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Start with one of the situations from the statement, then remove\r\none type of fruit from one side of the scale keeping the scale\r\nbalanced. This way you find how many times does one type of fruit\r\nweigh more than the other.  \r\n")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1145,9 +1221,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nPlace 5 apples and 23 p
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Start with one of the situations from the statement, then remove\r\none type of fruit from one side of the scale keeping the scale\r\nbalanced. This way you find how many times does one type of fruit\r\nweigh more than the other.  \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity10.html
-p = Problem.create!(filename: 'quantity10.html', category: 'applications', context: 'quantities', text: "<p>\r\nA farmer sowed 800 acres of wheat and 600 acres of\r\nsoybeans during  a two week period. During\r\nthe first week the farmer sowed 3 times more wheat than\r\nsoybeans, and during the second week, the farmer sowed\r\n3 times more soybeans than wheat. How many acres of\r\nwheat and how many acres of soybeans did the farmer sow\r\nduring the first week? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity10.html
+p = Problem.create!(filename: 'quantity10.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nA farmer sowed 800 acres of wheat and 600 acres of\r\nsoybeans during  a two week period. During\r\nthe first week the farmer sowed 3 times more wheat than\r\nsoybeans, and during the second week, the farmer sowed\r\n3 times more soybeans than wheat. How many acres of\r\nwheat and how many acres of soybeans did the farmer sow\r\nduring the first week? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "225|675", interface: "During the first week, the farmer sowed [ ] acres of soybeans and [ ] acres of wheat. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1155,9 +1231,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nLet us solve the problem
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the graphical method. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity25.html
-p = Problem.create!(filename: 'quantity25.html', category: 'applications', context: 'quantities', text: "<p>\r\nTo dye 10 eggs, you need a mix of 36 grams of  powder and 8 grams of vinegar. What is the largest number of  eggs that you can dye if you have 100 grams of powder and 25 grams of vinegar? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity25.html
+p = Problem.create!(filename: 'quantity25.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nTo dye 10 eggs, you need a mix of 36 grams of  powder and 8 grams of vinegar. What is the largest number of  eggs that you can dye if you have 100 grams of powder and 25 grams of vinegar? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "27", interface: "You can dye at most [ ] eggs. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1165,9 +1241,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p> We set up separately  rul
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "You cannot die half of an egg.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity16.html
-p = Problem.create!(filename: 'quantity16.html', category: 'applications', context: 'quantities', text: "<p>\r\nEugenio has a small citrus orchard in southern Italy.\r\nOne morning he picked a quantity of oranges that did\r\nnot exceed 300 and wanted to pack them in bags. He noticed\r\nthat if he packed them 5 in one bag he was left with\r\nthree oranges, if he packed them 7 in one bag he was left with\r\ntwo oranges and if he packed them 8 in one bag he was left\r\nwith one orange. How many oranges did he pick that morning?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity16.html
+p = Problem.create!(filename: 'quantity16.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nEugenio has a small citrus orchard in southern Italy.\r\nOne morning he picked a quantity of oranges that did\r\nnot exceed 300 and wanted to pack them in bags. He noticed\r\nthat if he packed them 5 in one bag he was left with\r\nthree oranges, if he packed them 7 in one bag he was left with\r\ntwo oranges and if he packed them 8 in one bag he was left\r\nwith one orange. How many oranges did he pick that morning?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "233", interface: "Eugenio picked [ ] oranges. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1175,9 +1251,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nOf course, we could just c
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Don't check all possible cases, it will take forever and it is not very clever. Instead, think what are the \r\nquantities of oranges that \r\nleave 1 when packed in bags of 8...\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 5, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity26.html
-p = Problem.create!(filename: 'quantity26.html', category: 'applications', context: 'quantities', text: "<p> To make 750 grams of chocolate roll, you need 200 grams of\r\nsugar, 50 grams of cocoa, 400 grams of butter biscuits, and\r\n100 grams of butter. You  have 150 grams of sugar, 60 grams of\r\ncocoa, 300 grams of butter biscuits, and 80 grams of butter.\r\nIf you keep the proportions from the recipe, what is the largest\r\namount of chocolate roll that you can make?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 5, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity26.html
+p = Problem.create!(filename: 'quantity26.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p> To make 750 grams of chocolate roll, you need 200 grams of\r\nsugar, 50 grams of cocoa, 400 grams of butter biscuits, and\r\n100 grams of butter. You  have 150 grams of sugar, 60 grams of\r\ncocoa, 300 grams of butter biscuits, and 80 grams of butter.\r\nIf you keep the proportions from the recipe, what is the largest\r\namount of chocolate roll that you can make?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "562.5", interface: "The largest amount of chocolate roll that you can make is [ ] grams. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1185,9 +1261,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nWe set up the rule of 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "150 grams of sugar would suffice for what quantity of chocolate roll?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity21.html
-p = Problem.create!(filename: 'quantity21.html', category: 'applications', context: 'quantities', text: "<p>\r\nA team of workers has to pave a road in 5 days. On the first day\r\nit paved \\(\\frac{1}{4}\\) of the road, on the second day it paved 600 meters,\r\nand on the third day it paved \\(\\frac{1}{6}\\) of the road. \r\nIn this way in the first 3 days it paved \\(\\frac{2}{3}\\) of the road. \r\nOn the fourth day the team paved 400 meters. Find the total length of the\r\nroad and how much is left to be paved for the last day.   \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity21.html
+p = Problem.create!(filename: 'quantity21.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nA team of workers has to pave a road in 5 days. On the first day\r\nit paved \\(\\frac{1}{4}\\) of the road, on the second day it paved 600 meters,\r\nand on the third day it paved \\(\\frac{1}{6}\\) of the road. \r\nIn this way in the first 3 days it paved \\(\\frac{2}{3}\\) of the road. \r\nOn the fourth day the team paved 400 meters. Find the total length of the\r\nroad and how much is left to be paved for the last day.   \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2400|400", interface: "The length of the road is [ ] meters, and [ ] meters of road were paved on the fifth day. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1197,9 +1273,9 @@ s.hints.create!(text: "Use the graphical method.\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Divide the road into 12 equal parts, so that 3 parts form \\(\\frac{1}{4}\\) of the\r\nroad, 2 parts make \\(\\frac{1}{6}\\) of the road, and 8 parts make \\(\\frac{2}{3}\\)\r\nof the road. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 3, source: "Calugaru's notes, GM 3076 1968/11")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity23.html
-p = Problem.create!(filename: 'quantity23.html', category: 'applications', context: 'quantities', text: "<p>\r\nTo make a cherry pie you need 4 eggs, 250 grams of sugar, \r\nand 200 grams of flour. You want to make ca cherry pie,\r\nand you have 700 grams of sugar and 800 grams of flour.\r\nHow many eggs are needed in order to make the largest possible\r\namount of cherry pie? (You can only use\r\na whole number of eggs.)\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 3, source: "Calugaru's notes, GM 3076 1968/11")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity23.html
+p = Problem.create!(filename: 'quantity23.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nTo make a cherry pie you need 4 eggs, 250 grams of sugar, \r\nand 200 grams of flour. You want to make ca cherry pie,\r\nand you have 700 grams of sugar and 800 grams of flour.\r\nHow many eggs are needed in order to make the largest possible\r\namount of cherry pie? (You can only use\r\na whole number of eggs.)\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "11", interface: "You need [ ] eggs. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1207,9 +1283,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nWe set up rules of thr
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "You must keep the proportions between flour, sugar, and eggs.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity27.html
-p = Problem.create!(filename: 'quantity27.html', category: 'applications', context: 'quantities', text: "<p>\r\nIn an urn there are 10 red balls, 14 blue balls, and 18 green balls. What is the smallest number of balls\r\nwe should draw from the urn, without looking at them, to make sure that among the balls that we have drawn\r\nwe can find 6 of the same color? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity27.html
+p = Problem.create!(filename: 'quantity27.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nIn an urn there are 10 red balls, 14 blue balls, and 18 green balls. What is the smallest number of balls\r\nwe should draw from the urn, without looking at them, to make sure that among the balls that we have drawn\r\nwe can find 6 of the same color? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "16", interface: "We should draw [ ] balls. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1217,9 +1293,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nIf we only extract 15 ball
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What can happen if we draw 15 balls? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 1, source: "Petrica, Stefan, Alexe, modified")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity11.html
-p = Problem.create!(filename: 'quantity11.html', category: 'applications', context: 'quantities', text: "<p>\r\nA group of students went on a field trip. It was noticed\r\nthat \\(\\frac{1}{8}\\)  of the students were not wearing caps,\r\n\\(\\frac{5}{8}\\) of the students were wearing red caps,\r\nand \\(\\frac{1}{4}\\) of the students were wearing blue caps.\r\nHalf of the students with red caps and one fourth of the students \r\nwith blue caps  had T-shirts\r\nthat matched the color of their caps. Knowing that there were\r\n36 students whose T-shirts matched the color of their caps, \r\nfind how many students went on the field trip. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 1, source: "Petrica, Stefan, Alexe, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity11.html
+p = Problem.create!(filename: 'quantity11.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nA group of students went on a field trip. It was noticed\r\nthat \\(\\frac{1}{8}\\)  of the students were not wearing caps,\r\n\\(\\frac{5}{8}\\) of the students were wearing red caps,\r\nand \\(\\frac{1}{4}\\) of the students were wearing blue caps.\r\nHalf of the students with red caps and one fourth of the students \r\nwith blue caps  had T-shirts\r\nthat matched the color of their caps. Knowing that there were\r\n36 students whose T-shirts matched the color of their caps, \r\nfind how many students went on the field trip. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "96", interface: "[ ] students went on the field trip. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1229,9 +1305,9 @@ s.hints.create!(text: "A students either wears no cap, or a red cap, or a blue c
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Work backwards. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity3.html
-p = Problem.create!(filename: 'quantity3.html', category: 'applications', context: 'quantities', text: "<p>\r\nIn a basket there are 4 times more plums than apples. Each of the people sitting at a table eats 2 apples and 3 plums, and at the end there are 2 apples and 33 plums left in the basket. How many\r\npeople are there at the table?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity3.html
+p = Problem.create!(filename: 'quantity3.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nIn a basket there are 4 times more plums than apples. Each of the people sitting at a table eats 2 apples and 3 plums, and at the end there are 2 apples and 33 plums left in the basket. How many\r\npeople are there at the table?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "5", interface: "There are [ ] people at the table. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1241,9 +1317,9 @@ s.hints.create!(text: "Add one person who also eats 2 apples and 3 plums.\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What if each person eats 2 apples and 8 plums?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 2, source: "Locala IV (Ialomita), 2008")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity20.html
-p = Problem.create!(filename: 'quantity20.html', category: 'applications', context: 'quantities', text: "<p>\r\nMark has several music pieces of length either 11 minutes or 13 minutes. He would like to record\r\nsome of these on an eighty-minute compact disc. Can he fill the entire disc? If not, what is\r\nthe  longest play time that he can obtain?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 2, source: "Locala IV (Ialomita), 2008")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity20.html
+p = Problem.create!(filename: 'quantity20.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nMark has several music pieces of length either 11 minutes or 13 minutes. He would like to record\r\nsome of these on an eighty-minute compact disc. Can he fill the entire disc? If not, what is\r\nthe  longest play time that he can obtain?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "79", interface: "The maximal play time is [ ] minutes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1255,9 +1331,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\n\tThere are at most 6 13-m
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Or, think what is the largest number of 13-minute pieces.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity28.html
-p = Problem.create!(filename: 'quantity28.html', category: 'applications', context: 'quantities', text: "<p>\r\nA group of students went to swim in a river. Eight of them crossed to the other side of the river, then half of the remaining students crossed, too, and then on the other\r\nside of the river were twice as many  as those\r\nwho did not cross. How many students went to swim? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity28.html
+p = Problem.create!(filename: 'quantity28.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nA group of students went to swim in a river. Eight of them crossed to the other side of the river, then half of the remaining students crossed, too, and then on the other\r\nside of the river were twice as many  as those\r\nwho did not cross. How many students went to swim? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "24", interface: "[ ] students went to swim in the river. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1265,9 +1341,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nAfter both crossings hap
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If half of the students cross, then the same number of students\r\nis on each side. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 1, source: "Gheba")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity1.html
-p = Problem.create!(filename: 'quantity1.html', category: 'applications', context: 'quantities', text: "<p>\r\nIf two sacks of wheat and one sack of maize weigh 161 kilograms\r\nand two sacks of maize and one sack of wheat weigh 157 kilograms,\r\nhow much do five sacks of wheat and five sacks of maize weigh?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 1, source: "Gheba")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity1.html
+p = Problem.create!(filename: 'quantity1.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nIf two sacks of wheat and one sack of maize weigh 161 kilograms\r\nand two sacks of maize and one sack of wheat weigh 157 kilograms,\r\nhow much do five sacks of wheat and five sacks of maize weigh?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "530", interface: "Five sacks of wheat and five sacks of maize weigh [ ] kilograms. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1283,9 +1359,9 @@ s.hints.create!(text: "Use the comparison method. \r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How much do 3 sacks of maize and 3 sacks of wheat weigh? How much\r\ndo 5 sacks of maize and 5 sacks of wheat weigh?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity2.html
-p = Problem.create!(filename: 'quantity2.html', category: 'applications', context: 'quantities', text: "<p>\r\nA group of students went to the lake. They wanted to\r\nrent the available boats and they realized that if\r\nthey were to go 3 into a boat, then 3 more boats were\r\nnecessary. So they went 5 into a boat, and 3 boats were\r\nleft. How many students went to the lake? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity2.html
+p = Problem.create!(filename: 'quantity2.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nA group of students went to the lake. They wanted to\r\nrent the available boats and they realized that if\r\nthey were to go 3 into a boat, then 3 more boats were\r\nnecessary. So they went 5 into a boat, and 3 boats were\r\nleft. How many students went to the lake? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "45", interface: "There are [ ] students. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1295,9 +1371,9 @@ s.hints.create!(text: "Consider the boats that are necessary if we were to load 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Now take the students from those additional boats and distribute\r\nthem in the first boats so as to fill them with 5 students each.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity9.html
-p = Problem.create!(filename: 'quantity9.html', category: 'applications', context: 'quantities', text: "<p>\r\nSunita has a box of mangoes, of which she gave \\(\\frac{1}{4}\\) to her brother Ram,\r\n and she ate 3 mangoes. Of the remaining mangoes, Sunita gave \\(\\frac{3}{7}\\) to her neighbor,\r\n and she kept  the rest of 12 mangoes for herself. How many mangoes did Ram get? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity9.html
+p = Problem.create!(filename: 'quantity9.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nSunita has a box of mangoes, of which she gave \\(\\frac{1}{4}\\) to her brother Ram,\r\n and she ate 3 mangoes. Of the remaining mangoes, Sunita gave \\(\\frac{3}{7}\\) to her neighbor,\r\n and she kept  the rest of 12 mangoes for herself. How many mangoes did Ram get? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "8", interface: "Ram got [ ] mangoes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1305,9 +1381,9 @@ s = p.solutions.create!(typ: "backwards", text: "<p>\r\nWe work backwards, to fi
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Work backwards.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity12.html
-p = Problem.create!(filename: 'quantity12.html', category: 'applications', context: 'quantities', text: "<p>\r\nMaria had some apples at home. She went to the\r\nstore and bought a quantity of apples equal to one third of what\r\nshe had. Then she ate one third of all the apples. She\r\nreturned to the store and bought an amount equal to one third of\r\nwhat she had at home at that moment. And again she ate one\r\nthird of the total quantity she possesed. How many apples does Maria\r\n have left, knowing that this number is  by 34 apples less than what she \r\nhad in the beginning? \r\n\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity12.html
+p = Problem.create!(filename: 'quantity12.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nMaria had some apples at home. She went to the\r\nstore and bought a quantity of apples equal to one third of what\r\nshe had. Then she ate one third of all the apples. She\r\nreturned to the store and bought an amount equal to one third of\r\nwhat she had at home at that moment. And again she ate one\r\nthird of the total quantity she possesed. How many apples does Maria\r\n have left, knowing that this number is  by 34 apples less than what she \r\nhad in the beginning? \r\n\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "128", interface: "Maria ends up with [ ] apples. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1317,9 +1393,9 @@ s.hints.create!(text: "Use the graphical method. Represent Maria's apples as 9 b
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "It is better to represent Maria's apples as 81 boxes.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity24.html
-p = Problem.create!(filename: 'quantity24.html', category: 'applications', context: 'quantities', text: "<p>\r\nIn a bag there are red, green, and blue balls. Knowing that 75 of them are not green,\r\n63 are not red, and 50 are not blue, find out how many balls of each color there are. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity24.html
+p = Problem.create!(filename: 'quantity24.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nIn a bag there are red, green, and blue balls. Knowing that 75 of them are not green,\r\n63 are not red, and 50 are not blue, find out how many balls of each color there are. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "31|44|19", interface: "There are [ ] red balls, [ ] blue balls, and [ ] green balls. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1329,9 +1405,9 @@ s.hints.create!(text: "75 balls are either red or blue, 63 are either blue or gr
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "There are 25 more blue balls than green balls. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 2, source: "David Hrimicu Competition, 10/11/2007")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity17.html
-p = Problem.create!(filename: 'quantity17.html', category: 'applications', context: 'quantities', text: "<p>\r\nDavi, Clara, and Beatriz met at the market. Davi noticed\r\nthat each of them bought the same number of oranges. Also\r\neach of them was carrying the oranges in two bags, one in each\r\nhand, and the six bags contained different numbers of\r\noranges, all being one-digit numbers. Knowing that Davi,\r\nClara, and Beatriz were carrying in their right hands 8, 4,\r\nand 5 oranges, respectively, find how many oranges were they\r\ncarrying in their left hands. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 2, source: "David Hrimicu Competition, 10/11/2007")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity17.html
+p = Problem.create!(filename: 'quantity17.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nDavi, Clara, and Beatriz met at the market. Davi noticed\r\nthat each of them bought the same number of oranges. Also\r\neach of them was carrying the oranges in two bags, one in each\r\nhand, and the six bags contained different numbers of\r\noranges, all being one-digit numbers. Knowing that Davi,\r\nClara, and Beatriz were carrying in their right hands 8, 4,\r\nand 5 oranges, respectively, find how many oranges were they\r\ncarrying in their left hands. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "7|6|3", interface: "Clara had [ ], Beatriz had [ ], and Davi had [ ] oranges in their left hands. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1341,9 +1417,9 @@ s.hints.create!(text: "Look first at Clara and Beatriz. What are the possible nu
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The numbers of oranges that  Clara and Beatriz have in their left hands are consecutive numbers?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity18.html
-p = Problem.create!(filename: 'quantity18.html', category: 'applications', context: 'quantities', text: "<p>\r\nThere are 41 students in one classroom. Of them\r\n26 play basketball, 29 play volleyball, and 31\r\nplay soccer. What is the smallest number of \r\nstudents that play all three sports? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity18.html
+p = Problem.create!(filename: 'quantity18.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nThere are 41 students in one classroom. Of them\r\n26 play basketball, 29 play volleyball, and 31\r\nplay soccer. What is the smallest number of \r\nstudents that play all three sports? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4", interface: "The smallest number of students who play all three sports is [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1351,9 +1427,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nFor  the sports of basketb
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "This is an argument where you have to try cases. To minimize the number of students who play all three sports,\r\nwe should have as few of those who play the first two sports  as possible   to play the third sport. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 6, source: "Inspired by a problem from Revista Matematica din Timisoara")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity14.html
-p = Problem.create!(filename: 'quantity14.html', category: 'applications', context: 'quantities', text: "<p>\r\nThere are cherries and strawberries in a basket. If you\r\nadd 34 cherries and 20 strawberries, then the cherries\r\nmake up \\(\\frac{3}{7}\\) of the total amount. If you\r\ntake away 6 cherries and 3 strawberries, then the cherries\r\nmake up \\(\\frac{5}{16}\\) of the total amount. How many cherries\r\nand how many strawberries are there in the basket?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 6, source: "Inspired by a problem from Revista Matematica din Timisoara")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity14.html
+p = Problem.create!(filename: 'quantity14.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nThere are cherries and strawberries in a basket. If you\r\nadd 34 cherries and 20 strawberries, then the cherries\r\nmake up \\(\\frac{3}{7}\\) of the total amount. If you\r\ntake away 6 cherries and 3 strawberries, then the cherries\r\nmake up \\(\\frac{5}{16}\\) of the total amount. How many cherries\r\nand how many strawberries are there in the basket?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "41|80", interface: "There are [ ] cherries and [ ] strawberries in the basket. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1361,9 +1437,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nWe can give a solution t
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the graphical method. Because the ratio between cherries and strawberries is \\(\\frac{5}{11}\\) we make the boxes so that the cherries go into 5\r\nboxes and the strawberries go into 11 boxes. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/QUANTITIES/quantity4.html
-p = Problem.create!(filename: 'quantity4.html', category: 'applications', context: 'quantities', text: "<p>\r\nA box with 20 balls weighs 500 grams, but the same box with\r\nonly 5 balls weighs 200 grams. What does the empty box weigh?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity4.html
+p = Problem.create!(filename: 'quantity4.html', curriculum: 'lifetomath', category: 'applications', context: 'quantities', text: "<p>\r\nA box filled with 20 balls weighs 500 grams, but the same box filled with\r\nonly 5 balls weighs 200 grams. What does the empty box weigh?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "100", interface: "The empty box weighs [ ] grams. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1371,9 +1447,9 @@ s = p.solutions.create!(typ: "unknown", text: "<p>\r\nYou have two things: the b
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "You have two things: the balls and the box.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "quantity", diff: 1, source: "Stroe Bellonescu Competition, Barlad, 2007.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion26.html
-p = Problem.create!(filename: 'motion26.html', category: 'applications', context: 'motion', text: "<p>To travel the distance between two cities in 3 hours and 12 minutes a car must travel at \r\n65 kilometers per hour. However, after one hour and 48 minutes, the car made a 36 minute stop to replace a flat tire.  \r\nFind the speed at which the car must travel for the rest of the trip so that it arrives on time.\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "quantity", diff: 1, source: "Stroe Bellonescu Competition, Barlad, 2007.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion26.html
+p = Problem.create!(filename: 'motion26.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>To travel the distance between two cities in 3 hours and 12 minutes a car must travel at \r\n65 kilometers per hour. However, after one hour and 48 minutes, the car made a 36 minute stop to replace a flat tire.  \r\nFind the speed at which the car must travel for the rest of the trip so that it arrives on time.\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "113.75", interface: "The speed of the car must be [ ] kilometers per hour. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1381,9 +1457,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nWe convert all periods i
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What distance and how much time does the car have left?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 2, source: "<!--Petrica, Stefan, Alexe, modified-->")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion11.html
-p = Problem.create!(filename: 'motion11.html', category: 'applications', context: 'motion', text: "<p>\r\nA group of hikers leaves town at noon, at the same time with\r\na horse rider,  to go to a forest 10 kilometers away. \r\n While the hikers walk at 3 km/h, the horse rider travels at 9 km/h.\r\nThe rider arrives in the forest, rests for an hour, then returns to meet the\r\nhikers. How far from the city and at what time does the rider meet the hikers?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 2, source: "<!--Petrica, Stefan, Alexe, modified-->")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion11.html
+p = Problem.create!(filename: 'motion11.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nA group of hikers leaves town at noon, at the same time with\r\na horse rider,  to go to a forest 10 kilometers away. \r\n While the hikers walk at 3 km/h, the horse rider travels at 9 km/h.\r\nThe rider arrives in the forest, rests for an hour, then returns to meet the\r\nhikers. How far from the city and at what time does the rider meet the hikers?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "7.25|2|25.", interface: "They met at [ ] kilometers from the start, at [ ]:[ ] pm. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1393,9 +1469,9 @@ s.hints.create!(text: "Try to help you reasoning with a drawing.\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How far from the forest are the hikers at the time that the rider starts the way back?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 4, source: "Gheba")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion33.html
-p = Problem.create!(filename: 'motion33.html', category: 'applications', context: 'motion', text: "<p>\r\nWhen Dave walks to school, he averages 80 steps per minute, each\r\nof his steps 80 cm long. It takes him 16 minutes to get to school. His brother, Jack, going to the same school by the same route, averages 100 steps per minute, but his steps are only 60 cm long. How long does it take Jack to get to school?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 4, source: "Gheba")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion33.html
+p = Problem.create!(filename: 'motion33.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nWhen Dave walks to school, he averages 80 steps per minute, each\r\nof his steps 80 cm long. It takes him 16 minutes to get to school. His brother, Jack, going to the same school by the same route, averages 100 steps per minute, but his steps are only 60 cm long. How long does it take Jack to get to school?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "15", interface: "It takes Jack [ ] minutes to go to school. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1403,9 +1479,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>The faster you walk, and t
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the rule of three.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 1, source: "1984 AHSME")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion27.html
-p = Problem.create!(filename: 'motion27.html', category: 'applications', context: 'motion', text: "<p> What is the length of a train, if, when traveling at 54 miles per hour,  \r\nit passed by a person who was walking in the same direction\r\nat 6 miles per hour in 6 seconds?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 1, source: "1984 AHSME")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion27.html
+p = Problem.create!(filename: 'motion27.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p> What is the length of a train, if, when traveling at 54 miles per hour,  \r\nit passed by a person who was walking in the same direction\r\nat 6 miles per hour in 6 seconds?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "422.4", interface: "The length of the train is [ ] feet. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1413,9 +1489,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe speed of the train w
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How fast does the train move with respect to the person?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 1, source: "Petrica Stefan Alexe")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion28.html
-p = Problem.create!(filename: 'motion28.html', category: 'applications', context: 'motion', text: "<p> \r\nA train that is 300 meters long enters a bridge with the velocity of 600 meters per minute. After 4 minutes, it\r\nchanges its speed to 400 meters per minutes, and 3 minutes later it leaves the bridge. How long is the bridge? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 1, source: "Petrica Stefan Alexe")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion28.html
+p = Problem.create!(filename: 'motion28.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p> \r\nA train that is 300 meters long enters a bridge with the velocity of 600 meters per minute. After 4 minutes, it\r\nchanges its speed to 400 meters per minutes, and 3 minutes later it leaves the bridge. How long is the bridge? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "3300", interface: "The bridge is [ ] meters long. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1425,9 +1501,9 @@ s.hints.create!(text: "How far does the front of the train travel during the 7 m
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Where is the front of the train when the back of the train is exiting the bridge.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 2, source: "La scoala cu ceas, Rm. Valcea, 2008, modified")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion2.html
-p = Problem.create!(filename: 'motion2.html', category: 'applications', context: 'motion', text: "<p>A truck and a car travel from Detroit to Chicago at constant speed.\r\nThe car, traveling  at 60 mph,  departs 30 minutes after the truck\r\nand arrives 10 minutes before the truck.  Knowing that\r\nthe distance from Detroit to Chicago is 280 miles, find \r\nthe speed of the truck. \r\n\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 2, source: "La scoala cu ceas, Rm. Valcea, 2008, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion2.html
+p = Problem.create!(filename: 'motion2.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>A truck and a car travel from Detroit to Chicago at constant speed.\r\nThe car, traveling  at 60 mph,  departs 30 minutes after the truck\r\nand arrives 10 minutes before the truck.  Knowing that\r\nthe distance from Detroit to Chicago is 280 miles, find \r\nthe speed of the truck. \r\n\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "52.5", interface: "The speed of the truck is [ ] miles per hour. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1435,9 +1511,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe time it takes for th
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How long does it take for the car to travel from Detroit to Chicago?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion29.html
-p = Problem.create!(filename: 'motion29.html', category: 'applications', context: 'motion', text: "<p> \r\nThe distance between Plusville and Minusville is 450 kilometers. Two cars, one in Plusville, with a traveling speed of  45 km/h,\r\n and one in Minusville, with\r\na traveling speed of  75 km/h start towards each other. After the two cars pass by each other,\r\nthe slower car drives for another half an hour, then its passengers realize they have to meet the other car\r\nin Plusville. So the car turns around,  increases its speed, and drives towards Plusville. By how\r\nmuch should it increase its speed so that the two cars arrive at the same time in Plusville?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion29.html
+p = Problem.create!(filename: 'motion29.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p> \r\nThe distance between Plusville and Minusville is 450 kilometers. Two cars, one in Plusville, with a traveling speed of  45 km/h,\r\n and one in Minusville, with\r\na traveling speed of  75 km/h start towards each other. After the two cars pass by each other,\r\nthe slower car drives for another half an hour, then its passengers realize they have to meet the other car\r\nin Plusville. So the car turns around,  increases its speed, and drives towards Plusville. By how\r\nmuch should it increase its speed so that the two cars arrive at the same time in Plusville?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "56.25", interface: "The slower car must increase its speed by [ ] km/h. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1445,9 +1521,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nFirst, notice that the d
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "After how long do the cars meet?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion8.html
-p = Problem.create!(filename: 'motion8.html', category: 'applications', context: 'motion', text: "<p>\r\nA passenger plane and a cargo plane fly between the same\r\ntwo cities and they leave at the same time. The passenger\r\nplane travels at 600 mph and arrives 3 hours before the\r\nthe cargo plane, which travels at 450 mph. Find\r\nthe distance between the cities.  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion8.html
+p = Problem.create!(filename: 'motion8.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nA passenger plane and a cargo plane fly between the same\r\ntwo cities and they leave at the same time. The passenger\r\nplane travels at 600 mph and arrives 3 hours before the\r\nthe cargo plane, which travels at 450 mph. Find\r\nthe distance between the cities.  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "5400", interface: "The distance between the cities is [ ] miles. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1457,9 +1533,9 @@ s.hints.create!(text: "How many miles did the cargo plane travel during the last
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many hours does the cargo plane lose to the passenger plane during one hour?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion34.html
-p = Problem.create!(filename: 'motion34.html', category: 'applications', context: 'motion', text: "<p>\r\nThree people observed a snail for a total period of 2 minutes.\r\nEach person observed the snail for exactly one minute, and saw that the snail traveled one foot. There wasn't a single moment\r\nwhen the snail was not observed. What is the distance that\r\nthe snail traveled? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion34.html
+p = Problem.create!(filename: 'motion34.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nThree people observed a snail for a total period of 2 minutes.\r\nEach person observed the snail for exactly one minute, and saw that the snail traveled one foot. There wasn't a single moment\r\nwhen the snail was not observed. What is the distance that\r\nthe snail traveled? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2", interface: "The snail traveled  [ ] feet. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1469,9 +1545,9 @@ s.hints.create!(text: "How far did the snail go during the first minute? \r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How far did the snail go during the last minute?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion21.html
-p = Problem.create!(filename: 'motion21.html', category: 'applications', context: 'motion', text: "<p>\r\nThe regular tires of a car have diameter 14 inches. The owner of\r\nthe car decided to replace them with tires that have diameter 15 inches. What is the real speed of the car when the display is showing 70 miles per hour?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion21.html
+p = Problem.create!(filename: 'motion21.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nThe regular tires of a car have diameter 14 inches. The owner of\r\nthe car decided to replace them with tires that have diameter 15 inches. What is the real speed of the car when the display is showing 70 miles per hour?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "75", interface: "The real speed of the car is [ ] miles per hour. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1479,9 +1555,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe </a> speed of the 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the rule of three. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion6.html
-p = Problem.create!(filename: 'motion6.html', category: 'applications', context: 'motion', text: "<p>\r\nThe distance between Earth and Moon is 384000 km. If we were to launch a \r\nrocket to the moon with a spped of 16 kilometers per second and one hour later\r\nwe would lauch another rocket with a speed of 20 kilometers per second, after\r\nhow long from the launch of the second rocket,\r\n and at what distance from the moon would the second rocket overpass\r\nthe first?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion6.html
+p = Problem.create!(filename: 'motion6.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nThe distance between Earth and Moon is 384000 km. If we were to launch a \r\nrocket to the moon with a spped of 16 kilometers per second and one hour later\r\nwe would lauch another rocket with a speed of 20 kilometers per second, after\r\nhow long from the launch of the second rocket,\r\n and at what distance from the moon would the second rocket overpass\r\nthe first?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4|96000", interface: "The second rocket would overpass the first after [ ] hours, at which moment the distance to the moon is [ ] kilometers. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1491,9 +1567,9 @@ s.hints.create!(text: "How far did the first rocket get in one hour?\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many kilometers of the distance between the rockets does the second rocket cover every second? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 2, source: "Gheba and Romanian Math and Physics Olympiad, 1958")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion23.html
-p = Problem.create!(filename: 'motion23.html', category: 'applications', context: 'motion', text: "<p>\r\nTwo bicycles are 9 miles apart and start traveling towards each\r\nother at 2 mph. A fly starting from the first bicycle,\r\ntravels towards the other at 5 mph. Upon reaching the second\r\nbicycle, the fly turns around and continues towards the first\r\nbicycle. It continues traveling in this zig-zag pattern from\r\none  bicycle to the other, at the same constant\r\nspeed, until the bicycles meet. What is the total distance\r\ntraveled by the fly?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 2, source: "Gheba and Romanian Math and Physics Olympiad, 1958")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion23.html
+p = Problem.create!(filename: 'motion23.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nTwo bicycles are 9 miles apart and start traveling towards each\r\nother at 2 mph. A fly starting from the first bicycle,\r\ntravels towards the other at 5 mph. Upon reaching the second\r\nbicycle, the fly turns around and continues towards the first\r\nbicycle. It continues traveling in this zig-zag pattern from\r\none  bicycle to the other, at the same constant\r\nspeed, until the bicycles meet. What is the total distance\r\ntraveled by the fly?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "11.25", interface: "The total distance traveled by the fly is [ ] miles. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1501,9 +1577,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\n\tEach bicycle travels a
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How long did the fly... fly?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 5, source: "This is a famous problem.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion31.html
-p = Problem.create!(filename: 'motion31.html', category: 'applications', context: 'motion', text: "<p> \r\nA motor boat travels on a river 132 kilometers, going for 12 hours upstream and for 7 hours downstream. \r\nThe boat is four times slower when going upstream then when going downstream. What would  the\r\nvelocity of the boat be if it just stopped the engine and floated downstream? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 5, source: "This is a famous problem.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion31.html
+p = Problem.create!(filename: 'motion31.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p> \r\nA motor boat travels on a river 132 kilometers, going for 12 hours upstream and for 7 hours downstream. \r\nThe boat is four times slower when going upstream then when going downstream. What would  the\r\nvelocity of the boat be if it just stopped the engine and floated downstream? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4.95", interface: "The velocity of the floating boat would be [ ] km/h. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1513,9 +1589,9 @@ s.hints.create!(text: "Use the graphical method to find the velocities of the bo
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Compare the downstream velocity to the upstream velocity.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 2, source: "<!--Petrica Stefan Alexe, modified-->")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion12.html
-p = Problem.create!(filename: 'motion12.html', category: 'applications', context: 'motion', text: "<p>\r\nA biker went from one town to another. After 40 minutes of travel, \r\nthe biker met a local farmer, who\r\ntold him that the distance he had already biked is by one and a half kilometers less than\r\nwhat he has left and that rain is coming.  So the biker started riding by 1 km/h faster,\r\nand in 45 minutes he reached his destination. What is the distance between the two towns?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 2, source: "<!--Petrica Stefan Alexe, modified-->")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion12.html
+p = Problem.create!(filename: 'motion12.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nA biker went from one town to another. After 40 minutes of travel, \r\nthe biker met a local farmer, who\r\ntold him that the distance he had already biked is by one and a half kilometers less than\r\nwhat he has left and that rain is coming.  So the biker started riding by 1 km/h faster,\r\nand in 45 minutes he reached his destination. What is the distance between the two towns?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "13.5", interface: "The distance between the two towns is [ ] kilometers. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1523,9 +1599,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nHere is a graphical repr
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Slow down the biker for the second half of the trip and move\r\nits target so that the biker would reach it at the same time \r\nthat he would reach the original target by traveling at the faster pace.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 4, source: "Gheba")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion30.html
-p = Problem.create!(filename: 'motion30.html', category: 'applications', context: 'motion', text: "<p> \r\nFrom a boy scouts camp to town the road goes first downhill, then horizontally. A boy scout\r\nbiked downhill at 12 km/h and biked the horizontal road at 9 km/h, arriving in town in 55 minutes.\r\nGoing back, he traveled the horizontal part of the road at 8 km/h and the uphill part at 4 km/h,\r\narriving at the camp in one and a half hours. How far is the boy scouts camp from town? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 4, source: "Gheba")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion30.html
+p = Problem.create!(filename: 'motion30.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p> \r\nFrom a boy scouts camp to town the road goes first downhill, then horizontally. A boy scout\r\nbiked downhill at 12 km/h and biked the horizontal road at 9 km/h, arriving in town in 55 minutes.\r\nGoing back, he traveled the horizontal part of the road at 8 km/h and the uphill part at 4 km/h,\r\narriving at the camp in one and a half hours. How far is the boy scouts camp from town? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "9", interface: "The distance between the camp and the town is [ ] miles. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1533,9 +1609,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nIf on the way back the 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What happens if on the way back the biker increases both speed 3 times, thus\r\ntraveling at 24 mph on the horizontal part and at 12 mph on the uphill part?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 4, source: "Gheba, but different solution")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion5.html
-p = Problem.create!(filename: 'motion5.html', category: 'applications', context: 'motion', text: "<p>Two  cars travel the same distance in the same time interval.\r\nThe first car travels \\(\\frac{3}{4}\\) of the distance at 72km/h and the rest at 96 km/h. The second car travels with constant\r\nvelocity the entire distance. What is the velocity of the second car? \r\n\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 4, source: "Gheba, but different solution")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion5.html
+p = Problem.create!(filename: 'motion5.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>Two  cars travel the same distance in the same time interval.\r\nThe first car travels \\(\\frac{3}{4}\\) of the distance at 72km/h and the rest at 96 km/h. The second car travels with constant\r\nvelocity the entire distance. What is the velocity of the second car? \r\n\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "76.8", interface: "The velocity of the second car is [ ] km/h. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1543,9 +1619,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nLet us look at a simpler 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Look at a simpler situation. Suppose that you have two\r\nbikers who travel the same distance in the same time\r\ninterval, so that the first biker travels half the distance\r\nat 2 km/h, and the other half at 3 km/h, while the second\r\nbiker travels at constant velocity. Find the \r\nvelocity of the second biker. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion25.html
-p = Problem.create!(filename: 'motion25.html', category: 'applications', context: 'motion', text: "<p>\r\nFrom Fermatville takes off a passenger plane flying towards Newton City at constant speed. \r\nAt exactly the same time, a\r\ncargo plane starts from Newton City towards Fermatville, also\r\nat constant speed but slightly slower than the passenger plane.\r\nAfter 3 hours, the passenger plane happened to be\r\n at exactly half distance between\r\nFermatville and the cargo plane. After how many hours will the passenger plane\r\nbe at half distance between the cargo plane and Newton City?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion25.html
+p = Problem.create!(filename: 'motion25.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nFrom Fermatville takes off a passenger plane flying towards Newton City at constant speed. \r\nAt exactly the same time, a\r\ncargo plane starts from Newton City towards Fermatville, also\r\nat constant speed but slightly slower than the passenger plane.\r\nAfter 3 hours, the passenger plane happened to be\r\n at exactly half distance between\r\nFermatville and the cargo plane. After how many hours will the passenger plane\r\nbe at half distance between the cargo plane and Newton City?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "6", interface: "The passenger plane will be at half distance between the cargo plane and Newton City after [ ] hours. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1557,9 +1633,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\n\tWe will  \r\ngraph the
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Try a graphical solution.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 6, source: "S. Tokarev, 1997-1998 Moscow Mathematical Olympiad")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion22.html
-p = Problem.create!(filename: 'motion22.html', category: 'applications', context: 'motion', text: "<p>\r\nThree cars, a Red, a Blue, a Green, and a Yellow travel at constant speeds  on the\r\nsame road, with the Red and the Blue traveling in the same\r\ndirection and at equal speeds, and the Green and the Yellow in the opposite direction also at equal speeds, but with their\r\nspeeds different from those of the first two. The Red met\r\nthe Green at 3 pm and the Yellow at 7 pm, while the Blue met\r\nthe Yellow at 9 pm. When did the Blue meet the Green?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 6, source: "S. Tokarev, 1997-1998 Moscow Mathematical Olympiad")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion22.html
+p = Problem.create!(filename: 'motion22.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nThree cars, a Red, a Blue, a Green, and a Yellow travel at constant speeds  on the\r\nsame road, with the Red and the Blue traveling in the same\r\ndirection and at equal speeds, and the Green and the Yellow in the opposite direction also at equal speeds, but with their\r\nspeeds different from those of the first two. The Red met\r\nthe Green at 3 pm and the Yellow at 7 pm, while the Blue met\r\nthe Yellow at 9 pm. When did the Blue meet the Green?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "5", interface: "The Blue met the Green at [ ] o'clock. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1567,9 +1643,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe </a> Red meets the Y
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The Blue is behind the Red by how many hours?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 3, source: "Russian Math Olympiad.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion35.html
-p = Problem.create!(filename: 'motion35.html', category: 'applications', context: 'motion', text: "<p>\r\nFour people observed a snail for a total period of 3 minutes.\r\nEach person observed the snail for exactly one minute, and saw that the snail traveled one foot. There wasn't a single moment\r\nwhen the snail was not observed. What is the longest distance that\r\nthe snail could have traveled? What is the shortest distance\r\nthat the snail could have traveled?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 3, source: "Russian Math Olympiad.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion35.html
+p = Problem.create!(filename: 'motion35.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nFour people observed a snail for a total period of 3 minutes.\r\nEach person observed the snail for exactly one minute, and saw that the snail traveled one foot. There wasn't a single moment\r\nwhen the snail was not observed. What is the longest distance that\r\nthe snail could have traveled? What is the shortest distance\r\nthat the snail could have traveled?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2|4", interface: "The shortest distance the snail could have traveled is [ ] feet. The longest distance the snail could have traveled is [ ] feet. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1579,9 +1655,9 @@ s.hints.create!(text: "How far did the snail go during the first minute? \r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What could have happened during the second minute?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 6, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion13.html
-p = Problem.create!(filename: 'motion13.html', category: 'applications', context: 'motion', text: "<p>\r\nThe three Thompson brothers own a horse that can carry up to two\r\nriders. With one rider the horse can walk and gallop at an average of\r\n9 mph, while\r\nwith two riders it can only walk at 5 mph. A person can walk at 3 mph. \r\nWhat is the shortest time in which  the three Thompson brothers can reach a\r\ntown  20 miles from their ranch, if they are willing to walk\r\nand ride?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 6, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion13.html
+p = Problem.create!(filename: 'motion13.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nThe three Thompson brothers own a horse that can carry up to two\r\nriders. With one rider the horse can walk and gallop at an average of\r\n9 mph, while\r\nwith two riders it can only walk at 5 mph. A person can walk at 3 mph. \r\nWhat is the shortest time in which  the three Thompson brothers can reach a\r\ntown  20 miles from their ranch, if they are willing to walk\r\nand ride?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "6|10", interface: "The shortest time is [ ] hours and [ ] minutes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1589,9 +1665,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nIf  the Thompson brother
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Each of the brothers has to use the horse at some time.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 5, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion14.html
-p = Problem.create!(filename: 'motion14.html', category: 'applications', context: 'motion', text: "<p>\r\nA passenger sitting on a train traveling at 80 km/h noticed that \r\na cargo train comming from the opposite direction passed by him\r\nin 18 seconds. He counted that the cargo train had 30 cars, and\r\nhe knew that the length of one car is 25 meters. How fast\r\nwas the cargo train traveling? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 5, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion14.html
+p = Problem.create!(filename: 'motion14.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nA passenger sitting on a train traveling at 80 km/h noticed that \r\na cargo train comming from the opposite direction passed by him\r\nin 18 seconds. He counted that the cargo train had 30 cars, and\r\nhe knew that the length of one car is 25 meters. How fast\r\nwas the cargo train traveling? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "70", interface: "The cargo trains is traveling at [ ] kilometers per hour. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1599,9 +1675,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe length of the cargo 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What is the speed of the cargo train relative to the passenger?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion17.html
-p = Problem.create!(filename: 'motion17.html', category: 'applications', context: 'motion', text: "<p>\r\nA ship travels at a constant velocity with respect to the\r\nwater. On the first day the ship travels downstream from \r\nAllen Harbor to Benton. On the second day it travels upstream from\r\nBenton to Allen Harbor. After passing the entire travel time\r\nof the previous day, the ship is only \\(\\frac{2}{3}\\) into the trip. How \r\nmany times greater is the velocitiy of the\r\nboat as compared to the one of the water?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion17.html
+p = Problem.create!(filename: 'motion17.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nA ship travels at a constant velocity with respect to the\r\nwater. On the first day the ship travels downstream from \r\nAllen Harbor to Benton. On the second day it travels upstream from\r\nBenton to Allen Harbor. After passing the entire travel time\r\nof the previous day, the ship is only \\(\\frac{2}{3}\\) into the trip. How \r\nmany times greater is the velocitiy of the\r\nboat as compared to the one of the water?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "5", interface: "The boat is [ ] times faster than the river. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1611,9 +1687,9 @@ s.hints.create!(text: "Use a graphical solution. The fact that after traveling t
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What happens if you stop the flow of water?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 5, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion24.html
-p = Problem.create!(filename: 'motion24.html', category: 'applications', context: 'motion', text: "<p>\r\nA snail starts climbing at the bottom of a well 30 feet deep.\r\nIt climbs 6 feet during the day, and at night, while sleeping,\r\nit slips back 4 feet. How many days will it take for the snail\r\nto climb out of the well?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 5, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion24.html
+p = Problem.create!(filename: 'motion24.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nA snail starts climbing at the bottom of a well 30 feet deep.\r\nIt climbs 6 feet during the day, and at night, while sleeping,\r\nit slips back 4 feet. How many days will it take for the snail\r\nto climb out of the well?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "13", interface: "The snail climbed the well in [ ] days. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1621,9 +1697,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\n\tGiven  the loss in heigh
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "See what happens after 1 day, 2 days, 3 days...\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 2, source: "This is a famous problem.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion4.html
-p = Problem.create!(filename: 'motion4.html', category: 'applications', context: 'motion', text: "<p>Mike drove for four hours, first on a dirt road at 40 miles per hour and then on a paved road at 60 miles per hour. His car\r\nmade 20 miles per gallon on the dirt road and 30 miles per gallon on the paved road. \r\nKnowing that he traveled a total of 210 miles, find out how much gas he has used. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 2, source: "This is a famous problem.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion4.html
+p = Problem.create!(filename: 'motion4.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>Mike drove for four hours, first on a dirt road at 40 miles per hour and then on a paved road at 60 miles per hour. His car\r\nmade 20 miles per gallon on the dirt road and 30 miles per gallon on the paved road. \r\nKnowing that he traveled a total of 210 miles, find out how much gas he has used. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "8", interface: "He used [ ] gallons of gas. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1631,9 +1707,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nBecause the distance is 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Construct a rectangle whose height is the speed and whose base\r\nis the time then the area of the rectangle is the distance traveled. (The area of the rectangle is base\\(\\times\\)height.)\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 5, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion1.html
-p = Problem.create!(filename: 'motion1.html', category: 'applications', context: 'motion', text: "<p>\r\nTwo people left at the same time to walk the distance between two towns. \r\nThe first person  arrived at the destination 2 hours after the second person. \r\nKnowing that the speed of the first person is 4 km/h and the speed of the second\r\nis 6 km/h, find the distance between the two towns. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 5, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion1.html
+p = Problem.create!(filename: 'motion1.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nTwo people left at the same time to walk the distance between two towns. \r\nThe first person  arrived at the destination 2 hours after the second person. \r\nKnowing that the speed of the first person is 4 km/h and the speed of the second\r\nis 6 km/h, find the distance between the two towns. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "24", interface: "The distance between the two towns is [ ] kilometers. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1643,9 +1719,9 @@ s.hints.create!(text: "How many kilometers is left behind the first person durin
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many kilometers is the first person behind when the second reaches town?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 2, source: "Gheba")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion32.html
-p = Problem.create!(filename: 'motion32.html', category: 'applications', context: 'motion', text: "<p>The front wheel of a penny-farthing bike has a circumference of 72 inches and the rear wheel has a\r\ncircumference of 27 inches. When the bike traveled a certain distance,\r\n the wheels made, together, a total of 9570 complete rotations. What was that distance, measured in feet?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 2, source: "Gheba")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion32.html
+p = Problem.create!(filename: 'motion32.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>The front wheel of a penny-farthing bike has a circumference of 72 inches and the rear wheel has a\r\ncircumference of 27 inches. When the bike traveled a certain distance,\r\n the wheels made, together, a total of 9570 complete rotations. What was that distance, measured in feet?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "15660", interface: "The bike traveled  [ ] feet. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1655,9 +1731,9 @@ s.hints.create!(text: "What is the shortest distance so that each wheel made a c
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "When traveling this shortest distance so that each wheel makes a complete rotation, how many times\r\ndid the wheels rotate altogether? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 2, source: "Petrica Stefan Alexe, modified")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion16.html
-p = Problem.create!(filename: 'motion16.html', category: 'applications', context: 'motion', text: "<p>\r\nThe velocity of the river Danube in Budapest is 3km/h. \r\nA tourist boat whose relative velocity with respect to \r\nwater is 16km/h travels first downstream and then upstream,\r\nreturning to the starting point after two hours. How\r\nlong does the boat travel downstream?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 2, source: "Petrica Stefan Alexe, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion16.html
+p = Problem.create!(filename: 'motion16.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nThe velocity of the river Danube in Budapest is 3km/h. \r\nA tourist boat whose relative velocity with respect to \r\nwater is 16km/h travels first downstream and then upstream,\r\nreturning to the starting point after two hours. How\r\nlong does the boat travel downstream?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "48|45", interface: "The boat travels downstream [ ] minutes and [ ] seconds. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1667,9 +1743,9 @@ s.hints.create!(text: "The river slows the boat when traveling upstream by 3 km/
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the method of false hypothesis.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion19.html
-p = Problem.create!(filename: 'motion19.html', category: 'applications', context: 'motion', text: "<p>A\r\n boat travels a certain distance downstream in 2 hours 55 minutes and \r\nthe same distance upstream in 3 hours and 45 minutes. How\r\nlong would it take for a boat  that travels half that fast with\r\nrespect to the river to travel the same distance downstream?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion19.html
+p = Problem.create!(filename: 'motion19.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>A\r\n boat travels a certain distance downstream in 2 hours 55 minutes and \r\nthe same distance upstream in 3 hours and 45 minutes. How\r\nlong would it take for a boat  that travels half that fast with\r\nrespect to the river to travel the same distance downstream?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "5|15", interface: "The slower boat will travel the same distance i [ ] hours and [ ] minutes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1679,9 +1755,9 @@ s.hints.create!(text: "How many times is the boat faster than the river?\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the method of the false hypothesis by stopping the flow of water. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion15.html
-p = Problem.create!(filename: 'motion15.html', category: 'applications', context: 'motion', text: "<p>\r\nA river flows with a velocity of 1.5 km/h. Two kayaks\r\nat distance 20 km from each other decide to paddle towards\r\neach other and meet half way between the starting points.\r\nThe two kayaks travel at 4.5 km/h with respect to the water. \r\nHow much later should the kayak from upstream start than the kayak from downstream? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion15.html
+p = Problem.create!(filename: 'motion15.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nA river flows with a velocity of 1.5 km/h. Two kayaks\r\nat distance 20 km from each other decide to paddle towards\r\neach other and meet half way between the starting points.\r\nThe two kayaks travel at 4.5 km/h with respect to the water. \r\nHow much later should the kayak from upstream start than the kayak from downstream? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1|40", interface: "The kayak from upstream should start [ ] hours and [ ] minutes later. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1689,9 +1765,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nEach   of the kayaks sho
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The flowing river increases the speed of the upstream kayak by\r\n1.5 km/h and decreases the speed of the downstream kayak by 1.5 km/h.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion20.html
-p = Problem.create!(filename: 'motion20.html', category: 'applications', context: 'motion', text: "<p>\r\nA courier service has two vehicles, a car  \r\nwith a traveling  speed of 135 km/h located in Vienna\r\nand a van with a traveling speed of 90 km/h  located\r\nin Prague. The courier service is supposed to deliver one\r\npackage from Vienna to Prague, and one package from Prague\r\nto Vienna. Determine the shortest time needed for accomplishing\r\nthe task, given that\r\nthe distance between the two cities is 250 km. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion20.html
+p = Problem.create!(filename: 'motion20.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nA courier service has two vehicles, a car  \r\nwith a traveling  speed of 135 km/h located in Vienna\r\nand a van with a traveling speed of 90 km/h  located\r\nin Prague. The courier service is supposed to deliver one\r\npackage from Vienna to Prague, and one package from Prague\r\nto Vienna. Determine the shortest time needed for accomplishing\r\nthe task, given that\r\nthe distance between the two cities is 250 km. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2|13|20", interface: "The shortest time needed is [ ] hours, [ ] minutes, and [ ] seconds. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1705,9 +1781,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nOf  course the car can t
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If the vehicles travel towards each other, that is the same\r\nas if one vehicle does not move and the other travels towards\r\nit with a speed equal to the sum of the speeds of the two vehicles.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion3.html
-p = Problem.create!(filename: 'motion3.html', category: 'applications', context: 'motion', text: "<p>Pierre travels from the city to his vacation\r\nhouse in the countryside. One third of the time he\r\ntravels on the freeway at 120 km/h and the rest  of the\r\ntime he  travels on a country road at  80 km/h.\r\nKnowing that the distance Pierre has traveled on the country road\r\nexceeds  the distance he has traveled on the freeway by 60 km,\r\nfind the total distance Pierre has traveled.  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion3.html
+p = Problem.create!(filename: 'motion3.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>Pierre travels from the city to his vacation\r\nhouse in the countryside. One third of the time he\r\ntravels on the freeway at 120 km/h and the rest  of the\r\ntime he  travels on a country road at  80 km/h.\r\nKnowing that the distance Pierre has traveled on the country road\r\nexceeds  the distance he has traveled on the freeway by 60 km,\r\nfind the total distance Pierre has traveled.  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "420", interface: "Pierre traveled a total of [ ] kilometers. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1715,9 +1791,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nWe represent the distanc
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Try a graphical solution in which the distance traveled on\r\nthe country road in \\(\\frac{1}{3}\\) of the total time of\r\ntravel is represented by one segment. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion18.html
-p = Problem.create!(filename: 'motion18.html', category: 'applications', context: 'motion', text: "<p>\r\nA boat travels a certain distance downstream in 2 hours and \r\nthe same distance upstream in 2 hours and 10 minutes. How\r\nlong would it take for a raft that travels at the velocity\r\nof the river to travel this distance? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion18.html
+p = Problem.create!(filename: 'motion18.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nA boat travels a certain distance downstream in 2 hours and \r\nthe same distance upstream in 2 hours and 10 minutes. How\r\nlong would it take for a raft that travels at the velocity\r\nof the river to travel this distance? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "52", interface: "The raft would take [ ] hours to travel this distance. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1725,9 +1801,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nPut a dam downstream, sto
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What happens if you stop the flow of water?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion10.html
-p = Problem.create!(filename: 'motion10.html', category: 'applications', context: 'motion', text: "<p>\r\nMary can travel from town \\(A\\) to town \\(B\\) by foot in\r\n4 hours. George lives on a farm that is on the road from \r\n\\(A\\) to \\(B\\) at a point closer to \\(A\\) that divides the road into the ratio \\(\\frac{1}{11}\\). Knowing that George has a step that is \r\nby \\(\\frac{1}{3}\\) longer than Mary's, but that Mary steps twice\r\nas fast as  him, find  how long will it take for George to \r\ntravel from his farm to \\(B\\).    \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion10.html
+p = Problem.create!(filename: 'motion10.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nMary can travel from town \\(A\\) to town \\(B\\) by foot in\r\n4 hours. George lives on a farm that is on the road from \r\n\\(A\\) to \\(B\\) at a point closer to \\(A\\) that divides the road into the ratio \\(\\frac{1}{11}\\). Knowing that George has a step that is \r\nby \\(\\frac{1}{3}\\) longer than Mary's, but that Mary steps twice\r\nas fast as  him, find  how long will it take for George to \r\ntravel from his farm to \\(B\\).    \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "5|30", interface: "It will take George [ ] hours and [ ] minutes to travel from his farm to \(B\). ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1735,9 +1811,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\n\tThe  \r\n distance fro
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How long would it take Mary to travel from George's farm to \\(B\\)?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MOTION/motion9.html
-p = Problem.create!(filename: 'motion9.html', category: 'applications', context: 'motion', text: "<p>\r\nIf you drive at 65 kilometers per hour you arrive an hour too late at your destination. If you drive at 90 kilometers \r\nper hour you arrive two hours too early at your destination. How fast\r\nshould you be driving to arrive on time?  (Truncate the answer to 2 decimals.)\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/motion9.html
+p = Problem.create!(filename: 'motion9.html', curriculum: 'lifetomath', category: 'applications', context: 'motion', text: "<p>\r\nIf you drive at 65 kilometers per hour you arrive an hour too late at your destination. If you drive at 90 kilometers \r\nper hour you arrive two hours too early at your destination. How fast\r\nshould you be driving to arrive on time?  (Truncate the answer to 2 decimals.)\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "71.63", interface: "You should be driving at [ ] kilometers per hour. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1745,9 +1821,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nIf you have traveled fo
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What is the time required for your travel?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "motion", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage11.html
-p = Problem.create!(filename: 'percentage11.html', category: 'applications', context: 'percentages', text: "<p>\r\nIn Romania a tax of 24% of the price is added \r\nto every purchase and the listed price includes this\r\ntax. This means that if the price of an object is \r\n100 lei, the listed price will be 124 lei.\r\nIf the listed price of an product is 5952 lei, what is\r\nthe tax paid for  the product?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "motion", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage11.html
+p = Problem.create!(filename: 'percentage11.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nIn Romania a tax of 24% of the price is added \r\nto every purchase and the listed price includes this\r\ntax. This means that if the price of an object is \r\n100 lei, the listed price will be 124 lei.\r\nIf the listed price of an product is 5952 lei, what is\r\nthe tax paid for  the product?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1152", interface: "The tax paid for the product is [ ] lei. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1759,9 +1835,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nKnowing that from a li
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the rule of three. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage34.html
-p = Problem.create!(filename: 'percentage34.html', category: 'applications', context: 'percentages', text: "<p>\r\nRinaldo can extract 7 ounces of orange\r\njuice from 2 oranges,  3 ounces of apple juice from 2 apples,\r\nand 2 ounces of lemon juice from one lemon.\r\nRinaldo has extracted the juice from 9 oranges and 7 apples.\r\n How many lemons\r\nshould he use in order to obtain a blend in which the lemon\r\njuice is 20%?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage34.html
+p = Problem.create!(filename: 'percentage34.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nRinaldo can extract 7 ounces of orange\r\njuice from 2 oranges,  3 ounces of apple juice from 2 apples,\r\nand 2 ounces of lemon juice from one lemon.\r\nRinaldo has extracted the juice from 9 oranges and 7 apples.\r\n How many lemons\r\nshould he use in order to obtain a blend in which the lemon\r\njuice is 20%?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "5", interface: "Rinaldo should use [ ] lemons. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1771,9 +1847,9 @@ s.hints.create!(text: "How much  juice does he get?\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How much lemon juice should he get?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage26.html
-p = Problem.create!(filename: 'percentage26.html', category: 'applications', context: 'percentages', text: "<p>\r\nRob and Ann do research together and were supposed to make solution with a concentration of 10% by\r\nadding one part of concentrate to nine  parts of water. Rob made the solution in a bottle and\r\nleft it on the desk. Ann came later, and seeing the bottle, thought that it contained the\r\nconcentrate\r\nso she added one part of the solution in the bottle to nine parts of water. What is the\r\nconcentration of the solution that Ann made?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage26.html
+p = Problem.create!(filename: 'percentage26.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nRob and Ann do research together and were supposed to make solution with a concentration of 10% by\r\nadding one part of concentrate to nine  parts of water. Rob made the solution in a bottle and\r\nleft it on the desk. Ann came later, and seeing the bottle, thought that it contained the\r\nconcentrate\r\nso she added one part of the solution in the bottle to nine parts of water. What is the\r\nconcentration of the solution that Ann made?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1", interface: "The solution that Ann made has concentration [ ]%. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1781,9 +1857,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nWe draw the concentrate 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The solution that Ann creates has 1 part of Rob's solution and 9 parts of water.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage19.html
-p = Problem.create!(filename: 'percentage19.html', category: 'applications', context: 'percentages', text: "<p>\r\nA farmer produced apples and pears. The apples were 70% of the total amount of fruit. After sorting the fruit,\r\nthe farmer realized that  25%  of the\r\n apples and 15% of the pears are rotten, so he threw those away\r\nand  was left with 2080 pounds of fruit.\r\nKnowing that the price of apples is $1.2 per pound and that \r\nof pears is $1.5 per pound, how much money will the farmer make by selling\r\nall the fruit?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage19.html
+p = Problem.create!(filename: 'percentage19.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nA farmer produced apples and pears. The apples were 70% of the total amount of fruit. After sorting the fruit,\r\nthe farmer realized that  25%  of the\r\n apples and 15% of the pears are rotten, so he threw those away\r\nand  was left with 2080 pounds of fruit.\r\nKnowing that the price of apples is $1.2 per pound and that \r\nof pears is $1.5 per pound, how much money will the farmer make by selling\r\nall the fruit?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2700", interface: "By selling all the fruit, the farmer earned [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1791,9 +1867,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe 75% of the of the ap
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "From the fruit to be sold, what is the ratio apples to pears?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage14.html
-p = Problem.create!(filename: 'percentage14.html', category: 'applications', context: 'percentages', text: "<p>\r\nOn an organized tour, 30% of the tourists are  American and 70% are  European. 36% of the European tourists have been on this tour before\r\nwhile the remaining 112 European tourists have not. How many American tourists are on this tour?   \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage14.html
+p = Problem.create!(filename: 'percentage14.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nOn an organized tour, 30% of the tourists are  American and 70% are  European. 36% of the European tourists have been on this tour before\r\nwhile the remaining 112 European tourists have not. How many American tourists are on this tour?   \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "75", interface: "On the tour there are [ ] American tourists. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1801,9 +1877,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe </a> \r\n112 Europ
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the rule of three.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage17.html
-p = Problem.create!(filename: 'percentage17.html', category: 'applications', context: 'percentages', text: "<p>\r\nDuring  restructuring, a company decreased the salaries\r\nof its employees by 10%. After the restructuring ended,\r\nthe company decided to increase the salaries of the employees by\r\n10%. Will the salaries match the ones from before the restructuring?\r\nIf not, what is the difference?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage17.html
+p = Problem.create!(filename: 'percentage17.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nDuring  restructuring, a company decreased the salaries\r\nof its employees by 10%. After the restructuring ended,\r\nthe company decided to increase the salaries of the employees by\r\n10%. Will the salaries match the ones from before the restructuring?\r\nIf not, what is the difference?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1|1", interface: "Enter 1 for less, 2 for more. The sallary is by [ ]%  [ ] than initially. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1811,9 +1887,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nThe \r\nanswer is <font c
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Examine the case of a person whose salary is $1000.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage6.html
-p = Problem.create!(filename: 'percentage6.html', category: 'applications', context: 'percentages', text: "<p>\r\nIf you mix a  drink with a fruit juice concentration \r\nof 12% with another  drink with a fruit juice concentration\r\nof 8% in the ratio \\(2:1\\) what is the fruit juice concentration\r\nof the resulting drink?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage6.html
+p = Problem.create!(filename: 'percentage6.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nIf you mix a  drink with a fruit juice concentration \r\nof 12% with another  drink with a fruit juice concentration\r\nof 8% in the ratio \\(2:1\\) what is the fruit juice concentration\r\nof the resulting drink?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "9.33", interface: "The fruit juice concentration in the resulting drink is [ ] %. (Truncate to two digits.) ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1821,9 +1897,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nIt </a> \r\nis easier to 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Related everything to 1 liter of drink.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage22.html
-p = Problem.create!(filename: 'percentage22.html', category: 'applications', context: 'percentages', text: "<p>\r\nA mathematics teacher assigned two  problems as homework.\r\nWhen grading the problems, the teacher noticed that\r\nonly 70% of the students solved the first problem correctly,\r\nand only 55% of the students solved the second problem\r\ncorrectly. At the same time 20% of the class got both\r\nproblems wrong. What percentage of the students solved\r\nboth problems correctly? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage22.html
+p = Problem.create!(filename: 'percentage22.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nA mathematics teacher assigned two  problems as homework.\r\nWhen grading the problems, the teacher noticed that\r\nonly 70% of the students solved the first problem correctly,\r\nand only 55% of the students solved the second problem\r\ncorrectly. At the same time 20% of the class got both\r\nproblems wrong. What percentage of the students solved\r\nboth problems correctly? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "45", interface: "[ ] % of the students solved both problems correctly. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1835,9 +1911,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nThe percentage of student
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If you add the number of students who did not solve the first problem to \r\nthe number of students who did not solve the second problem you add\r\n the students who missed\r\nboth problems twice. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 5, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage13.html
-p = Problem.create!(filename: 'percentage13.html', category: 'applications', context: 'percentages', text: "<p>\r\nSteve as a computer store, and he has just received a new computer model. He noticed that the same computer model sells\r\non the internet for $1430 plus a 2% shipping and handling fee.\r\nSteve knows that if the customers can find the computer cheaper\r\nonline, they will not buy it at his store. What price should\r\nhe pick for his computers, given that there is an 8% sales tax which is added at the time when you pay?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 5, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage13.html
+p = Problem.create!(filename: 'percentage13.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nSteve as a computer store, and he has just received a new computer model. He noticed that the same computer model sells\r\non the internet for $1430 plus a 2% shipping and handling fee.\r\nSteve knows that if the customers can find the computer cheaper\r\nonline, they will not buy it at his store. What price should\r\nhe pick for his computers, given that there is an 8% sales tax which is added at the time when you pay?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1350|55", interface: "He should sell his computers for [ ] dollars and [ ] cents. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1845,9 +1921,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe  real price of the c
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What is the real price of the computer sold online?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage33.html
-p = Problem.create!(filename: 'percentage33.html', category: 'applications', context: 'percentages', text: "<p> If your speed increases by 10% and the time of travel increases by 10%, by what percentage does the distance that\r\nyou travel increase? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage33.html
+p = Problem.create!(filename: 'percentage33.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p> If your speed increases by 10% and the time of travel increases by 10%, by what percentage does the distance that\r\nyou travel increase? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "21", interface: "The distance increases by [ ] %. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1855,9 +1931,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nFirst, assume that only t
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What if only the speed increases by 10%. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage12.html
-p = Problem.create!(filename: 'percentage12.html', category: 'applications', context: 'percentages', text: "<p>\r\nA customer saw in an add that a store reduced the price of a shirt by 30%. When visiting the store the customer found out\r\nthat the price of the shirt was reduced once more by 20% and\r\nthat it now costs $28. What was the original price of the shirt? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage12.html
+p = Problem.create!(filename: 'percentage12.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nA customer saw in an add that a store reduced the price of a shirt by 30%. When visiting the store the customer found out\r\nthat the price of the shirt was reduced once more by 20% and\r\nthat it now costs $28. What was the original price of the shirt? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "50", interface: "The original price of the shirt was [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1865,9 +1941,9 @@ s = p.solutions.create!(typ: "backwards", text: "<p>\r\nWorking backwards, let  
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Work backwards.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage7.html
-p = Problem.create!(filename: 'percentage7.html', category: 'applications', context: 'percentages', text: "<p>\r\nIf you mix a  drink with a fruit juice concentration \r\nof 14% with another  drink with a fruit juice concentration\r\nof 9%, in what percentage should the first drink be to \r\n the total amount so that the resulting drink has a fruit juice concentration of 10%?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage7.html
+p = Problem.create!(filename: 'percentage7.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nIf you mix a  drink with a fruit juice concentration \r\nof 14% with another  drink with a fruit juice concentration\r\nof 9%, in what percentage should the first drink be to \r\n the total amount so that the resulting drink has a fruit juice concentration of 10%?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "20", interface: "The first drink should be [ ] % of the resulting drink. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1877,9 +1953,9 @@ s.hints.create!(text: "Imagine that\r\nthe final  drink is placed in a box in su
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Now open the wall, and assume that one of the drinks is heavier and falls to the bottom.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 5, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage2.html
-p = Problem.create!(filename: 'percentage2.html', category: 'applications', context: 'percentages', text: "<p>\r\nAdding 8% of my cherries to 5% of your cherries we obtain 332 cherries.\r\nAdding 5% of my cherries to 8% of your cherries we \r\nobtain 266 cherries. How many cherries do I have and how many cherries do you have?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 5, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage2.html
+p = Problem.create!(filename: 'percentage2.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nAdding 8% of my cherries to 5% of your cherries we obtain 332 cherries.\r\nAdding 5% of my cherries to 8% of your cherries we \r\nobtain 266 cherries. How many cherries do I have and how many cherries do you have?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "3400|1200", interface: "I have [ ] cherries, you have [ ] cherries. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1889,9 +1965,9 @@ s.hints.create!(text: "How many cherries do we have altogether? \r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "By how many cherries do I have more than you?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 1, source: "Gheba, modified")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage15.html
-p = Problem.create!(filename: 'percentage15.html', category: 'applications', context: 'percentages', text: "<p>\r\nIn a country three candidates ran for president. The result\r\n of the vote was 40% for candidate A,\r\n35% for candidate B, and 25% for candidate C. Since\r\nnone of the three candidates had a clear majority, there\r\nwas a runoff election between candidate A and candidate B,\r\n in which exactly the same people voted. \r\nKnowing that the people who voted for A and B din not change\r\ntheir options, what percentage of those who voted for C\r\nchose to vote for A in the second round\r\nif the final result was A: 48% and B: 52%?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 1, source: "Gheba, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage15.html
+p = Problem.create!(filename: 'percentage15.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nIn a country three candidates ran for president. The result\r\n of the vote was 40% for candidate A,\r\n35% for candidate B, and 25% for candidate C. Since\r\nnone of the three candidates had a clear majority, there\r\nwas a runoff election between candidate A and candidate B,\r\n in which exactly the same people voted. \r\nKnowing that the people who voted for A and B din not change\r\ntheir options, what percentage of those who voted for C\r\nchose to vote for A in the second round\r\nif the final result was A: 48% and B: 52%?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "32", interface: "The percentage of those who voted for A in the second round from those who voted for C in the first round is [ ] %. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1899,9 +1975,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\n\tTo   grow from 40% to 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The votes of A grew from 40% to 48%.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage1.html
-p = Problem.create!(filename: 'percentage1.html', category: 'applications', context: 'percentages', text: "<p>\r\nIf you add two liters of water to one liter of solution of \r\n30% vinegar in water, what will the new concentration be?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage1.html
+p = Problem.create!(filename: 'percentage1.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nIf you add two liters of water to one liter of solution of \r\n30% vinegar in water, what will the new concentration be?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "10", interface: "The new concentration will be [ ] %. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1909,9 +1985,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nIn  1 liter of 30% solut
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How much vinegar and how much water is in 1 liter of 30% solution?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage18.html
-p = Problem.create!(filename: 'percentage18.html', category: 'applications', context: 'percentages', text: "<p>\r\nA farmer produced apples and pears. The apples were 40% of the total amount of fruit. After sorting the fruit for sale,\r\nthe farmer realized that  15%  of the\r\n apples and 35% of the pears are rotten, so he threw those away, and sold the rest.\r\nDid he sell more apples or more pears? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage18.html
+p = Problem.create!(filename: 'percentage18.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nA farmer produced apples and pears. The apples were 40% of the total amount of fruit. After sorting the fruit for sale,\r\nthe farmer realized that  15%  of the\r\n apples and 35% of the pears are rotten, so he threw those away, and sold the rest.\r\nDid he sell more apples or more pears? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2", interface: "Enter 1 for apples and 2 for pears. The farmer sold more  [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1919,9 +1995,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nIf   apples were 40% of 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What percentage are the apples that the farmer sold from the total\r\namount of fruit that was produced?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage5.html
-p = Problem.create!(filename: 'percentage5.html', category: 'applications', context: 'percentages', text: "<p>\r\nWhat will the resulting concentration be if in a solution\r\nof 22% vinegar in water you double the amount of water?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage5.html
+p = Problem.create!(filename: 'percentage5.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nWhat will the resulting concentration be if in a solution\r\nof 22% vinegar in water you double the amount of water?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "12.36", interface: "The resulting concentration will be [ ] %. (Truncate to two digits.) ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1929,9 +2005,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe  \r\noriginal soluti
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many parts of vinegar and how many parts of water are in 100 parts of solution?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage30.html
-p = Problem.create!(filename: 'percentage30.html', category: 'applications', context: 'percentages', text: "<p>\r\nYou have a certain amount of money.\r\nIf the price of cherries increases by 60%, by what percentage does the amount of cherries that you can buy decrease? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage30.html
+p = Problem.create!(filename: 'percentage30.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nYou have a certain amount of money.\r\nIf the price of cherries increases by 60%, by what percentage does the amount of cherries that you can buy decrease? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "37.5", interface: "The amount of cherries that you can buy decreased by  [ ] %. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1939,9 +2015,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nTo buy the original am
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What fraction of the orignal amount of cherries can you now buy?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 3, source: "1986, AHSME modified")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage8.html
-p = Problem.create!(filename: 'percentage8.html', category: 'applications', context: 'percentages', text: "<p>\r\nRinaldo has 10 oranges of the same size and 10 apples of\r\nthe same size. He can extract 6 ounces of orange\r\njuice from 2 oranges and 9 ounces of apple juice from 5 apples.\r\nRinaldo used all the fruits to make a juice blend. What percentage of the blend is apple juice?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 3, source: "1986, AHSME modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage8.html
+p = Problem.create!(filename: 'percentage8.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nRinaldo has 10 oranges of the same size and 10 apples of\r\nthe same size. He can extract 6 ounces of orange\r\njuice from 2 oranges and 9 ounces of apple juice from 5 apples.\r\nRinaldo used all the fruits to make a juice blend. What percentage of the blend is apple juice?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "37.5", interface: "The percentage of apple juice is [ ] %. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1949,9 +2025,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nUsing the rule of thre
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How much juice does Rinaldo extract from 10 oranges?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 1, source: "Titu+Branislav, modified.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage9.html
-p = Problem.create!(filename: 'percentage9.html', category: 'applications', context: 'percentages', text: "<p>\r\nA city has today 176505 inhabitants. \r\nKnowing that the population of that city increased annually\r\nby 2.5% find what the population was 2 years ago. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 1, source: "Titu+Branislav, modified.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage9.html
+p = Problem.create!(filename: 'percentage9.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nA city has today 176505 inhabitants. \r\nKnowing that the population of that city increased annually\r\nby 2.5% find what the population was 2 years ago. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "168000", interface: "Two years ago the city had [ ] inhabitants. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1959,9 +2035,9 @@ s = p.solutions.create!(typ: "backwards", text: "<p>\r\nWe work backwards.\r\nEa
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Work backwards.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage20.html
-p = Problem.create!(filename: 'percentage20.html', category: 'applications', context: 'percentages', text: "<p>\r\nWhen the jury of the International Mathematical Olympiad\r\nconsidered the cutoff for medals at 16 points, they realized\r\nthat 52% of the participating students would win medals,\r\nwhich conflicts with the rule that limits this at 50%.\r\nSo the jury changed the cutoff to 17 points, \r\nand by eliminating the\r\n20 students who recieved 16 points, only \r\n48% of the students\r\nwon medals. What is the total number of students\r\nthat took part in the International Mathematical Olympiad? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage20.html
+p = Problem.create!(filename: 'percentage20.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nWhen the jury of the International Mathematical Olympiad\r\nconsidered the cutoff for medals at 16 points, they realized\r\nthat 52% of the participating students would win medals,\r\nwhich conflicts with the rule that limits this at 50%.\r\nSo the jury changed the cutoff to 17 points, \r\nand by eliminating the\r\n20 students who recieved 16 points, only \r\n48% of the students\r\nwon medals. What is the total number of students\r\nthat took part in the International Mathematical Olympiad? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "500", interface: "[ ] students. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1969,9 +2045,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe 20 students who ob
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the rule of three.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage3.html
-p = Problem.create!(filename: 'percentage3.html', category: 'applications', context: 'percentages', text: "<p>\r\nRinaldo can extract 7 ounces of orange\r\njuice from 2 oranges,  3 ounces of apple juice from 2 apples,\r\nand 2 ounces of lemon juice from one lemon.\r\nRinaldo has extracted the juice from 9 oranges and 5 apples.\r\n How many lemons\r\nshould he use in order to obtain a blend in which the orange\r\njuice is 50%?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage3.html
+p = Problem.create!(filename: 'percentage3.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nRinaldo can extract 7 ounces of orange\r\njuice from 2 oranges,  3 ounces of apple juice from 2 apples,\r\nand 2 ounces of lemon juice from one lemon.\r\nRinaldo has extracted the juice from 9 oranges and 5 apples.\r\n How many lemons\r\nshould he use in order to obtain a blend in which the orange\r\njuice is 50%?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "12", interface: "Rinaldo should use [ ] lemons. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1981,9 +2057,9 @@ s.hints.create!(text: "How much  juice does he get?\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How much  juice should he have?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage24.html
-p = Problem.create!(filename: 'percentage24.html', category: 'applications', context: 'percentages', text: "<p>\r\nThree sales agents \r\nwere required to sell a certain number of devices in quantities \r\n proportional \r\nto the numbers 3;4;5. They were able to sell  by 10%, 15%, and 20% more devices, respectively. Had they been able to sell\r\ninstead  by 20%, 25%, and 30% more devices than originally planned,  respectively, they\r\nwould have sold 240 devices more. How many devices did each of  the three agents sell?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage24.html
+p = Problem.create!(filename: 'percentage24.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nThree sales agents \r\nwere required to sell a certain number of devices in quantities \r\n proportional \r\nto the numbers 3;4;5. They were able to sell  by 10%, 15%, and 20% more devices, respectively. Had they been able to sell\r\ninstead  by 20%, 25%, and 30% more devices than originally planned,  respectively, they\r\nwould have sold 240 devices more. How many devices did each of  the three agents sell?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "660|920|1200", interface: "The first agent sold [ ] devices, the second agent sold [ ] devices, the third agent sold [ ] devices. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -1991,9 +2067,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nNote that between the s
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Note that between the sale that was actually realized, and the\r\none with the additional 240 devices, there is a difference\r\nof 10% for each agent, so there is a difference of\r\n10% over all. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 4, source: "Romanian Math Olympiad, local stage,  Alba 1994, 6th grade.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage16.html
-p = Problem.create!(filename: 'percentage16.html', category: 'applications', context: 'percentages', text: "<p>\r\nIn a country three candidates ran for president. The result\r\n of the vote was 42% for candidate A,\r\n36% for candidate B, and 22% for candidate C. Since\r\nnone of the three candidates had a clear majority, there\r\nwas a runoff election between candidate A and candidate B. \r\nThe people who voted for A and B voted in the runoff election as well din not change\r\ntheir options, while from those who voted for C\r\n20% chose to vote for A, 60% chose to vote for B and 20% decided not to vote.\r\n Which of the candidates won, and by what percentage of the cast votes?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 4, source: "Romanian Math Olympiad, local stage,  Alba 1994, 6th grade.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage16.html
+p = Problem.create!(filename: 'percentage16.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nIn a country three candidates ran for president. The result\r\n of the vote was 42% for candidate A,\r\n36% for candidate B, and 22% for candidate C. Since\r\nnone of the three candidates had a clear majority, there\r\nwas a runoff election between candidate A and candidate B. \r\nThe people who voted for A and B voted in the runoff election as well din not change\r\ntheir options, while from those who voted for C\r\n20% chose to vote for A, 60% chose to vote for B and 20% decided not to vote.\r\n Which of the candidates won, and by what percentage of the cast votes?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2|51.46", interface: "Enter 1 for A, 2 for B. Candidate [ ] won with [ ] % of the votes.  (Truncate to two decimals.) ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2001,9 +2077,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe 20% votes in favor o
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "From all the candidates who voted in the first election, how many\r\nvoted for A, and how many voted for B in the runoff election?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage28.html
-p = Problem.create!(filename: 'percentage28.html', category: 'applications', context: 'percentages', text: "<p>\r\nIn a basketball tournament, Sally took 20 shots and scored on 55% of them. After\r\nshe took 5 more shots, she raised her percentage to 56%. How many of the last\r\n5 shots did she make?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage28.html
+p = Problem.create!(filename: 'percentage28.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nIn a basketball tournament, Sally took 20 shots and scored on 55% of them. After\r\nshe took 5 more shots, she raised her percentage to 56%. How many of the last\r\n5 shots did she make?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "3", interface: "She made [ ] of her last 5 shots. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2011,9 +2087,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nIf Sally made 55% of her
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many of the 20 shots did Sally make?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 1, source: "Titu+Branislav")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage27.html
-p = Problem.create!(filename: 'percentage27.html', category: 'applications', context: 'percentages', text: "<p>\r\nOn a box of reduced fat \r\nmilk is written: &ldquo;1.5% milkfat&rdquo;\r\nand &ldquo;40% less fat than whole milk&rdquo;. What percentage\r\nof fat does whole milk have?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 1, source: "Titu+Branislav")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage27.html
+p = Problem.create!(filename: 'percentage27.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nOn a box of reduced fat \r\nmilk is written: &ldquo;1.5% milkfat&rdquo;\r\nand &ldquo;40% less fat than whole milk&rdquo;. What percentage\r\nof fat does whole milk have?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2.5", interface: "Whole milk has [ ] percent fat. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2021,9 +2097,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe statement says tha
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many parts of fat are in 100 parts of reduced fat milk?\r\nAnd how many parts of fat are in 100 parts of whole milk?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage21.html
-p = Problem.create!(filename: 'percentage21.html', category: 'applications', context: 'percentages', text: "<p>\r\nAn online store sells two models of shirts, \r\nblue and  brown. Initially it planned to make\r\n$12500 by selling all the shirts, but due to competition it\r\nhad to reduce the price of blue shirts by 20% and that of\r\nbrown shirts by 15% and it only made $10500. How much money would\r\nthe store have made had it reduced the price of blue shirts by 15% and\r\nthat of brown shirts by 20%?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage21.html
+p = Problem.create!(filename: 'percentage21.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nAn online store sells two models of shirts, \r\nblue and  brown. Initially it planned to make\r\n$12500 by selling all the shirts, but due to competition it\r\nhad to reduce the price of blue shirts by 20% and that of\r\nbrown shirts by 15% and it only made $10500. How much money would\r\nthe store have made had it reduced the price of blue shirts by 15% and\r\nthat of brown shirts by 20%?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "10125", interface: "[ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2031,9 +2107,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nHad</a> the store have re
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "This is the hint.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage4.html
-p = Problem.create!(filename: 'percentage4.html', category: 'applications', context: 'percentages', text: "<p>\r\nRinaldo can extract 6 ounces of orange\r\njuice from 2 oranges and 3 ounces of apple juice from 2 apples.\r\nRinaldo extracted the juice from 9 oranges. How many apples\r\nshould he use in order to obtain a blend in which the orange\r\njuice is 75%?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage4.html
+p = Problem.create!(filename: 'percentage4.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nRinaldo can extract 6 ounces of orange\r\njuice from 2 oranges and 3 ounces of apple juice from 2 apples.\r\nRinaldo extracted the juice from 9 oranges. How many apples\r\nshould he use in order to obtain a blend in which the orange\r\njuice is 75%?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "6", interface: "Rinaldo should use [ ] apples. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2043,9 +2119,9 @@ s.hints.create!(text: "How much orange juice does he get?\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How much orange juice does he need?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 2, source: "Titu+Branislav, modified.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage10.html
-p = Problem.create!(filename: 'percentage10.html', category: 'applications', context: 'percentages', text: "<p>\r\nIn the State of Texas there is an 8.5% sales tax which is\r\nadded to the price at the time you pay. This means\r\nthat if you buy a product that costs 10 dollars, you will\r\nhave to pay 10 dollars and 85 cents at the cashier. \r\nIf you have a 200 dollars when you enter the store, \r\nwhat is the highest price that you can afford paying, so that\r\nwhen you add the sales tax you do not exceed the amount that\r\nyou have?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 2, source: "Titu+Branislav, modified.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage10.html
+p = Problem.create!(filename: 'percentage10.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nIn the State of Texas there is an 8.5% sales tax which is\r\nadded to the price at the time you pay. This means\r\nthat if you buy a product that costs 10 dollars, you will\r\nhave to pay 10 dollars and 85 cents at the cashier. \r\nIf you have a 200 dollars when you enter the store, \r\nwhat is the highest price that you can afford paying, so that\r\nwhen you add the sales tax you do not exceed the amount that\r\nyou have?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "184|33", interface: "The highest price you can afford is [ ] dollars and [ ] cents. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2057,9 +2133,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nWe reduce to the unit.
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Find out how much of your money corresponds to one dollar of the actual price.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage32.html
-p = Problem.create!(filename: 'percentage32.html', category: 'applications', context: 'percentages', text: "<p>\r\nJimmy receives each day the same amount of money from his\r\nparents to buy a snack. With this amount he was able to\r\nbuy exactly two apples and two oranges. However, all prices\r\nwent up  20%, so now he is able to buy exactly one apple and\r\ntwo oranges. If the prices go up again  20%, will Jimmy\r\nafford buying two oranges?   \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage32.html
+p = Problem.create!(filename: 'percentage32.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nJimmy receives each day the same amount of money from his\r\nparents to buy a snack. With this amount he was able to\r\nbuy exactly two apples and two oranges. However, all prices\r\nwent up  20%, so now he is able to buy exactly one apple and\r\ntwo oranges. If the prices go up again  20%, will Jimmy\r\nafford buying two oranges?   \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1", interface: "Enter 1 for yes, 0 for no: [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2069,9 +2145,9 @@ s.hints.create!(text: "How many apples is one orange worth?\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use as reference the moment before the price increase to find how\r\nmany apples is one orange worth. Then eliminate apples. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 4, source: "Moscow Math Olympiad, modified")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage31.html
-p = Problem.create!(filename: 'percentage31.html', category: 'applications', context: 'percentages', text: "<p>\r\nOn an algebra test, 10% of the students scored 70 points, 35% of the students scored 80 points, 30% scored 90 points, and the rest\r\nscored 100 points. What was the average score?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 4, source: "Moscow Math Olympiad, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage31.html
+p = Problem.create!(filename: 'percentage31.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nOn an algebra test, 10% of the students scored 70 points, 35% of the students scored 80 points, 30% scored 90 points, and the rest\r\nscored 100 points. What was the average score?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "87", interface: "The average score was [ ] points. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2085,9 +2161,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nThe number of students is
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: " Use the method of false hypothesis to make an assumption about\r\nthe number of students.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 3, source: "AMC8, modified")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage29.html
-p = Problem.create!(filename: 'percentage29.html', category: 'applications', context: 'percentages', text: "<p>\r\nThe sales tax rate in Mathville is 8%. During a sale at the local\r\nelectronics store, a laptop is discounted 20% off its original $900 price. \r\nTwo clerks, Mary and Mike, calculate the bill independently.\r\nMary rings up $900 and adds 8% sales tax, than subtracts 20% of the price.\r\nMike first subtracts 20% of the price, then adds 8% of the discounted price\r\nfor sales tax. What is Mary's total minus Mike's total?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 3, source: "AMC8, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage29.html
+p = Problem.create!(filename: 'percentage29.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nThe sales tax rate in Mathville is 8%. During a sale at the local\r\nelectronics store, a laptop is discounted 20% off its original $900 price. \r\nTwo clerks, Mary and Mike, calculate the bill independently.\r\nMary rings up $900 and adds 8% sales tax, than subtracts 20% of the price.\r\nMike first subtracts 20% of the price, then adds 8% of the discounted price\r\nfor sales tax. What is Mary's total minus Mike's total?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "0", interface: "Mary's total minus Mike's total is [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2095,9 +2171,9 @@ s = p.solutions.create!(typ: "numerical", text: "To add an 8% sales tax to an it
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "By what number does Mary multiply the price?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 2, source: "Titu+Branislav")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage25.html
-p = Problem.create!(filename: 'percentage25.html', category: 'applications', context: 'percentages', text: "<p>\r\nThe three instructors who teach fifth grade in a school decided\r\nto make copies for a test to be distributed to  their students. At that school, each  class has\r\nthe same number of students, and the first instructor teaches 2\r\nclasses, the second 3 classes, and the third 5 classes. \r\nThe first instructor made 5% more copies than \r\nnecessary, the second  10%, and the third 20%, and they\r\nprinted a total of 342 copies. How many students are in one class?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 2, source: "Titu+Branislav")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage25.html
+p = Problem.create!(filename: 'percentage25.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nThe three instructors who teach fifth grade in a school decided\r\nto make copies for a test to be distributed to  their students. At that school, each  class has\r\nthe same number of students, and the first instructor teaches 2\r\nclasses, the second 3 classes, and the third 5 classes. \r\nThe first instructor made 5% more copies than \r\nnecessary, the second  10%, and the third 20%, and they\r\nprinted a total of 342 copies. How many students are in one class?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "30", interface: "In that class there are [ ] students. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2105,9 +2181,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\n\tThe number of students
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What fraction of the students does each instructor teach?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/PERCENTAGES/percentage35.html
-p = Problem.create!(filename: 'percentage35.html', category: 'applications', context: 'percentages', text: "<p>\r\nIn our school 60% of the students are girls. \r\nOf the girls, 2% play basketball and of the\r\nboys 9% play basketball. What percentage\r\nof the students who play basketball are girls?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/percentage35.html
+p = Problem.create!(filename: 'percentage35.html', curriculum: 'lifetomath', category: 'applications', context: 'percentages', text: "<p>\r\nIn our school 60% of the students are girls. \r\nOf the girls, 2% play basketball and of the\r\nboys 9% play basketball. What percentage\r\nof the students who play basketball are girls?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "25", interface: "[ ]% of the students who play basketball are girls. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2115,9 +2191,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p> From the total number of st
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What percentage of the total number of students are girls who\r\nplay basketball?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money19.html
-p = Problem.create!(filename: 'money19.html', category: 'applications', context: 'money', text: "<p>At a school there are 6 science clubs, and no student is member of two different\r\nclubs. The school bought notebooks worth either $3 or $5 to be distributed\r\nto the students who are members in the science clubs,\r\n each such  student receiving exactly one\r\nnotebook.  Knowing that each club has a different number of students, and that\r\nin each club were given both types of notebooks, find the number of\r\nstudents who are members in the 6 clubs, if the total amount\r\nof money spent on notebooks was $100.\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money19.html
+p = Problem.create!(filename: 'money19.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>At a school there are 6 science clubs, and no student is member of two different\r\nclubs. The school bought notebooks worth either $3 or $5 to be distributed\r\nto the students who are members in the science clubs,\r\n each such  student receiving exactly one\r\nnotebook.  Knowing that each club has a different number of students, and that\r\nin each club were given both types of notebooks, find the number of\r\nstudents who are members in the 6 clubs, if the total amount\r\nof money spent on notebooks was $100.\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "28", interface: "The number of students who are members of science clubs  is [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2127,9 +2203,9 @@ s.hints.create!(text: "For each club there is a 5$ notebook and a 3$ notebook. K
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Clearly some of the $3 notebooks have to be exchanged for $5 notebooks,\r\nso that you can arrive at exactly $100. How many? Do we need to add more\r\nnotebooks to arrive at the $100 amount?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 6, source: "Romanian Math Olympiad")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money10.html
-p = Problem.create!(filename: 'money10.html', category: 'applications', context: 'money', text: "<p>Mary spent 4 dollars less of \\(\\frac{3}{5}\\) of what she had in\r\nthe first store, then 3 dollars more of \\(\\frac{1}{4}\\) of what she had left in the second store, and then \\(\\frac{2}{3}\\) of the\r\nremaining money plus 2 dollars and 40 cents in the third store. \r\nAt the end she was left with 12 dollars. What amount of money did she start with? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 6, source: "Romanian Math Olympiad")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money10.html
+p = Problem.create!(filename: 'money10.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>Mary spent 4 dollars less of \\(\\frac{3}{5}\\) of what she had in\r\nthe first store, then 3 dollars more of \\(\\frac{1}{4}\\) of what she had left in the second store, and then \\(\\frac{2}{3}\\) of the\r\nremaining money plus 2 dollars and 40 cents in the third store. \r\nAt the end she was left with 12 dollars. What amount of money did she start with? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "164", interface: "Mary started with [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2137,9 +2213,9 @@ s = p.solutions.create!(typ: "backwards", text: "<p>\r\nWe go backwards in time.
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Work backwards.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money13.html
-p = Problem.create!(filename: 'money13.html', category: 'applications', context: 'money', text: "<p>The currency of Romania has coins worth 50 bani, 10 bani, and 5 bani. In how many ways can one pay with coins the amount of 95 bani?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money13.html
+p = Problem.create!(filename: 'money13.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>The currency of Romania has coins worth 50 bani, 10 bani, and 5 bani. In how many ways can one pay with coins the amount of 95 bani?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "15", interface: "The sum can be paid in [ ] ways. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2147,9 +2223,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nWe can use at most one 50 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Look at what happens if you use exactly one 50 bani coin,\r\nand what happens if you use no 50 bani coin.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money1.html
-p = Problem.create!(filename: 'money1.html', category: 'applications', context: 'money', text: "<p>John traveled from the United States to Mexico carrying\r\n$440 in $20 bills. He wants to exchange his money\r\nfor Mexican pesos at the airport, but the exchange office\r\nhas only 50 peso bills, and no US currency. The exchange rate is 14 pesos for\r\na US dollar. What is the largest amount of money\r\nthat he can exchange from the sum that he is carrying, so that\r\nhe can pay an exact amount of $20 bills and be returned an\r\nexact amount of 50 peso bills?   \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money1.html
+p = Problem.create!(filename: 'money1.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>John traveled from the United States to Mexico carrying\r\n$440 in $20 bills. He wants to exchange his money\r\nfor Mexican pesos at the airport, but the exchange office\r\nhas only 50 peso bills, and no US currency. The exchange rate is 14 pesos for\r\na US dollar. What is the largest amount of money\r\nthat he can exchange from the sum that he is carrying, so that\r\nhe can pay an exact amount of $20 bills and be returned an\r\nexact amount of 50 peso bills?   \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "400", interface: "Mark can exchange at most [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2157,9 +2233,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nA $20 bill is worth \\(20\
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Try cases to find out what amounts of money can Mark exchange.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money22.html
-p = Problem.create!(filename: 'money22.html', category: 'applications', context: 'money', text: "<p>\r\nBy contract, a construction worker will receive 72 dollars for every work day, but will pay an 18 dollars\r\npenalty for every day that he is absent. After 30 days, the worker did not gain nor did he lose anything.\r\nHow many days did he work?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money22.html
+p = Problem.create!(filename: 'money22.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>\r\nBy contract, a construction worker will receive 72 dollars for every work day, but will pay an 18 dollars\r\npenalty for every day that he is absent. After 30 days, the worker did not gain nor did he lose anything.\r\nHow many days did he work?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "6", interface: "The construction worker worked [ ] days. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2167,9 +2243,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nFor every work day, the 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many days when the worker does not show up does he need in\r\norder to waste the earnings of one work day?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 1, source: "judeteana Vrancea clasa IV, 2008")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money11.html
-p = Problem.create!(filename: 'money11.html', category: 'applications', context: 'money', text: "<p>\r\nTwo people, one carrying three loaves of bread, the other  two loaves of bread, were traveling together when\r\nthey met a hungry person. The three of them sat down, divided the bread equally and ate it. The third traveler,\r\nafter thanking, gave the other two 5 dollars to cover the cost of his share and left. What is the fair split of\r\nmoney between the two owners of the loaves of bread?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 1, source: "judeteana Vrancea clasa IV, 2008")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money11.html
+p = Problem.create!(filename: 'money11.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>\r\nTwo people, one carrying three loaves of bread, the other  two loaves of bread, were traveling together when\r\nthey met a hungry person. The three of them sat down, divided the bread equally and ate it. The third traveler,\r\nafter thanking, gave the other two 5 dollars to cover the cost of his share and left. What is the fair split of\r\nmoney between the two owners of the loaves of bread?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4|1", interface: "The traveler with 3 loaves gets [ ] dollars, the traveler with 2 loaves gets [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2177,9 +2253,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nYou </a> might think tha
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Compare how much each person ate to how much the person had.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 3, source: "Ion Creanga")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money8.html
-p = Problem.create!(filename: 'money8.html', category: 'applications', context: 'money', text: "<p>The money of the country of Luxia  has only\r\nbills of denominations of $9 and $13. Can a person buy food\r\nworth $4 from a grocery store? What  about food worth $1?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 3, source: "Ion Creanga")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money8.html
+p = Problem.create!(filename: 'money8.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>The money of the country of Luxia  has only\r\nbills of denominations of $9 and $13. Can a person buy food\r\nworth $4 from a grocery store? What  about food worth $1?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1|1", interface: "Enter 1 for yes, 0 for no. The answer to the first question is [ ]. The answer to the second ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2199,9 +2275,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>Because 4=13-9, the\r\namount 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "See if you can pay the amount of 8 dollars.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money28.html
-p = Problem.create!(filename: 'money28.html', category: 'applications', context: 'money', text: "<p>\r\nA laptop was displayed at a store for the price of 1080 dollars. After two successive price reductions,\r\nthe laptop was sold for 874.80 dollars. Knowing that each\r\nreduction is proportional to the\r\nprice, find what was the price of the laptop after the first reduction. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money28.html
+p = Problem.create!(filename: 'money28.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>\r\nA laptop was displayed at a store for the price of 1080 dollars. After two successive price reductions,\r\nthe laptop was sold for 874.80 dollars. Knowing that each\r\nreduction is proportional to the\r\nprice, find what was the price of the laptop after the first reduction. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "972", interface: "After the first reduction the price was [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2209,9 +2285,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nWe want to know what pr
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What proportion of 1080 is 874.80? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 5, source: "Gazeta Matematica, 1/1984")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money5.html
-p = Problem.create!(filename: 'money5.html', category: 'applications', context: 'money', text: "<p>For the building of  houses in a new neighborhood, a contractor hired a number of  carpenters and roofers. The\r\ncarpenters received $6000  each, while the roofers \r\nreceived $5000 each. The carpenters received a total amount\r\nthat was  $20000 less than the amount received by the roofers. Knowning\r\nthat the total amount the workers were paid was $200000, find how\r\nmany carpenters  and how many roofers were hired.\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 5, source: "Gazeta Matematica, 1/1984")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money5.html
+p = Problem.create!(filename: 'money5.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>For the building of  houses in a new neighborhood, a contractor hired a number of  carpenters and roofers. The\r\ncarpenters received $6000  each, while the roofers \r\nreceived $5000 each. The carpenters received a total amount\r\nthat was  $20000 less than the amount received by the roofers. Knowning\r\nthat the total amount the workers were paid was $200000, find how\r\nmany carpenters  and how many roofers were hired.\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "15|22", interface: "There were [ ] carpenters and [ ] roofers. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2219,9 +2295,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\n\tIf we subtract 20000 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Decrease the amount of money that the roofers received so\r\nthat they received the same amount of money as the carpenters. \r\nUse this to find our how many carpenters there were.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money3.html
-p = Problem.create!(filename: 'money3.html', category: 'applications', context: 'money', text: "<p>If five apples and three bananas cost three dollars and \r\nsixty cents while three apples and five bananas cost \r\n two dollars and eighty cents, what does one apple cost?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money3.html
+p = Problem.create!(filename: 'money3.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>If five apples and three bananas cost three dollars and \r\nsixty cents while three apples and five bananas cost \r\n two dollars and eighty cents, what does one apple cost?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "60", interface: "One apple costs [ ] cents. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2233,9 +2309,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\n To go from five apples
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Look how you get from five apples and three bananas to three apples and five bananas, then compare the price.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money14.html
-p = Problem.create!(filename: 'money14.html', category: 'applications', context: 'money', text: "<p>In how many ways can the amount of 5 dollars and 95 cents be paid with coins\r\nworth 5, 10, and 25 cents?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money14.html
+p = Problem.create!(filename: 'money14.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>In how many ways can the amount of 5 dollars and 95 cents be paid with coins\r\nworth 5, 10, and 25 cents?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "730", interface: "There are [ ] ways in which the amount can be paid. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2243,9 +2319,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\n\tThere</a> are a total of
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Look first at the number of 25 cent coins that are used, and count separately for each case how can you pay the rest of the\r\nsum using 10 and 5 cent coins. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 5, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money16.html
-p = Problem.create!(filename: 'money16.html', category: 'applications', context: 'money', text: "<p>The National Bank of India can only print bills whose values\r\nare an integer number of rupees. What is the smallest number \r\nof values of bills it should print so that any amount between 1 and 20 rupees \r\ncan be paid with at most two bills (and no change is expected)?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 5, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money16.html
+p = Problem.create!(filename: 'money16.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>The National Bank of India can only print bills whose values\r\nare an integer number of rupees. What is the smallest number \r\nof values of bills it should print so that any amount between 1 and 20 rupees \r\ncan be paid with at most two bills (and no change is expected)?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "6", interface: "The bank should pay [ ] different values of bills. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2255,9 +2331,9 @@ s.hints.create!(text: "Try cases, and make a guess. Then notice that if you only
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "1,2,5,8,11,14,17,20 is a possibility with 8 bills. But what if we\r\nskip 2 and print 4 instead?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 6, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money12.html
-p = Problem.create!(filename: 'money12.html', category: 'applications', context: 'money', text: "<p>Can one pay the sum of five dollars and 35 cents using exactly 50 coins of values 1 cent, 5 cents, and 25 cents?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 6, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money12.html
+p = Problem.create!(filename: 'money12.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>Can one pay the sum of five dollars and 35 cents using exactly 50 coins of values 1 cent, 5 cents, and 25 cents?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "0", interface: "")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2265,9 +2341,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nThe answer is <font color=
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Look at parity.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money23.html
-p = Problem.create!(filename: 'money23.html', category: 'applications', context: 'money', text: "<p>\r\nAnnie has 500 dollars in her bank account. The bank allows\r\nonly two kinds of operations: withdrawing 300 dollars or adding \r\n198 dollars. What is the largest sum that Annie can take from her\r\naccount if she has no other money?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money23.html
+p = Problem.create!(filename: 'money23.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>\r\nAnnie has 500 dollars in her bank account. The bank allows\r\nonly two kinds of operations: withdrawing 300 dollars or adding \r\n198 dollars. What is the largest sum that Annie can take from her\r\naccount if she has no other money?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "498", interface: "Annie can withdraw at most [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2277,9 +2353,9 @@ s.hints.create!(text: "300 and 198 are both multiples of what number?\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Can Annie withdraw exactly 6 dollars?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 6, source: "Moscow Math Olympiad, 1999, Level A")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money9.html
-p = Problem.create!(filename: 'money9.html', category: 'applications', context: 'money', text: "<p>Michael spent \\(\\frac{1}{4}\\) of the money he has on\r\nnotebooks, then he received another $30 from his father. He then\r\nbought a math book for $75, after which he realized that\r\nhe was left with exactly \\(\\frac{1}{3}\\) of the money he  had\r\ninitially. \r\nHow much money does he have left?\r\n\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 6, source: "Moscow Math Olympiad, 1999, Level A")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money9.html
+p = Problem.create!(filename: 'money9.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>Michael spent \\(\\frac{1}{4}\\) of the money he has on\r\nnotebooks, then he received another $30 from his father. He then\r\nbought a math book for $75, after which he realized that\r\nhe was left with exactly \\(\\frac{1}{3}\\) of the money he  had\r\ninitially. \r\nHow much money does he have left?\r\n\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "36", interface: "He has left [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2287,9 +2363,9 @@ s = p.solutions.create!(typ: "backwards", text: "<p>\r\nWhen  \r\n Michael recei
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Work backwards to find the original amount.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 2, source: "Gheba")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money21.html
-p = Problem.create!(filename: 'money21.html', category: 'applications', context: 'money', text: "<p>4 tulips and 6 daffodils cost 24 dollars, and 5 daffodils and 9 tulips cost 37 dollars. How much\r\ndo 4 daffodils and 3 tulips cost?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 2, source: "Gheba")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money21.html
+p = Problem.create!(filename: 'money21.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>4 tulips and 6 daffodils cost 24 dollars, and 5 daffodils and 9 tulips cost 37 dollars. How much\r\ndo 4 daffodils and 3 tulips cost?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "17", interface: "4 daffodils and 3 tulips cost [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2299,9 +2375,9 @@ s.hints.create!(text: "How much does one tulip cost? \r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How much do 20 tulips and 30 daffodils cost? How much do 54 tulips and 30 daffodils cost?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 1, source: "Trepte in Matematica, 2008, proposed by Cristina and Valentin Smarandache")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money7.html
-p = Problem.create!(filename: 'money7.html', category: 'applications', context: 'money', text: "<p>Yang has a shop in\r\nBeijing that sells souvenirs. He sold some T-shirts, each worth\r\n51 yuan and some cups each worth 31 yuan, earning a total of 441 yuan. How many T-shirts and how many cups did he sell? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 1, source: "Trepte in Matematica, 2008, proposed by Cristina and Valentin Smarandache")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money7.html
+p = Problem.create!(filename: 'money7.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>Yang has a shop in\r\nBeijing that sells souvenirs. He sold some T-shirts, each worth\r\n51 yuan and some cups each worth 31 yuan, earning a total of 441 yuan. How many T-shirts and how many cups did he sell? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "5|6", interface: "Yang sold [ ] T-shirts and [ ] cups. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2309,9 +2385,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\n\tYang  could not have sol
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Try cases, and remember that Yang could not sell half a cup or\r\nhalf a T-shirt.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money27.html
-p = Problem.create!(filename: 'money27.html', category: 'applications', context: 'money', text: "<p>\r\nPatricia has spent 126 dollars buying red pens at $5 a piece and green pens at $3 a piece. How many pens of each\r\ntype did Patricia buy knowing that  she bought more red pens than green pens, and with this condition she\r\nbought the largest number of pens possible? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money27.html
+p = Problem.create!(filename: 'money27.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>\r\nPatricia has spent 126 dollars buying red pens at $5 a piece and green pens at $3 a piece. How many pens of each\r\ntype did Patricia buy knowing that  she bought more red pens than green pens, and with this condition she\r\nbought the largest number of pens possible? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "18|12", interface: "Patricia bought [ ] red pens and [ ] green pens. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2321,9 +2397,9 @@ s.hints.create!(text: "What if Patricia only bought green pens?\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What numbers of green pens can be exchanged for exact numbers\r\nof red pens? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 5, source: "<!--Petrica, Stefan, Alexe-->")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money25.html
-p = Problem.create!(filename: 'money25.html', category: 'applications', context: 'money', text: "<p>\r\nA baker asked two passers-by to help him unload the\r\ntruck. After the three of them unloaded the truck,\r\nthe baker  gave each of the other two people seven loaves of bread to divide among themselves.\r\n The first passer-by, who did only\r\n\\(\\frac{1}{4}\\) of the work while the other did\r\n\\(\\frac{1}{3}\\) (the baker doing the rest), \r\nkept for himself four loaves of bread and gave his colleague\r\n3 loaves of bread and  3 dollars. \r\nThey concluded then that this is a fair share. \r\nWhat is the cost of one loaf of bread?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 5, source: "<!--Petrica, Stefan, Alexe-->")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money25.html
+p = Problem.create!(filename: 'money25.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>\r\nA baker asked two passers-by to help him unload the\r\ntruck. After the three of them unloaded the truck,\r\nthe baker  gave each of the other two people seven loaves of bread to divide among themselves.\r\n The first passer-by, who did only\r\n\\(\\frac{1}{4}\\) of the work while the other did\r\n\\(\\frac{1}{3}\\) (the baker doing the rest), \r\nkept for himself four loaves of bread and gave his colleague\r\n3 loaves of bread and  3 dollars. \r\nThey concluded then that this is a fair share. \r\nWhat is the cost of one loaf of bread?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1.5", interface: "One loaf of bread is worth [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2331,9 +2407,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nThe difference between 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Try to compute in two ways the value of \\(\\frac{1}{12}\\) of\r\nthe work, then compare.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money20.html
-p = Problem.create!(filename: 'money20.html', category: 'applications', context: 'money', text: "<p>Attila has opened three days ago a  shop in Budapest that sells souvenirs. On the second day he earned two and a half times\r\nas much as during the first, but then on the third\r\nday he only earned three fourths of  what he earned  on the second day. Knowing\r\nthat during the three-day period he earned a total of  129,000<dfn title=\"Hungarian currency\">forint</dfn>, find how much he earned on each  day. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money20.html
+p = Problem.create!(filename: 'money20.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>Attila has opened three days ago a  shop in Budapest that sells souvenirs. On the second day he earned two and a half times\r\nas much as during the first, but then on the third\r\nday he only earned three fourths of  what he earned  on the second day. Knowing\r\nthat during the three-day period he earned a total of  129,000<dfn title=\"Hungarian currency\">forint</dfn>, find how much he earned on each  day. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "24000|60000|45000", interface: "Attila earned [ ] forint on the first day, [ ] forint on the second day, and [ ] on the third day. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2341,9 +2417,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>Let us use the method of fals
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If he earned only 100 forint on the first day, what would the\r\ntotal be?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money4.html
-p = Problem.create!(filename: 'money4.html', category: 'applications', context: 'money', text: "<p>If the price of a pineapple increased by fifty cents, then three pineapples would be worth the same  as seven\r\nmangoes. If the price of a pineapple decreased by fifty cents,\r\nthen three pineapples would be worth the same  as two mangoes. What is the price of a pineapple?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money4.html
+p = Problem.create!(filename: 'money4.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>If the price of a pineapple increased by fifty cents, then three pineapples would be worth the same  as seven\r\nmangoes. If the price of a pineapple decreased by fifty cents,\r\nthen three pineapples would be worth the same  as two mangoes. What is the price of a pineapple?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "90", interface: "The price of a pineapple is [ ] cents. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2355,9 +2431,9 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nCombining the two condi
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Find out how many mangoes are 6 pineapples worth.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money18.html
-p = Problem.create!(filename: 'money18.html', category: 'applications', context: 'money', text: "<p>\r\nThe money of the  country of Tamana has coins worth 2,3,4,5, and 6 \r\ncrowns. Can you choose 60 coins  in such a way that you can never find some\r\namong them whose total value is exacly 60 crowns?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money18.html
+p = Problem.create!(filename: 'money18.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>\r\nThe money of the  country of Tamana has coins worth 2,3,4,5, and 6 \r\ncrowns. Can you choose 60 coins  in such a way that you can never find some\r\namong them whose total value is exacly 60 crowns?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "0", interface: "Enter 1 for yes, 0 for no. The answer is [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2365,9 +2441,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nThe answer is <font color=
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If   the purse contains at least 30 coins worth either 2 or 4 crowns, then from these coins we\r\n can take some that are worth exactly 60 crowns\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 6, source: "Iowa Math Competition.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money2.html
-p = Problem.create!(filename: 'money2.html', category: 'applications', context: 'money', text: "<p>Paul has opened three months ago a small shop in Paris that sells candies. During the second month he earned three times\r\nas much as during the first, but then during the third\r\nmonth he only earned half as much as during the second. Knowing\r\nthat during the three-month period he earned a total of 4180 euros, find how much he earned during the third month. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 6, source: "Iowa Math Competition.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money2.html
+p = Problem.create!(filename: 'money2.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>Paul has opened three months ago a small shop in Paris that sells candies. During the second month he earned three times\r\nas much as during the first, but then during the third\r\nmonth he only earned half as much as during the second. Knowing\r\nthat during the three-month period he earned a total of 4180 euros, find how much he earned during the third month. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1140", interface: "During the third month, Paul earned [ ] euros. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2375,9 +2451,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nWe draw a box for the ea
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let one box be half the earning of the first month. \r\nThen represent the earnings of each month using boxes.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money26.html
-p = Problem.create!(filename: 'money26.html', category: 'applications', context: 'money', text: "<p>\r\nPaul owes Paula 45 cents and he has a pocket of 5-cent, 10-cent,\r\nand 25-cent coins. What is the smallest number of coins he can\r\nuse to pay her?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money26.html
+p = Problem.create!(filename: 'money26.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>\r\nPaul owes Paula 45 cents and he has a pocket of 5-cent, 10-cent,\r\nand 25-cent coins. What is the smallest number of coins he can\r\nuse to pay her?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "3", interface: "The smallest number of coins is [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2385,9 +2461,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nIf Paul uses only 5-cent a
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many 25-cent coins can Paul use?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 2, source: "AMC8 modified")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money24.html
-p = Problem.create!(filename: 'money24.html', category: 'applications', context: 'money', text: "<p>Patricia spent 130 dollars of the money she had on\r\nbooks, then she received an amount equal to half of what she had left  from her mother. She then\r\nbought another\r\n math book for \\(\\frac{2}{5}\\) of the total amount of\r\nmoney she had at that moment, after which she  was left with exactly \\(\\frac{1}{4}\\) of the money she  had\r\ninitially. \r\nHow much money does she have left?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 2, source: "AMC8 modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money24.html
+p = Problem.create!(filename: 'money24.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>Patricia spent 130 dollars of the money she had on\r\nbooks, then she received an amount equal to half of what she had left  from her mother. She then\r\nbought another\r\n math book for \\(\\frac{2}{5}\\) of the total amount of\r\nmoney she had at that moment, after which she  was left with exactly \\(\\frac{1}{4}\\) of the money she  had\r\ninitially. \r\nHow much money does she have left?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "45", interface: "She has left [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2395,9 +2471,9 @@ s = p.solutions.create!(typ: "backwards", text: "<p>\r\nThe money that Patricia 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Work backwards to find the original amount.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money6.html
-p = Problem.create!(filename: 'money6.html', category: 'applications', context: 'money', text: "<p>Three carpenters working together received for a project 1575 dollars. The share of the first\r\ncarpenter was twice as much as what those of the second and the third combined. The second\r\ncarpenter earned with 15 dollars more than the third. How much did each carpenter earn?   \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money6.html
+p = Problem.create!(filename: 'money6.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p>Three carpenters working together received for a project 1575 dollars. The share of the first\r\ncarpenter was twice as much as what those of the second and the third combined. The second\r\ncarpenter earned with 15 dollars more than the third. How much did each carpenter earn?   \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1050|270|255", interface: "The first carpenter earned [ ] dollars, the second carpenter earned [ ] dollars, the third carpenter earned [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2405,9 +2481,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nWe solve the problem gra
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the graphical method and start with the third carpenter as\r\nreference.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/MONEY/money17.html
-p = Problem.create!(filename: 'money17.html', category: 'applications', context: 'money', text: "<p> The Federal Reserve of the United States has decided to print\r\ndollar bills of such values that any integer amount can be paid\r\nwith at most three bills. Initially it printed $1 bills. Then it proceeded as follows: each time\r\nit computed the smallest amount that could\r\nnot be paid using at most three bills and printed bills of that value.\r\n This procedure was repeated forever. What bills did the Federal Reserve emit? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/money17.html
+p = Problem.create!(filename: 'money17.html', curriculum: 'lifetomath', category: 'applications', context: 'money', text: "<p> The Federal Reserve of the United States has decided to print\r\ndollar bills of such values that any integer amount can be paid\r\nwith at most three bills. Initially it printed $1 bills. Then it proceeded as follows: each time\r\nit computed the smallest amount that could\r\nnot be paid using at most three bills and printed bills of that value.\r\n This procedure was repeated forever. What bills did the Federal Reserve emit? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1|3", interface: "All bills giving the remainder [ ] when divided by [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2415,9 +2491,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nWe check that the sequence
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How does the sequence of bills start? What do these numbers have in common?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "money", diff: 6, source: "Moscow Math Olympiad")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time13.html
-p = Problem.create!(filename: 'time13.html', category: 'applications', context: 'time', text: "<p>\r\nMary met Ann when Ann was 12 years old. Today Ann has the same age that Mary had\r\nwhen they met, while Mary is 26 years old. What is Ann's age? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "money", diff: 6, source: "Moscow Math Olympiad")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time13.html
+p = Problem.create!(filename: 'time13.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nMary met Ann when Ann was 12 years old. Today Ann has the same age that Mary had\r\nwhen they met, while Mary is 26 years old. What is Ann's age? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "19", interface: "Ann is [ ] years old. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2425,9 +2501,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nWe draw the ages of Ann 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Try a graphical solution. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time16.html
-p = Problem.create!(filename: 'time16.html', category: 'applications', context: 'time', text: "<p>\r\nI go to the supermarket every 10 days. The supermarket brings fresh\r\nMcIntosh apples every 8 days, but they  sell out at the end of \r\nthe next day.  \r\n How many times will I get the chance to buy McIntosh apples\r\nin a 160 day period?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time16.html
+p = Problem.create!(filename: 'time16.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nI go to the supermarket every 10 days. The supermarket brings fresh\r\nMcIntosh apples every 8 days, but they  sell out at the end of \r\nthe next day.  \r\n How many times will I get the chance to buy McIntosh apples\r\nin a 160 day period?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4", interface: "I will get the chance to buy McIntosh apples [ ] times. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2435,9 +2511,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nIn a 40 day period I arr
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many times can I buy apples in a 40 day period?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time18.html
-p = Problem.create!(filename: 'time18.html', category: 'applications', context: 'time', text: "<p>\r\nThe age of the father together with the ages of his two sons is 70 years. What are the ages\r\nof the father and the sons  knowing that the age of the father is twice that of the older\r\nson, and the age of the younger son is half the age of the older son?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time18.html
+p = Problem.create!(filename: 'time18.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nThe age of the father together with the ages of his two sons is 70 years. What are the ages\r\nof the father and the sons  knowing that the age of the father is twice that of the older\r\nson, and the age of the younger son is half the age of the older son?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "40|20|10", interface: "The father is [ ] years old, the older son is [ ] years old, and the younger son is [ ] years old. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2445,9 +2521,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nBeware, in this problem 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use a graphical solution with the age of the younger son as reference. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 1, source: "Petrica, Stefan, Alexe")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time15.html
-p = Problem.create!(filename: 'time15.html', category: 'applications', context: 'time', text: "<p>\r\nWhen trying to reserve the tennis court, Miguel found the following\r\nopen dates:\r\n<table>\r\n<tr>\r\n <td></td><td>March 2</td>\r\n<td>March 5</td>\r\n<td>March 12</td>\r\n<td>March 19</td>\r\n</tr>\r\n<tr><td></td>\r\n <td>April 9</td>\r\n<td>April 12</td>\r\n<td> April 16</td>\r\n<td></td>\r\n</tr>\r\n</table>\r\nHe immediately realized that he cannot pick\r\nApril 9th, because he works on Mondays, Tuedays\r\nand Wednesdays, so this would be a work day. \r\nSo Miguel crossed out April 9th, together with all open dates \r\nthat fall on these\r\nthree days of the week and he chose all other open dates.\r\nWhich dates did Miguel choose?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 1, source: "Petrica, Stefan, Alexe")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time15.html
+p = Problem.create!(filename: 'time15.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nWhen trying to reserve the tennis court, Miguel found the following\r\nopen dates:\r\n<table>\r\n<tr>\r\n <td></td><td>March 2</td>\r\n<td>March 5</td>\r\n<td>March 12</td>\r\n<td>March 19</td>\r\n</tr>\r\n<tr><td></td>\r\n <td>April 9</td>\r\n<td>April 12</td>\r\n<td> April 16</td>\r\n<td></td>\r\n</tr>\r\n</table>\r\nHe immediately realized that he cannot pick\r\nApril 9th, because he works on Mondays, Tuedays\r\nand Wednesdays, so this would be a work day. \r\nSo Miguel crossed out April 9th, together with all open dates \r\nthat fall on these\r\nthree days of the week and he chose all other open dates.\r\nWhich dates did Miguel choose?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2|12.", interface: "Enter the <b>sum</b> of the dates in March here [ ] and the <b>sum</b> of the dates in April here [ ]. (If there are no dates in March or April, enter 0, if there is only one date, enter that date. For example if the dates are March 5th, April 9th, April 12th enter 5, then 21.) ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2455,9 +2531,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nThe dates of March 5, Marc
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Eliminate impossible dates. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time7.html
-p = Problem.create!(filename: 'time7.html', category: 'applications', context: 'time', text: "<p>\r\nWhen Julie asked Robert what his age is, he replied: &ldquo;I \r\nhave now twice the age that you had when I was as old as you\r\n are now. And when you will be my age, I will be missing 9 years to be twice\r\nas old as you are now.&rdquo; What is Robert's age?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time7.html
+p = Problem.create!(filename: 'time7.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nWhen Julie asked Robert what his age is, he replied: &ldquo;I \r\nhave now twice the age that you had when I was as old as you\r\n are now. And when you will be my age, I will be missing 9 years to be twice\r\nas old as you are now.&rdquo; What is Robert's age?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "36", interface: "Robert is [ ] years old. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2465,9 +2541,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe youngest age that ap
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The youngest age that appears in the problem is that of Julie\r\nwhen Robert had the age that she has now. Use this age as reference.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time6.html
-p = Problem.create!(filename: 'time6.html', category: 'applications', context: 'time', text: "<p>\r\nAsked about the ages of his family members, \r\na man replied: &ldquo;Me and my wife are the same age,\r\n and we met after graduating from high school.  \r\nThe age of our daughter is a two-digit number,\r\n having the second digit equal to twice the first, \r\nand the sum of the ages of myself, my wife, and my \r\ndaughter is a two-digit number whose digits are \r\nequal.&rdquo; What are\r\nthe ages of the three members of the family? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time6.html
+p = Problem.create!(filename: 'time6.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nAsked about the ages of his family members, \r\na man replied: &ldquo;Me and my wife are the same age,\r\n and we met after graduating from high school.  \r\nThe age of our daughter is a two-digit number,\r\n having the second digit equal to twice the first, \r\nand the sum of the ages of myself, my wife, and my \r\ndaughter is a two-digit number whose digits are \r\nequal.&rdquo; What are\r\nthe ages of the three members of the family? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "12|38", interface: "The daughter is [ ] years old, while each of the parents is [ ] years old. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2477,9 +2553,9 @@ s.hints.create!(text: "You have to try some cases. \r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: " The total age of the family can only be one\r\nof the numbers: 22, 44, 66, 88. Some of these numbers are ruled out\r\ngiven that the age of the daughter is 12. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 5, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time9.html
-p = Problem.create!(filename: 'time9.html', category: 'applications', context: 'time', text: "<p>\r\nMike and Jim asked Mary when her birthday was.\r\nShe told them a list of possible dates:\r\n<table>\r\n<tr>\r\n <td></td><td>February 1</td>\r\n<td>February 2</td>\r\n<td>February 3</td>\r\n</tr>\r\n<tr><td></td>\r\n <td>March 4</td>\r\n<td>March 5</td>\r\n<td></td>\r\n</tr>\r\n<tr><td></td>\r\n <td>April 2</td>\r\n<td>April 6</td>\r\n<td> </td>\r\n</tr>\r\n<tr><td></td>\r\n <td>May 1\r\n</td>\r\n<td>May 4\r\n</td>\r\n<td> May 6\r\n</td>\r\n</tr>\r\n</table>\r\nThen Mary tells Mike the month of her birthday\r\nand Jim the day of her birthday respectively.<br>\r\nMike said: &ldquo;I don't know when Mary's birthday is,\r\nbut I know that Jim does not know either.&rdquo;<br>\r\nTo this Jim replied: &ldquo;At first I did not when Mary's birthday\r\nis but I know it now.&rdquo; <br>\r\nMike concluded: &ldquo;Now I also know  when Mary's birthday\r\nis.&rdquo; <br>\r\nWhen is Mary's birthday?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 5, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time9.html
+p = Problem.create!(filename: 'time9.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nMike and Jim asked Mary when her birthday was.\r\nShe told them a list of possible dates:\r\n<table>\r\n<tr>\r\n <td></td><td>February 1</td>\r\n<td>February 2</td>\r\n<td>February 3</td>\r\n</tr>\r\n<tr><td></td>\r\n <td>March 4</td>\r\n<td>March 5</td>\r\n<td></td>\r\n</tr>\r\n<tr><td></td>\r\n <td>April 2</td>\r\n<td>April 6</td>\r\n<td> </td>\r\n</tr>\r\n<tr><td></td>\r\n <td>May 1\r\n</td>\r\n<td>May 4\r\n</td>\r\n<td> May 6\r\n</td>\r\n</tr>\r\n</table>\r\nThen Mary tells Mike the month of her birthday\r\nand Jim the day of her birthday respectively.<br>\r\nMike said: &ldquo;I don't know when Mary's birthday is,\r\nbut I know that Jim does not know either.&rdquo;<br>\r\nTo this Jim replied: &ldquo;At first I did not when Mary's birthday\r\nis but I know it now.&rdquo; <br>\r\nMike concluded: &ldquo;Now I also know  when Mary's birthday\r\nis.&rdquo; <br>\r\nWhen is Mary's birthday?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "6", interface: "Assign to each of the dates the following labels: February 1 \(\mapsto\) 1, 	February 2 \(\mapsto\) 2, 	February 3 \(\mapsto\) 3, March 4 \(\mapsto\) 4, 	March 5 \(\mapsto\) 5, April 2 \(\mapsto\) 6, 	April 6 \(\mapsto\) 7, May 1 \(\mapsto\) 8, 	May 4 \(\mapsto\) 9,	May 6 \(\mapsto\) 10. Enter [ ] the label of the date that is the answer to the problem. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2487,9 +2563,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nThe  fact that Mike knew a
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Eliminate impossible dates. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 5, source: "Singapore test, modified.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time3.html
-p = Problem.create!(filename: 'time3.html', category: 'applications', context: 'time', text: "<p>When Jos&eacute; met Miguel, his age was half of Miguel's. Today\r\nJos&eacute; is the same age that Miguel was when they met, while \r\nMiguel is 39 years old. How old is Jos&eacute; today?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 5, source: "Singapore test, modified.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time3.html
+p = Problem.create!(filename: 'time3.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>When Jos&eacute; met Miguel, his age was half of Miguel's. Today\r\nJos&eacute; is the same age that Miguel was when they met, while \r\nMiguel is 39 years old. How old is Jos&eacute; today?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "26", interface: "Today Jos&eacute; is [ ] years old. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2499,9 +2575,9 @@ s.hints.create!(text: "Try a graphical solution. \r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Represent the age of\r\nJos&eacute; at the time when the two friends met by one segment. \r\nHow do you represent the age of Miguel at that time?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time17.html
-p = Problem.create!(filename: 'time17.html', category: 'applications', context: 'time', text: "<p>\r\nThree buses leave a square at the same time going in three different directions, and\r\nthey travel on the following schedules: the first returns after one hour and 5 minutes and leaves again \r\nafter 7 minutes, the second returns after one hour and a quarter and leaves again after 5 minutes,\r\nand the third returns after 45 minutes and leaves again after 3 minutes. After how long will the buses leave\r\nagain at the same time? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time17.html
+p = Problem.create!(filename: 'time17.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nThree buses leave a square at the same time going in three different directions, and\r\nthey travel on the following schedules: the first returns after one hour and 5 minutes and leaves again \r\nafter 7 minutes, the second returns after one hour and a quarter and leaves again after 5 minutes,\r\nand the third returns after 45 minutes and leaves again after 3 minutes. After how long will the buses leave\r\nagain at the same time? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "12|0", interface: "The buses will leave again after [ ] hours and [ ] minutes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2509,9 +2585,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe first bus leaves the
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Every how many minutes does each bus leave the square?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 2, source: "Petrica, Stefan, Alexe")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time10.html
-p = Problem.create!(filename: 'time10.html', category: 'applications', context: 'time', text: "<p>\r\nThree cruise ships leave on January 1st from the same harbor.\r\nThe first does a round trip cruise in 27 days, then leaves again after 3 days\r\non the same schedule. The second returns after\r\n32 days and leaves again in 4 days, on the same schedule. The third returns in 39 days and leaves\r\nagain in 6 days, on the same schedule. How many times during the year will the ships leave on\r\nthe same day from the harbor?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 2, source: "Petrica, Stefan, Alexe")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time10.html
+p = Problem.create!(filename: 'time10.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nThree cruise ships leave on January 1st from the same harbor.\r\nThe first does a round trip cruise in 27 days, then leaves again after 3 days\r\non the same schedule. The second returns after\r\n32 days and leaves again in 4 days, on the same schedule. The third returns in 39 days and leaves\r\nagain in 6 days, on the same schedule. How many times during the year will the ships leave on\r\nthe same day from the harbor?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2", interface: "The ships leave on the same day [ ] times a year. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2519,9 +2595,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe   first ship leaves 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Every how many days does each ship leave the harbor?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 3, source: "Etapa locala Prahova 1993, clasa a V-a")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time5.html
-p = Problem.create!(filename: 'time5.html', category: 'applications', context: 'time', text: "<p>Asked about his age, a boy replied: &ldquo;I have a sister,\r\n and four years ago when she was born the sum of the ages of my mother, my father, and me was 70 years. \r\nToday the sum of the ages of the four of us\r\nis twice  the sum of the ages that my mother and my father \r\nhad when I was born.&rdquo; What is the age of the boy?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 3, source: "Etapa locala Prahova 1993, clasa a V-a")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time5.html
+p = Problem.create!(filename: 'time5.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>Asked about his age, a boy replied: &ldquo;I have a sister,\r\n and four years ago when she was born the sum of the ages of my mother, my father, and me was 70 years. \r\nToday the sum of the ages of the four of us\r\nis twice  the sum of the ages that my mother and my father \r\nhad when I was born.&rdquo; What is the age of the boy?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "13", interface: "The boy is [ ] years old. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2529,9 +2605,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nWe    use the graphical 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Think of the ages of the mother and the father combined into one piece.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time12.html
-p = Problem.create!(filename: 'time12.html', category: 'applications', context: 'time', text: "<p>Two cruise ships leave on January 1st from the same harbor.\r\nThe first does a round trip cruise in 8 days, stops for 2 full days\r\ndays, and  next morning leaves again on the same schedule. The second \r\nship returns  after\r\n14 days, stops for one full day, and next morning leaves on the same schedule.\r\n How many times during the year will the ships spend one full day together\r\nin the harbor?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time12.html
+p = Problem.create!(filename: 'time12.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>Two cruise ships leave on January 1st from the same harbor.\r\nThe first does a round trip cruise in 8 days, stops for 2 full days\r\ndays, and  next morning leaves again on the same schedule. The second \r\nship returns  after\r\n14 days, stops for one full day, and next morning leaves on the same schedule.\r\n How many times during the year will the ships spend one full day together\r\nin the harbor?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4", interface: "That year, the ships will spend a full day together at the harbor [ ] times. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2541,9 +2617,9 @@ s.hints.create!(text: "Every how many days does the first ship return to the har
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Can the first ship  overlap with the second on the first day after its return? Or on the second?  \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time8.html
-p = Problem.create!(filename: 'time8.html', category: 'applications', context: 'time', text: "<p>\r\nAnna was born this year on a Tuesday. On what day of the week\r\nwill her 8th birthday be?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time8.html
+p = Problem.create!(filename: 'time8.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nAnna was born this year on a Tuesday. On what day of the week\r\nwill her 8th birthday be?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "6", interface: "The treaty was signed on day [ ] of the week.  ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2551,9 +2627,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nEvery year has \\(365\\)
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Remember leap years.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time21.html
-p = Problem.create!(filename: 'time21.html', category: 'applications', context: 'time', text: "<p>\r\nThe walk from an observation station to the top of Mount \r\nStromboli takes 4 hours along the road plus 4 hours along a path.\r\nThere are two craters at the top. The first erupts for 1 hour,\r\nthen lies quiet for 17 hours, then erupts for 1 hour again, and so on. The second crater erupts for 1 hour, lies quiet for \r\n9 hours, erupts for 1 hour, and so on. It is dangerous to \r\nwalk either along the path or along the road during eruptions\r\nof the first crater, but when the second crater erupts, only\r\nthe path is dangerous. Professor Garibaldi, a volcanologist, \r\nsees both craters start erupting simultaneously, exactly at\r\nnoon. After how many hours is the earliest time when Garibaldi can start walking up to the top of the\r\nvolcano and back, so that he does not endanger his life?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time21.html
+p = Problem.create!(filename: 'time21.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nThe walk from an observation station to the top of Mount \r\nStromboli takes 4 hours along the road plus 4 hours along a path.\r\nThere are two craters at the top. The first erupts for 1 hour,\r\nthen lies quiet for 17 hours, then erupts for 1 hour again, and so on. The second crater erupts for 1 hour, lies quiet for \r\n9 hours, erupts for 1 hour, and so on. It is dangerous to \r\nwalk either along the path or along the road during eruptions\r\nof the first crater, but when the second crater erupts, only\r\nthe path is dangerous. Professor Garibaldi, a volcanologist, \r\nsees both craters start erupting simultaneously, exactly at\r\nnoon. After how many hours is the earliest time when Garibaldi can start walking up to the top of the\r\nvolcano and back, so that he does not endanger his life?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "37", interface: "Professor Garibaldi should start walking after [ ] hours from the moment he saw the volcanoes starting to erupt. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2561,9 +2637,9 @@ s = p.solutions.create!(typ: "casetry", text: "<p>\r\nThe first volcano erupts e
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What are the times when Professor Garibaldi can start walking up\r\nthe road if only the second crater erupts?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 5, source: "Moscow Math Olympiad, 1997, Level A")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time19.html
-p = Problem.create!(filename: 'time19.html', category: 'applications', context: 'time', text: "<p>\r\nThe first USA Mathematical Olympiad was given in 1974, and it\r\nwas given annually since that time. Michael was 15 when\r\nhe qualified for the 9th USAMO. In what year was Michael born?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 5, source: "Moscow Math Olympiad, 1997, Level A")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time19.html
+p = Problem.create!(filename: 'time19.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nThe first USA Mathematical Olympiad was given in 1974, and it\r\nwas given annually since that time. Michael was 15 when\r\nhe qualified for the 9th USAMO. In what year was Michael born?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1967", interface: "Michael was born in year [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2571,9 +2647,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe 9th USA Mathematical
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "In what year was the second USA Mathematical Olympiad given? What about the 9th?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 1, source: "AMC8 modified.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time20.html
-p = Problem.create!(filename: 'time20.html', category: 'applications', context: 'time', text: "<p>\r\nThe War of 1812 started with a declaration of war on Thursday, June 18, 1812. The peace treaty to end the war was signed on December 24, 1814. On what day of the week was the treaty signed?</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 1, source: "AMC8 modified.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time20.html
+p = Problem.create!(filename: 'time20.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nThe War of 1812 started with a declaration of war on Thursday, June 18, 1812. The peace treaty to end the war was signed on December 24, 1814. On what day of the week was the treaty signed?</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "7", interface: "Number the days of the week starting with Sunday=1. The treaty was signed on day [ ] of the week. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2583,9 +2659,9 @@ s.hints.create!(text: "How many days passed between the declaration of war and t
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How many full weeks passed between the declaration of war and the signing of the treaty?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 2, source: "AMC8 (12B 2016)")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time14.html
-p = Problem.create!(filename: 'time14.html', category: 'applications', context: 'time', text: "<p>\r\nCeline's first child is 3 years older than her second. She was 28 when\r\nher first child was born and today the sum of the ages of the two\r\nchildren is 15. How old is Celine today?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 2, source: "AMC8 (12B 2016)")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time14.html
+p = Problem.create!(filename: 'time14.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nCeline's first child is 3 years older than her second. She was 28 when\r\nher first child was born and today the sum of the ages of the two\r\nchildren is 15. How old is Celine today?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "37", interface: "Today Celine is [ ] years old. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2593,9 +2669,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nWe draw the age of the s
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Draw the age of the second child as a red box.\r\n Then the age of the first child is a red box plus another box worth 3 years.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time1.html
-p = Problem.create!(filename: 'time1.html', category: 'applications', context: 'time', text: "<p>\r\nThe mother is 24 years older than the daughter. In seven years,\r\nthe mother will be four times older than the daughter. What is the age of the daughter? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time1.html
+p = Problem.create!(filename: 'time1.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nThe mother is 24 years older than the daughter. In seven years,\r\nthe mother will be four times older than the daughter. What is the age of the daughter? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "3", interface: "The age of the daughter is [ ] years. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2603,9 +2679,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nIn five years the mother
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The mother is always 24 years older than the daughter. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time2.html
-p = Problem.create!(filename: 'time2.html', category: 'applications', context: 'time', text: "<p>\r\nThe ages of the mother and daughter add up to  48 years. The mother is three times older than the daughter.\r\nIn how many years will the mother be twice as old as the daughter?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time2.html
+p = Problem.create!(filename: 'time2.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nThe ages of the mother and daughter add up to  48 years. The mother is three times older than the daughter.\r\nIn how many years will the mother be twice as old as the daughter?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "12", interface: "The mother will be twice as old as the daughter in [ ] years. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2613,9 +2689,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nDraw the age of the daug
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Try a graphical solution. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time4.html
-p = Problem.create!(filename: 'time4.html', category: 'applications', context: 'time', text: "<p>\r\nAsked about the age of her three children, the mother replied: &ldquo;At the moment when our first child was born, the sum of my age and my husband's was 52. Our third child was born a year ago, and\r\nat that time the sum of the ages of all members of the family was 81. Now the sum of the ages of the children is 16.&rdquo; What are the ages of the three children?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time4.html
+p = Problem.create!(filename: 'time4.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>\r\nAsked about the age of her three children, the mother replied: &ldquo;At the moment when our first child was born, the sum of my age and my husband's was 52. Our third child was born a year ago, and\r\nat that time the sum of the ages of all members of the family was 81. Now the sum of the ages of the children is 16.&rdquo; What are the ages of the three children?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "9|6|1", interface: "The oldest child is [ ] years old, the second oldest is [ ] years old, while the youngest is [ ] years old. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2623,9 +2699,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nWe  solve the problem gr
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Try a graphical solution. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/TIME/time11.html
-p = Problem.create!(filename: 'time11.html', category: 'applications', context: 'time', text: "<p>Two cruise ships leave on January 1st from the same harbor.\r\nThe first does a round trip cruise in 9 days, stops for 2 full days, and \r\n the morning after leaves again on the same schedule. The second \r\nship returns  after\r\n16 days, stops for one full day, and next morning leaves on the same schedule.\r\n How many times during the year will the ships spend one full day together\r\nin the harbor?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/time11.html
+p = Problem.create!(filename: 'time11.html', curriculum: 'lifetomath', category: 'applications', context: 'time', text: "<p>Two cruise ships leave on January 1st from the same harbor.\r\nThe first does a round trip cruise in 9 days, stops for 2 full days, and \r\n the morning after leaves again on the same schedule. The second \r\nship returns  after\r\n16 days, stops for one full day, and next morning leaves on the same schedule.\r\n How many times during the year will the ships spend one full day together\r\nin the harbor?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "10", interface: "The ships spend together a full day [ ] times a year. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2635,9 +2711,9 @@ s.hints.create!(text: "Every how many days does the first ship return to the har
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Can the first ship  overlap with the second on the first day after its return? Or on the second?  \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "time", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average7.html
-p = Problem.create!(filename: 'average7.html', category: 'applications', context: 'average', text: "<p> The average age of Bob and Jim is 25 years, the average age\r\nof Jim and Sam is 29 years, and the average age of Bob and Sam\r\nis 32 years. What are the ages of Bob, Jim, and Sam?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "time", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average7.html
+p = Problem.create!(filename: 'average7.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p> The average age of Bob and Jim is 25 years, the average age\r\nof Jim and Sam is 29 years, and the average age of Bob and Sam\r\nis 32 years. What are the ages of Bob, Jim, and Sam?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "28|22|36", interface: "Bob is [ ] years old, Jim is [ ] years old, and Sam is [ ] years old. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2645,9 +2721,9 @@ s = p.solutions.create!(typ: "graphical", text: "<p>\r\nFrom the statement we de
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What is the sum of the ages of Bob and Jim?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "average", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average6.html
-p = Problem.create!(filename: 'average6.html', category: 'applications', context: 'average', text: "<p> There are 5 people in a room with an average age of\r\n22 years. A 27-year-old left the room and a\r\n13-year-old and a 23-year-old entered the room.\r\nWhat is the average age of the people in the room? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "average", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average6.html
+p = Problem.create!(filename: 'average6.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p> There are 5 people in a room with an average age of\r\n22 years. A 27-year-old left the room and a\r\n13-year-old and a 23-year-old entered the room.\r\nWhat is the average age of the people in the room? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "20", interface: "The average age of the people is [ ] years. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2655,9 +2731,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nThe person who left the r
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What is the average age in the room after the first person left?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "average", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average1.html
-p = Problem.create!(filename: 'average1.html', category: 'applications', context: 'average', text: "<p> You mix 4.25 liters of water at 18 &#x2103; with 2.5 liters\r\nof water at 20 &#x2103; and with 3.25 liters of water at\r\n24 &#x2103;. What is the average temperature?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "average", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average1.html
+p = Problem.create!(filename: 'average1.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p> You mix 4.25 liters of water at 18 &#x2103; with 2.5 liters\r\nof water at 20 &#x2103; and with 3.25 liters of water at\r\n24 &#x2103;. What is the average temperature?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "20.4", interface: "The average temperature is [ ] &#x2103;. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2665,9 +2741,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nIf we take as a unit \\(
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Measure the water in quarters of a liter.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "average", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average8.html
-p = Problem.create!(filename: 'average8.html', category: 'applications', context: 'average', text: "<p>\r\nThe average age of Maria, Ana, Luisa, and Gabriela is \r\n17 years. The average age of Ana, Luisa, and Gabriela is \r\n19 years. The average age of Maria and Gabriela is\r\n17 years and a half. What is Gabriela's age?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "average", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average8.html
+p = Problem.create!(filename: 'average8.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p>\r\nThe average age of Maria, Ana, Luisa, and Gabriela is \r\n17 years. The average age of Ana, Luisa, and Gabriela is \r\n19 years. The average age of Maria and Gabriela is\r\n17 years and a half. What is Gabriela's age?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "24", interface: "Gabriela's age is [ ] years. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2677,9 +2753,9 @@ s.hints.create!(text: "What are the sum of ages of the four girls? What are the 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the graphical method. Find first Maria's age. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "means", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average9.html
-p = Problem.create!(filename: 'average9.html', category: 'applications', context: 'average', text: "<p>\r\nThe average age of Mr. and Mrs. Smith four years ago was 32 years. If the current average of the ages of Mr. and Mrs. Smith\r\nand their son is 26 years, how old is their son?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "means", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average9.html
+p = Problem.create!(filename: 'average9.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p>\r\nThe average age of Mr. and Mrs. Smith four years ago was 32 years. If the current average of the ages of Mr. and Mrs. Smith\r\nand their son is 26 years, how old is their son?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "6", interface: "The age of their son is [ ] years. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2687,9 +2763,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe current average age 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What is the sum of the ages of Mr. and Mrs. Smith now. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "means", diff: 2, source: "Titu, Branislav, modified.")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average5.html
-p = Problem.create!(filename: 'average5.html', category: 'applications', context: 'average', text: "<p> There are 5 people in a room with an average age of\r\n22 years. A 13-year-old and a 25-year-old leave the room.\r\nWhat is the average age of the remaining people? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "means", diff: 2, source: "Titu, Branislav, modified.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average5.html
+p = Problem.create!(filename: 'average5.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p> There are 5 people in a room with an average age of\r\n22 years. A 13-year-old and a 25-year-old leave the room.\r\nWhat is the average age of the remaining people? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "24", interface: "The average age of the remaining people is [ ] years. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2699,9 +2775,9 @@ s.hints.create!(text: "You may assume that the 3 people are of the same age. \r\
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "To arrive at the average age, what number of years should\r\nthe two people who leave the room give to the remaing three? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "average", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average2.html
-p = Problem.create!(filename: 'average2.html', category: 'applications', context: 'average', text: "<p> A school has three classes, one with 40 students, one with \r\n32 students, and one with 28 students. The average height of\r\nthe students in the first class is 164 centimeters,\r\nin the second class is 168 centimeters, and in the third class\r\n157.5 centimeters. What is the average height of the students\r\nat that school?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "average", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average2.html
+p = Problem.create!(filename: 'average2.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p> A school has three classes, one with 40 students, one with \r\n32 students, and one with 28 students. The average height of\r\nthe students in the first class is 164 centimeters,\r\nin the second class is 168 centimeters, and in the third class\r\n157.5 centimeters. What is the average height of the students\r\nat that school?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "162.5", interface: "The average height of the students at that school is [ ] centimeters. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2711,9 +2787,9 @@ s.hints.create!(text: "What is the sum of the heights of the students in the fir
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What is the sum of the heights of all students in that school?\r\nHow many students are in that school?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "average", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average14.html
-p = Problem.create!(filename: 'average14.html', category: 'applications', context: 'average', text: "<p> Three buckets of water at different temperatures are\r\nplaced in a room. Jimmy enters the room, takes \r\n1 glass of water from the first bucket and 3 glasses of\r\nwater from the second, mixes them in a jug, and measures\r\nthe temperature of the water from the jug to be 22 \r\n&#x2103;. He then takes 2 glasses of water from the second\r\nbucket and 4 glasses of water from the third bucket, mixes\r\nthem in another jug, and measures the temperature of the water\r\nin the jug to be 15  &#x2103;. Finally, he takes 1 glass\r\nfrom the first bucket and 2 glasses from the third bucket\r\nand mixes them in a third jug, then measures the temperature\r\nof the water in the third jug to be 20 &#x2103;. What\r\nare the temperatures of the water in each bucket?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "average", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average14.html
+p = Problem.create!(filename: 'average14.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p> Three buckets of water at different temperatures are\r\nplaced in a room. Jimmy enters the room, takes \r\n1 glass of water from the first bucket and 3 glasses of\r\nwater from the second, mixes them in a jug, and measures\r\nthe temperature of the water from the jug to be 22 \r\n&#x2103;. He then takes 2 glasses of water from the second\r\nbucket and 4 glasses of water from the third bucket, mixes\r\nthem in another jug, and measures the temperature of the water\r\nin the jug to be 15  &#x2103;. Finally, he takes 1 glass\r\nfrom the first bucket and 2 glasses from the third bucket\r\nand mixes them in a third jug, then measures the temperature\r\nof the water in the third jug to be 20 &#x2103;. What\r\nare the temperatures of the water in each bucket?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "31|16|14.5", interface: "The water in the first bucket has [ ] &#x2103;, the water in the second bucket has [ ] &#x2103; and the water in the third bucket has [ ] &#x2103;. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2723,9 +2799,9 @@ s.hints.create!(text: "Use the graphical method: Represent one glass of  water f
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What is the sum of 2 blue boxes and 4 green boxes? What\r\nis the sum of one red box and 2 green boxes? What happens\r\nif you add the contents of all 3 figures?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "average", diff: 5, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average3.html
-p = Problem.create!(filename: 'average3.html', category: 'applications', context: 'average', text: "<p> If you add 3 liters of water at 96 &#8457; to 2 liters of\r\nwater at an unknown temperature, the resulting 5 liters have\r\na temperature of 78 &#8457;. What was the temperature of those\r\n2 liters of water?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "average", diff: 5, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average3.html
+p = Problem.create!(filename: 'average3.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p> If you add 3 liters of water at 96 &#8457; to 2 liters of\r\nwater at an unknown temperature, the resulting 5 liters have\r\na temperature of 78 &#8457;. What was the temperature of those\r\n2 liters of water?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "51", interface: "The two liters are at [ ] &#8457;. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2733,9 +2809,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nYou have 3 liters, each 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Think about the problem this way: Say 3 people have 96 apples each, and two people have\r\neach the same amount of apples, and then they decide to\r\nput the apples together and share them evenly. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "average", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average10.html
-p = Problem.create!(filename: 'average10.html', category: 'applications', context: 'average', text: "<p>\r\nThe average height of the members in some basketball club\r\nis 2 meters and 2 centimeters. A new member, of height \r\n2 meters and 14 centimeters,  joined\r\nthe club and the average height is now  2 meters and 3 centimeters. How many members did the club have before\r\nthe new member joined it.\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "average", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average10.html
+p = Problem.create!(filename: 'average10.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p>\r\nThe average height of the members in some basketball club\r\nis 2 meters and 2 centimeters. A new member, of height \r\n2 meters and 14 centimeters,  joined\r\nthe club and the average height is now  2 meters and 3 centimeters. How many members did the club have before\r\nthe new member joined it.\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "11", interface: "Before the new member joined it, the club had [ ] members. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2745,9 +2821,9 @@ s.hints.create!(text: "How many centimeters is the new member over the average. 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "On the average, how many centimeters should each of the other people receive?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "means", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average13.html
-p = Problem.create!(filename: 'average13.html', category: 'applications', context: 'average', text: "<p>\r\nYou fill completely a tank with  40 liters of water at 60 &#x2103; and\r\nsome unknown quantity of water at 20  &#x2103;, and the water\r\nin the tank now has 28 &#x2103;. How big is the tank? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "means", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average13.html
+p = Problem.create!(filename: 'average13.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p>\r\nYou fill completely a tank with  40 liters of water at 60 &#x2103; and\r\nsome unknown quantity of water at 20  &#x2103;, and the water\r\nin the tank now has 28 &#x2103;. How big is the tank? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "160", interface: "The tank has [ ] liters. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2755,9 +2831,9 @@ s = p.solutions.create!(typ: "numerical", text: "<p>\r\nThe temperature of the w
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Each of the 40 liters has its temperature drop by 32 &#x2103; and\r\neach of the unknown liters has its temperature grow by 8 &#x2103;. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "means", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average12.html
-p = Problem.create!(filename: 'average12.html', category: 'applications', context: 'average', text: "<p>\r\nJohn traveled for two hours at an average speed of\r\n 49 miles per hour, and for the\r\nremaining part of the trip at an average speed of 70 miles per hour. Knowing that\r\nhis average speed on that trip\r\n was 55 miles per hour, find the total duration of the trip.\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "means", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average12.html
+p = Problem.create!(filename: 'average12.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p>\r\nJohn traveled for two hours at an average speed of\r\n 49 miles per hour, and for the\r\nremaining part of the trip at an average speed of 70 miles per hour. Knowing that\r\nhis average speed on that trip\r\n was 55 miles per hour, find the total duration of the trip.\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2|48", interface: "The total duration of the trip was [ ] hours and [ ] minutes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2765,9 +2841,9 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe increase in averag
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The increase in average from 49 to 55 for each of the first\r\ntwo hour should come from adding 6 miles for every hour.\r\nSo we have a total of \\(2\\times 6=12\\) miles to add. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "means", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average15.html
-p = Problem.create!(filename: 'average15.html', category: 'applications', context: 'average', text: "<p> \r\nIn a certain population the ratio between the number of women to\r\nthe number of men is 13 to 12. If the average age of the women\r\nis 36 and the average age of the men is 40, what is\r\nthe average age of the population?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "means", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average15.html
+p = Problem.create!(filename: 'average15.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p> \r\nIn a certain population the ratio between the number of women to\r\nthe number of men is 13 to 12. If the average age of the women\r\nis 36 and the average age of the men is 40, what is\r\nthe average age of the population?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "37.92", interface: "The average age is [ ] years. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2775,9 +2851,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "We may assume that all the women
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Look at a population of 12 men and 13 women.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "average", diff: 3, source: "AHSME 1983 modified")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average4.html
-p = Problem.create!(filename: 'average4.html', category: 'applications', context: 'average', text: "<p>\r\nThe average age of 6 people in a room is 32 years. A 17-year-old person leaves the room. Wha is the average age of the 5 remaining people? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "average", diff: 3, source: "AHSME 1983 modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average4.html
+p = Problem.create!(filename: 'average4.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p>\r\nThe average age of 6 people in a room is 32 years. A 17-year-old person leaves the room. Wha is the average age of the 5 remaining people? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "35", interface: "The average age of the remaining people is [ ] years. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2787,9 +2863,9 @@ s.hints.create!(text: "What if those 5 people are of the same age?\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Imagine that each of the 5 people gives to the\r\n17-year-old what they have above the average until this\r\nperson reaches the average. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "average", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./APPLICATIONS/AVERAGE/average11.html
-p = Problem.create!(filename: 'average11.html', category: 'applications', context: 'average', text: "<p>\r\nOn an algebra test, 10% of the students scored 70 points, 35% of the students scored 80 points, 30% scored 90 points, and the rest\r\nscored 100 points. What was the average score?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "average", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average11.html
+p = Problem.create!(filename: 'average11.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p>\r\nOn an algebra test, 10% of the students scored 70 points, 35% of the students scored 80 points, 30% scored 90 points, and the rest\r\nscored 100 points. What was the average score?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "87", interface: "The average score was [ ] points. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2803,9 +2879,9 @@ s = p.solutions.create!(typ: "falsehyp", text: "<p>\r\nThe number of students is
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: " Use the method of false hypothesis to make an assumption about\r\nthe number of students.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "percentage", diff: 3, source: "AMC8, modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar15.html
-p = Problem.create!(filename: 'onevar15.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nMary leaves work and decides to bike to her home,\r\nwhich is 18 miles away. After a while she decides the\r\nget off her bike and walk the rest of the way. How\r\nfar from home did she get off the bike if her biking\r\nspeed is 10 mph, her walking speed is 2 mph, and she biked half of the time and walked half of the time?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "percentage", diff: 3, source: "AMC8, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar15.html
+p = Problem.create!(filename: 'onevar15.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nMary leaves work and decides to bike to her home,\r\nwhich is 18 miles away. After a while she decides the\r\nget off her bike and walk the rest of the way. How\r\nfar from home did she get off the bike if her biking\r\nspeed is 10 mph, her walking speed is 2 mph, and she biked half of the time and walked half of the time?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "3", interface: "She got off the bike [ ] miles from home. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2817,9 +2893,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nIf we denote by \\(d\\)\
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Write an equation in \\(d\\), the distance that Mary was from home when she started walking.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar7.html
-p = Problem.create!(filename: 'onevar7.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nRoberto's boss asked him to make a 10% solution by\r\nmixing 1 liter of fructose syrup with 10 liters of water. \r\nRoberto realized that his boss was mistaken and that the\r\nresulting solution has the wrong concentration. Which of\r\nthe fructose syrup or water should he add, and in what amount,\r\nin order to obtain a 10% solution? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar7.html
+p = Problem.create!(filename: 'onevar7.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nRoberto's boss asked him to make a 10% solution by\r\nmixing 1 liter of fructose syrup with 10 liters of water. \r\nRoberto realized that his boss was mistaken and that the\r\nresulting solution has the wrong concentration. Which of\r\nthe fructose syrup or water should he add, and in what amount,\r\nin order to obtain a 10% solution? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2|1.11", interface: "Enter 1 for water and 2 for fructose. Roberto has to add [ ], in the amount of [ ] liters. (Truncate to two decimals.) ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2827,9 +2903,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nThe  solution\r\nthat Ro
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(x\\) be the amount of liquid to be added (you should figure out if it is water or juice). Write in terms of \\(x\\), the concentration of\r\nthe  drink that results after you add the amount \\(x\\).   \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar22.html
-p = Problem.create!(filename: 'onevar22.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nIn a class ther are both boys and girls. The girls are \r\n\\(\\frac{3}{7}\\) of the total number of students. If 4 more girls\r\njoin the class, then the girls are \\(\\frac{1}{2}\\) of the\r\nstudents. How many students were in that class before the 4 girls\r\njoined?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar22.html
+p = Problem.create!(filename: 'onevar22.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nIn a class ther are both boys and girls. The girls are \r\n\\(\\frac{3}{7}\\) of the total number of students. If 4 more girls\r\njoin the class, then the girls are \\(\\frac{1}{2}\\) of the\r\nstudents. How many students were in that class before the 4 girls\r\njoined?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "28", interface: "In that class were [ ] students before the 4 girls joined. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2837,9 +2913,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the requi
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Write an equation for the total number of students before the 4 girls joined the class.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 1, source: "Gheba")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar20.html
-p = Problem.create!(filename: 'onevar20.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nSunita bought mangoes, of which she gave \\(\\frac{1}{4}\\) to her brother Ram,\r\n and she ate 6 mangoes. Of the remaining mangoes, Sunita gave \\(\\frac{3}{7}\\) to her neighbor,\r\n and she kept  the rest of 24 mangoes for herself. How many mangoes did Ram get? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 1, source: "Gheba")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar20.html
+p = Problem.create!(filename: 'onevar20.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nSunita bought mangoes, of which she gave \\(\\frac{1}{4}\\) to her brother Ram,\r\n and she ate 6 mangoes. Of the remaining mangoes, Sunita gave \\(\\frac{3}{7}\\) to her neighbor,\r\n and she kept  the rest of 24 mangoes for herself. How many mangoes did Ram get? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "16", interface: "Ram got [ ] mangoes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2847,9 +2923,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the unkno
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Set up an equation for the number \\(x\\) of mangoes that Ram got. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar1.html
-p = Problem.create!(filename: 'onevar1.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nAlice sells a product at 10 dollars less than the listed price and she recieved a bonus of\r\n10% of her price. Bob sold the same product at 20 dollars less than the listed price and\r\nhe recieved a bonus of 20% of his price. Knowing that both recieved the same bonus, find the \r\nlisted price.\r\n </p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar1.html
+p = Problem.create!(filename: 'onevar1.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nAlice sells a product at 10 dollars less than the listed price and she recieved a bonus of\r\n10% of her price. Bob sold the same product at 20 dollars less than the listed price and\r\nhe recieved a bonus of 20% of his price. Knowing that both recieved the same bonus, find the \r\nlisted price.\r\n </p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "30", interface: "The listed price is [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2857,9 +2933,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the liste
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Write the bonus in terms of the listed price. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 1, source: "1983 AHSME")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar26.html
-p = Problem.create!(filename: 'onevar26.html', category: 'algebraic', context: 'onevar', text: "<p> You have 5 liters of water at  58 &#8457;. How much\r\nwater at a temperature of 40  &#8457; should you add so\r\nthat the resulting mix will have a temperature of 50  &#8457;?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 1, source: "1983 AHSME")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar26.html
+p = Problem.create!(filename: 'onevar26.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p> You have 5 liters of water at  58 &#8457;. How much\r\nwater at a temperature of 40  &#8457; should you add so\r\nthat the resulting mix will have a temperature of 50  &#8457;?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4", interface: "You should add [ ] liters. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2867,9 +2943,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet us examine what happ
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(x\\) be the number of liters that you add. The temperature of\r\nthe mix will be \\(58\\times 5+40x\\) divided by the total number\r\nof liters.  \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar23.html
-p = Problem.create!(filename: 'onevar23.html', category: 'algebraic', context: 'onevar', text: "<p> What time is it if what is left of the day is \\(\\frac{5}{3}\\) of what has already passed? (The day has 24 hours and it starts\r\nat midnight. The hours should be counted from 1 to 24).\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar23.html
+p = Problem.create!(filename: 'onevar23.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p> What time is it if what is left of the day is \\(\\frac{5}{3}\\) of what has already passed? (The day has 24 hours and it starts\r\nat midnight. The hours should be counted from 1 to 24).\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "9", interface: "It is [ ] o'clock. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2877,9 +2953,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the numbe
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Write an equation for the answer \\(x\\). The time left is \\(24-x\\). \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 1, source: "Gheba")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar18.html
-p = Problem.create!(filename: 'onevar18.html', category: 'algebraic', context: 'onevar', text: "<p> When arriving in Hong Kong, Mr. Smith exchanged all his\r\nUS dollars in Hong Kong dollars, at the rate of 7 Hong Kong\r\ndollars for 1 US dollars. He only spent half of the money\r\nthat he had and the remaining half he exchanged back into\r\nUS dollars upon departure at the rate of 1 US dollar for every\r\n8 Hong Kong dollars. He that noticed that he had 495 dollars\r\nless than he had when he arrived. What was the amount of\r\nmoney that Mr. Smith had when he arrived in Hong Kong?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 1, source: "Gheba")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar18.html
+p = Problem.create!(filename: 'onevar18.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p> When arriving in Hong Kong, Mr. Smith exchanged all his\r\nUS dollars in Hong Kong dollars, at the rate of 7 Hong Kong\r\ndollars for 1 US dollars. He only spent half of the money\r\nthat he had and the remaining half he exchanged back into\r\nUS dollars upon departure at the rate of 1 US dollar for every\r\n8 Hong Kong dollars. He that noticed that he had 495 dollars\r\nless than he had when he arrived. What was the amount of\r\nmoney that Mr. Smith had when he arrived in Hong Kong?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "880", interface: "When Mr. Smith arrived in Hong Kong he had [ ] US dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2887,9 +2963,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the amoun
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(x\\) be the original amount, in US dollars. After exchaning\r\nthis into Hong Kong dollars, how much money does Mr. Smith have?\r\nHow much money does he have after spending half?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar17.html
-p = Problem.create!(filename: 'onevar17.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nAn alloy is 65% gold and weighs 2.5 ounces. How much gold should we\r\nadd to obtain an alloy that that is  95% gold?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar17.html
+p = Problem.create!(filename: 'onevar17.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nAn alloy is 65% gold and weighs 2.5 ounces. How much gold should we\r\nadd to obtain an alloy that that is  95% gold?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "15", interface: "We should add [ ] ounces of gold. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2899,9 +2975,9 @@ s.hints.create!(text: "How much gold is in the alloy?\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If you add \\(x\\) ounces of gold, how much does the alloy weigh?\r\nHow much of that is gold?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 2, source: "Gheba, modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar19.html
-p = Problem.create!(filename: 'onevar19.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nI have some blue balls. I exchange half of them with\r\nred balls, five red balls for each blue ball. Then\r\nI exchange two thirds of the red balls with green balls,\r\nfive green balls for each red ball. I now have 754 balls.\r\nHow many of them are red? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 2, source: "Gheba, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar19.html
+p = Problem.create!(filename: 'onevar19.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nI have some blue balls. I exchange half of them with\r\nred balls, five red balls for each blue ball. Then\r\nI exchange two thirds of the red balls with green balls,\r\nfive green balls for each red ball. I now have 754 balls.\r\nHow many of them are red? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "65", interface: "Of the 754 balls that I have in the end, [ ] are red. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2911,9 +2987,9 @@ s.hints.create!(text: "Let \\(x\\) be the number of blue balls that I had in the
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Compute in terms of \\(x\\) the number of blue, red, and green\r\nballs that I have in the end. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar3.html
-p = Problem.create!(filename: 'onevar3.html', category: 'algebraic', context: 'onevar', text: "<p>Two trains start at the same time, one from Paris\r\nand one from London, traveling towards each other. The first\r\ntrain travels at 150 mph while the second travels at 180 mph.\r\nAt what distance from Paris do they meet, knowing that the distance\r\nfrom Paris to London is 880 miles? \r\n\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar3.html
+p = Problem.create!(filename: 'onevar3.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>Two trains start at the same time, one from Paris\r\nand one from London, traveling towards each other. The first\r\ntrain travels at 150 mph while the second travels at 180 mph.\r\nAt what distance from Paris do they meet, knowing that the distance\r\nfrom Paris to London is 880 miles? \r\n\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "400", interface: "The trains met [ ] miles from Paris. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2923,9 +2999,9 @@ s.hints.create!(text: "Use the fact that distance is velocity\\(\\times\\)time.\
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Write an equation in which the unknown is the travel time \\(t\\), by writing that the total  distance is the sum of the distances  traveled by each train.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar2.html
-p = Problem.create!(filename: 'onevar2.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nEach of the inhabitants of a village either always \r\ntells the truth or alwayls lies. The villagers formed a \r\ncircle, and a traveler asked each of them whether \r\nhis or her neighbor to the right is honest or lies.\r\nBased on their answers, the traveler managed to determine the\r\nexact fraction of truthful people among the villagers. Your\r\ntask is to find this fraction without having heard\r\nthe answers.\r\n </p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar2.html
+p = Problem.create!(filename: 'onevar2.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nEach of the inhabitants of a village either always \r\ntells the truth or alwayls lies. The villagers formed a \r\ncircle, and a traveler asked each of them whether \r\nhis or her neighbor to the right is honest or lies.\r\nBased on their answers, the traveler managed to determine the\r\nexact fraction of truthful people among the villagers. Your\r\ntask is to find this fraction without having heard\r\nthe answers.\r\n </p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1|2", interface: "The fraction, in least terms, is [ ]/[ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2933,9 +3009,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the fract
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What if the liers become truth tellers and the truth tellers become liers. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 6, source: "Moscow Math Olympiad, 1998, Level B")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar4.html
-p = Problem.create!(filename: 'onevar4.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nMary leaves work at 1 pm and decides to bike to her home,\r\nwhich is 16 miles away. After a while she decides the\r\nget off her bike and walk the rest of the way. How\r\nfar from home did she get off the bike if her biking\r\nspeed is 10 mph, her walking speed is 2 mph, and she arrived\r\nat home at 3 pm?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 6, source: "Moscow Math Olympiad, 1998, Level B")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar4.html
+p = Problem.create!(filename: 'onevar4.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nMary leaves work at 1 pm and decides to bike to her home,\r\nwhich is 16 miles away. After a while she decides the\r\nget off her bike and walk the rest of the way. How\r\nfar from home did she get off the bike if her biking\r\nspeed is 10 mph, her walking speed is 2 mph, and she arrived\r\nat home at 3 pm?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1", interface: "She got off the bike [ ] miles from home. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2947,9 +3023,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nIf we denote by \\(d\\)\
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Write an equation in \\(d\\), the distance that Mary was from home when she started walking.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar25.html
-p = Problem.create!(filename: 'onevar25.html', category: 'algebraic', context: 'onevar', text: "<p>  \r\nTo study a math book you are supposed to solve 20 problems per\r\nday. But you are clever and you go at a pace of 75 problems every\r\n3 days. Three days before the deadline you are 5 problems short from\r\nfinishing the book. How many problems are in the math book?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar25.html
+p = Problem.create!(filename: 'onevar25.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>  \r\nTo study a math book you are supposed to solve 20 problems per\r\nday. But you are clever and you go at a pace of 75 problems every\r\n3 days. Three days before the deadline you are 5 problems short from\r\nfinishing the book. How many problems are in the math book?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "280", interface: "The book has [ ] problems. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2961,9 +3037,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(d\\) be the numbe
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(d\\) be the number of days that you were supposed to use for studying the book. Write in terms of \\(d\\) the number of problems\r\nthat you had solved 3 days before the deadline, working at\r\nyour pace. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 2, source: "Gheba, modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar21.html
-p = Problem.create!(filename: 'onevar21.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nBy the beginning of the month, Razvan had already typed \r\n a certain number of problems for MathAffirm.\r\n  During that month he typed a quantity of problems equal\r\nto one third of what he already had.\r\n He then deleted one third of all problems. Then\r\nhe typed a number of problems equal to one third of\r\nwhat he had at that moment. And again he deleted one\r\nthird of the total. How many files does Razvan\r\n have left, knowing that this number is  by 102 problems less than what he \r\nhad at the beginning of the month? \r\n\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 2, source: "Gheba, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar21.html
+p = Problem.create!(filename: 'onevar21.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nBy the beginning of the month, Razvan had already typed \r\n a certain number of problems for MathAffirm.\r\n  During that month he typed a quantity of problems equal\r\nto one third of what he already had.\r\n He then deleted one third of all problems. Then\r\nhe typed a number of problems equal to one third of\r\nwhat he had at that moment. And again he deleted one\r\nthird of the total. How many files does Razvan\r\n have left, knowing that this number is  by 102 problems less than what he \r\nhad at the beginning of the month? \r\n\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "384", interface: "Razvan has [ ] problems left. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2975,9 +3051,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nWe work backwards, but u
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(y\\) be the number of problems that Razvan has\r\nin the end. Then work backwards to find how many problems he\r\nhad in the beginning in terms of \\(y\\). Write an equation for \\(y\\).\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar10.html
-p = Problem.create!(filename: 'onevar10.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nA city has today 176505 inhabitants. \r\nKnowing that the population of that city increased annually\r\nby 2.5% find what the population was 2 years ago. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar10.html
+p = Problem.create!(filename: 'onevar10.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nA city has today 176505 inhabitants. \r\nKnowing that the population of that city increased annually\r\nby 2.5% find what the population was 2 years ago. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "168000", interface: "Two years ago the city had [ ] people. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2985,9 +3061,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet the population of th
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(x\\) be the population that the city had 2 years ago.\r\nWrite the population of the city today in terms of \\(x\\). \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar24.html
-p = Problem.create!(filename: 'onevar24.html', category: 'algebraic', context: 'onevar', text: "<p>  Six brothers divided an inheritance as follows:\r\nthe first took half of the inheritance plus 500 dollars, the\r\nsecond took half of what was left plus 500 dollars, and they\r\ncontinued the same way, and when the last brother took his\r\nshare, the inheritance was completely divided. What was\r\nthe value of the inheritance?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar24.html
+p = Problem.create!(filename: 'onevar24.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>  Six brothers divided an inheritance as follows:\r\nthe first took half of the inheritance plus 500 dollars, the\r\nsecond took half of what was left plus 500 dollars, and they\r\ncontinued the same way, and when the last brother took his\r\nshare, the inheritance was completely divided. What was\r\nthe value of the inheritance?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "63000", interface: "The value of the inheritance was [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -2995,9 +3071,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the value
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If \\(x\\) is the value of the inheritance, write in terms\r\nof \\(x\\) the amount of money that each brother took, and\r\nthe amount of money that was left.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 3, source: "Gheba, slightly modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar9.html
-p = Problem.create!(filename: 'onevar9.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nA passenger plane and a cargo plane fly between the same\r\ntwo cities and they leave at the same time. The passenger\r\nplane travels at 720 mph and arrives 3 hours before the\r\nthe cargo plane, which travels at 540 mph. Find\r\nthe distance between the cities.  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 3, source: "Gheba, slightly modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar9.html
+p = Problem.create!(filename: 'onevar9.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nA passenger plane and a cargo plane fly between the same\r\ntwo cities and they leave at the same time. The passenger\r\nplane travels at 720 mph and arrives 3 hours before the\r\nthe cargo plane, which travels at 540 mph. Find\r\nthe distance between the cities.  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "6480", interface: "The distance between the cities is [ ] miles. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3005,9 +3081,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(d\\) be the dista
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(d\\) be the distance between the two cities. Write\r\nthe time it takes for each plane to travel this distance\r\nin terms of \\(d\\). \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar14.html
-p = Problem.create!(filename: 'onevar14.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nFrom a total quantity of gasoline a gas station sold the first day \\(\\frac{5}{7}\\) of the total quantity plus 900 gallons,\r\nthe second day \\(\\frac{1}{14}\\) of the total quantity plus 600 gallons, and the third day the rest, which was \\(0.1\\) of\r\nthe total quantity plus another 1000 gallons. What was the total\r\nquantity of gasoline sold during the three days? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar14.html
+p = Problem.create!(filename: 'onevar14.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nFrom a total quantity of gasoline a gas station sold the first day \\(\\frac{5}{7}\\) of the total quantity plus 900 gallons,\r\nthe second day \\(\\frac{1}{14}\\) of the total quantity plus 600 gallons, and the third day the rest, which was \\(0.1\\) of\r\nthe total quantity plus another 1000 gallons. What was the total\r\nquantity of gasoline sold during the three days? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "21875", interface: "The total quantity was [ ] gallons of gas. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3015,9 +3091,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the total
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use as unknown the total quantity of gas. Write the amount of\r\ngas sold on each day in terms of \\(x\\).  \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar5.html
-p = Problem.create!(filename: 'onevar5.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nTwo bikers traveled the same distance. The first, who\r\nis by 2 mph slower than the second had to bike 45 minutes longer.\r\nFind the speed of each biker, knowing that the second biked for \r\n3 hours.\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar5.html
+p = Problem.create!(filename: 'onevar5.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nTwo bikers traveled the same distance. The first, who\r\nis by 2 mph slower than the second had to bike 45 minutes longer.\r\nFind the speed of each biker, knowing that the second biked for \r\n3 hours.\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "8|10", interface: "The speed of the slower biker is [ ] miles per hour, the speed of the faster biker is [ ] miles per hour. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3025,9 +3101,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(s\\) be the speed
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use as unknown the speed of the slower biker. Set equal the distances traveled by the two bikers.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar6.html
-p = Problem.create!(filename: 'onevar6.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nA group of hikers leaves town at noon, at the same time with\r\na horse rider,  to go to a forest 10 kilometers away. \r\n While the hikers walk at 3 km/h, the horse rider travels at 9 km/h.\r\nThe rider arrives in the forest, rests for an hour, then returns to meet the\r\nhikers. How far from the city and at what time does the rider meet the hikers?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar6.html
+p = Problem.create!(filename: 'onevar6.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nA group of hikers leaves town at noon, at the same time with\r\na horse rider,  to go to a forest 10 kilometers away. \r\n While the hikers walk at 3 km/h, the horse rider travels at 9 km/h.\r\nThe rider arrives in the forest, rests for an hour, then returns to meet the\r\nhikers. How far from the city and at what time does the rider meet the hikers?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "7.25|2|25.", interface: "They met [ ] kilometers from the start. They met at [ ]:[ ] pm. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3035,9 +3111,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the dista
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use as unknown the distance from the origin to the meeting point.\r\nWrite an equation for the time of travel.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 3, source: "Gheba")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar11.html
-p = Problem.create!(filename: 'onevar11.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nI have borrowed 39720 dollars at an interest of 10%. The\r\ninterest is computed at the end of each month, by adding \r\nto the amount that I still owe 10% of the value of that\r\namount. I am supposed to pay this money back in three equal\r\npayments, one after exactly one month, one after two months,\r\nand one after 3 months from the moment when I borrowed the money.\r\nWhat should these payments  be? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 3, source: "Gheba")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar11.html
+p = Problem.create!(filename: 'onevar11.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nI have borrowed 39720 dollars at an interest of 10%. The\r\ninterest is computed at the end of each month, by adding \r\nto the amount that I still owe 10% of the value of that\r\namount. I am supposed to pay this money back in three equal\r\npayments, one after exactly one month, one after two months,\r\nand one after 3 months from the moment when I borrowed the money.\r\nWhat should these payments  be? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "15972", interface: "At the end of each month I should pay [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3047,9 +3123,9 @@ s.hints.create!(text: "How much money do you owe after one month?\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(x\\) be the amount that you have to pay at the end of each month. Compute the amount that you owe after two months in terms\r\nof \\(x\\). Compute the amount that you owe after three months in\r\nterms of \\(x\\). At the end of the third month you pay \\(x\\) dollars and you paid off your debt. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 5, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar12.html
-p = Problem.create!(filename: 'onevar12.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nIf the students in one class sat 2 at a desk, 5 more desks would\r\nbe needed. If they sat 3 at a desk, 3 desks would be\r\nleft unoccupied. How many students are in the class?\r\n </p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 5, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar12.html
+p = Problem.create!(filename: 'onevar12.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nIf the students in one class sat 2 at a desk, 5 more desks would\r\nbe needed. If they sat 3 at a desk, 3 desks would be\r\nleft unoccupied. How many students are in the class?\r\n </p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "48", interface: "There are [ ] students in that class. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3057,9 +3133,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the numbe
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let the unknown be the number of students. Compute the\r\nnumber of desks in two different ways.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 1, source: "locala Alba, a V-a, 1994")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar13.html
-p = Problem.create!(filename: 'onevar13.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nFive brothers split their inheritance as follows: the first brother took \\(\\frac{1}{5}\\) of the sum, the second\r\n\\(\\frac{1}{5}\\) of what remained plus 400 dollars, the\r\nthird \\(\\frac{1}{5}\\) of what remained plus 800 dollars, \r\nthe fourth \\(\\frac{1}{5}\\) of what remained plus 1200 dollars, \r\nand the fifth \\(\\frac{1}{5}\\) of what remained plus 1600 dollars.\r\nNow the inheritance was completely distributed. What was\r\nthe value of the inheritance?\r\n </p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 1, source: "locala Alba, a V-a, 1994")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar13.html
+p = Problem.create!(filename: 'onevar13.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nFive brothers split their inheritance as follows: the first brother took \\(\\frac{1}{5}\\) of the sum, the second\r\n\\(\\frac{1}{5}\\) of what remained plus 400 dollars, the\r\nthird \\(\\frac{1}{5}\\) of what remained plus 800 dollars, \r\nthe fourth \\(\\frac{1}{5}\\) of what remained plus 1200 dollars, \r\nand the fifth \\(\\frac{1}{5}\\) of what remained plus 1600 dollars.\r\nNow the inheritance was completely distributed. What was\r\nthe value of the inheritance?\r\n </p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1718.75", interface: "The value of the inheritance is [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3069,9 +3145,9 @@ s.hints.create!(text: "Let \\(x\\) be the value of the inheritance. Write the am
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "After the last brother got his share, there is nothing left.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 6, source: "judeteana Botosani, a V-a, 1994, modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar16.html
-p = Problem.create!(filename: 'onevar16.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nI rented a kayak for 3 hours to paddle on a river\r\nthat flows at 1.5 miles per hour. How far can I go upstream\r\nso that if I paddle at constant speed 4.5 miles per hour I \r\nwill return at the required time?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 6, source: "judeteana Botosani, a V-a, 1994, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar16.html
+p = Problem.create!(filename: 'onevar16.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nI rented a kayak for 3 hours to paddle on a river\r\nthat flows at 1.5 miles per hour. How far can I go upstream\r\nso that if I paddle at constant speed 4.5 miles per hour I \r\nwill return at the required time?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "6", interface: "I traveled [ ] miles upstream. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3079,9 +3155,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(d\\) be the dista
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use as unknown the distance traveled upstream, then compute\r\nthe times for going upstream and downstream.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 1, source: "Gheba, modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/ONEVAR/onevar8.html
-p = Problem.create!(filename: 'onevar8.html', category: 'algebraic', context: 'onevar', text: "<p>\r\nIf you mix a  drink with a fruit juice concentration \r\nof 14% with another  drink with a fruit juice concentration\r\nof 9%, in what percentage should the first drink be to \r\n the total amount so that the resulting drink has a fruit juice concentration of 10%?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 1, source: "Gheba, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/onevar8.html
+p = Problem.create!(filename: 'onevar8.html', curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', text: "<p>\r\nIf you mix a  drink with a fruit juice concentration \r\nof 14% with another  drink with a fruit juice concentration\r\nof 9%, in what percentage should the first drink be to \r\n the total amount so that the resulting drink has a fruit juice concentration of 10%?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "20", interface: "The first drink should be [ ]% of the total amount of drink. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3089,9 +3165,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nHere is an algebraic sol
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(x\\) be the percentage of the first drink in the total amount of drink. What is the concentration of the final drink\r\nin terms of \\(x\\)?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "onevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel15.html
-p = Problem.create!(filename: 'cancel15.html', category: 'algebraic', context: 'cancel', text: "<p> A juice manufacturer buys fruits every month. Between one\r\nmonth and the next, the price of fruits goes up by 20% and the\r\namount of money the manufacturer has for buying fruits goes up by 17%. The amount of fruits that the manufacturer can buy \r\ndecreases by what percentage?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "onevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel15.html
+p = Problem.create!(filename: 'cancel15.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p> A juice manufacturer buys fruits every month. Between one\r\nmonth and the next, the price of fruits goes up by 20% and the\r\namount of money the manufacturer has for buying fruits goes up by 17%. The amount of fruits that the manufacturer can buy \r\ndecreases by what percentage?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2.5", interface: "The amount of fruits that the manufacturer can buy decreases by [ ] percent. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3099,9 +3175,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p> \r\nLet \\(p\\) be the init
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(p\\) be the initial price of one pound of fruits and \r\nlet \\(m\\) be the initial amount of money that the manufacturer\r\nhas. What  amount of fruits can the manufacturer buy? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 3, source: "Dropped AHSME, modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel3.html
-p = Problem.create!(filename: 'cancel3.html', category: 'algebraic', context: 'cancel', text: "<p>\r\nHow long does it take a car to travel between two cities at constant speed, knowing that if during the second\r\nhalf of the road it decreased its speed by 20% it would arrive an hour late? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 3, source: "Dropped AHSME, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel3.html
+p = Problem.create!(filename: 'cancel3.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p>\r\nHow long does it take a car to travel between two cities at constant speed, knowing that if during the second\r\nhalf of the road it decreased its speed by 20% it would arrive an hour late? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4|0", interface: "It takes [ ] hours and [ ] minutes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3109,9 +3185,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(t\\) be the time 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Write an equation in terms of time and velocity,\r\n for the second half of the distance traveled by the car. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 3, source: "Ghergu, 79/13 modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel4.html
-p = Problem.create!(filename: 'cancel4.html', category: 'algebraic', context: 'cancel', text: "<p>\r\nIn a store, as the result of a 20% decrease in the  price of a product the earnings increased by 8%. \r\nBy what percent did the number of sold products grow? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 3, source: "Ghergu, 79/13 modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel4.html
+p = Problem.create!(filename: 'cancel4.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p>\r\nIn a store, as the result of a 20% decrease in the  price of a product the earnings increased by 8%. \r\nBy what percent did the number of sold products grow? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "35", interface: "The number of sold products increased by  [ ]%. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3119,9 +3195,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(p\\) be the origi
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use as variables the original price, the number of products sold at the original price,\r\nand the number of additional products sold after the decrease in price.  \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 3, source: "Ghergu, 82/13")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel7.html
-p = Problem.create!(filename: 'cancel7.html', category: 'algebraic', context: 'cancel', text: "<p>\r\nIf I decrease the price of apples  by 20%, by what\r\npercentage should I increase the amount of apples sold so\r\nthat my gains are the same?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 3, source: "Ghergu, 82/13")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel7.html
+p = Problem.create!(filename: 'cancel7.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p>\r\nIf I decrease the price of apples  by 20%, by what\r\npercentage should I increase the amount of apples sold so\r\nthat my gains are the same?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "25", interface: "The amount of apples sold should increase by [ ] percent. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3131,9 +3207,9 @@ s.hints.create!(text: "The gain is the product of the price of one apple and the
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the original price of one apple and the original quantity\r\nof apples sold as variables that get canceled. Then equate the gains before and after the price decrease.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel6.html
-p = Problem.create!(filename: 'cancel6.html', category: 'algebraic', context: 'cancel', text: "<p>\r\nIf I increase the speed by 25% and I decrease the distance by 15%, does the time of travel increase,\r\ndecrease, or stay the same? By what percent? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel6.html
+p = Problem.create!(filename: 'cancel6.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p>\r\nIf I increase the speed by 25% and I decrease the distance by 15%, does the time of travel increase,\r\ndecrease, or stay the same? By what percent? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "3|32", interface: "Enter 1 for increase, 2 for stay the same, 3 for decrease. My time of  travel will [ ] by [ ] %. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3141,9 +3217,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nI travel faster a shorte
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the formula time\\(=\\frac{\\mbox{distance}}{\\mbox{velocity}}\\).\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel8.html
-p = Problem.create!(filename: 'cancel8.html', category: 'algebraic', context: 'cancel', text: "<p>\r\nA ship travels at a constant velocity with respect to the\r\nwater. On the first day the ship travels downstream from \r\nAllen Harbor to Benton. On the second day it travels upstream from\r\nBenton to Allen Harbor. After passing the entire travel time\r\nof the previous day, the ship is only \\(\\frac{3}{5}\\) into the trip. How \r\nmany times greater is the velocitiy of the\r\nboat as compared to the one of the water?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel8.html
+p = Problem.create!(filename: 'cancel8.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p>\r\nA ship travels at a constant velocity with respect to the\r\nwater. On the first day the ship travels downstream from \r\nAllen Harbor to Benton. On the second day it travels upstream from\r\nBenton to Allen Harbor. After passing the entire travel time\r\nof the previous day, the ship is only \\(\\frac{3}{5}\\) into the trip. How \r\nmany times greater is the velocitiy of the\r\nboat as compared to the one of the water?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4", interface: "The ship is [ ] times faster than the river. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3151,9 +3227,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nOn the second day it wil
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: " Let \\(t\\) be the time of travel on the first day, \\(v_1\\) the\r\nvelocity of the boat, and \\(v_2\\) the velocity of the river.\r\nWrite an equation for the distances traveled on the two days.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel16.html
-p = Problem.create!(filename: 'cancel16.html', category: 'algebraic', context: 'cancel', text: "<p>\r\nIf I increase the speed by 25% and I decrease  the time by 25%, does the distance that I  travel increase,\r\ndecrease, or stay the same? By what percent? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel16.html
+p = Problem.create!(filename: 'cancel16.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p>\r\nIf I increase the speed by 25% and I decrease  the time by 25%, does the distance that I  travel increase,\r\ndecrease, or stay the same? By what percent? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "3|2.65", interface: "Enter 1 for increase, 2 for stay the same, 3 for decrease. My traveling distance will [ ] by [ ] %. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3161,9 +3237,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(t\\) be the origi
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the formula time\\(=\\frac{\\mbox{distance}}{\\mbox{velocity}}\\).\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel12.html
-p = Problem.create!(filename: 'cancel12.html', category: 'algebraic', context: 'cancel', text: "<p> \r\nA reservoir has enough drinking water to last 40 days. \r\nBy what percentage should the daily consumption be \r\nreduced so that the water lasts 50 days? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel12.html
+p = Problem.create!(filename: 'cancel12.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p> \r\nA reservoir has enough drinking water to last 40 days. \r\nBy what percentage should the daily consumption be \r\nreduced so that the water lasts 50 days? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "20", interface: "The percentage is [ ]%. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3173,9 +3249,9 @@ s.hints.create!(text: "Let \\(x\\) be the daily consumption and \\(p\\) be the p
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Cancel \\(x\\) using the two equations. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 3, source: "Judeteana Maramures, a VI-a, 1994,")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel13.html
-p = Problem.create!(filename: 'cancel13.html', category: 'algebraic', context: 'cancel', text: "<p> \r\nA kayaker paddling  upstream on the Allegheny River in Pittsburgh\r\nlost a plastic bottle when going under the 31st Street Bridge.\r\nThe kayaker continued going upstream and after 30 minutes noticed\r\nthe missing bottle, then returned and caught up with the missing\r\nbottle under the Fort Duquesne Bridge. How fast was the Allegeny River flowing if the distance between the two bridges is 2 miles?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 3, source: "Judeteana Maramures, a VI-a, 1994,")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel13.html
+p = Problem.create!(filename: 'cancel13.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p> \r\nA kayaker paddling  upstream on the Allegheny River in Pittsburgh\r\nlost a plastic bottle when going under the 31st Street Bridge.\r\nThe kayaker continued going upstream and after 30 minutes noticed\r\nthe missing bottle, then returned and caught up with the missing\r\nbottle under the Fort Duquesne Bridge. How fast was the Allegeny River flowing if the distance between the two bridges is 2 miles?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "2", interface: "The velocity of the Allegheny River is [ ] miles per hour. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3185,9 +3261,9 @@ s.hints.create!(text: "Let \\(x\\) be the velocity of the river and let \\(v\\) 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Write the total time traveled by the kayak from the bottle\r\nwas lost until the bottle was recovered. Then write the time\r\ntraveled by the bottle. Set the two equal, and solve for \\(x\\). \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 6, source: "Gheba, modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel10.html
-p = Problem.create!(filename: 'cancel10.html', category: 'algebraic', context: 'cancel', text: "<p>\r\nA mother has split a basket of berries amount her three children. The number of berries that the children received\r\nare proportional to the numbers 2,3,4. The first child got\r\nby 9 berries less than the third  child would have got\r\nhad the number of berries given to each been proportional with\r\nthe numbers \\(\\frac{1}{2},\\frac{1}{3},\\frac{1}{4}\\). How\r\nmany berries were in the basket? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 6, source: "Gheba, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel10.html
+p = Problem.create!(filename: 'cancel10.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p>\r\nA mother has split a basket of berries amount her three children. The number of berries that the children received\r\nare proportional to the numbers 2,3,4. The first child got\r\nby 9 berries less than the third  child would have got\r\nhad the number of berries given to each been proportional with\r\nthe numbers \\(\\frac{1}{2},\\frac{1}{3},\\frac{1}{4}\\). How\r\nmany berries were in the basket? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1053", interface: "There were [ ] berries in the basket. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3197,9 +3273,9 @@ s.hints.create!(text: "Use as unknowns the quantities \\(x,y,z\\) and \\(a,b,c\\
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If \\(\\frac{m}{n}=\\frac{p}{q}\\) then both fractions are equal\r\nto \\(\\frac{m+p}{n+q}\\). Do you know why?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 4, source: "locala Buzau, a VI-a, 1994, Marin Grigori")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel11.html
-p = Problem.create!(filename: 'cancel11.html', category: 'algebraic', context: 'cancel', text: "<p> A store increased the price of a product by \\(p\\)%, then\r\ndecreased it by \\(p\\)%, then increased it by \\(p\\)% and arrived\r\nat 1152 dollars.\r\n Had it first decrease it by \\(p\\)%, then increase it by \r\n\\(p\\)%, and then decrease it  \r\nby \\(p\\)%, it would have arrived at 768 dollars. What is \\(p\\)?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 4, source: "locala Buzau, a VI-a, 1994, Marin Grigori")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel11.html
+p = Problem.create!(filename: 'cancel11.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p> A store increased the price of a product by \\(p\\)%, then\r\ndecreased it by \\(p\\)%, then increased it by \\(p\\)% and arrived\r\nat 1152 dollars.\r\n Had it first decrease it by \\(p\\)%, then increase it by \r\n\\(p\\)%, and then decrease it  \r\nby \\(p\\)%, it would have arrived at 768 dollars. What is \\(p\\)?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "20", interface: "The percentage is [ ]%. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3209,9 +3285,9 @@ s.hints.create!(text: "Let \\(x\\) be the initial price. Write 1152 and 768 in t
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Cancel \\(x\\) using the two equations. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 5, source: "Judeteana Buzau, a VII-a, 1994, Apostol Constantin")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel17.html
-p = Problem.create!(filename: 'cancel17.html', category: 'algebraic', context: 'cancel', text: "<p>\r\nI usually travel from home\r\n to work at the same constant speed and arrive\r\non time. Today I left at the same time\r\nand increased my speed by 10 mph, and\r\nI arrived 15 minutes early. But yesterday, I left 6 minutes early and decreased my speed\r\nby 10 mph, and I arrived 15 minutes late. What is the\r\ndistance from my house to work?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 5, source: "Judeteana Buzau, a VII-a, 1994, Apostol Constantin")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel17.html
+p = Problem.create!(filename: 'cancel17.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p>\r\nI usually travel from home\r\n to work at the same constant speed and arrive\r\non time. Today I left at the same time\r\nand increased my speed by 10 mph, and\r\nI arrived 15 minutes early. But yesterday, I left 6 minutes early and decreased my speed\r\nby 10 mph, and I arrived 15 minutes late. What is the\r\ndistance from my house to work?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "105", interface: "The distance from my house to work is [ ] miles. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3221,9 +3297,9 @@ s.hints.create!(text: "Write the formula for the distance in terms of velocity a
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Set the formula for distance on a regular day equal to \r\nthe formula for the distance today (which means that we\r\neliminate the variable <dfn>distance</dfn> from the discussion).\r\nIn the equality there will be a term \\(vt\\) on both sides, where\r\n\\(v\\) is the velocity on a regular day, and \\(t\\) is the time on\r\na regular day. Cancel it.   \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 3, source: "AA Magazine, modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel2.html
-p = Problem.create!(filename: 'cancel2.html', category: 'algebraic', context: 'cancel', text: "<p>\r\n65% of the total number of students in a classroom have solved the homework correctly. \r\nKnowing that 14 boys and 35% of the girls had mistakes on the homework, find out how\r\nmany boys are in the classroom. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 3, source: "AA Magazine, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel2.html
+p = Problem.create!(filename: 'cancel2.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p>\r\n65% of the total number of students in a classroom have solved the homework correctly. \r\nKnowing that 14 boys and 35% of the girls had mistakes on the homework, find out how\r\nmany boys are in the classroom. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "40", interface: "There are [ ] boys in the classroom. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3233,9 +3309,9 @@ s.hints.create!(text: "Write an equation for the number of students that had mis
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the number of boys and the number of girls as variables. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 3, source: "Ghergu, 77/13 modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel5.html
-p = Problem.create!(filename: 'cancel5.html', category: 'algebraic', context: 'cancel', text: "<p>\r\nIf I increase my speed by 10% and I decrease my time of travel by 10% will the distance\r\nthat I travel increase, decrease, or stay the same? By what percent? (Enter 0% if the distance\r\nstays the same.)\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 3, source: "Ghergu, 77/13 modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel5.html
+p = Problem.create!(filename: 'cancel5.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p>\r\nIf I increase my speed by 10% and I decrease my time of travel by 10% will the distance\r\nthat I travel increase, decrease, or stay the same? By what percent? (Enter 0% if the distance\r\nstays the same.)\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "3|1", interface: "Enter 1 for increase, 2 for stay the same, 3 for decrease. The distance I travel will [ ] by [ ] %. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3243,9 +3319,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nThe standard algebraic n
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the formula distance=velocity\\(\\times\\)time. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel14.html
-p = Problem.create!(filename: 'cancel14.html', category: 'algebraic', context: 'cancel', text: "<p> \r\nYou buy drones from the factory for $660 a piece and you resell\r\nthem in your store to make a profit. If you decreased the price\r\nof a drone in your store by $21, then you would need to increase\r\nthe number of drones sold by 12% in order to make the same profit. What is the price of a drone in your store?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel14.html
+p = Problem.create!(filename: 'cancel14.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p> \r\nYou buy drones from the factory for $660 a piece and you resell\r\nthem in your store to make a profit. If you decreased the price\r\nof a drone in your store by $21, then you would need to increase\r\nthe number of drones sold by 12% in order to make the same profit. What is the price of a drone in your store?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "856", interface: "The price of a drone in your store is [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3253,9 +3329,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p> \r\nDenote by \\(p\\) the p
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(p\\) be the profit that you make on one drone, and \r\nlet \\(q\\) be the number of drones that you are selling. Write\r\nthe total profit that you make before and after the price decrease in terms of \\(p\\) and \\(q\\). \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel9.html
-p = Problem.create!(filename: 'cancel9.html', category: 'algebraic', context: 'cancel', text: "<p>\r\nThe monthly scholarship that a student  receives is by\r\nthe same amount less than 450 dollars that it would be \r\nover 450 dollars if the value of the \r\nscholarship were  doubled. What\r\nis the amount of money that the student receives every month?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel9.html
+p = Problem.create!(filename: 'cancel9.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p>\r\nThe monthly scholarship that a student  receives is by\r\nthe same amount less than 450 dollars that it would be \r\nover 450 dollars if the value of the \r\nscholarship were  doubled. What\r\nis the amount of money that the student receives every month?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "300", interface: "The student receives [ ] every month. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3263,9 +3339,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the value
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(x\\) be the value of the scholarship, and let \\(y\\) be the amount of money by which it differs from 450. \\(y\\) will cancel\r\nout.  \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 2, source: "locala Prahova, a V-a, 1993")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/CANCEL/cancel1.html
-p = Problem.create!(filename: 'cancel1.html', category: 'algebraic', context: 'cancel', text: "<p>\r\nOn a table there are several candies, and around the table sit\r\nsome children. The first child takes \\(\\frac{1}{15}\\) candies. Then the second child takes \\(\\frac{1}{15}\\) of the remaining\r\ncandies together with another amount of candies from the table that is equal to  \\(\\frac{1}{15}\\) of the number of candies that the first child took. The third child takes \\(\\frac{1}{15}\\) of the\r\nremaining candies together with another amount of candies from the table that is equal to   \\(\\frac{1}{15}\\) of the candies that the\r\nfirst and the second child took together. At each step, the child\r\ntakes \\(\\frac{1}{15}\\) of the remaining candies together with another amount of candies from the table that is equal to\r\n  \\(\\frac{1}{15}\\) of all the candies taken previously by the other\r\nchildren, until the last child, who by following this procedure ends up taking all the remaining candies. How many children are there? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 2, source: "locala Prahova, a V-a, 1993")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/cancel1.html
+p = Problem.create!(filename: 'cancel1.html', curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', text: "<p>\r\nOn a table there are several candies, and around the table sit\r\nsome children. The first child takes \\(\\frac{1}{15}\\) candies. Then the second child takes \\(\\frac{1}{15}\\) of the remaining\r\ncandies together with another amount of candies from the table that is equal to  \\(\\frac{1}{15}\\) of the number of candies that the first child took. The third child takes \\(\\frac{1}{15}\\) of the\r\nremaining candies together with another amount of candies from the table that is equal to   \\(\\frac{1}{15}\\) of the candies that the\r\nfirst and the second child took together. At each step, the child\r\ntakes \\(\\frac{1}{15}\\) of the remaining candies together with another amount of candies from the table that is equal to\r\n  \\(\\frac{1}{15}\\) of all the candies taken previously by the other\r\nchildren, until the last child, who by following this procedure ends up taking all the remaining candies. How many children are there? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "15", interface: "There are [ ] students. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3273,9 +3349,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet $n$ be the initial n
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the number of candies as a variable and try to determine how many candies did each student take. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "cancel", diff: 5, source: "Ghergu, 37/9")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar1.html
-p = Problem.create!(filename: 'morevar1.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nJimmy tells Bobby: <q>If I give you 5 cards then you have six\r\ntimes as many as I have, but if you give me 8 cards, then you\r\nonly have three as many as I have.</q> Mary who was listening\r\nto the conversation said: <q>You two should study more math!</q>\r\nWhy did Mary say that? How many cards is Jimmy supposed to have?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "cancel", diff: 5, source: "Ghergu, 37/9")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar1.html
+p = Problem.create!(filename: 'morevar1.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nJimmy tells Bobby: <q>If I give you 5 cards then you have six\r\ntimes as many as I have, but if you give me 8 cards, then you\r\nonly have three as many as I have.</q> Mary who was listening\r\nto the conversation said: <q>You two should study more math!</q>\r\nWhy did Mary say that? How many cards is Jimmy supposed to have?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "22.33", interface: "Jimmy is  supposed to have [ ] cards. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3283,9 +3359,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(n\\) be the numbe
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use as variables the number of cards that I have and the number of cards that you have.\r\nThen write two equations that describe the situations from the statement. Then solve for the number of\r\ncards. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar8.html
-p = Problem.create!(filename: 'morevar8.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nAt a school, in the sixth, seventh, and eighth grade there\r\nare altogether 370 students. 30% of the sixth graders went on\r\na trip. The number of sixth graders who went on the trip is\r\n20% of the total number of seventh graders at that school\r\nand 25% of the eight graders? How many sixth, seventh, and eight graders are at that school? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar8.html
+p = Problem.create!(filename: 'morevar8.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nAt a school, in the sixth, seventh, and eighth grade there\r\nare altogether 370 students. 30% of the sixth graders went on\r\na trip. The number of sixth graders who went on the trip is\r\n20% of the total number of seventh graders at that school\r\nand 25% of the eight graders? How many sixth, seventh, and eight graders are at that school? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "100|150|120", interface: "At the school there are [ ] sixth graders, [ ] seventh graders, and [ ] eighth graders. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3293,9 +3369,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\n Let \\(x, y,z\\) be the
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(x\\) be the number of sixth graders and \\(y\\) the number\r\nof seventh graders. How do \\(x\\) and \\(y\\) relate?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 3, source: "judeteana Prahova, a VI-a, 1993.")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar3.html
-p = Problem.create!(filename: 'morevar3.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nBoth me and you have several balls. If I give you three\r\nand lose two of my balls, and if you also buy a ball, then I\r\nhave twice as many as you have. However, if you give me five and lose one of balls, then I have three times as many balls as\r\nyou have. How many balls do we have together?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 3, source: "judeteana Prahova, a VI-a, 1993.")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar3.html
+p = Problem.create!(filename: 'morevar3.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nBoth me and you have several balls. If I give you three\r\nand lose two of my balls, and if you also buy a ball, then I\r\nhave twice as many as you have. However, if you give me five and lose one of balls, then I have three times as many balls as\r\nyou have. How many balls do we have together?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "121", interface: "Together we have [ ] balls. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3303,9 +3379,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(m\\) be the\r\nnu
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use as variables the number of balls that I have and the number\r\nof balls that you have. Write the conditions from the statement\r\nas a system of two equations. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar7.html
-p = Problem.create!(filename: 'morevar7.html', category: 'algebraic', context: 'morevar', text: "<p>Mike drove for four hours, first on a dirt road at 40 miles per hour and then on a paved road at 60 miles per hour. His car\r\nmade 20 miles per gallon on the dirt road and 30 miles per gallon on the paved road. \r\nKnowing that he traveled a total of 210 miles, find out how much gas he has used. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar7.html
+p = Problem.create!(filename: 'morevar7.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>Mike drove for four hours, first on a dirt road at 40 miles per hour and then on a paved road at 60 miles per hour. His car\r\nmade 20 miles per gallon on the dirt road and 30 miles per gallon on the paved road. \r\nKnowing that he traveled a total of 210 miles, find out how much gas he has used. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "8", interface: "Mike used [ ] gallons. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3313,9 +3389,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\n Because the usage of ga
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the distances that Mike traveled on the dirt road and paved road as the unknowns. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar9.html
-p = Problem.create!(filename: 'morevar9.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nThe velocity of the river Danube in Budapest is 3km/h. \r\nA tourist boat whose relative velocity with respect to \r\nwater is 18km/h travels first downstream and then upstream,\r\nreturning to the starting point after three hours. How\r\nlong does the boat travel downstream?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar9.html
+p = Problem.create!(filename: 'morevar9.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nThe velocity of the river Danube in Budapest is 3km/h. \r\nA tourist boat whose relative velocity with respect to \r\nwater is 18km/h travels first downstream and then upstream,\r\nreturning to the starting point after three hours. How\r\nlong does the boat travel downstream?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "75|0", interface: "The boat travels downstream [ ] minutes and [ ] seconds. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3325,9 +3401,9 @@ s.hints.create!(text: "Use as unknowns the time that the boat travels upstream a
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "The distance that the boat travels upstream is equal the distance\r\nthat it travels downstream. Distance is velocity (speed) times time. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar4.html
-p = Problem.create!(filename: 'morevar4.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nA teacher returns a graded test to her class. The\r\naverage score for the students who passed was 60. The\r\naverage score for the students who failed was 35. The\r\naverage score for the class was 40. What percentage\r\nof the students have passed the exam?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar4.html
+p = Problem.create!(filename: 'morevar4.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nA teacher returns a graded test to her class. The\r\naverage score for the students who passed was 60. The\r\naverage score for the students who failed was 35. The\r\naverage score for the class was 40. What percentage\r\nof the students have passed the exam?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "20", interface: "[ ] % of the students passed the exam. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3339,9 +3415,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the perce
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "This is the hint.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 6, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar16.html
-p = Problem.create!(filename: 'morevar16.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nI have sold at the cattle market a herd made out of bred heifers\r\nand open heifers. I sold the bred heifers at $2000 a piece, and\r\nopen heifers at $1500 a piece. I sold a total of 50 animals,\r\nand made  85000 dollars. How many bred heifers and how many\r\nopen heifers did I sell?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 6, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar16.html
+p = Problem.create!(filename: 'morevar16.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nI have sold at the cattle market a herd made out of bred heifers\r\nand open heifers. I sold the bred heifers at $2000 a piece, and\r\nopen heifers at $1500 a piece. I sold a total of 50 animals,\r\nand made  85000 dollars. How many bred heifers and how many\r\nopen heifers did I sell?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "20|30", interface: "I sold [ ] bred heifers and [ ] open heifers. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3349,9 +3425,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the numbe
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Denote by \\(x\\) and \\(y\\) the number of bred heifers and open heifers. Write the total amount of money that I made in terms of \r\n\\(x\\) and \\(y\\). \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 1, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar20.html
-p = Problem.create!(filename: 'morevar20.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nTwo race cars start at the same point of a 4.59 mile circuit\r\nand travel with constant speeds in\r\nopposite directions.  They  meet the first time after 81  seconds, and they meet the third time at the starting point.\r\n What are the velocities\r\nof the cars, in miles per hour?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 1, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar20.html
+p = Problem.create!(filename: 'morevar20.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nTwo race cars start at the same point of a 4.59 mile circuit\r\nand travel with constant speeds in\r\nopposite directions.  They  meet the first time after 81  seconds, and they meet the third time at the starting point.\r\n What are the velocities\r\nof the cars, in miles per hour?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "136|68", interface: "The faster car travels at [ ] mph and the slower car travels at [ ] mph. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3363,9 +3439,9 @@ s = p.solutions.create!(typ: "algebraic", text: "Let \\(x\\) and \\(y\\) be the 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "What is the ratio between the velocities of the two cars.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 4, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar11.html
-p = Problem.create!(filename: 'morevar11.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nIf five apples and twenty three plums weigh as much as eleven\r\napples and two plums then seven apples and thirty plums weigh\r\nmore, the same, or less than four apples and fourty  plums? \r\n\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 4, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar11.html
+p = Problem.create!(filename: 'morevar11.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nIf five apples and twenty three plums weigh as much as eleven\r\napples and two plums then seven apples and thirty plums weigh\r\nmore, the same, or less than four apples and fourty  plums? \r\n\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "1", interface: "Enter 1 for  heavier,  2 for same weight, 3 for lighter:  Seven apples and thirty plums are [ ] when compared to  four apples and fourty  plums. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3375,9 +3451,9 @@ s.hints.create!(text: " Let \\(x\\) be the weight of\r\nan apple and \\(y\\) the
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Write everything in terms of \\(x\\).\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar25.html
-p = Problem.create!(filename: 'morevar25.html', category: 'algebraic', context: 'morevar', text: "<p> Two buckets of water at different temperatures are\r\nplaced in a room. Jimmy enters the room, takes \r\n3 glasses of water from the first bucket and 5 glasses of\r\nwater from the second, mixes them in a jug, and measures\r\nthe temperature of the water from the jug to be 19 \r\n&#x2103;. He then takes 2 glasses of water from the first\r\nbucket and 6 glasses of water from the third bucket, mixes\r\nthem in another jug, and measures the temperature of the water\r\nin the jug to be 22  &#x2103;. What\r\nis the temperature of the water in each bucket?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar25.html
+p = Problem.create!(filename: 'morevar25.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p> Two buckets of water at different temperatures are\r\nplaced in a room. Jimmy enters the room, takes \r\n3 glasses of water from the first bucket and 5 glasses of\r\nwater from the second, mixes them in a jug, and measures\r\nthe temperature of the water from the jug to be 19 \r\n&#x2103;. He then takes 2 glasses of water from the first\r\nbucket and 6 glasses of water from the third bucket, mixes\r\nthem in another jug, and measures the temperature of the water\r\nin the jug to be 22  &#x2103;. What\r\nis the temperature of the water in each bucket?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "4|28", interface: "The temperature of  water in the first bucket is [ ] &#x2103; and the temperature of water in the second bucket is [ ] &#x2103. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3385,9 +3461,9 @@ s = p.solutions.create!(typ: "algebraic", text: "Let the temperature in the firs
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(x\\) be the temperature of the water in the first bucket,\r\nand \\(y\\) the temperature of water in the second bucket. \r\nThen since\r\nin the first jug we have 3 parts of water from the first \r\nbucket and 5 parts of water from the second, its temperature is\r\n\\begin{eqnarray*}\r\n\\frac{3x+5y}{8}.\r\n\\end{eqnarray*}\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar6.html
-p = Problem.create!(filename: 'morevar6.html', category: 'algebraic', context: 'morevar', text: "<p>A\r\n boat travels a certain distance downstream in 2 hours 55 minutes and \r\nthe same distance upstream in 3 hours and 45 minutes. How\r\nlong would it take for a boat  that travels half that fast with\r\nrespect to the river to travel the same distance downstream?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar6.html
+p = Problem.create!(filename: 'morevar6.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>A\r\n boat travels a certain distance downstream in 2 hours 55 minutes and \r\nthe same distance upstream in 3 hours and 45 minutes. How\r\nlong would it take for a boat  that travels half that fast with\r\nrespect to the river to travel the same distance downstream?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "5|15", interface: "[ ] hours and [ ] minutes. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3395,9 +3471,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nHere is the algebraic so
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the velocities of the boat and the river as unknowns. Write \r\nan equation using the fact that the boat traveled the same distance\r\nupstream and downstream.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar18.html
-p = Problem.create!(filename: 'morevar18.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nTwo race cars start at the same point of a 3 mile circuit\r\nand travel with constant speeds. If they travel in the same direction, they meet again in 9 minutes. If they travel in\r\nopposite directions, they  meet 27 seconds. What are the velocities\r\nof the cars, in miles per hour?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar18.html
+p = Problem.create!(filename: 'morevar18.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nTwo race cars start at the same point of a 3 mile circuit\r\nand travel with constant speeds. If they travel in the same direction, they meet again in 9 minutes. If they travel in\r\nopposite directions, they  meet 27 seconds. What are the velocities\r\nof the cars, in miles per hour?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "210|190", interface: "The velocity of the faster car is [ ] mph, the velocity of the slower car is [ ] mph. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3407,9 +3483,9 @@ s.hints.create!(text: "Work in miles per second, and use the velocities of the c
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Picture yourself how does the faster car catch up with the slower car when they travel in the same direction.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 4, source: "Examen de admitere, Deva, 1958")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar17.html
-p = Problem.create!(filename: 'morevar17.html', category: 'algebraic', context: 'morevar', text: "<p>Jerry told Mary: &ldquo;I have now twice the age that you had when I was your age, and when you will be my age, I will be missing 8 years to be twice your present age.&rdquo; How old are Jerry\r\nand Mary? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 4, source: "Examen de admitere, Deva, 1958")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar17.html
+p = Problem.create!(filename: 'morevar17.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>Jerry told Mary: &ldquo;I have now twice the age that you had when I was your age, and when you will be my age, I will be missing 8 years to be twice your present age.&rdquo; How old are Jerry\r\nand Mary? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "32|24", interface: "Jerry is [ ] years old, and Mary is [ ] years old. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3417,9 +3493,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) and \\(y\\) 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If Jerry is \\(x\\) years old and Mary is \\(y\\) years old, how old\r\nwas Mary when Jerry was as old as Mary is today? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 2, source: "Gheba, modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar10.html
-p = Problem.create!(filename: 'morevar10.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nIn two boxes there are balls. If we moved one ball from the first\r\nbox to the second, both would have the same number of balls. If\r\nwe moved two balls from the first box to the second, the first box would contain twice as many balls as the second. How many\r\nballs are in each? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 2, source: "Gheba, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar10.html
+p = Problem.create!(filename: 'morevar10.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nIn two boxes there are balls. If we moved one ball from the first\r\nbox to the second, both would have the same number of balls. If\r\nwe moved two balls from the first box to the second, the first box would contain twice as many balls as the second. How many\r\nballs are in each? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "10|8", interface: "In the first box there are [ ] balls, in the second there are [ ] balls. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3427,9 +3503,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the numbe
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If \\(x\\) is the number of balls in the first box and \\(y\\) is\r\nthe number of balls in the second box, how many balls are\r\nin the boxes after you move one ball from the first to the second?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 1, source: "judeteana Buzau, a VI-a, 1994, Apostol Constantin")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar13.html
-p = Problem.create!(filename: 'morevar13.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nThere are cherries and strawberries in a basket. If you\r\nadd 34 cherries and 20 strawberries, then the cherries\r\nmake up \\(\\frac{3}{7}\\) of the total amount. If you\r\ntake away 6 cherries and 3 strawberries, then the cherries\r\nmake up \\(\\frac{5}{16}\\) of the total amount. How many cherries\r\nand how many strawberries are there in the basket?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 1, source: "judeteana Buzau, a VI-a, 1994, Apostol Constantin")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar13.html
+p = Problem.create!(filename: 'morevar13.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nThere are cherries and strawberries in a basket. If you\r\nadd 34 cherries and 20 strawberries, then the cherries\r\nmake up \\(\\frac{3}{7}\\) of the total amount. If you\r\ntake away 6 cherries and 3 strawberries, then the cherries\r\nmake up \\(\\frac{5}{16}\\) of the total amount. How many cherries\r\nand how many strawberries are there in the basket?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "41|80", interface: "There are [ ] cherries and [ ] strawberries in the basket. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3437,9 +3513,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the numbe
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(x\\) be the number of\r\ncherries and \\(y\\) the number of strawberries. \r\nThe hypothesis of the problem gives the system of equations\r\n\\begin{alignat*}{1}\r\n\\frac{x+34}{x+y+34+20}&=\\frac{3}{7}\\\\\r\n\\frac{x-6}{x+y-6-3}&=\\frac{5}{16},\r\n\\end{alignat*}\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar23.html
-p = Problem.create!(filename: 'morevar23.html', category: 'algebraic', context: 'morevar', text: "<p> We divide a certain amount of money among several people.\r\nIf there were 6 more people, each would get 20 dollars less. If\r\nthere were 4 less people, each would get 30 dollars more. How much\r\nmoney is there to be divided?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar23.html
+p = Problem.create!(filename: 'morevar23.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p> We divide a certain amount of money among several people.\r\nIf there were 6 more people, each would get 20 dollars less. If\r\nthere were 4 less people, each would get 30 dollars more. How much\r\nmoney is there to be divided?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "720", interface: "The amount of money is [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3447,9 +3523,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nAlthough the problem onl
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use as unknowns the number of people and the amount of dollars each person gets. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 3, source: "Gheba, modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar15.html
-p = Problem.create!(filename: 'morevar15.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nThe ratio of the numbers of cattle in two ranches is \\(\\frac{5}{6}\\).  After the first ranch sold 1400 cows and the second 600, the\r\nratio of the numbers of cattle in those ranches has become \r\n\\(\\frac{2}{3}\\). How many cows are now left on each ranch? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 3, source: "Gheba, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar15.html
+p = Problem.create!(filename: 'morevar15.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nThe ratio of the numbers of cattle in two ranches is \\(\\frac{5}{6}\\).  After the first ranch sold 1400 cows and the second 600, the\r\nratio of the numbers of cattle in those ranches has become \r\n\\(\\frac{2}{3}\\). How many cows are now left on each ranch? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "3600|5400", interface: "The first ranch now has [ ] cows, the second ranch has [ ] cows. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3457,9 +3533,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) and \\(y\\) 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: " Let \\(x\\) and \\(y\\) be the number of cows that the ranches\r\nhave after the sale. Write the ratio of the numbers of cows\r\nbefore the sale, in terms of \\(x\\) and \\(y\\). \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 2, source: "Gheba")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar14.html
-p = Problem.create!(filename: 'morevar14.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nTwo rolls of the same fabric are worth first 238 dollars and the second\r\n182 dollars. If the price of a yard of fabric were reduced by\r\n2 dollars, the first piece would cost 48 dollars more than the\r\nsecond. How many yards\r\nhas each of the rolls?  What does one yard of fabric cost? \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 2, source: "Gheba")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar14.html
+p = Problem.create!(filename: 'morevar14.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nTwo rolls of the same fabric are worth first 238 dollars and the second\r\n182 dollars. If the price of a yard of fabric were reduced by\r\n2 dollars, the first piece would cost 48 dollars more than the\r\nsecond. How many yards\r\nhas each of the rolls?  What does one yard of fabric cost? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "17|13|14", interface: "The first roll has [ ] yards, the second roll has [ ] yards. One yard of fabric costs [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3475,9 +3551,9 @@ s.hints.create!(text: "You can also solve this using the single variable, which 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Write the cost of the two rolls after the price reduction in terms of the initial price of the fabric. \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 3, source: "Examen de admitere, Baia Mare, 1956")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar19.html
-p = Problem.create!(filename: 'morevar19.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nTwo bikers left at the same time one towards the other from\r\ntwo cities at a distance of 38 kilometers from each other. \r\nThe first biker traveled for an hour and a half, and then\r\nwaited for the second biker. The second biker arrived after\r\nhalf an hour. At some other time they also traveled towards\r\neach other on the same road, and after one hour and 15 minutes\r\nthe distance between them was 10.5 kilometers. What is\r\nthe traveling speed of each biker?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 3, source: "Examen de admitere, Baia Mare, 1956")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar19.html
+p = Problem.create!(filename: 'morevar19.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nTwo bikers left at the same time one towards the other from\r\ntwo cities at a distance of 38 kilometers from each other. \r\nThe first biker traveled for an hour and a half, and then\r\nwaited for the second biker. The second biker arrived after\r\nhalf an hour. At some other time they also traveled towards\r\neach other on the same road, and after one hour and 15 minutes\r\nthe distance between them was 10.5 kilometers. What is\r\nthe traveling speed of each biker?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "12|10", interface: "The traveling speed of the first biker is [ ] kilometers per hour, and the traveling speed of the second biker is [ ] kilometers per hour. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3485,9 +3561,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\) be the speed
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(x\\) be the speed of the first biker and \\(y\\) the speed of\r\nthe second biker (given in kilometers per hour). \r\nLook at the first trip. \r\nThe distance to the meeting point was traveled in 1.5 hours by\r\nthe first biker, so this biker traveled \\(1.5x\\) kilometers. \r\nThe second biker traveled the distance \\(38-1.5x\\) in 2 hours, and\r\nthis biker traveled with a speed of \\(y\\) kilometers per hour...\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 2, source: "Gheba")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar24.html
-p = Problem.create!(filename: 'morevar24.html', category: 'algebraic', context: 'morevar', text: "<p> A cargo plane is by 300 km/h slower than a passenger plane, and\r\n by 450 km/h slower than a military plane. \r\nTo travel the distance between two airports, the passenger\r\nplane needs 3 hours less than the cargo plane, and 1 hour more\r\nthan the military plane. What are the velocities of the three\r\nplanes?  \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 2, source: "Gheba")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar24.html
+p = Problem.create!(filename: 'morevar24.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p> A cargo plane is by 300 km/h slower than a passenger plane, and\r\n by 450 km/h slower than a military plane. \r\nTo travel the distance between two airports, the passenger\r\nplane needs 3 hours less than the cargo plane, and 1 hour more\r\nthan the military plane. What are the velocities of the three\r\nplanes?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "900|1200|1350", interface: "The velocity of the cargo plane is [ ] km/h, that of the passenger plane is [ ] km/h, and that of the military plane is [ ] km/h. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3495,9 +3571,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(v\\) be the veloc
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: " Use as unknowns the velocity of the cargo plane and the time it travels between the two airports.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 2, source: "Gheba, modified")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar21.html
-p = Problem.create!(filename: 'morevar21.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nLucy bought 10 apples, 15 pears, and 7 pineapples for $41. \r\nAnn bought 14 apples, 21 pears, and 5 peaches for $43. How\r\nmuch do 6 apples and 9 pears cost?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 2, source: "Gheba, modified")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar21.html
+p = Problem.create!(filename: 'morevar21.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nLucy bought 10 apples, 15 pears, and 7 pineapples for $41. \r\nAnn bought 14 apples, 21 pears, and 5 peaches for $43. How\r\nmuch do 6 apples and 9 pears cost?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "12", interface: "6 apples and 9 pears cost [ ] dollars. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3507,9 +3583,9 @@ s.hints.create!(text: "How many unknowns does the problem have?\r\n")
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the cost of 2 apples and 3 pears as one of the variables.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar26.html
-p = Problem.create!(filename: 'morevar26.html', category: 'algebraic', context: 'morevar', text: "<p> \r\nThe average age of the 7  people in a room is\r\n36 years. Two people left the room. Now the average age\r\nis 39 years. How old are   the people  who left the room if one\r\nis by 5 years older than the other?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar26.html
+p = Problem.create!(filename: 'morevar26.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p> \r\nThe average age of the 7  people in a room is\r\n36 years. Two people left the room. Now the average age\r\nis 39 years. How old are   the people  who left the room if one\r\nis by 5 years older than the other?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "31|26", interface: "The older person is [ ] years old, the younger is [ ] years old. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3517,9 +3593,9 @@ s = p.solutions.create!(typ: "algebraic", text: "Let \\(x\\) and \\(y\\) be the 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Let \\(x\\) and \\(y\\) be the ages of the people who left the\r\nroom, with \\(x\\) greater than \\(y\\), and let \\(z\\) be the\r\nsum of the ages of the people who are left in the room. \r\nWrite 3 equations involving \\(x,y,z\\). \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 3, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar2.html
-p = Problem.create!(filename: 'morevar2.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nThe Red, Yellow, and Blue parties took part in \r\nthe elections for a new parliament. After the first\r\nround of elections 120 seats remained unoccupied, \r\nwhile of the others\r\n\\(\\frac{1}{2}\\) went to the Red party, \\(\\frac{1}{3}\\) went to the\r\nYellow party, and the rest went to the Blue party.\r\nAfter the second round of elections the 120 seats\r\nwere distributed among the parties, and we know that exactly 30 of them went to the Red party. At the\r\nend of the election process \\(\\frac{5}{12}\\) of the total number of seats \r\nof the paliament belong\r\nto the Red party, \\(\\frac{1}{4}\\) of the seats belong to the\r\nYellow party, and the rest of the seats belong to\r\nthe Blue party. How many seats does each party occupy\r\nat the end of the elections?   \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 3, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar2.html
+p = Problem.create!(filename: 'morevar2.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nThe Red, Yellow, and Blue parties took part in \r\nthe elections for a new parliament. After the first\r\nround of elections 120 seats remained unoccupied, \r\nwhile of the others\r\n\\(\\frac{1}{2}\\) went to the Red party, \\(\\frac{1}{3}\\) went to the\r\nYellow party, and the rest went to the Blue party.\r\nAfter the second round of elections the 120 seats\r\nwere distributed among the parties, and we know that exactly 30 of them went to the Red party. At the\r\nend of the election process \\(\\frac{5}{12}\\) of the total number of seats \r\nof the paliament belong\r\nto the Red party, \\(\\frac{1}{4}\\) of the seats belong to the\r\nYellow party, and the rest of the seats belong to\r\nthe Blue party. How many seats does each party occupy\r\nat the end of the elections?   \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "150|90|120", interface: "The Red party occupies [ ] seats, the Yellow party occupies [ ] seats, the Blue party occupies [ ] seats. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3529,9 +3605,9 @@ s.hints.create!(text: "Use as unknowns the number of seats that Red, Yellow, and
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Write a system of two equations that has as the two unknowns  the number of seats occupied by\r\nthe Red party after the first round of elections and the total number of seats of the parliament\r\nthat were occupied after the first elections.  \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 6, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar22.html
-p = Problem.create!(filename: 'morevar22.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nA number of trucks must move a certain load in a\r\ncertain amount of time. If there were 2 trucks less,\r\nthe moving would end 2 hours after the scheduled time.\r\nIf there were 4 trucks more, the moving would end\r\n2 hours before the scheduled time. How many trucks and\r\nhours were\r\nplanned for the scheduled move. \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 6, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar22.html
+p = Problem.create!(filename: 'morevar22.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nA number of trucks must move a certain load in a\r\ncertain amount of time. If there were 2 trucks less,\r\nthe moving would end 2 hours after the scheduled time.\r\nIf there were 4 trucks more, the moving would end\r\n2 hours before the scheduled time. How many trucks and\r\nhours were\r\nplanned for the scheduled move. \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "8|6", interface: "There were [ ] trucks and [ ] hours planned. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3541,9 +3617,9 @@ s.hints.create!(text: "If \\(x\\) is the number of trucks, and \\(y\\) is the nu
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "If \\(x-2\\) is the number of trucks, and \\(y+2\\) is the number of scheduled hours, how long would it take for one truck to move the load? It is the same load!\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 3, source: "Gheba")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar12.html
-p = Problem.create!(filename: 'morevar12.html', category: 'algebraic', context: 'morevar', text: "<p>\r\nThe recipe for eclair states that, besides other ingredients,\r\none should use 100 grams of butter for every 125 grams of flour.\r\nThe recipe for banana bread states that, besides other ingredients, one should use 100 grams of butter for every\r\n300 grams of  flour. If you have 500 grams of flour and 232 grams\r\nof butter, as well as large amounts of the other ingredients,\r\nhow much of the butter and flour should be used for eclair, if you want to make both and use all butter and flour that you have?\r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 3, source: "Gheba")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar12.html
+p = Problem.create!(filename: 'morevar12.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>\r\nThe recipe for eclair states that, besides other ingredients,\r\none should use 100 grams of butter for every 125 grams of flour.\r\nThe recipe for banana bread states that, besides other ingredients, one should use 100 grams of butter for every\r\n300 grams of  flour. If you have 500 grams of flour and 232 grams\r\nof butter, as well as large amounts of the other ingredients,\r\nhow much of the butter and flour should be used for eclair, if you want to make both and use all butter and flour that you have?\r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "112|140", interface: "For eclair you should use [ ] grams of butter and [ ] grams of flour. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3551,9 +3627,9 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nLet \\(x\\)  and \\(y\\)
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: " Let \\(x\\)  and \\(y\\) be the amounts of butter and flour \r\n used for the eclair. What is the ratio between \\(x\\) and \\(y\\)? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 2, source: "source")
-#PROBLEM TUPLE FOR ./ALGEBRAIC/MOREVAR/morevar5.html
-p = Problem.create!(filename: 'morevar5.html', category: 'algebraic', context: 'morevar', text: "<p>The money of the country Miranda has only\r\nbills of denominations of $19 and $21. A person wants to buy \r\na laptop worth $359 at a vending machine that requires exact change. Can this be done?   \r\n</p>\r\n")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 2, source: "source")
+#PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/morevar5.html
+p = Problem.create!(filename: 'morevar5.html', curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', text: "<p>The money of the country Miranda has only\r\nbills of denominations of $19 and $21. A person wants to buy \r\na laptop worth $359 at a vending machine that requires exact change. Can this be done?   \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "0", interface: "Enter 1 for yes, 0 for no. The answer is [ ]. ")
 #SOLUTION TUPLE FOR PROBLEM P
@@ -3561,4 +3637,766 @@ s = p.solutions.create!(typ: "algebraic", text: "<p>\r\nIf  this were possible, 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Try to add a multiple of 21 and a multiple of 19 to get 359.\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(category: "lifetomath", context: "morevar", diff: 4, source: "source")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "algebraic", context: "morevar", diff: 4, source: "source")
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/FALSEHYP/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyptheory1.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyp8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyp3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyp4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyp5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyp12.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: true, category: 'home', order: 4, file_id: p.id)
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyptheory2.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 2, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyp6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyp7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyp9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyp11.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 3, file_id: p.id)
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyptheory3.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 4, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyp1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyp2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyp14.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'falsehyp13.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 3, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/CASETRY/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'casetrytheory1.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'casetry1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'casetry6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'casetry3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'casetry9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'casetry5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'casetry7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 5, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'casetry8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 6, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'casetry2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 7, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'casetry4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 8, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/BACKWARDS/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'backwardstheory1.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'backwards3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'backwards1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'backwardstheory2.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 2, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'backwards2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'backwards5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'backwards4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'backwards6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: true, category: 'home', order: 3, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/comparison/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'comparisontheory1.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 3, file_id: p.id)
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'comparisontheory2.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 3, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison10.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison11.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison12.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison13.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: true, category: 'home', order: 5, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison14.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'comparison15.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 1, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'proportionstheory1.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions22.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'proportionstheory2.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 2, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions10.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions12.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 2, file_id: p.id)
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'proportionstheory3.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 4, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 2, file_id: p.id)
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'proportionstheory4.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 6, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions14.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions15.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions23.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 4, file_id: p.id)
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'proportionstheory5.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 8, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions16.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions17.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions18.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions19.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions20.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions21.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 5, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'proportions24.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 6, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/NUMERICAL/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'numericaltheory.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'numerical4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'numerical2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'numerical3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'numerical5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: true, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'numerical1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'numerical6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: true, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'numerical7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'numerical8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/GRAPHICAL/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'graphicaltheory1.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'graphical1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'graphical4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'graphicaltheory2.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 2, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'graphical2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'graphical3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'graphicaltheory3.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 4, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'graphical5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'graphical6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 1, file_id: p.id)
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'graphicaltheory4.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 6, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'graphical7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'graphical8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 1, file_id: p.id)
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'graphicaltheory5.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 8, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'graphical9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'graphical10.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'graphical11.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 2, file_id: p.id)
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'graphicaltheory6.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 10, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'graphical12.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 11, makeup: false, category: 'home', order: 0, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/LIQUIDS/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'liquidtheory.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid13.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid15.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: true, category: 'home', order: 5, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid17.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid18.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid14.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid10.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid11.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'liquid16.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 0, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'quantitytheory.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity21.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity22.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: true, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity11.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity12.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity14.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity28.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: true, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity10.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity27.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity19.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity24.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: true, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity26.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity25.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity23.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity17.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity16.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity20.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'quantity18.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 3, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MOTION/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'motiontheory.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion26.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: true, category: 'home', order: 5, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion10.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion14.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion27.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion21.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion32.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion33.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion28.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: true, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion11.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion12.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion30.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion20.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion13.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion29.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion15.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion16.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion17.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion18.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion19.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion31.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: true, category: 'home', order: 5, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion22.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 8, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion23.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 8, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion24.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 8, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion34.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 8, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion35.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 8, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'motion25.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 8, makeup: false, category: 'home', order: 5, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/PERCENTAGES/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'percentagetheory.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage26.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: true, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage34.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: true, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage35.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage27.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: true, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage14.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage31.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage20.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage28.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: true, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage17.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage10.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage11.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage12.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage13.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage29.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: true, category: 'home', order: 5, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage18.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage19.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage21.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage32.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage33.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage30.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: true, category: 'home', order: 5, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage15.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage16.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage22.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage25.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'percentage24.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: true, category: 'home', order: 4, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/MONEY/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'moneytheory.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money20.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: true, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money21.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money22.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money23.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money24.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: true, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money10.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money28.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money11.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 8, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money25.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 8, makeup: true, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money12.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money13.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money14.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money26.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: true, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money27.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 10, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money19.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 10, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money16.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 10, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money17.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 10, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'money18.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 10, makeup: false, category: 'home', order: 4, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/TIME/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'timetheory.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time13.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time18.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time14.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: true, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time19.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time20.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time15.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 7, makeup: true, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time17.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 8, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time10.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 8, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time11.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 8, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time12.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 8, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time16.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 8, makeup: true, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'time21.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 9, makeup: false, category: 'home', order: 0, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'averagetheory.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average12.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average10.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: true, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average14.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average13.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: true, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average11.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'average15.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: true, category: 'home', order: 2, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/ONEVAR/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'onevartheory1.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'onevartheory2.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 1, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar23.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar12.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar19.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar25.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar18.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar22.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: true, category: 'home', order: 5, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar14.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar20.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar21.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar15.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: true, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar16.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar26.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar10.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar11.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 5, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar17.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: true, category: 'home', order: 6, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar13.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'onevar24.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 2, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/CANCEL/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'canceltheory.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel14.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel15.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: true, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel13.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel17.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 5, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel16.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: true, category: 'home', order: 6, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel10.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel12.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'cancel11.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 4, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/ALGEBRAIC/MOREVAR/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'morevartheory1.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'morevartheory2.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 1, category: 'home')
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar10.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar3.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar8.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar11.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar21.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar16.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 1, makeup: true, category: 'home', order: 5, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar6.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar7.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar9.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar18.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar20.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: false, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar19.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 2, makeup: true, category: 'home', order: 5, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar14.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar12.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar15.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 3, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar4.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar25.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar26.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar2.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: false, category: 'home', order: 3, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar13.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 4, makeup: true, category: 'home', order: 4, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar22.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar24.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar23.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 5, makeup: true, category: 'home', order: 2, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar17.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 0, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar5.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 1, file_id: p.id)
+p = Problem.find_by!(category: 'home', context: 'lancaster', filename: 'morevar1.html')
+Graph.create!(typ: 'prob', context: 'lancaster', batch: 6, makeup: false, category: 'home', order: 2, file_id: p.id)
+#GRAPH TUPLES FROM /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/INTRODUCTION/EXAMPLES/graph.txt
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'exampletheory1.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 0, category: 'home')
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'exampletheory2.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 1, category: 'home')
+t = Theory.find_by!(category: 'home', context: 'lancaster', filename: 'exampletheory3.html')
+Graph.create!(typ: 'theory', context: 'lancaster', batch: 0, file_id: t.id, makeup: false, order: 2, category: 'home')
+Globalgraph.create!(curriculum: 'lifetomath', category: 'introduction', context: 'category_introduction', category_order: 0, context_order: 0)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'introduction', context: 'examples', category_order: 0, context_order: 1)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'methods', context: 'category_introduction', category_order: 1, context_order: 0)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'methods', context: 'numerical', category_order: 1, context_order: 1)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'methods', context: 'graphical', category_order: 1, context_order: 2)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'methods', context: 'comparison', category_order: 1, context_order: 3)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'methods', context: 'proportions', category_order: 1, context_order: 4)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'methods', context: 'backwards', category_order: 1, context_order: 5)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'methods', context: 'falsehyp', category_order: 1, context_order: 6)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'methods', context: 'casetry', category_order: 1, context_order: 7)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'applications', context: 'category_introduction', category_order: 2, context_order: 0)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'applications', context: 'quantities', category_order: 2, context_order: 1)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'applications', context: 'money', category_order: 2, context_order: 2)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'applications', context: 'time', category_order: 2, context_order: 3)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'applications', context: 'motion', category_order: 2, context_order: 4)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'applications', context: 'percentages', category_order: 2, context_order: 5)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'applications', context: 'liquids', category_order: 2, context_order: 6)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'applications', context: 'average', category_order: 2, context_order: 7)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'algebraic', context: 'category_introduction', category_order: 3, context_order: 0)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'algebraic', context: 'onevar', category_order: 3, context_order: 1)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'algebraic', context: 'morevar', category_order: 3, context_order: 2)
+Globalgraph.create!(curriculum: 'lifetomath', category: 'algebraic', context: 'cancel', category_order: 3, context_order: 3)
