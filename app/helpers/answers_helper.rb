@@ -1,6 +1,20 @@
 module AnswersHelper
   # NOTE inspired by Robert Cranfill's ma/app/helpers.php
 
+  # returns a line of number(s) surrounded by individual html tags
+  def answer_list(answers, alphaIndex)
+    html = ""
+    if answers.empty?
+      return "None entered!"
+    end
+    i = 0
+    answers.each do |answer|
+      html += "<var id=#{alphaIndex}_#{i}>#{answer}</var> &nbsp"
+      i += 1
+    end
+    return html
+  end
+
   # returns a list of seen hints ids for a problem for current_user
   def users_hints(problem_id, solution_id = nil)
     SeenHint.hints_id(current_user.id, problem_id, solution_id)

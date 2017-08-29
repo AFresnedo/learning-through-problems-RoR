@@ -1,11 +1,14 @@
 class AnswersController < ApplicationController
   before_action :problem_unlocked
+  before_action :correct_number_answers, only: :evaluate
+  # TODO bug where refreshing "results" page says not unlocked
 
   # displays problem-to-answer page (problem, hint(s), answer_interface)
   def problem
     @problem = Problem.find_by_id(params[:id])
   end
 
+  # TODO ajax
   # unlocks next hint for current_user
   def get_hint
     @problem = Problem.find(params[:id])
@@ -15,7 +18,6 @@ class AnswersController < ApplicationController
                      solution_id: params[:solution_id],
                      hint_id: hint.id,
                      typ: params[:typ])
-    # TODO figure out how to use render w/o showing parameters
     redirect_to solve_path(id: params[:id])
   end
 
@@ -91,7 +93,9 @@ class AnswersController < ApplicationController
     def process_user_answers
       userAnswers = []
       params.to_unsafe_h[:ans].each do |answer, value|
-        userAnswers << value
+        unless value.blank?
+          userAnswers << value
+        end
       end
       return userAnswers
     end
@@ -108,6 +112,14 @@ class AnswersController < ApplicationController
           flash[:danger] = "You have not unlocked that problem."
         end
         redirect_to root_path
+      end
+    end
+
+    def correct_number_answers
+      problem = Problem.find(params[:id])
+      unless problem.answer.check_amount(process_user_answers)
+        flash[:danger] = "Please fill in all boxes."
+        redirect_to solve_path(params[:id])
       end
     end
 end

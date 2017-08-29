@@ -1,4 +1,5 @@
 <h3>Results</h3>
+<% answer = @problem.answer %>
 <% graph = Graph.find_by(file_id: @problem.id, typ: 'prob') %>
 <% makeup = graph.makeup %>
 <% metadata = @problem.metadata %>
@@ -6,9 +7,11 @@
 
 <div class="well"><%== @problem.text %></div>
 <h4>Expected Answers:</h4>
-<p id='ea'><%= @problem.answer.answers %></p>
+<div class="well">
+<p><%== answer_list(answer.answers, 'a') %></p>
 <h4>Your Answers:</h4>
-<p id='ua'><%= @userAnswers %></p>
+<p><%== answer_list(@userAnswers, 'b') %></p>
+</div>
 <% @problem.solutions.each do |solution| %>
   <h3>A Solution</h3>
   <div class="well">
@@ -60,5 +63,5 @@
 <p><%= link_to "Back to Contexts", resume_path(curriculum: @problem.curriculum) %></p>
 
 <script>
-  highlightAnswers()
+highlightAnswers('a','b', <%= @userAnswers.length %>)
 </script>

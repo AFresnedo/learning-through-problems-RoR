@@ -1,5 +1,7 @@
 user input for answers:
     -not a float, cut off unrounded at 2 decimals
+    -do not accept evaluate unless all boxes filled
+        -if user answer is less than interface answer: reject, flash, re-draw
 
 markers controller:
     -the html list is unordered in curriculum_resume

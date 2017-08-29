@@ -8,6 +8,11 @@ class Answer < ApplicationRecord
     self.values.split('|')
   end
 
+  def check_amount(userAnswerList)
+    ans = self.answers
+    userAnswerList.length == ans.length
+  end
+
   # takes a hash of user parameters (answers) from answers controller
   # returns a list containing true/false followed by index of correct answers
   def evaluate_hash(userAnswerHash)
