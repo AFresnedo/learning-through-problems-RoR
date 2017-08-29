@@ -1,3 +1,4 @@
+<% metadata = @problem.metadata %>
 <h3>Problem Data</h3>
 <p><%= @problem.filename %></p>
 <hr>
@@ -24,9 +25,9 @@
 <hr>
 <h4>Details</h4>
 <ul>
-  <li>Curriculum: <em><%= @problem.metadata.category %></em></li>
-  <li>Category: <em><%= @problem.category %></em></li>
-  <li>Context: <em><%= @problem.context %></em></li>
-  <li>Difficulty: <em><%= @problem.metadata.diff %></em></li>
-  <li>Source: <em><%= @problem.metadata.source %></em></li>
+  <li>Curriculum: <em><%= metadata.curriculum %></em></li>
+  <li>Category: <em><%= metadata.category %></em></li>
+  <li>Context: <em><%= metadata.context %></em></li>
+  <li>Difficulty: <em><%= metadata.diff %></em></li>
+  <li>Source: <em><%= metadata.source %></em></li>
 </ul>
