@@ -27,22 +27,24 @@
   <% end %>
   </ol>
 <% end %>
-<br>
-<% if makeup %>
-  <h3>Score for this makeup problem (reduced worth):</h3>
-<% else %>
-  <h3>Score for this problem:</h3>
-<% end %>
-<p><b>Total:</b> <%= score.score %></p>
-<p><%= @feedback %></p>
-<h3>Your Cumulative Scores</h3>
-<ul>
-<li>Context: <%= Score.context_score(current_user.id, @problem.context) %></li>
-  <li>Category: <%= Score.category_score(current_user.id, @problem.category) %></li>
-  <li>Curriculum: <%= Score.curriculum_score(current_user.id, @problem.curriculum) %></li>
-  <li>Everything: <%= Score.total_score(current_user.id) %></li>
-</ul>
-<br>
+<div class="well">
+  <% if makeup %>
+    <h3>Score for this makeup problem (reduced worth):</h3>
+  <% else %>
+    <h3>Score for this problem:</h3>
+  <% end %>
+  <p><b>Total:</b> <%= score.score %></p>
+  <p><%= @feedback %></p>
+</div>
+<div class="well">
+  <h3>Your Cumulative Scores</h3>
+  <ul>
+    <li>Context: <%= Score.context_score(current_user.id, @problem.context) %></li>
+    <li>Category: <%= Score.category_score(current_user.id, @problem.category) %></li>
+    <li>Curriculum: <%= Score.curriculum_score(current_user.id, @problem.curriculum) %></li>
+    <li>Everything: <%= Score.total_score(current_user.id) %></li>
+  </ul>
+</div>
 <%# TODO the following problem details should be a partial %>
 <h4>Problem details:</h4>
 <p><b>Curriculum: &nbsp</b>
