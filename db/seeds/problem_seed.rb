@@ -2745,7 +2745,7 @@ s.hints.create!(text: "How many centimeters is the new member over the average. 
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "On the average, how many centimeters should each of the other people receive?\r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "means", diff: 2, source: "source")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "average", diff: 2, source: "source")
 #PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/AVERAGE/average13.html
 p = Problem.create!(filename: 'average13.html', curriculum: 'lifetomath', category: 'applications', context: 'average', text: "<p>\r\nYou fill completely a tank with  40 liters of water at 60 &#x2103; and\r\nsome unknown quantity of water at 20  &#x2103;, and the water\r\nin the tank now has 28 &#x2103;. How big is the tank? \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
