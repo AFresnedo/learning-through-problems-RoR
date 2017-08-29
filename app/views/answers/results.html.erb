@@ -1,10 +1,10 @@
+<h3>Results</h3>
 <% graph = Graph.find_by(file_id: @problem.id, typ: 'prob') %>
 <% makeup = graph.makeup %>
 <% metadata = @problem.metadata %>
 <% score = Score.find_by(user_id: current_user.id, problem_id: @problem.id) %>
 
-<%== @problem.text %>
-<br>
+<div class="well"><%== @problem.text %></div>
 <h3>Expected Answers:</h3>
 <%= @problem.answer.answers %>
 <br>
@@ -13,11 +13,13 @@
 <br>
 <% @problem.solutions.each do |solution| %>
   <h3>A Solution</h3>
-  <b><%= "Type of solution: " %></b>
-  <em><%= solution.typ %></em>
-  <br>
-  <br>
-  <%== solution.text %>
+  <div class="well">
+    <b><%= "Type of solution: " %></b>
+    <em><%= solution.typ %></em>
+    <br>
+    <br>
+    <%== solution.text %>
+  </div>
   <h4>Hints that were related to this solution:</h4>
   <ol>
   <% solution.hints.each do |hint| %>
@@ -55,4 +57,4 @@
 <em><%= metadata.source %></em></p>
 
 <p><%= link_to "Next", next_path(context: @problem.context) %></p>
-<p><%= link_to "Back to Contexts", resume_path(curriculum: metadata.category) %></p>
+<p><%= link_to "Back to Contexts", resume_path(curriculum: @problem.curriculum) %></p>

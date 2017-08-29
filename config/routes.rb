@@ -33,11 +33,6 @@ Rails.application.routes.draw do
   post '/solve/evaluate', to: 'answers#evaluate'
   post '/solve/:id', to: 'answers#get_hint', as: 'get_hint'
 
-  # scores
-  # TODO redesign to get results without taking (too many) params
-  # options maybe could be "pretty" wrapped params by a JSON obj or something
-  get '/results', to: 'scores#results'
-
   # problems
   resources :problems, except: [:new, :create]
 

@@ -22,9 +22,9 @@ class AnswersController < ApplicationController
   # TODO refactor into models?
   # submits user's answers for problem
   def evaluate
-    # get problem, and therefore its answers
-    prob = Problem.find(params[:id])
-    makeup = Graph.find_by(file_id: prob.id, typ: 'prob').makeup
+    # get @problemlem, and therefore its answers
+    @problem = Problem.find(params[:id])
+    makeup = Graph.find_by(file_id: @problem.id, typ: 'prob').makeup
     if makeup
       penalty = SCORES_PER_MAKEUP
     else
@@ -32,32 +32,36 @@ class AnswersController < ApplicationController
     end
     # process user answers, not standard parameter so its needed
     userAnswers = process_user_answers
-    # results[0] is bool, results[1..-1] are indicies
-    results = prob.answer.evaluate_list(userAnswers)
-    score = Score.find_by(user_id: current_user.id, problem_id: prob.id)
+    # following returns: results[0] is bool, results[1..-1] are indicies
+    results = @problem.answer.evaluate_list(userAnswers)
+    # mark @problem as answered
+    score = Score.find_by(user_id: current_user.id, problem_id: @problem.id)
     score.update_attribute(:ip, false)
-    # get amount of hints seen by user for this problem
-    hint_count = SeenHint.hints_count(current_user.id, prob.id)
-    feedback = ""
+    # get amount of hints seen by user for this @problem
+    hint_count = SeenHint.hints_count(current_user.id, @problem.id)
+    @feedback = ""
+    # create @feedback based on how many hints were requested and correctness
+    # if correct
     if results[0] == true
       if (hint_count > penalty.length) or (penalty[hint_count] == 0)
         # answers correct but too many hints asked for
         score.update_attribute(:score, 0)
-        feedback = "Too many hints requested to reward any points."
+        @feedback = "Too many hints requested to reward any points."
       else
         # answers correct and score awarded
         score.update_attribute(:score, penalty[hint_count])
-        feedback = "Your answer was correct."
-        feedback += " #{hint_count.to_s} hint(s) were requested."
-        feedback += " You were deducted "
-        feedback += " #{(penalty[0]-penalty[hint_count]).to_s} point(s)."
+        @feedback = "Your answer was correct."
+        @feedback += " #{hint_count.to_s} hint(s) were requested."
+        @feedback += " You were deducted "
+        @feedback += " #{(penalty[0]-penalty[hint_count]).to_s} point(s)."
       end
+    # else incorrect
     else
       # at least one incorrect answer
-      # TODO if giving partial credit, change here or in Answers.evaluate_hash
+      # NOTE if giving partial credit, change here or in Answers.evaluate_hash
       score.update_attribute(:score, 0)
       incorrect_indicies = results[1..-1]
-      expected_answers = prob.answer.answers
+      expected_answers = @problem.answer.answers
       correct_answers = []
       incorrect_answers = []
       for i in 1..expected_answers.length do
@@ -67,26 +71,16 @@ class AnswersController < ApplicationController
           correct_answers << expected_answers[i-1]
         end
       end
-      feedback = "These answer(s) were correct: #{correct_answers}"
-      feedback += " and these answer(s) were missed: #{incorrect_answers}."
-      feedback += " Since all answers were not correct,"
-      feedback += " you missed #{penalty[0]} points."
+      @feedback = "These answer(s) were correct: #{correct_answers}"
+      @feedback += " and these answer(s) were missed: #{incorrect_answers}."
+      @feedback += " Since all answers were not correct,"
+      @feedback += " you missed #{penalty[0]} points."
     end
     # move user's progression
-    # TODO update for curriculum name
-    marker = current_user.markers.find_by(curriculum: 'lifetomath')
-    marker.set_next_problem(prob.id)
-    # TODO redirect_to results_path, part of scores controller
-    newestScore = Score.where(user_id: current_user.id, ip: true).order(:updated_at).last
-    if score == newestScore
-      flash[:warning] = "No problems remain in context."
-    end
-    # TODO error, cannot post (breaks html convention), instead look to
-    # redirect to results page and have results grab this info
-    # NOTE of course it does lol, the data must be somewhere, in this case its
-    # in the url
-    redirect_to results_path(id: prob.id, ans: userAnswers,
-                             feedback: feedback)
+    marker = current_user.markers.find_by(curriculum: @problem.curriculum)
+    marker.set_next_problem(@problem.id)
+    # render results page
+    render 'results'
   end
 
   private
