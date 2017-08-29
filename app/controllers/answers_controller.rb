@@ -24,16 +24,17 @@ class AnswersController < ApplicationController
   def evaluate
     # get @problemlem, and therefore its answers
     @problem = Problem.find(params[:id])
+    # determine if problem is makeup, assign hint penalty
     makeup = Graph.find_by(file_id: @problem.id, typ: 'prob').makeup
     if makeup
       penalty = SCORES_PER_MAKEUP
     else
       penalty = SCORES_PER_PROBLEM
     end
-    # process user answers, not standard parameter so its needed
-    userAnswers = process_user_answers
-    # following returns: results[0] is bool, results[1..-1] are indicies
-    results = @problem.answer.evaluate_list(userAnswers)
+    # process user answer (non-standard parameters: so its needed)
+    @userAnswers = process_user_answers
+    # answer.evaluate_list returns: results[0] as bool, results[1..-1] as indicies
+    results = @problem.answer.evaluate_list(@userAnswers)
     # mark @problem as answered
     score = Score.find_by(user_id: current_user.id, problem_id: @problem.id)
     score.update_attribute(:ip, false)

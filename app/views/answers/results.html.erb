@@ -5,11 +5,11 @@
 <% score = Score.find_by(user_id: current_user.id, problem_id: @problem.id) %>
 
 <div class="well"><%== @problem.text %></div>
-<h3>Expected Answers:</h3>
+<h4>Expected Answers:</h4>
 <%= @problem.answer.answers %>
 <br>
-<h3>Your Answers:</h3>
-<%= @user_answers %>
+<h4>Your Answers:</h4>
+<%= @userAnswers %>
 <br>
 <% @problem.solutions.each do |solution| %>
   <h3>A Solution</h3>

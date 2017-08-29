@@ -102,23 +102,21 @@ class Marker < ApplicationRecord
   end
 
     # TODO replace DB get with passing parameters, refactor & test
-    # fix curriculum source?
     def set_unlocked_theory(id)
       theory = Theory.find(id)
       user.unlocked_theories.create!(theory_id: id,
-                                     curriculum: self.curriculum,
+                                     curriculum: theory.curriculum,
                                      category: theory.category,
                                      context: theory.context,
                                      seen: false)
     end
 
     # TODO replace DB get with passing parameters, refactor & test
-    # fix curriculum source?
     def set_new_problem(id)
       prob = Problem.find(id)
       batchNum = Graph.find_by(file_id: id, typ: 'prob').batch
       user.scores.create!(problem_id: id, ip: true,
-                          curriculum: self.curriculum,
+                          curriculum: prob.curriculum,
                           category: prob.category,
                           context: prob.context,
                           batch: batchNum)
@@ -129,7 +127,7 @@ class Marker < ApplicationRecord
       prob = Problem.find(id)
       batchNum = Graph.find_by(file_id: id, typ: 'prob').batch
       user.scores.create!(problem_id: id, ip: false,
-                          curriculum: self.curriculum,
+                          curriculum: prob.curriculum,
                           category: prob.category,
                           context: prob.context,
                           score: 0,
