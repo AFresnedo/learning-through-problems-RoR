@@ -1,3 +1,6 @@
+user input for answers:
+    -not a float, cut off unrounded at 2 decimals
+
 markers controller:
     -the html list is unordered in curriculum_resume
         -didn't fix that now because it might need to be re-designed

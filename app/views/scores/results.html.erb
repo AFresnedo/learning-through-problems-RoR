@@ -37,18 +37,18 @@
 <ul>
 <li>Context: <%= Score.context_score(current_user.id, @problem.context) %></li>
   <li>Category: <%= Score.category_score(current_user.id, @problem.category) %></li>
-  <li>Curriculum: <%= Score.curriculum_score(current_user.id, metadata.category) %></li>
+  <li>Curriculum: <%= Score.curriculum_score(current_user.id, @problem.curriculum) %></li>
   <li>Everything: <%= Score.total_score(current_user.id) %></li>
 </ul>
 <br>
 <%# TODO the following problem details should be a partial %>
 <h4>Problem details:</h4>
 <p><b>Curriculum: &nbsp</b>
-<em><%= metadata.category %></em></p>
+<em><%= metadata.curriculum %></em></p>
 <p><b>Category: &nbsp</b>
-<em><%= @problem.category %></em></p>
+<em><%= metadata.category %></em></p>
 <p><b>Context: &nbsp</b>
-<em><%= @problem.context %></em></p>
+<em><%= metadata.context %></em></p>
 <p><b>Difficulty: &nbsp</b>
 <em><%= metadata.diff %></em></p>
 <p><b>Source: &nbsp</b>
