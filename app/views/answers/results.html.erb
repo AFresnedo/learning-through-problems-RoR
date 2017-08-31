@@ -1,44 +1,57 @@
-<h3>Results</h3>
+<%# NOTE variables, for clarity and reducing DB hits %>
 <% answer = @problem.answer %>
 <% graph = Graph.find_by(file_id: @problem.id, typ: 'prob') %>
 <% makeup = graph.makeup %>
 <% metadata = @problem.metadata %>
 <% score = Score.find_by(user_id: current_user.id, problem_id: @problem.id) %>
 
-<div class="well"><%== @problem.text %></div>
+<%# problem statement %>
+<h3>Problem</h3>
 <div class="well">
-  <h4>Expected Answer(s):</h4>
-  <p><%== answer_list(answer.answers, 'a') %></p>
-  <h4>Your Answer(s):</h4>
-  <p><%== answer_list(@userAnswers, 'b') %></p>
+  <%== @problem.text %>
 </div>
+<%# value comparison, so student knows how they fared before seeing solution %>
+<div class="well">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h4>Expected:</h4>
+        <p><%== answer_list(answer.answers, 'a') %></p>
+      </div>
+      <div class="col-sm-6">
+        <h4>Given:</h4>
+        <p><%== answer_list(@userAnswers, 'b') %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<%# print solution+hint(s) combo(s) %>
+<h3>Solution(s)</h3>
 <% @problem.solutions.each do |solution| %>
-  <h3>A Solution</h3>
   <div class="well">
     <b><%= "Type of solution: " %></b>
     <em><%= solution.typ %></em>
     <br>
     <br>
     <%== solution.text %>
+    <br>
+    <br>
+    <h4>Hints related to this solution:</h4>
+    <ol>
+      <% solution.hints.each do |hint| %>
+        <li><%== hint.text %></li>
+      <% end %>
+    </ol>
   </div>
-  <h4>Hints that were related to this solution:</h4>
-  <ol>
-  <% solution.hints.each do |hint| %>
-    <li><%== hint.text %></li>
-  <% end %>
-  </ol>
 <% end %>
+<h3>Scores</h3>
 <div class="well">
   <% if makeup %>
-    <h3>Score for this makeup problem (reduced worth):</h3>
+    <p><b>Makeup problem:</b> <%= score.score %></p>
   <% else %>
-    <h3>Score for this problem:</h3>
+    <p><b>Required problem:</b> <%= score.score %></p>
   <% end %>
-  <p><b>Total:</b> <%= score.score %></p>
   <p><%= @feedback %></p>
-</div>
-<div class="well">
-  <h3>Your Cumulative Scores</h3>
   <ul>
     <li>Context: <%= Score.context_score(current_user.id, @problem.context) %></li>
     <li>Category: <%= Score.category_score(current_user.id, @problem.category) %></li>
