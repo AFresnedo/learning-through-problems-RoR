@@ -118,7 +118,7 @@ class AnswersController < ApplicationController
     def correct_number_answers
       problem = Problem.find(params[:id])
       unless problem.answer.check_amount(process_user_answers)
-        flash[:danger] = "Please fill in all boxes."
+        flash[:danger] = "Your answer was not complete."
         redirect_to solve_path(params[:id])
       end
     end
