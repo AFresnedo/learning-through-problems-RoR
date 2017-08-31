@@ -23,7 +23,7 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  # serve static files from /public, if not using Apache or NGINX
+  # have rails serve static files from /public, if not using Apache or NGINX
   # config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
