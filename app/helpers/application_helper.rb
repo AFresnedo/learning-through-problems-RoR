@@ -26,6 +26,6 @@ module ApplicationHelper
   end
 
   def user_is_self user
-    user.id == session[:user_id]
+    user.id == current_user.id
   end
 end

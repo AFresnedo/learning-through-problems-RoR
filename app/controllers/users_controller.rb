@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :least_user, only: [:edit, :update, :index]
-  before_action :restrict_to_self, only: :update
+  before_action :least_user, only: [:edit, :update]
+  before_action :restrict_to_self, only: [:update, :history]
   before_action :restrict_to_admin, only: :destroy
+  before_action :least_teacher, only: :index
   # profile page for a single user
   def show
     @user = User.find(params[:id])

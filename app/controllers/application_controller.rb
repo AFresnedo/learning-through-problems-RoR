@@ -18,8 +18,9 @@ class ApplicationController < ActionController::Base
 
     # TODO determine performance cost of fetching current_user
     def restrict_to_self
-      unless user_is_self(current_user)
-        flash[:danger] = "You have been identified as the wrong user."
+      unknown_user = User.find(params[:id])
+      unless user_is_self(unknown_user)
+        flash[:danger] = "That page belongs to another user."
         redirect_to root_url
       end
     end
