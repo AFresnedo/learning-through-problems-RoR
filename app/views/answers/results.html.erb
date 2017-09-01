@@ -1,3 +1,7 @@
+<%# mathjax cdn, minimal config tex->html %>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML">
+</script>
 <%# NOTE variables, for clarity and reducing DB hits %>
 <% answer = @problem.answer %>
 <% graph = Graph.find_by(file_id: @problem.id, typ: 'prob') %>
@@ -105,4 +109,7 @@
 
 <script>
 highlightAnswers('a','b', <%= @userAnswers.length %>)
+</script>
+<script>
+MathJax.Hub.Typeset();
 </script>

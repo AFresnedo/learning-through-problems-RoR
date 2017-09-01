@@ -1,3 +1,6 @@
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML">
+</script>
 <%# NOTE inspired by Robert Cranfill's ma/resources/views/answer/test.blade.php %>
 <%# TODO determine what should be partials (obvious sections: problem, hint, %>
 <%# answer) %>
@@ -87,3 +90,7 @@
       <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
       <%= submit_tag "Evaluate", class: "btn btn-primary" %>
   <% end %>
+<%# temporary hack to get mathjax to typeset the page after page loaded %>
+<script>
+MathJax.Hub.Typeset();
+</script>

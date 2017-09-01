@@ -1,3 +1,6 @@
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML">
+</script>
 <% metadata = @problem.metadata %>
 <h3>Problem Data</h3>
 <p><%= @problem.filename %></p>
@@ -31,3 +34,6 @@
   <li>Difficulty: <em><%= metadata.diff %></em></li>
   <li>Source: <em><%= metadata.source %></em></li>
 </ul>
+<script>
+MathJax.Hub.Typeset();
+</script>

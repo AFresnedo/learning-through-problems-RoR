@@ -1,3 +1,6 @@
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML">
+</script>
 <%# TODO pretty name %>
 <% provide(:title, "#{@theory.filename}") %>
 
@@ -12,3 +15,7 @@
 <% else %>
   <em> <%= link_to "Curriculum", start_path %></em>
 <% end %>
+<%# temporary hack to get mathjax to typeset the page after page loaded %>
+<script>
+MathJax.Hub.Typeset();
+</script>
