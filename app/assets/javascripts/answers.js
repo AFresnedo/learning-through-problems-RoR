@@ -11,9 +11,9 @@ function highlightAnswers(expectedAlpha, userAlpha, numAnswers) {
   }
 }
 
-function cummulative_scores() {
+function cumulative_scores() {
   // get eleemnt
-  var dropListInput = document.getElementById('cummulative_scores');
+  var dropListInput = document.getElementById('cumulative_scores');
   var scope = dropListInput.options[dropListInput.selectedIndex].text;
   switch (scope) {
     case 'Context':
