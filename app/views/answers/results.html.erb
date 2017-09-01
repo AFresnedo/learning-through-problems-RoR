@@ -52,12 +52,32 @@
     <p><b>Points awarded:</b> <%= score.score %></p>
   <% end %>
   <p><%= @feedback %></p>
-  <ul>
-    <li>Context: <%= Score.context_score(current_user.id, @problem.context) %></li>
-    <li>Category: <%= Score.category_score(current_user.id, @problem.category) %></li>
-    <li>Curriculum: <%= Score.curriculum_score(current_user.id, @problem.curriculum) %></li>
-    <li>Everything: <%= Score.total_score(current_user.id) %></li>
-  </ul>
+</div>
+<div class="well">
+  <%# TODO hide these html elements and label them? %>
+  <% Score.context_score(current_user.id, @problem.context) %>
+  <% Score.category_score(current_user.id, @problem.category) %>
+  <% Score.curriculum_score(current_user.id, @problem.curriculum) %>
+  <% Score.total_score(current_user.id) %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+          <div class="form-group">
+            <label for="cummulative_scores">Your Cummulative Scores:</label>
+            <select class="form-control" id="cummulative_scores"
+              onchange="cummulative_scores()">
+              <option value="context">Context</option>
+              <option value="category">Category</option>
+              <option value="curriculum">Curriculum</option>
+              <option value="everything">Everything</option>
+            </select>
+          </div>
+      </div>
+      <div class="col-sm-8">
+        <p id="to_enter">Here your scores are written.</p>
+      </div>
+    </div>
+  </div>
 </div>
 <%# TODO the following problem details should be a partial %>
 <div class="well">

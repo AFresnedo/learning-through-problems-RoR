@@ -1,3 +1,6 @@
+results page:
+    -bootstrap collapsables? like for solutions or hints?
+
 user input for answers:
     -not a float, cut off unrounded at 2 decimals
     -do not accept evaluate unless all boxes filled
