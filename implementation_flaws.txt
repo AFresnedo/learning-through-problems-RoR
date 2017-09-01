@@ -8,4 +8,3 @@ a retrieved association (like scores = Score.all; scores.where does a DB call)
     -eager loading can be used in cases such as "for each" (instead of loading
     at every .each you can load 100 records first or something)
         -lazy loading and .each are a bad combo
-    -doesn't look like "find" re-runs the sql statement, confirm though

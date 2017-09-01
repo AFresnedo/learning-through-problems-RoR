@@ -1,4 +1,4 @@
-analytics is the best place to learn/test/implement javascript
+analytics is the best place to learn/test/implement javascript and ajax
     -controller loads everything up (how much?)
         -problem scores
         -hints asked
@@ -6,3 +6,5 @@ analytics is the best place to learn/test/implement javascript
     -graphs, numbers, charts, different perspectives
     -scope change (all? 1 curr? 3 con? 2 prob?)
     -time change
+
+seed fake user data for analytics like you feed fake users?

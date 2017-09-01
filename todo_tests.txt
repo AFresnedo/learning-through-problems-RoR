@@ -1,8 +1,6 @@
-why not tdd: goal of first two versions of the website is to allow for Razvan
-to prototype his own curriculum designs live and to provide feedback for
-anything that needs to be changed on the site
-    -since almost everything is subject to change, at the moment,
-    a comprehensive test suite doesn't seem like a good use of time
+figure links:
+    -get all pages (view/, theories/, problems/, solve/) and make sure
+    server doesn't respond with a missing link error
 
 missing tests:
     -integration tests for site layout and navigation

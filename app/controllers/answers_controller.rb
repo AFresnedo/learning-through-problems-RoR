@@ -60,24 +60,9 @@ class AnswersController < ApplicationController
       end
     # else incorrect
     else
-      # at least one incorrect answer
-      # NOTE if giving partial credit, change here or in Answers.evaluate_hash
       score.update_attribute(:score, 0)
-      incorrect_indicies = results[1..-1]
-      expected_answers = @problem.answer.answers
-      correct_answers = []
-      incorrect_answers = []
-      for i in 1..expected_answers.length do
-        if incorrect_indicies.include?(i-1)
-          incorrect_answers << expected_answers[i-1]
-        else
-          correct_answers << expected_answers[i-1]
-        end
-      end
-      @feedback = "These answer(s) were correct: #{correct_answers}"
-      @feedback += " and these answer(s) were missed: #{incorrect_answers}."
-      @feedback += " Since all answers were not correct,"
-      @feedback += " you missed #{penalty[0]} points."
+      @feedback = "You missed #{penalty[0]} points because not all the values
+      were correct."
     end
     # move user's progression
     marker = current_user.markers.find_by(curriculum: @problem.curriculum)

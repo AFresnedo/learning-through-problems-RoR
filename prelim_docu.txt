@@ -32,3 +32,11 @@ seen_hints:
         asked for" for a problem even if a user deletes his account
             -the counter arguement is never let a user delete his account and
             treat the foreign key as error-checking data integrity but meh
+
+account privaleges:
+    -student, admin, teacher, owner (parent)
+        -in increasing order of likelihood to be removed
+        -admin is 0
+        -student is 1
+        -teacher is 2
+        -owner (parent) is 3

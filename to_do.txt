@@ -3,10 +3,6 @@ user input for answers:
     -do not accept evaluate unless all boxes filled
         -if user answer is less than interface answer: reject, flash, re-draw
 
-markers controller:
-    -the html list is unordered in curriculum_resume
-        -didn't fix that now because it might need to be re-designed
-
 data validations:
     -not only input (is answer missing?)
     -remember that bug with "nil" category saves in unlocked_theory because the
@@ -19,14 +15,6 @@ deployment
         -Passenger
 
 basic User resource
-    -RESTful Users controller actions
-        -deny access for unintended user actions
-    -student, admin, teacher, owner (parent)
-        -in increasing order of likelihood to be removed
-        -admin is 0
-        -student is 1
-        -teacher is 2
-        -owner (parent) is 3
     -model
         -validity
 
@@ -44,6 +32,7 @@ security
 DBs in general:
     -foreign keys
     -missing indicies (based off controller actions)
+        -think of what slows down your tests as well
     -remove timestamps where not used
 
 graph&globalgraph db:
@@ -91,25 +80,16 @@ metadata db:
 migrations:
     -remove build bug
 
-controller filters:
-    -editing profiles should be limited to owner of said profile:
-    -curriculum should only be accessible by teachers/admins
+changing content online (problems, theories, graphs, etc)
+    -not needed until production site, but may help writing tests and
+    validations
 
 user friendliness:
     -improve user index, label students/admins/teachers
     -friendly forwarding (chp 10)
-        -does this include: back during results -> re-post -> error?
-
-server-side input figures:
-    -fix figures
-        -either have a script re-write them at their source or figure out how
-        to handle them all saying /FIG
 
 input scripts:
     -write a script to fix curriculum/category/context, if useful in any way
-    -also have curriculum properly inputted into problems and theories
-    -increase robustness of graph reader script
-        -multiple blank lines should be equivalent to 1
 
 optimization:
     -"where" queries should all be moved into models and eagerly loaded sanely
