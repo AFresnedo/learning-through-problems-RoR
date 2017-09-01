@@ -54,11 +54,16 @@
   <p><%= @feedback %></p>
 </div>
 <div class="well">
-  <%# TODO hide these html elements and label them? %>
-  <% Score.context_score(current_user.id, @problem.context) %>
-  <% Score.category_score(current_user.id, @problem.category) %>
-  <% Score.curriculum_score(current_user.id, @problem.curriculum) %>
-  <% Score.total_score(current_user.id) %>
+  <%# TODO replace these with ajax calls %>
+  <% default_total_score = Score.context_score(current_user.id,
+                                                        @problem.context)%>
+                                                      <p hidden
+     id='con_scr'><b>Total:&nbsp</b><%= default_total_score%></p>
+  <p hidden id='cat_scr'><b>Total:&nbsp</b><%= Score.category_score(current_user.id,
+                                                         @problem.category)%></p>
+  <p hidden id='cur_scr'><b>Total:&nbsp</b><%= Score.curriculum_score(current_user.id,
+                                                           @problem.curriculum)%></p>
+  <p hidden id='tot_scr'><b>Total:&nbsp</b><%= Score.total_score(current_user.id) %></p>
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
@@ -74,14 +79,15 @@
           </div>
       </div>
       <div class="col-sm-8">
-        <p class="text-center" id="to_enter">Here your scores are written.</p>
+        <p class="text-center" id="to_enter" style="padding-top:25px;">
+        <b>Total:&nbsp</b><%= default_total_score %></p>
       </div>
     </div>
   </div>
 </div>
 <%# TODO the following problem details should be a partial %>
+<h3>About the Problem</h3>
 <div class="well">
-  <h4>Problem details:</h4>
   <p><b>Curriculum: &nbsp</b>
   <em><%= @problem.curriculum %></em></p>
   <p><b>Category: &nbsp</b>

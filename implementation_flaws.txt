@@ -8,3 +8,7 @@ a retrieved association (like scores = Score.all; scores.where does a DB call)
     -eager loading can be used in cases such as "for each" (instead of loading
     at every .each you can load 100 records first or something)
         -lazy loading and .each are a bad combo
+
+while a cute hack, the hidden cummulative scores in results view should
+probably just be ajax calls (but then again, maybe not, just depending on time
+developing & hacky optimized code versus clean organized but slower code)
