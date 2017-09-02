@@ -90,7 +90,8 @@ class MarkersController < ApplicationController
 
   # TODO optimize, use actual comp sci after better design
   def resume_curriculum
-    marker = current_user.markers.find_by(curriculum: params[:curriculum])
+    curriculum = params[:curriculum]
+    marker = current_user.markers.find_by(curriculum: curriculum)
 
     # get all active contexts (unread theories or unsolved problems) in cat
     unsolved = Score.where(user_id: current_user.id,
@@ -112,6 +113,7 @@ class MarkersController < ApplicationController
       end
     end
 
+    # create list of sections, both active and inactive
     categoryOrdering = Globalgraph.where(category: marker.category)
     @activeContexts = []
     @finishedContexts = []
@@ -129,7 +131,7 @@ class MarkersController < ApplicationController
     # for when active contexts is empty
     @category = marker.category
     # for page heading
-    @curriculum = params[:curriculum]
+    @curriculum = curriculum
 
     render '/markers/resume'
   end

@@ -30,6 +30,29 @@ class Globalgraph < ApplicationRecord
     Globalgraph.get_contexts(curriculum, category)
   end
 
+  # returns list of category names
+  def Globalgraph.category_names(curriculum)
+    tuples = Globalgraph.where(curriculum: curriculum)
+    categories = []
+    tuples.each do |tuple|
+      unless categories.include? tuple.category
+        categories << tuple.category
+      end
+    end
+    return categories
+  end
+
+  def Globalgraph.context_names(category)
+    tuples = Globalgraph.where(category: category)
+    contexts = []
+    tuples.each do |tuple|
+      unless contexts.include? tuple.context
+        contexts << tuple.context
+      end
+    end
+    return contexts
+  end
+
   private
 
     # NOTE required for multiple configs
@@ -92,4 +115,5 @@ class Globalgraph < ApplicationRecord
         end
         return contexts
     end
+
 end
