@@ -1,18 +1,15 @@
 <%# TODO add dropdown headers, as designed by bootstrap %>
-<div class="container-fluid">
-  <div class="row">
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <nav>
-        <div class="col-sm-1">
-          <%# NOTE empty %>
-        </div>
-        <div class="col-sm-5">
-          <div class="navbar-header">
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="navbar-header" id="math_affirm_logo">
             <%= link_to "Math Affirm", root_path, id: "logo" %>
           </div>
         </div>
-        <div class="col-sm-5">
-          <ul class="nav navbar-nav navbar-right">
+        <div class="col-sm-6">
+          <ul class="nav navbar-nav navbar-right" id="math_affirm_navbar">
             <%# user account menu %>
             <% if logged_in %>
               <li><%= link_to "Curriculum", start_path %></li>
@@ -61,10 +58,7 @@
             <% end %>
           </ul>
         </div>
-        <div class="col-sm-1">
-          <%# NOTE empty %>
-        </div>
-      </nav>
-    </header>
-  </div>
-</div>
+      </div>
+    </div>
+  </nav>
+</header>
