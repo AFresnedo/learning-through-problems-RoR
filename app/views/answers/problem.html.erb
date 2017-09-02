@@ -4,20 +4,23 @@
 <%# NOTE inspired by Robert Cranfill's ma/resources/views/answer/test.blade.php %>
 <%# TODO determine what should be partials (obvious sections: problem, hint, %>
 <%# answer) %>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8"><h4><%= @problem.context %></h4></div>
-    <div class="col-sm-2"><h4><%= @problem.category %></h4></div>
-    <div class="col-sm-2"><h4>Life To Math</h4></div>
-  </div>
-</div>
+<%# TODO panel with clickable book -> clickable chapter -> "activated" section %>
+<%# for the above imagine this in black/grey: LIFE TO MATH > METHODS > NUMERICAL %>
+<%# maybe a little tab that comes out of the left-hand side when moused over %>
+<%# maybe just a menu with the section "activated" that lets you pick another scope %>
+ <ul class="nav nav-pills">
+   <li><a href="/start"><b><%= @problem.curriculum %></b></a></li>
+   <li><a href=<%="/resume?curriculum=#{@problem.curriculum}"%>>
+       <%=@problem.category %> <b>&nbsp ></b></a></li>
+   <li class="active"><a href="#"><%= @problem.context %></a></li>
+</ul>
 <div class="well">
 <%== @problem.text %>
 </div>
 
 <%# hints %>
 <% buttonText = "" %>
-<%# TODO refactor and optimize as appropriate (model + helper code) %>
+<%# TODO replace all this erb with ajax %>
 <% @problem.solutions.each do |solution|%>
   <%# get active record collection of all hints of this solution %>
   <% solHints = solution.hints %>
