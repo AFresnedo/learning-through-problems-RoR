@@ -13,10 +13,12 @@
 
   <body>
     <%= render 'layouts/header' %>
+    <div class="container">
       <%# error messages shown to client %>
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
+    </div>
       <%# page-specific content %>
       <%= yield %>
       <%# Rails.env.development will show in localhost but not heroku %>
