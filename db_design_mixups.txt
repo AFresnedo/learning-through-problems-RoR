@@ -1,9 +1,0 @@
-handling unlocked theories:
-    -at the moment the graph model returns unlock theories based on user's
-    latest problem
-    -it may be better to have some att somewhere that has a list of unlocked
-    theories that simply gets appended instead
-        -why does it matter? because the graph model only has to find the next
-        local problem/theory OR check the globalgraph for the next local
-        group...it does not need to backtrace all the problems done before
-        whereas unlocked theories WOULD require that...obviously much worse

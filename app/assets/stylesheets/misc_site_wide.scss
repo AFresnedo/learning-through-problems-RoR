@@ -2,9 +2,13 @@
 // an example of refactoring is if, eventually, there are 5+ entries for
 // body..these would be refactored into a seperate _body.scss
 
-// for header not overlapping body
-body {
-  padding-top: 60px;
+// for header not overlapping body (doesn't work with responsiveness)
+// body {
+  // padding-top: 60px;
+// }
+body { padding-top: 40px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 200px; }
 }
 
 // for hiding elements
