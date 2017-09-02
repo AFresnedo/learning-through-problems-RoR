@@ -1,14 +1,14 @@
 <%# TODO add dropdown headers, as designed by bootstrap %>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <nav>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-2 col-sm-offset-1">
           <div class="navbar-header" id="math_affirm_logo">
             <%= link_to "Math Affirm", root_path, id: "logo" %>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4 col-sm-offset-4">
           <ul class="nav navbar-nav navbar-right" id="math_affirm_navbar">
             <%# user account menu %>
             <% if logged_in %>

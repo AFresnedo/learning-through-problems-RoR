@@ -1,44 +1,46 @@
 <% provide(:title, 'Account List') %>
 
 <%# TODO investiage behavior of will_paginate when two pagination vars %>
+<div class="container">
 
-<h1>Student Accounts</h1>
-<ul class="students">
-  <% @students.each do |student| %>
-    <li>
-      <%= link_to student.name, student %>
-      <%# TODO hide delete link behind admin session %>
-      | <%= link_to "delete", student, method: :delete,
-      data: { confirm: "You sure?" } %>
+  <h1>Student Accounts</h1>
+  <ul class="students">
+    <% @students.each do |student| %>
+      <li>
+        <%= link_to student.name, student %>
+        <%# TODO hide delete link behind admin session %>
+        | <%= link_to "delete", student, method: :delete,
+        data: { confirm: "You sure?" } %>
     </li>
   <% end %>
-</ul>
+  </ul>
 
-<%= will_paginate @students %>
+  <%= will_paginate @students %>
 
-<h1>Admin Accounts</h1>
-<ul class="admins">
-  <% @admins.each do |admin| %>
-    <li>
-      <%= link_to admin.name, admin %>
-      <%# TODO hide delete link behind admin session %>
-      | <%= link_to "delete", admin, method: :delete,
-      data: { confirm: "You sure?" } %>
+  <h1>Admin Accounts</h1>
+  <ul class="admins">
+    <% @admins.each do |admin| %>
+      <li>
+        <%= link_to admin.name, admin %>
+        <%# TODO hide delete link behind admin session %>
+        | <%= link_to "delete", admin, method: :delete,
+        data: { confirm: "You sure?" } %>
     </li>
   <% end %>
-</ul>
+  </ul>
 
-<%= will_paginate @admins %>
+  <%= will_paginate @admins %>
 
-<h1>Teacher Accounts</h1>
-<ul class="teachers">
-  <% @teachers.each do |teacher| %>
-    <li>
-      <%= link_to teacher.name, teacher %>
-      <%# TODO hide delete link behind teacher session %>
-      | <%= link_to "delete", teacher, method: :delete,
-      data: { confirm: "You sure?" } %>
+  <h1>Teacher Accounts</h1>
+  <ul class="teachers">
+    <% @teachers.each do |teacher| %>
+      <li>
+        <%= link_to teacher.name, teacher %>
+        <%# TODO hide delete link behind teacher session %>
+        | <%= link_to "delete", teacher, method: :delete,
+        data: { confirm: "You sure?" } %>
     </li>
   <% end %>
-</ul>
+  </ul>
 
+</div>

@@ -8,6 +8,7 @@
 <% makeup = graph.makeup %>
 <% metadata = @problem.metadata %>
 <% score = Score.find_by(user_id: current_user.id, problem_id: @problem.id) %>
+<div class="container">
 
 <%# problem statement %>
 <h3>Problem</h3>
@@ -105,6 +106,7 @@
 <p><%= link_to "Next", next_path(context: @problem.context) %></p>
 <p><%= link_to "Back to Contexts", resume_path(curriculum: @problem.curriculum) %></p>
 
+</div>
 <script>
 highlightAnswers('a','b', <%= @userAnswers.length %>)
 </script>

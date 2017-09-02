@@ -1,29 +1,27 @@
-<div class="container-fluid">
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-6" id="footerLeft">
-          <nav>
-            <% if logged_in %>
-              <ul>
-                <%# TODO unlocked_theories url %>
-                <% url = theories_path %>
-                <li><%= link_to "Unlocked Theories", url, target: '_blank' %></li>
-              </ul>
-            <% else %>
-              <li><%= link_to "Sign up for free trial!", signup_path %></li>
-            <% end %>
-          </nav>
-        </div>
-        <div class="col-xs-6" id="footerRight">
-          <nav>
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6" id="footerLeft">
+        <nav>
+          <% if logged_in %>
             <ul>
-              <li><%= link_to "Support", support_path %></li>
-              <li><%= link_to "About",   about_path %></li>
+              <%# TODO unlocked_theories url %>
+              <% url = theories_path %>
+              <li><%= link_to "Unlocked Theories", url, target: '_blank' %></li>
             </ul>
-          </nav>
-        </div>
+          <% else %>
+            <li><%= link_to "Sign up for free trial!", signup_path %></li>
+          <% end %>
+        </nav>
+      </div>
+      <div class="col-xs-6" id="footerRight">
+        <nav>
+          <ul>
+            <li><%= link_to "Support", support_path %></li>
+            <li><%= link_to "About",   about_path %></li>
+          </ul>
+        </nav>
       </div>
     </div>
-  </footer>
-</div>
+  </div>
+</footer>

@@ -1,17 +1,19 @@
-<% provide(:title, 'Problems Index') %>
-<h2>All Problems</h2>
+<div class="container">
+  <% provide(:title, 'Problems Index') %>
+  <h2>All Problems</h2>
 
-<%= will_paginate %>
+  <%= will_paginate %>
 
-<ul class="problems">
-  <% @problems.each do |problem| %>
-    <li>
-      <%= link_to problem.filename, problem %>
-      <% if is_teacher %>
-        | <%= link_to "edit", edit_problem_url(problem.id) %>
+  <ul class="problems">
+    <% @problems.each do |problem| %>
+      <li>
+        <%= link_to problem.filename, problem %>
+        <% if is_teacher %>
+          | <%= link_to "edit", edit_problem_url(problem.id) %>
       <% end %>
-    </li>
-  <% end %>
-</ul>
+      </li>
+    <% end %>
+  </ul>
 
-<%= will_paginate %>
+  <%= will_paginate %>
+</div>

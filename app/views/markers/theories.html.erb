@@ -1,14 +1,16 @@
-<h2>Your Unlocked Theories</h2>
-<% @directories.each do |category, context_list| %>
-  <h3><%= category %></h3>
-  <% context_list.each do |context| %>
-    <h5><%= context %></h5>
-    <ol>
-    <% unlocks = @unlocked_theories.where(category: category, context: context) %>
-    <% unlocks.each do |unlock| %>
-      <% theory = Theory.find(unlock.theory_id) %>
-      <li><%= link_to theory.filename, view_path(theory.id) %></li>
+<div class="container">
+  <h2>Your Unlocked Theories</h2>
+  <% @directories.each do |category, context_list| %>
+    <h3><%= category %></h3>
+    <% context_list.each do |context| %>
+      <h5><%= context %></h5>
+      <ol>
+        <% unlocks = @unlocked_theories.where(category: category, context: context) %>
+        <% unlocks.each do |unlock| %>
+          <% theory = Theory.find(unlock.theory_id) %>
+          <li><%= link_to theory.filename, view_path(theory.id) %></li>
+        <% end %>
+      </ol>
     <% end %>
-    </ol>
   <% end %>
-<% end %>
+</div>

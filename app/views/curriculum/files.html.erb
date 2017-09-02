@@ -1,30 +1,32 @@
-<h3><%= "#{@graphs.first.context}" %></h3>
-<ol>
-  <% set = 0 %>
-  <% @graphs.each do |graph| %>
-    <%# TODO horizontal line %>
-    <% unless set == graph.batch %>
-      <% set += 1 %>
-      <hr>
-    <% end %>
-    <li>
-      <% if graph.typ  == 'prob' %>
-        <% file = Problem.find(graph.file_id) %>
-        Problem: <%= link_to file.filename, problem_path(file) %>
+<div class="container">
+  <h3><%= "#{@graphs.first.context}" %></h3>
+  <ol>
+    <% set = 0 %>
+    <% @graphs.each do |graph| %>
+      <%# TODO horizontal line %>
+      <% unless set == graph.batch %>
+        <% set += 1 %>
+        <hr>
+      <% end %>
+      <li>
+        <% if graph.typ  == 'prob' %>
+          <% file = Problem.find(graph.file_id) %>
+          Problem: <%= link_to file.filename, problem_path(file) %>
       <% elsif graph.typ == 'theory' %>
         <% file = Theory.find(graph.file_id) %>
         Theory: <%= link_to file.filename, theory_path(file) %>
-      <% else %>
-        <b><%= "Bug detected, file id: #{graph.file_id} of type: #{graph.typ}
-        was not found." %></b>
+    <% else %>
+      <b><%= "Bug detected, file id: #{graph.file_id} of type: #{graph.typ}
+    was not found." %></b>
+    <% end %>
+    <ul>
+      <li><%= "Set: #{graph.batch}" %></li>
+      <li><%= "Order: #{graph.order}" %></li>
+      <% if graph.makeup %>
+        <li>Makeup</li>
       <% end %>
-      <ul>
-        <li><%= "Set: #{graph.batch}" %></li>
-        <li><%= "Order: #{graph.order}" %></li>
-        <% if graph.makeup %>
-          <li>Makeup</li>
-        <% end %>
-      </ul>
-    </li>
-  <% end %>
-</ol>
+    </ul>
+      </li>
+    <% end %>
+  </ol>
+</div>

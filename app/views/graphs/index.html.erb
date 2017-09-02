@@ -1,15 +1,17 @@
-<% provide(:title, 'Graphs Index') %>
-<h2>Graphs</h2>
+<div class="container">
+  <% provide(:title, 'Graphs Index') %>
+  <h2>Graphs</h2>
 
-<%# group by context (actual graph.txt scope) %>
-<ul class="graphs">
-  <% contextList = [] %>
-  <% @graphs.each do |graph| %>
-    <% unless contextList.include? graph.context %>
-      <% contextList << graph.context %>
+  <%# group by context (actual graph.txt scope) %>
+  <ul class="graphs">
+    <% contextList = [] %>
+    <% @graphs.each do |graph| %>
+      <% unless contextList.include? graph.context %>
+        <% contextList << graph.context %>
+      <% end %>
     <% end %>
-  <% end %>
-  <% contextList.each do |context| %>
-    <li><%= link_to context, graph_path(context) %></li>
-  <% end %>
-</ul>
+    <% contextList.each do |context| %>
+      <li><%= link_to context, graph_path(context) %></li>
+    <% end %>
+  </ul>
+</div>

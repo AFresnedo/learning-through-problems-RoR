@@ -1,26 +1,28 @@
-<% provide(:title, 'Graphs Index') %>
-<h2>Graph Sequencing</h2>
+<div class="container">
+  <% provide(:title, 'Graphs Index') %>
+  <h2>Graph Sequencing</h2>
 
-<h4><%= @graphs.first.context %></h4>
-<ol>
-  <% set = 0 %>
-  <% @graphs.each do |graph| %>
-    <% unless set == graph.batch %>
-      <% set += 1 %>
-      <hr>
-    <% end %>
-    <% if graph.typ == 'prob' and graph.makeup %>
-      <% problem = Problem.find(graph.file_id) %>
-      <li>+<%= link_to problem.filename, problem %></li>
-    <% elsif graph.typ == 'prob' %>
-      <% problem = Problem.find(graph.file_id) %>
-      <li><%= link_to problem.filename, problem %></li>
-    <% elsif graph.typ == 'theory' %>
-      <% theory = Theory.find(graph.file_id) %>
-      <li><%= link_to theory.filename, theory %></li>
-    <% else %>
-      <li><b><%= "Bug detected, file id: #{graph.file_id} of type: #{graph.typ}
+  <h4><%= @graphs.first.context %></h4>
+  <ol>
+    <% set = 0 %>
+    <% @graphs.each do |graph| %>
+      <% unless set == graph.batch %>
+        <% set += 1 %>
+        <hr>
+      <% end %>
+      <% if graph.typ == 'prob' and graph.makeup %>
+        <% problem = Problem.find(graph.file_id) %>
+        <li>+<%= link_to problem.filename, problem %></li>
+      <% elsif graph.typ == 'prob' %>
+        <% problem = Problem.find(graph.file_id) %>
+        <li><%= link_to problem.filename, problem %></li>
+      <% elsif graph.typ == 'theory' %>
+        <% theory = Theory.find(graph.file_id) %>
+        <li><%= link_to theory.filename, theory %></li>
+      <% else %>
+        <li><b><%= "Bug detected, file id: #{graph.file_id} of type: #{graph.typ}
       was not found." %></b><li>
     <% end %>
   <% end %>
-</ol>
+  </ol>
+</div>

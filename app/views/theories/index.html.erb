@@ -1,17 +1,19 @@
-<% provide(:title, 'Theories Index') %>
-<h2>All Theories</h2>
+<div class="container">
+  <% provide(:title, 'Theories Index') %>
+  <h2>All Theories</h2>
 
-<%= will_paginate %>
+  <%= will_paginate %>
 
-<ul class="theories">
-  <% @theories.each do |theory| %>
-    <li>
-      <%= link_to theory.filename, theory %>
-      <% if is_teacher %>
-        | <%= link_to "edit", edit_theory_url(theory.id) %>
+  <ul class="theories">
+    <% @theories.each do |theory| %>
+      <li>
+        <%= link_to theory.filename, theory %>
+        <% if is_teacher %>
+          | <%= link_to "edit", edit_theory_url(theory.id) %>
       <% end %>
-    </li>
-  <% end %>
-</ul>
+      </li>
+    <% end %>
+  </ul>
 
-<%= will_paginate %>
+  <%= will_paginate %>
+</div>

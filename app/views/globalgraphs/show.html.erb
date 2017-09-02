@@ -1,16 +1,18 @@
-<% provide(:title, 'Globalgraphs Index') %>
-<h2>Globalgraph Sequencing</h2>
+<div class="container">
+  <% provide(:title, 'Globalgraphs Index') %>
+  <h2>Globalgraph Sequencing</h2>
 
-<%# group by curriculum (actual globalgraph.txt scope) %>
-<ul class="globalgraphs">
-  <% curriculum = @globalgraphs.first.curriculum %>
-  <li><%= curriculum %></li>
-  <ol>
-  <% @globalgraphs.each do |globalgraph| %>
-      <% unless globalgraph.context == 'category_introduction' %>
-        <li><%= link_to "#{globalgraph.category}/#{globalgraph.context}",
+  <%# group by curriculum (actual globalgraph.txt scope) %>
+  <ul class="globalgraphs">
+    <% curriculum = @globalgraphs.first.curriculum %>
+    <li><%= curriculum %></li>
+    <ol>
+      <% @globalgraphs.each do |globalgraph| %>
+        <% unless globalgraph.context == 'category_introduction' %>
+          <li><%= link_to "#{globalgraph.category}/#{globalgraph.context}",
           graph_path(globalgraph.context) %></li>
+        <% end %>
       <% end %>
-  <% end %>
-  </ol>
-</ul>
+    </ol>
+  </ul>
+</div>

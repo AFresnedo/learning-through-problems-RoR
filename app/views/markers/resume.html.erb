@@ -1,45 +1,68 @@
+<div class="container">
 <h2 style="text-align:center;"><%= $PPB[@curriculum]%></h2>
 <% if @activeContexts.empty? %>
   <h4><%= 'Congratulations, you\'ve completed the '+$PPC[@category]+' chapter.' %></h4>
   <%= link_to 'Next Chapter', category_next_path, method: :post%>
   <hr>
 <% end %>
+</div>
 <%# get all chapters in the book %>
 <% chapters = Globalgraph.category_names(@curriculum) %>
-<%# for every chapter in the book print a list of sections %>
-<% chapters.each do |chapter| %>
-  <%# print chapter title to serve as list header %>
-  <h4><%= $PPC[chapter] %></h4>
-  <ul>
-    <%# if it is an active chapter %>
-    <% if chapter == @category %>
-      <% @status.each do |status| %>
-        <% context = nil %>
-        <% if status %>
-         <% context = @activeContexts.shift %>
-         <li><%= link_to $PPS[context], next_path(context: context) %></li>
-        <% else %>
-          <% context = @finishedContexts.shift %>
-          <li><%= $PPS[context] %></li>
+<% chpMax = chapters.length %>
+<%# container and count for chapters per row %>
+<% chpCount = 3 %>
+<% chpsPrinted = 0 %>
+<div class="container">
+  <%# for every chapter in the book print a list of sections %>
+  <% chapters.each do |chapter| %>
+    <% chpsPrinted += 1 %>
+    <% chpCount += 1 %>
+    <%# determine if a new row should be constructed; every 2? 3? %>
+    <% if chpCount > 2 %>
+      <%# reset counter %>
+      <% chpCount = 0 %>
+      <%# create row %>
+      <div class="row">
+    <% end %>
+    <%# print chapter title to serve as list header %>
+    <h4><%= $PPC[chapter] %></h4>
+    <ul>
+      <%# if it is an active chapter %>
+      <% if chapter == @category %>
+        <% @status.each do |status| %>
+          <% context = nil %>
+          <% if status %>
+            <% context = @activeContexts.shift %>
+            <li><%= link_to $PPS[context], next_path(context: context) %></li>
+          <% else %>
+            <% context = @finishedContexts.shift %>
+            <li><%= $PPS[context] %></li>
+          <% end %>
+        <% end %>
+        <%# else it is an inactive chapter %>
+      <% else %>
+        <%# for each section in this chapter print a li %>
+        <% sections = Globalgraph.context_names(chapter) %>
+        <% sections.each do |section| %>
+          <li><%= $PPS[section] %></li>
         <% end %>
       <% end %>
-    <%# else it is an inactive chapter %>
-    <% else %>
-      <%# for each section in this chapter print a li %>
-      <% sections = Globalgraph.context_names(chapter) %>
-      <% sections.each do |section| %>
-        <li><%= $PPS[section] %></li>
-      <% end %>
+    </ul>
+    <%# end row after 3 chapters printed or last chapter printed %>
+    <% if chpCount == 2 or chpsPrinted == chpMax %>
+        </div>
     <% end %>
-  </ul>
-<% end %>
+  <% end %>
+</div>
 <%# while chapters remain in book print remaining inactive sections %>
 <% if is_teacher %>
+  <div class="container">
   <hr>
   <h3>(Teacher Tools)</h3>
   <ul>
     <li><%= link_to 'Skip Current Category and Resume', category_skip_path, method: :post %></li>
     <li><%= link_to 'Delete All of Your Progress', start_path, method: :delete %></li>
   <ul>
+  </div>
 <% end %>
 <%# three chapters per row? %>

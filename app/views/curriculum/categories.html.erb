@@ -1,6 +1,8 @@
-<h3><%= "Categories for #{@curriculum}:" %></h3>
-<ol>
-  <% @cat_list.each do |category| %>
-    <li><%= link_to category, curriculum_contexts_path(category: category) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h3><%= "Categories for #{@curriculum}:" %></h3>
+  <ol>
+    <% @cat_list.each do |category| %>
+      <li><%= link_to category, curriculum_contexts_path(category: category) %></li>
+    <% end %>
+    </ul>
+</div>

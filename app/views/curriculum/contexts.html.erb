@@ -1,12 +1,14 @@
-<h3><%= "Introduction to #{@category}" %></h3>
-<ol>
-  <% @cat_intro_ids.each do |id| %>
-    <li><%= link_to 'Introduction Theory', theory_path(id) %></li>
-  <% end %>
-</ol>
-<h3><%= "Contexts of #{@category}:" %></h3>
-<ol>
-  <% @context_list.each do |context| %>
-    <li><%= link_to context, curriculum_files_path(context: context) %></li>
-  <% end %>
-</ol>
+<div class="container">
+  <h3><%= "Introduction to #{@category}" %></h3>
+  <ol>
+    <% @cat_intro_ids.each do |id| %>
+      <li><%= link_to 'Introduction Theory', theory_path(id) %></li>
+    <% end %>
+  </ol>
+  <h3><%= "Contexts of #{@category}:" %></h3>
+  <ol>
+    <% @context_list.each do |context| %>
+      <li><%= link_to context, curriculum_files_path(context: context) %></li>
+    <% end %>
+  </ol>
+</div>

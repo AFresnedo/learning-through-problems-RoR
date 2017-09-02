@@ -3,15 +3,17 @@
 </script>
 <% provide(:title, "#{@theory.filename}") %>
 
-<div class="well well-lg"><%== @theory.text %></div>
+<div class="container">
+  <div class="well well-lg"><%== @theory.text %></div>
 
-<% if @first_viewing %>
-  <em><%= "Since this is the first time you are viewing this theory, you may
+  <% if @first_viewing %>
+    <em><%= "Since this is the first time you are viewing this theory, you may
   jump to the next part of \"#{$PPS[@theory.context]}\" with this link:" %></em>
-  <p><%= link_to $PPS[@theory.context], next_path(context: @theory.context) %></p>
-<% else %>
-  <em> <%= link_to "Curriculum", start_path %></em>
-<% end %>
+    <p><%= link_to $PPS[@theory.context], next_path(context: @theory.context) %></p>
+  <% else %>
+    <em> <%= link_to "Curriculum", start_path %></em>
+  <% end %>
+</div>
 <%# temporary hack to get mathjax to typeset the page after page loaded %>
 <script>
 MathJax.Hub.Typeset();

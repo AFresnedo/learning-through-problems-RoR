@@ -8,6 +8,7 @@
 <%# for the above imagine this in black/grey: LIFE TO MATH > METHODS > NUMERICAL %>
 <%# maybe a little tab that comes out of the left-hand side when moused over %>
 <%# maybe just a menu with the section "activated" that lets you pick another scope %>
+<div class="container">
  <ul class="nav nav-pills">
    <li><a href="/start"><b><%= $PPB[@problem.curriculum] %></b></a></li>
    <li><a href=<%="/resume?curriculum=#{@problem.curriculum}"%>>
@@ -94,6 +95,7 @@
       <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
       <%= submit_tag "Evaluate", class: "btn btn-basic" %>
   <% end %>
+</div>
 <%# temporary hack to get mathjax to typeset the page after page loaded %>
 <script>
 MathJax.Hub.Typeset();

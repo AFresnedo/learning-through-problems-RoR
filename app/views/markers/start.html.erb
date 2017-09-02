@@ -1,18 +1,20 @@
 <%provide(:title, 'Books')%>
-<h2>Life to Math</h2>
-<% if current_user.markers.find_by(curriculum: 'lifetomath') %>
-  <p><%= link_to 'Resume Here', resume_path(curriculum: 'lifetomath') %></p>
-<% else %>
-  <p><%= link_to 'Start Here', curriculum_path(curriculum: 'lifetomath'), method:
-  :post  %></p>
-<% end %>
-<h2>Let's Count</h2>
-<%= link_to '(Dead Link Until Globalgraph and Graphs Are Made)', '#' %>
-<% if is_teacher %>
-  <hr>
-  <h3>(Teacher Tools)</h3>
-  <ul>
-    <li><%= link_to 'Skip Current Category and Resume', category_skip_path, method: :post %></li>
-    <li><%= link_to 'Delete All of Your Progress', start_path, method: :delete %></li>
-  <ul>
-<% end %>
+<div class="container">
+  <h2>Life to Math</h2>
+  <% if current_user.markers.find_by(curriculum: 'lifetomath') %>
+    <p><%= link_to 'Resume Here', resume_path(curriculum: 'lifetomath') %></p>
+  <% else %>
+    <p><%= link_to 'Start Here', curriculum_path(curriculum: 'lifetomath'), method:
+      :post  %></p>
+  <% end %>
+  <h2>Let's Count</h2>
+  <%= link_to '(Dead Link Until Globalgraph and Graphs Are Made)', '#' %>
+  <% if is_teacher %>
+    <hr>
+    <h3>(Teacher Tools)</h3>
+    <ul>
+      <li><%= link_to 'Skip Current Category and Resume', category_skip_path, method: :post %></li>
+      <li><%= link_to 'Delete All of Your Progress', start_path, method: :delete %></li>
+      <ul>
+      <% end %>
+</div>

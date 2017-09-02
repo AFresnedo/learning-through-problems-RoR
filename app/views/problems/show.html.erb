@@ -2,38 +2,40 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML">
 </script>
 <% metadata = @problem.metadata %>
-<h3>Problem Data</h3>
-<p><%= @problem.filename %></p>
-<hr>
-<%== @problem.text %>
-<hr>
-<%== @problem.answer.interface %>
-<p><%= "value(s): #{@problem.answer.values}" %></p>
-<% x = 0 %>
-<% @problem.solutions.each do |solution| %>
+<div class="container">
+  <h3>Problem Data</h3>
+  <p><%= @problem.filename %></p>
   <hr>
-  <h3><%= "Solution #{x+1}" %></h3>
-  <em><%= "Type: #{solution.typ}" %></em>
-  <br>
-  <br>
-  <%== solution.text %>
-  <h4>Hints</h4>
-  <ol>
-  <% solution.hints.each do |hint| %>
-    <li><%== hint.text %></li>
+  <%== @problem.text %>
+  <hr>
+  <%== @problem.answer.interface %>
+  <p><%= "value(s): #{@problem.answer.values}" %></p>
+  <% x = 0 %>
+  <% @problem.solutions.each do |solution| %>
+    <hr>
+    <h3><%= "Solution #{x+1}" %></h3>
+    <em><%= "Type: #{solution.typ}" %></em>
+    <br>
+    <br>
+    <%== solution.text %>
+    <h4>Hints</h4>
+    <ol>
+      <% solution.hints.each do |hint| %>
+        <li><%== hint.text %></li>
+      <% end %>
+    </ol>
+    <% x+=1 %>
   <% end %>
-  </ol>
-  <% x+=1 %>
-<% end %>
-<hr>
-<h4>Details</h4>
-<ul>
-  <li>Curriculum: <em><%= @problem.curriculum %></em></li>
-  <li>Category: <em><%= @problem.category %></em></li>
-  <li>Context: <em><%= @problem.context %></em></li>
-  <li>Difficulty: <em><%= metadata.diff %></em></li>
-  <li>Source: <em><%= metadata.source %></em></li>
-</ul>
+  <hr>
+  <h4>Details</h4>
+  <ul>
+    <li>Curriculum: <em><%= @problem.curriculum %></em></li>
+    <li>Category: <em><%= @problem.category %></em></li>
+    <li>Context: <em><%= @problem.context %></em></li>
+    <li>Difficulty: <em><%= metadata.diff %></em></li>
+    <li>Source: <em><%= metadata.source %></em></li>
+  </ul>
+</div>
 <script>
 MathJax.Hub.Typeset();
 </script>

@@ -1,12 +1,14 @@
-<%provide(:title, 'Curriculum')%>
-<h3>Problems</h3>
-<ul><li><%= link_to 'Problems', problems_path %></li></ul>
-<h3>Theories</h3>
-<ul><li><%= link_to 'Theories', theories_index_path %></li></ul>
-<h3>Graphs</h3>
-<ul>
-  <li><%= link_to 'Globalgraphs', globalgraphs_path %></li>
-  <li><%= link_to 'Graphs', graphs_path %></li>
-</ul>
-<hr>
-<h5>(note: search not yet available for any index)</h5>
+<div class="container">
+  <%provide(:title, 'Curriculum')%>
+  <h3>Problems</h3>
+  <ul><li><%= link_to 'Problems', problems_path %></li></ul>
+  <h3>Theories</h3>
+  <ul><li><%= link_to 'Theories', theories_index_path %></li></ul>
+  <h3>Graphs</h3>
+  <ul>
+    <li><%= link_to 'Globalgraphs', globalgraphs_path %></li>
+    <li><%= link_to 'Graphs', graphs_path %></li>
+  </ul>
+  <hr>
+  <h5>(note: search not yet available for any index)</h5>
+</div>
