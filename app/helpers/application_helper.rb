@@ -12,6 +12,7 @@ module ApplicationHelper
   # we need to lowercase shorthand for anything
   # TODO fix this...i think it's remaking 3 hashes every load
   $PPS = Hash.new
+  $PPS['category_introduction'] = "Introduction to this Chapter"
   $PPS['examples']     = "Examples"
   $PPS['numerical']     = "Numerical"
   $PPS['graphical']     = "Graphical"

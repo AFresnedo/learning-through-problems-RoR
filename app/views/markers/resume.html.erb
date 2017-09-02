@@ -1,13 +1,20 @@
-<h2>Choose Context</h2>
+<h2 style="text-align:center;"><%= $PPB[@curriculum]%></h2>
+<%# TODO a column for every chapter with a list of sections for each %>
 <% if @contexts.empty? %>
-  <h4><%= 'Congratulations, you\'ve completed the '+$PPC[@category]+' category.' %></h4>
+  <h4><%= 'Congratulations, you\'ve completed the '+$PPC[@category]+' chapter.' %></h4>
   <%= link_to 'Next Category', category_next_path, method: :post%>
 <% else %>
-  <h4><%= $PPC[@category] %></h4>
+  <h4><%= $PPC[@category] %> Chapter</h4>
   <ul>
     <% @contexts.each do |context| %>
       <li><%= link_to $PPS[context], next_path(context: context) %></li>
     <% end %>
   </ul>
 <% end %>
-<%# TODO sort by globalgraph order %>
+<% if is_teacher %>
+  <h3>(Teacher Tools)</h3>
+  <ul>
+    <li><%= link_to 'Skip Current Category and Resume', category_skip_path, method: :post %></li>
+    <li><%= link_to 'Delete All of Your Progress', start_path, method: :delete %></li>
+  <ul>
+<% end %>

@@ -58,7 +58,7 @@ class MarkersController < ApplicationController
       if next_problem
         redirect_to solve_path(id: next_problem.problem_id)
       else
-        flash[:info] = "No problems remained in context."
+        flash[:info] = "You have finished that section."
         redirect_to resume_path(curriculum: 'lifetomath')
       end
     end
@@ -122,6 +122,8 @@ class MarkersController < ApplicationController
 
     # for when active contexts is empty
     @category = marker.category
+    # for page heading
+    @curriculum = params[:curriculum]
 
     render '/markers/resume'
   end

@@ -1,4 +1,4 @@
-<%provide(:title, 'Curriculum')%>
+<%provide(:title, 'Books')%>
 <h2>Life to Math</h2>
 <% if current_user.markers.find_by(curriculum: 'lifetomath') %>
   <p><%= link_to 'Resume Here', resume_path(curriculum: 'lifetomath') %></p>
