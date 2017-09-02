@@ -1,12 +1,12 @@
 <h2>Choose Context</h2>
 <% if @contexts.empty? %>
-  <h4><%= 'Congratulations, you\'ve completed the '+@category+' category.' %></h4>
+  <h4><%= 'Congratulations, you\'ve completed the '+$PPC[@category]+' category.' %></h4>
   <%= link_to 'Next Category', category_next_path, method: :post%>
 <% else %>
-  <h4><%= @category %></h4>
+  <h4><%= $PPC[@category] %></h4>
   <ul>
     <% @contexts.each do |context| %>
-      <li><%= link_to context, next_path(context: context) %></li>
+      <li><%= link_to $PPS[context], next_path(context: context) %></li>
     <% end %>
   </ul>
 <% end %>

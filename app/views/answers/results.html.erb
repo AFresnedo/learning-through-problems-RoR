@@ -73,9 +73,9 @@
             <label for="cumulative_scores">Your Cumulative Scores:</label>
             <select class="form-control" id="cumulative_scores"
               onchange="cumulative_scores()">
-              <option value="context">Context</option>
-              <option value="category">Category</option>
-              <option value="curriculum">Curriculum</option>
+              <option value="context">Section</option>
+              <option value="category">Chapter</option>
+              <option value="curriculum">Book</option>
               <option value="everything">Everything</option>
             </select>
           </div>
@@ -91,11 +91,11 @@
 <h3>About the Problem</h3>
 <div class="well">
   <p><b>Curriculum: &nbsp</b>
-  <em><%= @problem.curriculum %></em></p>
+  <em><%= $PPB[@problem.curriculum] %></em></p>
   <p><b>Category: &nbsp</b>
-  <em><%= @problem.category %></em></p>
+  <em><%= $PPC[@problem.category] %></em></p>
   <p><b>Context: &nbsp</b>
-  <em><%= @problem.context %></em></p>
+  <em><%= $PPS[@problem.context] %></em></p>
   <p><b>Difficulty: &nbsp</b>
   <em><%= metadata.diff %></em></p>
   <p><b>Source: &nbsp</b>

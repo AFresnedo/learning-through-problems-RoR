@@ -9,10 +9,10 @@
 <%# maybe a little tab that comes out of the left-hand side when moused over %>
 <%# maybe just a menu with the section "activated" that lets you pick another scope %>
  <ul class="nav nav-pills">
-   <li><a href="/start"><b><%= @problem.curriculum %></b></a></li>
+   <li><a href="/start"><b><%= $PPB[@problem.curriculum] %></b></a></li>
    <li><a href=<%="/resume?curriculum=#{@problem.curriculum}"%>>
-       <%=@problem.category %> <b>&nbsp ></b></a></li>
-   <li class="active"><a href="#"><%= @problem.context %></a></li>
+       <%= $PPC[@problem.category] %> <b>&nbsp ></b></a></li>
+   <li class="active"><a href="#"><%= $PPS[@problem.context] %></a></li>
 </ul>
 <br>
 <div class="well">

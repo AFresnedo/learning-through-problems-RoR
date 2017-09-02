@@ -1,17 +1,14 @@
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML">
 </script>
-<%# TODO pretty name %>
 <% provide(:title, "#{@theory.filename}") %>
-
-<h4><%= @theory.filename %></h4>
 
 <div class="well well-lg"><%== @theory.text %></div>
 
 <% if @first_viewing %>
   <em><%= "Since this is the first time you are viewing this theory, you may
-  jump to the next part of \"#{@theory.context}\" with this link:" %></em>
-  <p><%= link_to @theory.context, next_path(context: @theory.context) %></p>
+  jump to the next part of \"#{$PPS[@theory.context]}\" with this link:" %></em>
+  <p><%= link_to $PPS[@theory.context], next_path(context: @theory.context) %></p>
 <% else %>
   <em> <%= link_to "Curriculum", start_path %></em>
 <% end %>

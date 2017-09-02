@@ -1,3 +1,6 @@
+pretty print name:
+    -doing this now, a function in applications helper
+
 results page:
     -bootstrap collapsables? like for solutions or hints?
 
