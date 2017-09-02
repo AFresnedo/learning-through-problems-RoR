@@ -1,13 +1,20 @@
 <h2 style="text-align:center;"><%= $PPB[@curriculum]%></h2>
-<%# TODO a column for every chapter with a list of sections for each %>
-<% if @contexts.empty? %>
+<% if @activeContexts.empty? %>
   <h4><%= 'Congratulations, you\'ve completed the '+$PPC[@category]+' chapter.' %></h4>
-  <%= link_to 'Next Category', category_next_path, method: :post%>
+  <%= link_to 'Next Chapter', category_next_path, method: :post%>
+<%# TODO a column for every chapter with a list of sections for each %>
 <% else %>
   <h4><%= $PPC[@category] %> Chapter</h4>
   <ul>
-    <% @contexts.each do |context| %>
-      <li><%= link_to $PPS[context], next_path(context: context) %></li>
+    <% @status.each do |status| %>
+      <% context = nil %>
+      <% if status %>
+        <% context = @activeContexts.shift %>
+        <li><%= link_to $PPS[context], next_path(context: context) %></li>
+      <% else %>
+        <% context = @finishedContexts.shift %>
+        <li><%= $PPS[context] %></li>
+      <% end %>
     <% end %>
   </ul>
 <% end %>

@@ -113,10 +113,16 @@ class MarkersController < ApplicationController
     end
 
     categoryOrdering = Globalgraph.where(category: marker.category)
-    @contexts = []
+    @activeContexts = []
+    @finishedContexts = []
+    @status = []
     categoryOrdering.each do |tuple|
       if unorderedContexts.include? tuple.context
-        @contexts << tuple.context
+        @activeContexts << tuple.context
+        @status << true
+      else
+        @finishedContexts << tuple.context
+        @status << false
       end
     end
 
