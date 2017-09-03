@@ -18,6 +18,10 @@ class Problem < ApplicationRecord
     end
 
     def first_nonhtml_letter_lowercase? string
+      # if text is nil then can't be lowercase
+      unless string
+        return false
+      end
       # remove html
       string = strip_tags(string)
       # remove leading whitespace

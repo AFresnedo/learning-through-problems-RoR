@@ -45,6 +45,8 @@ class ProblemTest < ActiveSupport::TestCase
   end
 
   test "text cannot begin with a lowercase letter" do
+    @prob_1.text = "whoops"
+    assert_not @prob_1.valid?
   end
 
   # test "debug" do
