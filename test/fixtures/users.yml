@@ -1,0 +1,33 @@
+# TODO update for activation (see RomObs)
+andres:
+  name: Andros Frensa
+  email: andros@frensa.com
+  password_digest: <%= User.digest('password') %>
+  priv: 0
+
+admin:
+    name: Admin User
+    email: admin@test.org
+    password_digest: <%= User.digest('admin') %>
+    priv: 0
+
+teacher:
+    name: Teacher User
+    email: teacher@test.org
+    password_digest: <%= User.digest('teacher') %>
+    priv: 2
+
+student:
+    name: Student User
+    email: student@test.org
+    password_digest: <%= User.digest('student') %>
+    priv: 1
+
+# make some students, password is password
+<% 10.times do |n| %>
+user_<%= n %>:
+  name:  <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+  priv: 1
+<% end %>
