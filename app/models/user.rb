@@ -42,9 +42,17 @@ class User < ApplicationRecord
 
   # compare an unencrypted token to user's remember digest
   def match_remdig(token)
+    # following return prevents BCrypt from throwing exception
     return false if remember_digest.nil?
-    # throws exception if remember_digest is nil
     BCrypt::Password.new(remember_digest) == token
+  end
+
+  def admin?
+    priv == 0
+  end
+
+  def teacher?
+    priv == 0 or priv == 2
   end
 
   private
