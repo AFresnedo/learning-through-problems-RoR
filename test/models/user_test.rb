@@ -2,7 +2,6 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
-  # TODO investiage secure_password problems wtih fixtures
   def setup
     # NOTE fixtures are just DB entries and cannot get password from DB
     @user = users(:andros)
@@ -112,6 +111,10 @@ class UserTest < ActiveSupport::TestCase
 
   test "admin is teacher" do
     assert @admin.teacher?
+  end
+
+  test "student not admin" do
+    assert_not @student.admin?
   end
 
 end
