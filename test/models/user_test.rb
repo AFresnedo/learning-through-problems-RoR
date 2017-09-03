@@ -4,20 +4,34 @@ class UserTest < ActiveSupport::TestCase
 
   # TODO investiage secure_password problems wtih fixtures
   def setup
-    @user = User.new(name: 'test user', email: 'test@user.com',
-                     password: 'password', priv: 0)
+    # NOTE fixtures are just DB entries and cannot get password from DB
+    @user = users(:andros)
+    @user.password = 'password'
     @admin = users(:admin)
+    @admin.password = 'adminuser'
     @teacher = users(:teacher)
+    @teacher.password = 'teacheruser'
     @student = users(:student)
+    @student.password = 'studentuser'
   end
 
   test "user fixture should be valid" do
     assert @user.valid?, "#{@user.errors.messages}"
   end
 
+  test "all fixtures should be valid" do
+    assert @admin.valid?, "#{@admin.errors.messages}"
+    assert @teacher.valid?, "#{@teacher.errors.messages}"
+    assert @student.valid?, "#{@student.errors.messages}"
+  end
+
   test "user should pass authentication when proper password given" do
     # technically returns user, but since it's "not nil" it'll assert
     assert @user.authenticate('password')
+  end
+
+  test "user should not authenticate with an incorrect password" do
+    assert_not @user.authenticate('wrongpassword')
   end
 
   test "name should be present" do
