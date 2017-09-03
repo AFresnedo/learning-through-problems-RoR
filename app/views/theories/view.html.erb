@@ -4,6 +4,15 @@
 <% provide(:title, "#{@theory.filename}") %>
 
 <div class="container">
+ <ul class="nav nav-pills">
+   <li><a href="/start"><b><%= $PPB[@theory.curriculum] %></b></a></li>
+   <li><a href=<%="/resume?curriculum=#{@theory.curriculum}"%>>
+       <%= $PPC[@theory.category] %> <b>&nbsp ></b></a></li>
+   <li class="active"><a href="#"><%= $PPS[@theory.context] %></a></li>
+</ul>
+</div>
+<br>
+<div class="container">
   <div class="well well-lg"><%== @theory.text %></div>
 
   <% if @first_viewing %>

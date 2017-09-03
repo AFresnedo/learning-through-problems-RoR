@@ -1,4 +1,11 @@
 <div class="container">
+ <ul class="nav nav-pills">
+   <li><a href="/start"><b><%= $PPB[@curriculum] %></b></a></li>
+   <li class="active"><a href=<%="/resume?curriculum=#{$PPB[@curriculum]}"%>>
+       <%= $PPC[@category] %> <b>&nbsp ></b></a></li>
+</ul>
+</div>
+<div class="container">
 <h2 style="text-align:center;"><%= $PPB[@curriculum]%></h2>
 <% if @activeContexts.empty? %>
   <div class="well">
