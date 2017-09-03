@@ -1,8 +1,8 @@
 class Answer < ApplicationRecord
-  # NOTE evaluate method sourced from Robert Cranfill's ma/app/helpers.php
+  # NOTE evaluate methods inspired by Robert Cranfill's ma/app/helpers.php
   belongs_to :problem
-  # TODO answer attribute validations
-  before_create :not_blank
+  validates :values, :interace, :problem_id, presence: true
+
 
   def answers
     self.values.split('|')
@@ -66,11 +66,4 @@ class Answer < ApplicationRecord
     return results
   end
 
-  private
-    # TODO neaten this up, this hard uncatched fail is bad later
-    def not_blank
-      if self.values == ''
-        raise "cannot create problem: #{problem.filename} with empty answer"
-      end
-    end
 end

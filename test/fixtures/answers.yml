@@ -1,0 +1,10 @@
+# NOTE uses rails+yaml+associations to link appropriately with other fixtures
+ans_1:
+    values: "14|15"
+    interface: "test [ ] blergy [ ] blarg"
+    problem: prob_1
+
+ans_2:
+    values: "boogie"
+    interface: "[ ] nights"
+    problem: prob_2

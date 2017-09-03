@@ -1,0 +1,13 @@
+prob_1:
+    filename: i_am_problem_one.html
+    text: "The train left the station. Another train also left. Very exciting stuff."
+    curriculum: test_curriculum
+    category: test_category
+    context: test_context
+
+prob_2:
+    filename: problem_two.html
+    text: "Airplanes and rockets!"
+    curriculum: test_curriculum
+    category: test_category
+    context: test_second_context

@@ -25,3 +25,8 @@ marker model test:
 
 hints:
     -ordering was reverse, write a test to make sure ordering is correct
+
+integration test:
+    -finishing a book crashes the page
+    -only allow admins and teachers to "skip" categories
+        -two things here a) prevent tool usage b) check for unfinished problems
