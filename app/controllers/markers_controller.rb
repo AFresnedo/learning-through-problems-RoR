@@ -24,6 +24,7 @@ class MarkersController < ApplicationController
     redirect_to resume_path(curriculum: curriculum)
   end
 
+  # TODO remove lifetomath hard code, need to enhance tool in view
   def skip_category
     marker = current_user.markers.find_by(curriculum: 'lifetomath')
     if marker
@@ -75,8 +76,7 @@ class MarkersController < ApplicationController
     # redirect_to action: "next_unsolved_problem_by_context", context: prob.context
   # end
 
-  # TODO make this curriculum-specific
-  # TODO either delete this or hide it behind teacher access
+  # TODO make this curriculum-specific, requires enhancing tool in view
   def reset_curriculum
     UnlockedTheory.where(user_id: current_user.id).destroy_all
     Score.where(user_id: current_user.id).destroy_all
@@ -159,14 +159,6 @@ class MarkersController < ApplicationController
   end
 
   private
-
-    def started
-      marker = current_user.markers.find_by(curriculum: 'lifetomath')
-      unless marker
-        flash[:danger] = "Please begin before skipping."
-        redirect_to start_path
-      end
-    end
 
     def open_book
       marker = current_user.markers.find_by(curriculum: params[:curriculum])
