@@ -14,21 +14,21 @@ function highlightAnswers(expectedAlpha, userAlpha, numAnswers) {
 function cumulative_scores() {
   // get eleemnt
   var dropListInput = document.getElementById('cumulative_scores');
-  var scope = dropListInput.options[dropListInput.selectedIndex].text;
+  var scope = dropListInput.options[dropListInput.selectedIndex].value;
   switch (scope) {
-    case 'Context':
+    case 'context':
       document.getElementById('to_enter').innerHTML =
         document.getElementById('con_scr').innerHTML;
       break;
-    case 'Category':
+    case 'category':
       document.getElementById('to_enter').innerHTML =
         document.getElementById('cat_scr').innerHTML;
       break;
-    case 'Curriculum':
+    case 'curriculum':
       document.getElementById('to_enter').innerHTML =
         document.getElementById('cur_scr').innerHTML;
       break;
-    case 'Everything':
+    case 'everything':
       document.getElementById('to_enter').innerHTML =
         document.getElementById('tot_scr').innerHTML;
       break;
