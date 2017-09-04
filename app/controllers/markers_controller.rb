@@ -92,10 +92,14 @@ class MarkersController < ApplicationController
   def resume_curriculum
     curriculum = params[:curriculum]
     marker = current_user.markers.find_by(curriculum: curriculum)
+    unless marker
+      flash[:danger] = "That is not one of your open books."
+      # "and return" is necessary to terminate method execution
+      redirect_to start_path and return
+    end
     if marker.category == 'finished'
       flash[:success] = "Congratulations, you have completed" \
         " the #{$PPB[curriculum]} book!"
-      # and return is necessary to terminate method execution
       redirect_to start_path and return
     end
 
