@@ -9,8 +9,8 @@
 <h2 style="text-align:center;"><%= $PPB[@curriculum]%></h2>
 <% if @activeContexts.empty? %>
   <div class="well">
-    <h4><%= 'Congratulations, you\'ve completed the '+$PPC[@category]+' chapter.' %></h4>
-    <%= link_to 'Next Chapter', category_next_path, method: :post%>
+    <h4><%= "Congratulations, you've completed the #{$PPC[@category]} chapter." %></h4>
+    <%= link_to 'Next Chapter', category_next_path(curriculum: @curriculum), method: :post%>
   </div>
   <hr>
 <% end %>

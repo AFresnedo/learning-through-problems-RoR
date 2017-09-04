@@ -2,10 +2,7 @@ class MarkersController < ApplicationController
   before_action :least_teacher, only: [:skip_category, :reset_curriculum]
   before_action :least_user
   before_action :open_book, only: :resume_curriculum
-
-  # TODO find the best place to "check"? for no in progress problems and get
-  # next category; currently i'm suspecting some callbackish response from
-  # set_until_problem or something
+  before_action :finished_category, only: :next_category
 
   def index
   end
@@ -20,12 +17,11 @@ class MarkersController < ApplicationController
     # else error (user not logged in? etc)
   end
 
-  # TODO make this automatic, instead of a controller action
-  # maybe add a success flash for letting user know what is coming?
   def next_category
-    marker = current_user.markers.find_by(curriculum: 'lifetomath')
-    marker.next_category('lifetomath', marker.category)
-    redirect_to resume_path(curriculum: 'lifetomath')
+    curriculum = params[:curriculum]
+    marker = current_user.markers.find_by(curriculum: curriculum)
+    marker.next_category(curriculum, marker.category)
+    redirect_to resume_path(curriculum: curriculum)
   end
 
   def skip_category
@@ -184,6 +180,19 @@ class MarkersController < ApplicationController
         flash[:success] = "Congratulations, you have completed" \
           " the #{$PPB[params[:curriculum]]} book!"
         redirect_to start_path
+      end
+    end
+
+    def finished_category
+      marker = current_user.markers.find_by(curriculum: params[:curriculum])
+      unless marker
+        flash[:danger] = "You do not have that book open."
+        redirect_to start_path and return
+      end
+      # ip_category is nil if no open problems found in category
+      if Score.ip_category(current_user.id, marker.category)
+        flash[:danger] = "You have not completed your current chapter."
+        redirect_to resume_path(curriculum: params[:curriculum])
       end
     end
 end

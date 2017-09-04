@@ -6,7 +6,19 @@ class Score < ApplicationRecord
   SCORES_PER_MAKEUP = [3, 2, 1, 0]
   SCORE_REQUIRED_MAKEUP = 7
 
-  # TODO returns all "ip" problems for current_user
+  # returns all "ip" problems for user in category
+  # returns nil if no ip problems found
+  def Score.ip_category(user_id, category)
+    scores = Score.where(user_id: user_id, ip: true,
+                        category: category)
+    # create list of score IDs found
+    listOfScores = []
+    scores.each do |tuple|
+      listOfScores << tuple.id
+    end
+    # return
+    listOfScores.empty? ? nil : listOfScores
+  end
 
   # NOTE this is a class method so that the type of loading can be controlled
   # here (encapsulate from views/controllers/helpers); eager/lazy loading

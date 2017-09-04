@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class MarkersControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  # TODO student cannot use next_category without having no open problems in
+  # that curriculum
 end
