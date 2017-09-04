@@ -1,6 +1,7 @@
 class MarkersController < ApplicationController
   before_action :least_teacher, only: [:skip_category, :reset_curriculum]
   before_action :least_user
+  before_action :open_book, only: :resume_curriculum
 
   # TODO find the best place to "check"? for no in progress problems and get
   # next category; currently i'm suspecting some callbackish response from
@@ -92,16 +93,6 @@ class MarkersController < ApplicationController
   def resume_curriculum
     curriculum = params[:curriculum]
     marker = current_user.markers.find_by(curriculum: curriculum)
-    unless marker
-      flash[:danger] = "That is not one of your open books."
-      # "and return" is necessary to terminate method execution
-      redirect_to start_path and return
-    end
-    if marker.category == 'finished'
-      flash[:success] = "Congratulations, you have completed" \
-        " the #{$PPB[curriculum]} book!"
-      redirect_to start_path and return
-    end
 
     # get all active contexts (unread theories or unsolved problems) in cat
     unsolved = Score.where(user_id: current_user.id,
@@ -177,6 +168,21 @@ class MarkersController < ApplicationController
       marker = current_user.markers.find_by(curriculum: 'lifetomath')
       unless marker
         flash[:danger] = "Please begin before skipping."
+        redirect_to start_path
+      end
+    end
+
+    def open_book
+      marker = current_user.markers.find_by(curriculum: params[:curriculum])
+      # if user doesn't have a marker for that book
+      unless marker
+        flash[:danger] = "You do not have that book open."
+        redirect_to start_path and return
+      end
+      # if user has finished that book
+      if marker.category == 'finished'
+        flash[:success] = "Congratulations, you have completed" \
+          " the #{$PPB[params[:curriculum]]} book!"
         redirect_to start_path
       end
     end
