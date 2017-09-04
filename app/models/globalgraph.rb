@@ -14,6 +14,7 @@ class Globalgraph < ApplicationRecord
   end
 
   # returns string of next category's name
+  # returns nil if no next category
   def Globalgraph.get_next_category(curriculum, category)
     order = Globalgraph.get_category_order(curriculum, category)
     Globalgraph.get_category_by_order(curriculum, order+1)

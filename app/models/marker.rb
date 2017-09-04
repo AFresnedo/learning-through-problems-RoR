@@ -20,26 +20,33 @@ class Marker < ApplicationRecord
   end
 
   def next_category(curriculum, category)
+    # category will be nil if no category remains
     category = Globalgraph.get_next_category(curriculum, category)
+    # 'finished' is the flag to indicate a complete book
+    unless category
+      category = 'finished'
+    end
     begin_category(curriculum, category)
   end
 
   def begin_category(curriculum, category)
     update_attribute(:category, category)
-    # unlock category introductions
-    theories = Globalgraph.get_beginning_theories(curriculum, category)
-    theories.each do |theory|
-      set_unlocked_theory(theory)
-    end
+    unless category == 'finished'
+      # unlock category introductions
+      theories = Globalgraph.get_beginning_theories(curriculum, category)
+      theories.each do |theory|
+        set_unlocked_theory(theory)
+      end
 
-    # unlock first problem, and every theory prior, in each context of
-    # beginning category
-    contexts = Globalgraph.get_beginning_contexts(curriculum, category)
-    contexts.each do |context|
-      # call graph for beginning file of context
-      file = Graph.get_first_file(category, context)
-      # keep pulling files until a problem is found or end of context
-      set_until_problem(file)
+      # unlock first problem, and every theory prior, in each context of
+      # beginning category
+      contexts = Globalgraph.get_beginning_contexts(curriculum, category)
+      contexts.each do |context|
+        # call graph for beginning file of context
+        file = Graph.get_first_file(category, context)
+        # keep pulling files until a problem is found or end of context
+        set_until_problem(file)
+      end
     end
   end
 

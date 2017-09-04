@@ -92,6 +92,12 @@ class MarkersController < ApplicationController
   def resume_curriculum
     curriculum = params[:curriculum]
     marker = current_user.markers.find_by(curriculum: curriculum)
+    if marker.category == 'finished'
+      flash[:success] = "Congratulations, you have completed" \
+        " the #{$PPB[curriculum]} book!"
+      # and return is necessary to terminate method execution
+      redirect_to start_path and return
+    end
 
     # get all active contexts (unread theories or unsolved problems) in cat
     unsolved = Score.where(user_id: current_user.id,
