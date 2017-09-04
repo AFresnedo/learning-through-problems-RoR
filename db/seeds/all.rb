@@ -607,7 +607,7 @@ s = p.solutions.create!(typ: "ruleofthree", text: "<p>\r\nThe   product of speed
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "How long it take for the bicycle to cover the same distance as the car? \r\n")
 #METADATA TUPLE FOR PROBLEM P
-p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "")
+p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "missing")
 #PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/PROPORTIONS/proportions1.html
 p = Problem.create!(filename: 'proportions1.html', curriculum: 'lifetomath', category: 'methods', context: 'proportions', text: "<p>\r\nHow much do 6 yards of fabric cost, knowing that for 11 yards a customer paid\r\n275 dollars?  \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
@@ -1153,7 +1153,7 @@ s = p.solutions.create!(typ: "comparison", text: "<p>\r\nWe can use the method o
 #HINT TUPLE FOR SOLUTION S
 s.hints.create!(text: "Use the comparison method. Write the three parts of the statement\r\non three rows (as explained in the section on the comparison method). Look at the first row and divide it in half (reduce the\r\nduration of the flow to one half of what it is for each faucet).\r\nLook at the third row. Can you make it simpler by dividing all numbers by the same number?\r\n")
 #HINT TUPLE FOR SOLUTION S
-s.hints.create!(text: "second faucet flow for 1 hour and the third for 3 hours? \r\nHow much water flows out of the tank if you let the\r\nsecond faucet flow for 2 hours and the third for 6 hours? \r\nCan you use this information to find out how much water\r\nflows through the first faucet in 1 hour?\r\n")
+s.hints.create!(text: "How much water flows out of the tank if you let the\r\nsecond faucet flow for 1 hour and the third for 3 hours? \r\nHow much water flows out of the tank if you let the\r\nsecond faucet flow for 2 hours and the third for 6 hours? \r\nCan you use this information to find out how much water\r\nflows through the first faucet in 1 hour?\r\n")
 #METADATA TUPLE FOR PROBLEM P
 p.metadata = Metadata.new(curriculum: "lifetomath", category: "applications", context: "liquids", diff: 3, source: "Petrica, Stefan, Alexe, modified")
 #PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/APPLICATIONS/QUANTITIES/quantity7.html

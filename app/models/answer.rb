@@ -1,15 +1,16 @@
 class Answer < ApplicationRecord
   # NOTE evaluate methods inspired by Robert Cranfill's ma/app/helpers.php
   belongs_to :problem
-  validates :values, :interace, :problem_id, presence: true
+  validates :values, :interface, :problem_id, presence: true
+  validate :compare_value_interface
 
 
   def answers
-    self.values.split('|')
+    values.split('|')
   end
 
   def check_amount(userAnswerList)
-    ans = self.answers
+    ans = answers
     userAnswerList.length == ans.length
   end
 
@@ -22,7 +23,7 @@ class Answer < ApplicationRecord
       userAnswerList << answer
     end
     # get list of database answers and check preconditions
-    ans = self.answers
+    ans = answers
     if userAnswerList.length != ans.length
       raise "num of user answers != to num of DB answers"
     end
@@ -46,7 +47,8 @@ class Answer < ApplicationRecord
   # returns a list containing true/false followed by index of correct answers
   def evaluate_list(userAnswerList)
     # get list of database answers and check preconditions
-    ans = self.answers
+    ans = answers
+    # TODO remove?
     if userAnswerList.length != ans.length
       raise "num of user answers: #{userAnswerList.length} != to num of DB answers: #{ans.length}"
     end
@@ -65,5 +67,15 @@ class Answer < ApplicationRecord
     results.unshift(flawless)
     return results
   end
+
+  private
+
+    def compare_value_interface
+      boxCount = interface.scan('[ ]').count
+      unless answers.length == boxCount
+        errors.add(:interface,
+                   "number of answers and interface slots must be equal")
+      end
+    end
 
 end

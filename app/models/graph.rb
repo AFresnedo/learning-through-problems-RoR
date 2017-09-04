@@ -1,4 +1,8 @@
 class Graph < ApplicationRecord
+  # TODO add makeup false to input scripts so that makeup presence can be
+  # tested
+  validates :category, :context, :typ, :batch, :order, presence: true
+
   # NOTE standard return is a hash with :typ, :id, :makeup
 
   # get first file in context
