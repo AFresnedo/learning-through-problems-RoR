@@ -3,5 +3,5 @@ class Metadata < ApplicationRecord
   # TODO is source: source okay? passing for now
   # TODO curriculum, category, context...ignorning for plan, plans to remove
   # validates :source, presence: true (too many missing to address now)
-  validates :diff, presence: true
+  validates :diff, numericality: { only_integer: true }
 end

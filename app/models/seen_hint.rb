@@ -3,7 +3,6 @@ class SeenHint < ApplicationRecord
   belongs_to :problem
   validates :hint_id, presence: true
   validates :solution_id, presence: true
-  # TODO user_id and problem_id have foreign keys, validations redundant?
 
   # return count of hints seen by user for problem
   def SeenHint.hints_count(user_id, problem_id)

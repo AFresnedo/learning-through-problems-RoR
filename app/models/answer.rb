@@ -1,7 +1,7 @@
 class Answer < ApplicationRecord
   # NOTE evaluate methods inspired by Robert Cranfill's ma/app/helpers.php
   belongs_to :problem
-  validates :values, :interface, :problem_id, presence: true
+  validates :values, :interface, presence: true
   validate :compare_value_interface
 
 
@@ -24,6 +24,7 @@ class Answer < ApplicationRecord
     end
     # get list of database answers and check preconditions
     ans = answers
+    # TODO remove?
     if userAnswerList.length != ans.length
       raise "num of user answers != to num of DB answers"
     end
