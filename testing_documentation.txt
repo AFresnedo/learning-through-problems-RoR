@@ -1,0 +1,31 @@
+unit tests:
+
+    -model
+        -ensure valid data saved in each attribute
+
+        -associations and expected behavior
+            -self-destruct if parent destroyed?
+
+        -pre/post of Class functions and methods
+
+    -controller
+        -actions
+            -filters handle preconditions?
+            -postconditions correct
+        -filters
+            -handle user type appropriately
+            -friendly forwarding
+
+    -helper
+        -preconditions, postconditions of each function
+
+integration tests:
+
+    -views
+
+    -progression handled by models
+        -marker model interacting with globalgraph and graph markers
+
+    -user identity
+
+    -figure links not broken

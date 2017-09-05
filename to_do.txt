@@ -1,28 +1,19 @@
-pretty print name:
-    -doing this now, a function in applications helper
-
 results page:
     -bootstrap collapsables? like for solutions or hints?
 
 user input for answers:
     -not a float, cut off unrounded at 2 decimals
-    -do not accept evaluate unless all boxes filled
-        -if user answer is less than interface answer: reject, flash, re-draw
 
 data validations:
-    -not only input (is answer missing?)
     -remember that bug with "nil" category saves in unlocked_theory because the
     setter wasn't being called by marker model? that stuff too
+        -example of a non-source-input model needing validation/testing
     -integration tests are tightly connected with this, start making those at
     the same time
 
 deployment
     -Dreamhost
         -Passenger
-
-basic User resource
-    -model
-        -validity
 
 QoL account functionality
     -email validation registration
@@ -74,14 +65,14 @@ answers db
 score db:
     -strict (simple, clean) relational DB with fast SQL queries because this db
     will scale with users
-    -key would ideally be user_id, problem_id but rails convention says no
+    -index for user_id, problem_id is done, relevant queries exist?
         -SQL queries for fetching user_id, ALL problem_id
             -likewise, ALL user_id, problem_id
-    -created_at, updated_at attributes to see where user left off
 
 metadata db:
     -curriculum/category/context are labeled incorrectly
-    -consider moving difficulty to problem db
+    -consider moving difficulty to problem db, consider moving source
+    -this DB is ready to be removed imo but maybe not
 
 migrations:
     -remove build bug
@@ -89,13 +80,6 @@ migrations:
 changing content online (problems, theories, graphs, etc)
     -not needed until production site, but may help writing tests and
     validations
-
-user friendliness:
-    -improve user index, label students/admins/teachers
-    -friendly forwarding (chp 10)
-
-input scripts:
-    -write a script to fix curriculum/category/context, if useful in any way
 
 optimization:
     -"where" queries should all be moved into models and eagerly loaded sanely
@@ -108,6 +92,5 @@ documentation:
         -obviously easier when working on tests, redesigns, and bugs
 
 marker skip for context:
-    -create a list of active contexts, send "skip context param[:clicked on]"
-        -requires a javascript menu (don't take clicked on literally, it might
-        not be a thing; but maybe it is, i seem to recall it)
+    -create a list of active contexts
+        -javascript menu that then "ip: false"es all problems in that context

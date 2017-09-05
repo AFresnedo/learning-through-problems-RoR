@@ -1,24 +1,7 @@
-# README
+# Math Affirm Rails Server
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Team members: Andres, Dragos, Razvan, Rob
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This README pertains to the deployment of the server. For design and
+implementation details, please refer to the
+[wiki](https://bitbucket.org/AFresnedo/math-affirm/wiki/Home) instead.
