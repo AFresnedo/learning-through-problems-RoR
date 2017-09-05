@@ -30,13 +30,13 @@ implementation details, please refer to the
 
 ### Launching Server on Linux
 
-* '$ bundle install --without production'
+* `$ bundle install --without production`
     * To install gems
 * Setup PostgreSQL
     * [Postgre setup guide](#)
-* '$ rails db:schema:load'
+* `$ rails db:schema:load`
     * To create database tables
 * (optional) seed the database with latest commited content
-    * '$ rails db:seed:all'
-* '$ rails s'
+    * `$ rails db:seed:all`
+* `$ rails s`
     * To launch server at localhost:3000
