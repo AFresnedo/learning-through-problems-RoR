@@ -8,20 +8,35 @@ implementation details, please refer to the
 
 ### Server
 
-* Developed with rails 5.1.2 and ruby 2.3
+* Developed with Rails 5.1.2 and Ruby 2.3
     * Gems are in Gemfile
+    * bundle install --without production
+    * rails db:schema:load
 * Puma
-    * Not out of the box default
+    * Not default
     * local:3000 server
     * [Puma setup guide](#)
-* Heroku
-    * Test-site deployment
 * PostgreSQL
     * Database adapter
     * Doesn't work out of the box
     * [Postgre setup guide](#)
+* Heroku
+    * Test-site deployment
 
 ### Content
 
 * Seeding source input files (problems, theories, graphs)
     * [math-affirm-loader](https://bitbucket.org/AFresnedo/math-affirm-loader)
+
+### Launching Server on Linux
+
+* '$ bundle install --without production'
+    * To install gems
+* Setup PostgreSQL
+    * [Postgre setup guide](#)
+* '$ rails db:schema:load'
+    * To create database tables
+* (optional) seed the database with latest commited content
+    * '$ rails db:seed:all'
+* '$ rails s'
+    * To launch server at localhost:3000
