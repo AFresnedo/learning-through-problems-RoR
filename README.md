@@ -19,7 +19,7 @@ implementation details, please refer to the
 * PostgreSQL
     * Database adapter
     * Doesn't work out of the box
-    * [Postgre setup guide](#)
+    * [Postgre setup guide](https://bitbucket.org/AFresnedo/math-affirm/wiki/postgre_setup)
 * Heroku
     * Test-site deployment
 
