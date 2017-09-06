@@ -15,7 +15,7 @@ implementation details, please refer to the
 * Puma
     * Not default
     * local:3000 server
-    * [Puma setup guide](#)
+    * [Puma setup guide](puma_setup)
 * PostgreSQL
     * Database adapter
     * Doesn't work out of the box
