@@ -1,4 +1,6 @@
-# Math Affirm Rails Server
+# Math Affirm Website
+
+The Ruby on Rails server supporting the Math Affirm website.
 
 Team members: Andres, Dragos, Razvan, Rob
 
@@ -10,8 +12,6 @@ implementation details, please refer to the
 
 * Developed with Rails 5.1.2 and Ruby 2.3
     * Gems are in Gemfile
-    * bundle install --without production
-    * rails db:schema:load
 * Puma
     * Not default
     * local:3000 server
