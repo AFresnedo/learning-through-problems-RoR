@@ -33,7 +33,7 @@ implementation details, please refer to the
 * `$ bundle install --without production`
     * To install gems
 * Setup PostgreSQL
-    * [Postgre setup guide](#)
+    * [Postgre setup guide](https://bitbucket.org/AFresnedo/math-affirm/wiki/postgre_setup)
 * `$ rails db:schema:load`
     * To create database tables
 * (optional) seed the database with latest commited content
