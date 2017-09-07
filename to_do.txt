@@ -1,3 +1,7 @@
+mathjax hack:
+    -instead of putting it at the bottom of the page, how about with a "page
+    loaded" javascript event?
+
 results page:
     -bootstrap collapsables? like for solutions or hints?
 
