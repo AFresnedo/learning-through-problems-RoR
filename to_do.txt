@@ -91,10 +91,6 @@ optimization:
         -moving 'diff' out of metadata is an example of fixing this, but
         obivously better queries is going to be the most common improvement
 
-documentation:
-    -nothing for this but to literally go through rails with a fine tooth comb
-        -obviously easier when working on tests, redesigns, and bugs
-
 marker skip for context:
     -create a list of active contexts
         -javascript menu that then "ip: false"es all problems in that context

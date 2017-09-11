@@ -27,6 +27,7 @@ hints:
     -ordering was reverse, write a test to make sure ordering is correct
 
 integration test:
-    -finishing a book crashes the page
+    -regression test that finishing a book doesn't crash the page
+        - along these lines, finishing a chapter, a section
     -only allow admins and teachers to "skip" categories
         -two things here a) prevent tool usage b) check for unfinished problems
