@@ -1,6 +1,7 @@
 # Math Affirm Website
 
-The Ruby on Rails server supporting the Math Affirm website.
+The [Ruby on Rails](http://rubyonrails.org/) application supporting the Math
+Affirm website.
 
 Team members: Andres, Dragos, Razvan, Rob
 
