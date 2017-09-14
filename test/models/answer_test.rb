@@ -18,5 +18,6 @@ class AnswerTest < ActiveSupport::TestCase
     @ans1.values = "14|50|1"
     assert_not @ans1.valid?
     @ans1.interface = "[ ] let's go [ ] we got this [ ]"
+    assert @ans1.valid?
   end
 end

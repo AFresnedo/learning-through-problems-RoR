@@ -11,6 +11,7 @@ module ApplicationHelper
   # why don't we just change this at the root during input? i can't believe
   # we need to lowercase shorthand for anything
   # TODO fix this...i think it's remaking 3 hashes every load
+  # TODO put it in javascript to be loaded once
   $PPS = Hash.new
   $PPS['category_introduction'] = "Chapter Introduction"
   $PPS['examples']     = "Examples"

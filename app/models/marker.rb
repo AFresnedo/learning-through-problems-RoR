@@ -1,15 +1,18 @@
 class Marker < ApplicationRecord
   belongs_to :user
-  # this model is the interface between users and graphs
-
-  # its database serves as a identification for the one marker each user has
-  # per purchased curriculum (user_id, curriculum); in addition, columns can be
-  # added for data that falls under "a) about the curriculum b) per user" that
-  # does not warrant its own table and does not fit in scores or
-  # unlocked_theories
-
-  # NOTE modus operandi is to continously unlock theory files until a problem
-  # is reached; this is true within each context
+  # NOTE curriculum = book, catgegory = chapter, context = section
+  # as much code as possible for the object responsible for keeping track of
+  # a student's progression through the curriculum
+  #
+  # one marker for each book for each student
+  #
+  # marker knows which single chapter the student is currently in for that book
+  #
+  # marker asks Globalgraph questions about sections and asks Graph questions
+  # about files in those sections
+  #
+  # modus operandi is to continously unlock theory files until a problem
+  # is reached; this is true within each section
 
   # call globalgraph and graph to unlock beginning theories and problems
   def begin_curriculum(curriculum)
