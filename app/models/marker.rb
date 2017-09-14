@@ -1,12 +1,12 @@
 class Marker < ApplicationRecord
   belongs_to :user
   # NOTE curriculum = book, catgegory = chapter, context = section
-  # as much code as possible for the object responsible for keeping track of
-  # a student's progression through the curriculum
+  # The Marker model has as much code as possible for the part responsible
+  # for keeping track of a student's progression through the curriculum.
   #
   # one marker for each book for each student
   #
-  # marker knows which single chapter the student is currently in for that book
+  # marker knows which single chapter the student is currently in, for that book
   #
   # marker asks Globalgraph questions about sections and asks Graph questions
   # about files in those sections

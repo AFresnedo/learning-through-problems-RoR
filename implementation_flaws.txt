@@ -3,17 +3,11 @@ to send these as parameters back from the graph
 
 forgot to slice user input to maximum of 2 decimals (so 23.457 would be 23.45)
 
-didn't realize that where, all search the DB even when they are called upon
-a retrieved association (like scores = Score.all; scores.where does a DB call)
-    -eager loading can be used in cases such as "for each" (instead of loading
-    at every .each you can load 100 records first or something)
-        -lazy loading and .each are a bad combo
-
 while a cute hack, the hidden cummulative scores in results view should
 probably just be ajax calls (but then again, maybe not, just depending on time
 developing & hacky optimized code versus clean organized but slower code)
-
-marker crashes when a book is complete
+    -the benefit of ajax here is that it justifies a menu (instead of a table
+    representation like Rob said)
 
 in theories/view.html.erb you have provide title listing the
 filename...probably remove or change this
