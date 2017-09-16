@@ -69,4 +69,16 @@ module ApplicationHelper
   def user_is_self user
     user.id == current_user.id
   end
+
+  def print_user_type
+    if current_user.priv == ADMIN
+      "Admin"
+    elsif current_user.priv == TEACHER
+      "Teacher"
+    elsif current_user.priv == STUDENT
+      "Student"
+    else
+      "Guest"
+    end
+  end
 end

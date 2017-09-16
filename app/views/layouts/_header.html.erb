@@ -32,8 +32,9 @@
                 </li>
               <% end %>
               <li class="dropdown">
+                <%# TODO change to identify user privalege %>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  User <b class="caret"></b>
+                  <%= print_user_type %> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
                   <li class="dropdown-header">Settings</li>
