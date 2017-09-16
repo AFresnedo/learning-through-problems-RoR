@@ -825,7 +825,7 @@ s.hints.create!(text: "How many cherries did the girls eat altogether?\r\n")
 #METADATA TUPLE FOR PROBLEM P
 p.metadata = Metadata.new(curriculum: "lifetomath", category: "methods", context: "methods", diff: 1, source: "Sinus, Suceava, 2007")
 #PROBLEM TUPLE FOR /home/lancaster/Documents/persProj/ma_files/LIFETOMATH/METHODS/NUMERICAL/numerical2.html
-p = Problem.create!(filename: 'numerical2.html', curriculum: 'lifetomath', category: 'methods', context: 'numerical', text: "<p>\r\nJane noticed that during mid summer her weight\r\nhas increased by \\(\\frac{1}{12}\\). She decided to lose weight.\r\nAfter one month she noticed that she has lost\r\n \\(\\frac{1}{4}\\) of what\r\nshe had gained. She realized that she still has to lose 3.5 more kilograms to get where she was at the beginning of the year. What\r\nwas Jane's weight at the beginning of the year?   \r\n</p>\r\n")
+p = Problem.create!(filename: 'numerical2.html', curriculum: 'lifetomath', category: 'methods', context: 'numerical', text: "<p>\r\nJane noticed that from the beginning of the year until summer her weight\r\nhas increased by \\(\\frac{1}{12}\\). She decided to lose weight.\r\nAfter one month she noticed that she has lost\r\n \\(\\frac{1}{4}\\) of what\r\nshe had gained. She realized that she still has to lose 3.5 more kilograms to get where she was at the beginning of the year. What\r\nwas Jane's weight at the beginning of the year?   \r\n</p>\r\n")
 #ANSWER TUPLE FOR PROBLEM P
 p.answer = Answer.new(values: "56", interface: "Jane's weight at the beginning of the year was [ ] kilograms. ")
 #SOLUTION TUPLE FOR PROBLEM P
