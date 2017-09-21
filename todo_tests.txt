@@ -31,3 +31,6 @@ integration test:
         - along these lines, finishing a chapter, a section
     -only allow admins and teachers to "skip" categories
         -two things here a) prevent tool usage b) check for unfinished problems
+
+header test:
+    -displayed user type is correct

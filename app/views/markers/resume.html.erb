@@ -38,46 +38,46 @@
     <%# print chapter title to serve as list header %>
     <div class="col-sm-4 col-sm-offset-2">
       <h4><%= $PPC[chapter] %></h4>
-      <ul>
-        <%# if it is an active chapter %>
-        <% if chapter == @category %>
-          <% @status.each do |status| %>
-            <% context = nil %>
-            <% if status %>
-              <% context = @activeContexts.shift %>
-              <li><%= link_to $PPS[context], next_path(context: context) %></li>
-            <% else %>
-              <% context = @finishedContexts.shift %>
-              <li><%= $PPS[context] %></li>
-            <% end %>
-          <% end %>
-        <%# else it is an inactive chapter %>
-        <% else %>
-          <%# for each section in this chapter print a li %>
-          <% sections = Globalgraph.context_names(chapter) %>
-          <% sections.each do |section| %>
-            <li><%= $PPS[section] %></li>
+    <ol>
+      <%# if it is an active chapter %>
+      <% if chapter == @category %>
+        <% @status.each do |status| %>
+          <% context = nil %>
+          <% if status %>
+            <% context = @activeContexts.shift %>
+            <li><%= link_to $PPS[context], next_path(context: context) %></li>
+          <% else %>
+            <% context = @finishedContexts.shift %>
+            <li><%= $PPS[context] %></li>
           <% end %>
         <% end %>
-      </ul>
+      <%# else it is an inactive chapter %>
+      <% else %>
+        <%# for each section in this chapter print a li %>
+        <% sections = Globalgraph.context_names(chapter) %>
+        <% sections.each do |section| %>
+          <li><%= $PPS[section] %></li>
+        <% end %>
+      <% end %>
+    </ol>
+  </div>
+  <%# end row after 2 chapters printed or last chapter printed %>
+  <% if chpsPrinted == chpMax %>
     </div>
-    <%# end row after 2 chapters printed or last chapter printed %>
-    <% if chpsPrinted == chpMax %>
-      </div>
-    <% elsif chpCount == perRow %>
-      </div>
-      <hr>
-    <% end %>
+  <% elsif chpCount == perRow %>
+    </div>
+    <hr>
   <% end %>
+<% end %>
 </div>
 <%# while chapters remain in book print remaining inactive sections %>
 <% if is_teacher %>
-  <div class="container">
-  <hr>
-  <h3>(Teacher Tools)</h3>
-  <ul>
-    <li><%= link_to 'Skip Current Category and Resume', category_skip_path, method: :post %></li>
-    <li><%= link_to 'Delete All of Your Progress', start_path, method: :delete %></li>
-  </ul>
-  </div>
+<div class="container">
+<hr>
+<h3>(Teacher Tools)</h3>
+<ul>
+  <li><%= link_to 'Skip Current Category and Resume', category_skip_path, method: :post %></li>
+  <li><%= link_to 'Delete All of Your Progress', start_path, method: :delete %></li>
+</ul>
+</div>
 <% end %>
