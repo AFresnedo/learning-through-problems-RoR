@@ -2,26 +2,12 @@ mathjax hack:
     -instead of putting it at the bottom of the page, how about with a "page
     loaded" javascript event?
 
-results page:
-    -bootstrap collapsables? like for solutions or hints?
-
-user input for answers:
-    -not a float, cut off unrounded at 2 decimals
-
 data validations:
     -remember that bug with "nil" category saves in unlocked_theory because the
     setter wasn't being called by marker model? that stuff too
         -example of a non-source-input model needing validation/testing
     -integration tests are tightly connected with this, start making those at
     the same time
-
-deployment
-    -Dreamhost
-        -Passenger
-
-QoL account functionality
-    -email validation registration
-    -account recovery
 
 security
     -user input is paramatarized (whitelist, blacklist)
@@ -56,19 +42,7 @@ graph&globalgraph db:
         belong to a theory tuple or problem tuple!)
             -oops, doesn't work for globalgraph (man that db is just wrong)
 
-problem dbs:
-    -favor flexibility over performance, limited content
-        -keep track of big SQL queries...they atm they don't involve the
-        problems storage db (instead they involve DBs like score)
-
-answers db
-    -how to address answer modularity for a single answer?
-        -fill in, multiple choice, etc
-        -interface is obviously important here, but so is "fake" ans data
-
 score db:
-    -strict (simple, clean) relational DB with fast SQL queries because this db
-    will scale with users
     -index for user_id, problem_id is done, relevant queries exist?
         -SQL queries for fetching user_id, ALL problem_id
             -likewise, ALL user_id, problem_id
@@ -77,13 +51,6 @@ metadata db:
     -curriculum/category/context are labeled incorrectly
     -consider moving difficulty to problem db, consider moving source
     -this DB is ready to be removed imo but maybe not
-
-migrations:
-    -remove build bug
-
-changing content online (problems, theories, graphs, etc)
-    -not needed until production site, but may help writing tests and
-    validations
 
 optimization:
     -"where" queries should all be moved into models and eagerly loaded sanely
