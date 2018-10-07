@@ -27,3 +27,9 @@
 
 # ignore heroku commands
 /heroku_commands
+
+# do not publicize math problems
+db/seeds
+
+# txt files are personal notes
+.txt

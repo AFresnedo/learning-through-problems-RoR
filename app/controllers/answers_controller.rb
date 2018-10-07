@@ -1,15 +1,13 @@
 class AnswersController < ApplicationController
   before_action :problem_unlocked
   before_action :correct_number_answers, only: :evaluate
-  # TODO bug where refreshing "results" page says not unlocked
 
-  # displays problem-to-answer page (problem, hint(s), answer_interface)
+  # page shown to a student for answering a problem
   def problem
     @problem = Problem.find_by_id(params[:id])
   end
 
-  # TODO ajax
-  # unlocks next hint for current_user
+  # unlocks next hint for student on problem page
   def get_hint
     @problem = Problem.find(params[:id])
     hint = Hint.find(params[:hint_id])
@@ -21,7 +19,6 @@ class AnswersController < ApplicationController
     redirect_to solve_path(id: params[:id])
   end
 
-  # TODO refactor into models?
   # submits user's answers for problem
   def evaluate
     # get @problemlem, and therefore its answers
@@ -35,7 +32,8 @@ class AnswersController < ApplicationController
     end
     # process user answer (non-standard parameters: so its needed)
     @userAnswers = process_user_answers
-    # answer.evaluate_list returns: results[0] as bool, results[1..-1] as indicies
+    # answer.evaluate_list returns: results[0] as bool, results[1..-1] as
+    # indicies
     results = @problem.answer.evaluate_list(@userAnswers)
     # mark @problem as answered
     score = Score.find_by(user_id: current_user.id, problem_id: @problem.id)
@@ -44,6 +42,7 @@ class AnswersController < ApplicationController
     hint_count = SeenHint.hints_count(current_user.id, @problem.id)
     @feedback = ""
     # create @feedback based on how many hints were requested and correctness
+    #
     # if correct
     if results[0] == true
       if (hint_count > penalty.length) or (penalty[hint_count] == 0)
@@ -73,8 +72,8 @@ class AnswersController < ApplicationController
 
   private
 
-    # TODO security, but kind of hard since so many different answers possible
-    # maybe blacklist instead of whitelist?
+    # handle user input from "evaluate" in problem page
+    # TODO security
     def process_user_answers
       userAnswers = []
       params.to_unsafe_h[:ans].each do |answer, value|
@@ -85,6 +84,7 @@ class AnswersController < ApplicationController
       return userAnswers
     end
 
+    # ensure user has access to page
     def problem_unlocked
       # returns nil if problem not unlocked for user
       score = Score.find_by(user_id: current_user.id, problem_id: params[:id],
@@ -100,6 +100,7 @@ class AnswersController < ApplicationController
       end
     end
 
+    # prevent students from submitting incomplete answers
     def correct_number_answers
       problem = Problem.find(params[:id])
       unless problem.answer.check_amount(process_user_answers)

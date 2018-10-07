@@ -5,13 +5,7 @@ module ApplicationHelper
   TEACHER = 2
   OWNER = 3
 
-  # NOTE sourced from Robert Cranfill's ma/app/helper.php
   # pretty print names for sections
-  # TODO how do we deal with scaling of adding books? db as Robert suggested?
-  # why don't we just change this at the root during input? i can't believe
-  # we need to lowercase shorthand for anything
-  # TODO fix this...i think it's remaking 3 hashes every load
-  # TODO put it in javascript to be loaded once
   $PPS = Hash.new
   $PPS['category_introduction'] = "Chapter Introduction"
   $PPS['examples']     = "Examples"
@@ -46,6 +40,8 @@ module ApplicationHelper
   $PPB['letscount'] = "Let's Count"
 
 
+  # ensure every page has at least a base title
+  # if page has custom title, make title 'custom | base'
   def full_title(page_title = '')
     base_title = "Math Affirm"
     if page_title.empty?
@@ -55,10 +51,12 @@ module ApplicationHelper
     end
   end
 
+  # return true if user is admin or higher privalege; else false
   def is_admin
     current_user.priv == ADMIN ? true : false
   end
 
+  # return true if user is teacher or higher privalege; else false
   def is_teacher
     unless current_user
       return false
@@ -66,10 +64,13 @@ module ApplicationHelper
     current_user.priv == ADMIN || current_user.priv == TEACHER
   end
 
+  # verify that current user matches submitted user
+  # TODO https://trello.com/c/P8KDtHPG/2-refactor-applicationhelpers-userisself
   def user_is_self user
     user.id == current_user.id
   end
 
+  # pretty print current user's account type
   def print_user_type
     if current_user.priv == ADMIN
       "Admin"

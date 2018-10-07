@@ -3,12 +3,13 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include ApplicationHelper
 
-  # TODO change to use variable from graph input, if wanted by Razvan
+  # scores awarded based on problem type and penalties assigned
   SCORES_PER_PROBLEM = [7, 5, 3, 1, 0]
   SCORES_PER_MAKEUP = [3, 2, 1, 0]
 
   private
 
+    # filter to ensure user has teacher or higher access
     def least_teacher
       unless is_teacher
         flash[:danger] = "You do not have access to that page."
@@ -16,7 +17,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    # TODO determine performance cost of fetching current_user
+    # filter to ensure user owns the page attepmting to view
     def restrict_to_self
       unknown_user = User.find(params[:id])
       unless user_is_self(unknown_user)
@@ -25,6 +26,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    # filter to ensure user has admin or higher access
     def restrict_to_admin
       unless is_admin
         flash[:danger] = "You are not an administrator."
@@ -32,6 +34,7 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    # filter to ensure user is logged in
     def least_user
       unless logged_in
         flash[:danger] = "Please log in, first."
