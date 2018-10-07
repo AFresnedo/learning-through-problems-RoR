@@ -29,9 +29,9 @@
 /heroku_commands
 
 # do not publicize math problems
-db/seeds
+/db/seeds
 # do not publicize figures
-public/FIGS
+/public/FIGS
 
 # txt files are personal notes
 .txt
