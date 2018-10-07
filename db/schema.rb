@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829013035) do
+ActiveRecord::Schema.define(version: 20181007214008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170829013035) do
     t.string "category"
     t.string "context"
     t.string "curriculum"
+    t.string "title"
     t.index ["filename"], name: "index_problems_on_filename"
   end
 

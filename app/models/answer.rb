@@ -1,8 +1,9 @@
 class Answer < ApplicationRecord
   # NOTE evaluate methods inspired by Robert Cranfill's ma/app/helpers.php
   belongs_to :problem
-  validates :values, :interface, presence: true
-  validate :compare_value_interface
+  # TODO update validations for multiple interface types
+  #validates :values, :interface, presence: true
+  #validate :compare_value_interface
 
 
   def answers

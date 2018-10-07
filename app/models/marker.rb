@@ -134,6 +134,7 @@ class Marker < ApplicationRecord
 
     # skips file with a score of 0, good for skipping makeups
     def skip_problem(id)
+      # prevent skipping a problem that has already been taken
       prob = Problem.find(id)
       batchNum = Graph.find_by(file_id: id, typ: 'prob').batch
       user.scores.create!(problem_id: id, ip: false,
