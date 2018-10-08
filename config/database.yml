@@ -1,16 +1,16 @@
 development: &development
   adapter: postgresql
-  database: mathaffirm
-  username: math_affirm
-  password: silly
+  database: oc
+  username: postgres
+  password: postgres
   host:     localhost
   schema_search_path: public
   min_messages: warning
 
 test:
   <<: *development
-  database: test_mathaffirm
+  database: test_oc
 
 production:
   <<: *development
-  database: production_mathaffirm
+  database: production_oc
