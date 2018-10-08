@@ -34,4 +34,4 @@
 /public/FIGS
 
 # txt files are personal notes
-.txt
+*.txt
