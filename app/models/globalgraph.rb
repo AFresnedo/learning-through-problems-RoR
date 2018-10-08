@@ -2,6 +2,7 @@ class Globalgraph < ApplicationRecord
   validates :curriculum, :category, :context, :category_order, :context_order,
     presence: true
   # TODO curriculum, category, context valid
+  # TODO (curriculum, category, context) is unique
 
   def Globalgraph.get_ordering(curriculum)
     Globalgraph.order(category_order: :asc, context_order: :asc)
