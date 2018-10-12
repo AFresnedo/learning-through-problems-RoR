@@ -30,6 +30,8 @@
 
 # do not publicize math problems
 /db/seeds
+# do not publicize account seeds
+/db/seeds.rb
 # do not publicize figures
 /public/FIGS
 
