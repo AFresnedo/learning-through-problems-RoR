@@ -12,7 +12,7 @@ function highlightAnswers(expectedAlpha, userAlpha, numAnswers) {
 }
 
 function cumulative_scores() {
-  // get eleemnt
+  // get element
   var dropListInput = document.getElementById('cumulative_scores');
   var scope = dropListInput.options[dropListInput.selectedIndex].value;
   switch (scope) {
